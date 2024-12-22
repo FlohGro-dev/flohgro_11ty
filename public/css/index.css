@@ -182,7 +182,7 @@ header {
 	display: flex;
 	gap: 1em .5em;
 	/* flex-wrap: wrap; */
-	flex-wrap: nowrap;
+	/* flex-wrap: nowrap; */
 	align-items: center;
 	padding: 1em;
 	justify-content: space-between; /* Place items at the left and right edges */
@@ -203,32 +203,58 @@ header {
 	width: 40px; /* Maintain the aspect ratio */
 	margin-right: 2px; /* Add spacing between the logo and title */
 	border-radius: 2px; /* Adds rounded corners */
+	transition: all 0.3s ease; /* Smooth scaling effect */
   }
 
 
 /* Nav */
 
+/* Nav */
 nav {
-    flex-shrink: 0; /* Prevent the nav from resizing */
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
 .nav {
-	display: flex;
-	/* align-items: center; */
-	padding: 0;
-	margin: 0;
-	list-style: none;
+    display: flex; /* Make navigation horizontal */
+    padding: 0;
+    margin: 0;
+    list-style: none; /* Remove bullets */
 }
+
 .nav-item {
-	display: inline-block;
-	margin-left: 1em;
+    margin-left: 1em; /* Add spacing between navigation items */
 }
-.nav-item a[href]:not(:hover) {
-	text-decoration: none;
+
+.nav-item a {
+    display: inline-block; /* Ensure the link behaves like a button */
+    padding: 0.5em 1em; /* Add padding for the button shape */
+    border: 2px solid #306B34; /* Define a border */
+    border-radius: 5px; /* Add rounded corners */
+    background-color: #306B34; /* Set button background color */
+    color: black; /* Set text color */
+    font-size: 1rem; /* Adjust font size */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+	visibility: visible;
 }
-.nav a[href][aria-current="page"] {
-	text-decoration: underline;
-    font-weight: bold; /* Optional: Style the links */
+
+/* Button hover and active states */
+.nav-item a:hover {
+	border: 2px solid #fff; /* Define a border */
+    background-color: #306B34; /* Darker blue on hover */
+    color: white; /* Ensure text stays white */
+}
+
+.nav-item a:active {
+    border: 2px solid #fff; /* Define a border */
+	background-color: #111118; /* Even darker blue on click */
+    color: white;
+}
+
+/* Current page button */
+.nav-item a[aria-current="page"] {
+    background-color: #111118; /* Highlight current page */
+    font-weight: bold; /* Optional: Make it visually distinct */
 }
 
 /* Posts list */
