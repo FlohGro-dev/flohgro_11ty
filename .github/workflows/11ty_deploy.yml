@@ -34,7 +34,11 @@ jobs:
           key: ${{ runner.os }}-eleventy-fetch-cache
 
       - run: npm install
-      - run: npm run build-ghpages
+
+      - name: Build with Eleventy
+        run: npm run build-ghpages
+        env: 
+          ELEVENTY_ENV: production
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
