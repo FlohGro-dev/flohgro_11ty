@@ -6,7 +6,7 @@ title: Home
 {% include "std-icons.md" %}
 
 {% for post in collections.latestPost %}
-## [{{ post.data.title }}]({{ post.url }}) ({{post.data.date | isoDate}})
+## [{{ post.data.title }}]({{ site.baseUrl }}{{ post.url }}) ({{post.data.date | isoDate}})
 {{ post.templateContent }}
 {% endfor %}
 
@@ -15,7 +15,7 @@ title: Home
 # Recent Posts
 
 {% for post in collections.recentPostsWithoutLatest %}
-## [{{ post.data.title }}]({{ post.url }}) ({{post.data.date | isoDate}})
+## [{{ post.data.title }}]({{ site.baseUrl }}{{ post.url }}) ({{post.data.date | isoDate}})
 {{ post.templateContent | truncate: 300 }}
 {% endfor %}
 
