@@ -10,14 +10,14 @@
     <link rel="alternate" type="application/rss+xml" title="{{ metadata.title }} RSS Feed" href="{{ metadata.url }}/rss.xml">
     <link rel="alternate" type="application/json" title="{{ metadata.title }} JSON Feed" href="{{ metadata.url }}/feed.json">
     <meta name="generator" content="{{ eleventy.generator }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ baseUrl }}/assets/icon-180.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ baseUrl }}/assets/icon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseUrl }}/assets/icon-180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseUrl }}/assets/icon-32.png">
     <link
-    rel="icon" type="image/png" sizes="16x16" href="{{ baseUrl }}/assets/icon-16.png"> {# <link rel="manifest" href="{{ baseUrl }}/assets/icons/site.webmanifest"> #}
-    <link rel="mask-icon" href="{{ baseUrl }}/assets/icon.svg" color="#111118">
+    rel="icon" type="image/png" sizes="16x16" href="{{ site.baseUrl }}/assets/icon-16.png"> {# <link rel="manifest" href="{{ site.baseUrl }}/assets/icons/site.webmanifest"> #}
+    <link rel="mask-icon" href="{{ site.baseUrl }}/assets/icon.svg" color="#111118">
     <meta name="msapplication-TileColor" content="#111118">
     <meta name="theme-color" content="#111118">
-    <link rel='icon' type='image/x-icon' href='{{ baseUrl }}/assets/icon.ico'> {%- css %}
+    <link rel='icon' type='image/x-icon' href='{{ site.baseUrl }}/assets/icon.ico'> {%- css %}
     {% include "public/css/index.css" %}
     {% endcss %}
     <style>{% getBundle "css" %}</style>
@@ -27,7 +27,7 @@
     <a href="#skip" class="visually-hidden">Skip to main content</a>
     <header class="container-full bg-light border border-rounded">
       <a href="{{ site.baseUrl }}/" class="home-link">
-        <img src="{{ baseUrl }}/assets/icon.ico" alt="{{ metadata.title }}"/>
+        <img src="{{ site.baseUrl }}/assets/icon.ico" alt="{{ metadata.title }}"/>
       </a>
       {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
       <nav>
@@ -48,19 +48,19 @@
     <footer>
       <p>
         <a href="{{ site.baseUrl }}/rss.xml" target="_blank">
-          <img src="{{ baseUrl }}/assets/rssfeed-icon.png" alt="RSS Feed" style="width: 40px; height: auto; vertical-align: middle; margin-right: 5px;"/>
+          <img src="{{ site.baseUrl }}/assets/rssfeed-icon.png" alt="RSS Feed" style="width: 40px; height: auto; vertical-align: middle; margin-right: 5px;"/>
         </a>
         <a href="{{ site.baseUrl }}/feed.json" target="_blank">
-          <img src="{{ baseUrl }}/assets/jsonfeed-icon.png" alt="JSON Feed" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;"/>
+          <img src="{{ site.baseUrl }}/assets/jsonfeed-icon.png" alt="JSON Feed" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;"/>
         </a>
         <a href="{{ site.baseUrl }}/atom.xml" target="_blank">
-          <img src="{{ baseUrl }}/assets/atomfeed-icon.png" alt="Atom Feed" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;"/>
+          <img src="{{ site.baseUrl }}/assets/atomfeed-icon.png" alt="Atom Feed" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;"/>
         </a>
         <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">
-          <img src="{{ baseUrl }}/assets/icons/11ty-icon.svg" alt="11ty" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;"/>
+          <img src="{{ site.baseUrl }}/assets/icons/11ty-icon.svg" alt="11ty" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;"/>
         </a>
         <a href="https://people.pledge.party" target="_blank" rel="noopener noreferrer">
-          <img src="{{ baseUrl }}/assets/people_pledge_badge_stacked_black_white_125x75.png" alt="11ty" style="width: auto; height: 30px; vertical-align: middle; margin-right: 5px;"/>
+          <img src="{{ site.baseUrl }}/assets/people_pledge_badge_stacked_black_white_125x75.png" alt="11ty" style="width: auto; height: 30px; vertical-align: middle; margin-right: 5px;"/>
         </a>
         <br/> <br/> &copy; FlohGro {{ page.date | currentYear() }}
       </p>
