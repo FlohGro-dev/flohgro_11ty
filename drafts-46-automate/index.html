@@ -10,13 +10,13 @@
     <link rel="alternate" type="application/rss+xml" title="FlohGro RSS Feed" href="https://flohgro.com/drafts/drafts-46-automate//rss.xml">
     <link rel="alternate" type="application/json" title="FlohGro JSON Feed" href="https://flohgro.com/drafts/drafts-46-automate//feed.json">
     <meta name="generator" content="Eleventy v3.0.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="https://flohgro-dev.github.io/11ty_test/assets/icon-180.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://flohgro-dev.github.io/11ty_test/assets/icon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://flohgro-dev.github.io/11ty_test/assets/icon-16.png"> 
-    <link rel="mask-icon" href="https://flohgro-dev.github.io/11ty_test/assets/icon.svg" color="#111118">
+    <link rel="apple-touch-icon" sizes="180x180" href="/11ty_test/assets/icon-180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/11ty_test/assets/icon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/11ty_test/assets/icon-16.png"> 
+    <link rel="mask-icon" href="/11ty_test/assets/icon.svg" color="#111118">
     <meta name="msapplication-TileColor" content="#111118">
     <meta name="theme-color" content="#111118">
-    <link rel="icon" type="image/x-icon" href="https://flohgro-dev.github.io/11ty_test/assets/icon.ico">
+    <link rel="icon" type="image/x-icon" href="/11ty_test/assets/icon.ico">
     <style>/* Importing JetBrains Mono from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
 
@@ -435,7 +435,7 @@ nav {
     <a href="#skip" class="visually-hidden">Skip to main content</a>
     <header class="container-full bg-light border border-rounded">
       <a href="/11ty_test/" class="home-link">
-        <img src="https://flohgro-dev.github.io/11ty_test/assets/icon.ico" alt="FlohGro">
+        <img src="/11ty_test/assets/icon.ico" alt="FlohGro">
       </a>
       <nav>
         <ul class="nav">
@@ -469,7 +469,7 @@ nav {
 </ul>
 
 <p><a href="https://getdrafts.com">Drafts</a> Version 46 was released today. In this post, I will highlight new features and my personal highlights of the release.</p>
-<p><img src="https://flohgro-dev.github.io/11ty_test/assets/Thursday-12-Dec-2024-201012-Y0bAJGRP2SFo.png" alt=""></p>
+<p><img src="/11ty_test/assets/Thursday-12-Dec-2024-201012-Y0bAJGRP2SFo.png" alt=""></p>
 <p>A few weeks ago I <a href="https://social.lol/@flohgro/113534112362382431">dipped my toes</a> into <a href="https://docs.getdrafts.com/docs/extending/development/syntax-format">Syntax development</a> for Drafts. I have no need to make big changes but I wanted to define some custom link definitions to e.g. run an action with <code>[[r:process INBOX]]</code>or open a tag filter with <code>[[t:project::active]]</code> – it is also published to the <a href="https://directory.getdrafts.com/s/2Vj">directory</a> (and I maintain it in the respective <a href="https://github.com/FlohGro-dev/drafts-syntaxes">GitHub repository</a>). When I added those link definitions I quickly noticed that the URL scheme that the <a href="https://docs.getdrafts.com/docs/automation/urlschemes#search">/search</a> URL scheme did default to the inbox folder in Drafts. What I wanted was to directly jump to the <em>all</em> folder to see every draft tagged with the given tag. After requesting the additional parameter it was added with this release and it works great. Now you can pass a folder parameter to force switching the folder tab in the draft list. E.g. <code>drafts://search?tag=project&amp;folder=all</code> will filter the drafts list for all drafts tagged with <em>project</em>. I use this e.g. in my Weekly Review checklist together with the mentioned syntax it is easily possible to quickly filter for all drafts that are tagged with <code>project::active</code>. Another way I use this is to link to special searches from routine tasks in Todoist that open a specific predefined search.</p>
 <p>While I don’t have a big personal use for it right now a new feature in Drafts 46 is Text-to-Speech. The described use case in the <a href="https://forums.getdrafts.com/t/drafts-46-released-text-to-speech-background-actions/15670/8?u=flohgro">forum</a> e.g. as snippet library for often used phrases for verbally challenged users is an exceptionally great example. I appreciate that features like this are added to Drafts and extend its capabilities in ways I never thought about. If you want to find out more about this have a look at the <a href="https://docs.getdrafts.com/docs/editor/text-to-speech">guide</a> which also includes some example actions that are ready to use to e.g. read the currently selected text.</p>
 <p>My favorite new feature however is the new “Run Action in Background” shortcuts action.<br>
@@ -488,24 +488,24 @@ Of course, this is not only relevant for automation, this can also be used to ru
     <footer>
       <p>
         <a href="/11ty_test/rss.xml" target="_blank">
-          <img src="https://flohgro-dev.github.io/11ty_test/assets/rssfeed-icon.png" alt="RSS Feed" style="width: 40px; height: auto; vertical-align: middle; margin-right: 5px;">
+          <img src="/11ty_test/assets/rssfeed-icon.png" alt="RSS Feed" style="width: 40px; height: auto; vertical-align: middle; margin-right: 5px;">
         </a>
         <a href="/11ty_test/feed.json" target="_blank">
-          <img src="https://flohgro-dev.github.io/11ty_test/assets/jsonfeed-icon.png" alt="JSON Feed" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;">
+          <img src="/11ty_test/assets/jsonfeed-icon.png" alt="JSON Feed" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;">
         </a>
         <a href="/11ty_test/atom.xml" target="_blank">
-          <img src="https://flohgro-dev.github.io/11ty_test/assets/atomfeed-icon.png" alt="Atom Feed" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;">
+          <img src="/11ty_test/assets/atomfeed-icon.png" alt="Atom Feed" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;">
         </a>
         <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">
-          <img src="https://flohgro-dev.github.io/11ty_test/assets/icons/11ty-icon.svg" alt="11ty" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;">
+          <img src="/11ty_test/assets/icons/11ty-icon.svg" alt="11ty" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;">
         </a>
         <a href="https://people.pledge.party" target="_blank" rel="noopener noreferrer">
-          <img src="https://flohgro-dev.github.io/11ty_test/assets/people_pledge_badge_stacked_black_white_125x75.png" alt="11ty" style="width: auto; height: 30px; vertical-align: middle; margin-right: 5px;">
+          <img src="/11ty_test/assets/people_pledge_badge_stacked_black_white_125x75.png" alt="11ty" style="width: auto; height: 30px; vertical-align: middle; margin-right: 5px;">
         </a>
         <br> <br> &copy; FlohGro 2024
       </p>
     </footer>
-    <!-- This page `/drafts-46-automate/` was built on 2024-12-30T20:21:24.434Z -->
+    <!-- This page `/drafts-46-automate/` was built on 2024-12-30T20:23:13.837Z -->
     <script type="module" src="/dist/rJ3_G-2ArF.js"></script>
   </body>
 </html>
