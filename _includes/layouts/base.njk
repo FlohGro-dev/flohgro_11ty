@@ -26,7 +26,7 @@
   <body>
     <a href="#skip" class="visually-hidden">Skip to main content</a>
     <header class="container-full bg-light border border-rounded">
-      <a href="/" class="home-link">
+      <a href="{{ site.baseUrl }}/" class="home-link">
         <img src="{{ baseUrl }}/assets/icon.ico" alt="{{ metadata.title }}"/>
       </a>
       {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
@@ -47,13 +47,13 @@
     </main>
     <footer>
       <p>
-        <a href="/rss.xml" target="_blank">
+        <a href="{{ site.baseUrl }}/rss.xml" target="_blank">
           <img src="{{ baseUrl }}/assets/rssfeed-icon.png" alt="RSS Feed" style="width: 40px; height: auto; vertical-align: middle; margin-right: 5px;"/>
         </a>
-        <a href="/feed.json" target="_blank">
+        <a href="{{ site.baseUrl }}/feed.json" target="_blank">
           <img src="{{ baseUrl }}/assets/jsonfeed-icon.png" alt="JSON Feed" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;"/>
         </a>
-        <a href="/atom.xml" target="_blank">
+        <a href="{{ site.baseUrl }}/atom.xml" target="_blank">
           <img src="{{ baseUrl }}/assets/atomfeed-icon.png" alt="Atom Feed" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;"/>
         </a>
         <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">
