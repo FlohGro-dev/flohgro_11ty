@@ -19,7 +19,7 @@ const sortByDateAsc = (a, b) => {
 export default function (eleventyConfig) {
     // Determine the base URL
     const baseUrl = process.env.ELEVENTY_ENV === "production"
-        ? "/11ty-test" // Replace with your GitHub repo name
+        ? "https://flohgro-dev.github.io/11ty-test"
         : "";
 
     // Add baseUrl as global data
