@@ -20,7 +20,7 @@ Read through the details in my setup below if you’re interested.
 
 * * *
 
-![ReaderSetup-FlohGro-1](/assets/ReaderSetup-FlohGro-1-BITgQ9yhefYw.png)
+![ReaderSetup-FlohGro-1]({{ baseUrl }}/assets/ReaderSetup-FlohGro-1-BITgQ9yhefYw.png)
 
 Hi there ✌️ I’m Floh, a productivity and note-making (read _taking_) enthusiast and Software Developer from Germany 🇩🇪. I develop software in my day job and during my free time, where my goal is to remove friction from processes and workflows for myself and others.
 
@@ -32,25 +32,25 @@ I use my good old 13″ MacBook Pro from 2017, which I bought from the Apple Ref
 
 The main display is a [DELL U2520D](https://www.dell.com/en-us/work/shop/ultrasharp-25-usb-c-monitor-u2520d/apd/210-avkg/monitors-monitor-accessories) with 25″ – I know it could be bigger (read _wider_) but its enough most of the times. To let my MacBook serve as a secondary display, I wanted to lift it a bit. There are brilliant solutions available, but I haven’t decided how I want to set this up in the future. Right now, I use our [Exploding Kittens](https://www.explodingkittens.com/products/exploding-kittens-original-edition) card game to raise it 😄 (this is not a joke, but I hope you’re laughing right now). Don’t judge me for not cleaning my MacBooks screen before taking the photos ☺️
 
-![ReaderSetup-FlohGro-2](/assets/ReaderSetup-FlohGro-2-Mw8dQOFRwBSk.png)
+![ReaderSetup-FlohGro-2]({{ baseUrl }}/assets/ReaderSetup-FlohGro-2-Mw8dQOFRwBSk.png)
 
 The [CalDigit TS3+](https://www.caldigit.com/ts3-plus/) serves as a dock to connect my MacBook (or other devices) with the peripherals. It connects webcam ([Logitech C920s PRO HD](https://www.logitech.com/en-us/products/webcams/c920s-pro-hd-webcam.960-001257.html)), wired Ethernet, display, keyboard, and mouse when they need charging. I also use it to connect external drives for video material.
 
 Speaking of keyboard and mouse: I use the [Keychron K4 Version 2](https://www.keychron.com/products/keychron-k4-wireless-mechanical-keyboard-version-2?variant=32287344427097) (with Gateron Red Switches) and the [Logitech MX Master 3 for Mac](https://www.logitech.com/en-us/products/mice/mx-master-3-mac-wireless-mouse.910-005693.html). I miss both when working with other input devices at work or the MacBook alone.
 
-![ReaderSetup-FlohGro-3](/assets/ReaderSetup-FlohGro-3-3RSAKKNncolI.png)
+![ReaderSetup-FlohGro-3]({{ baseUrl }}/assets/ReaderSetup-FlohGro-3-3RSAKKNncolI.png)
 
 I would consider myself a _keyboard guy_ but using the extra buttons of the MX Master is beneficial in many Apps. Assigning app-specific actions or keyboard shortcuts speeds up and simplifies many workflows. I built a wooden wrist raiser by myself that eliminates pain in my wrist when typing a lot.
 
 Although we have active hobbies (like mountain biking), we would still sit too much at a desk. So we assembled a height-adjustable desk with a [boho office Basic Line frame](https://www.boho-office.com/products/height-adjustable-desk-frames/basic-line) and a table plate from IKEA (that I fluffed a bit in the past).
 
-![ReaderSetup-FlohGro-4](/assets/ReaderSetup-FlohGro-4-EnCDxZ6skW8M.png)
+![ReaderSetup-FlohGro-4]({{ baseUrl }}/assets/ReaderSetup-FlohGro-4-EnCDxZ6skW8M.png)
 
 The desk frame allows for storing four positions. Now both of us can save the perfect height for sitting and standing. All cables are tucked away in a cable tray and a slim line down to the bottom. The chair needs some time to get used to, but I like it, and it almost always prevents me from lurking around.
 
 The last Apple device on my desk is my 9th generation iPad, nothing special here. I use it with Universal Control from time to time but at most for reading and making notes when I’m not at my desk.
 
-![ReaderSetup-FlohGro-5](/assets/ReaderSetup-FlohGro-5-hSmlLgeT8ICE.png)
+![ReaderSetup-FlohGro-5]({{ baseUrl }}/assets/ReaderSetup-FlohGro-5-hSmlLgeT8ICE.png)
 
 While working, I listen to music most of the time, which helps me to focus (my [edmFocus playlist](https://music.apple.com/de/playlist/edmfocus/pl.u-0Ao3UYl8r9e?l=en)). I use the original [Libratone ZIPP](https://www.libratone.com/us/products/speakers/zipp/) (the one without Alexa built-in), which is sitting next to me. I attached an NFC tag to quickly hand over the playback via Shortcuts (if I’m not using a more complex Shortcut).
 

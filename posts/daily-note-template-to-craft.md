@@ -29,4 +29,4 @@ If you‘re using [Drafts](https://flohgro.com/web/tag/drafts/) you might also c
 
 [GET THE SHORTCUT](https://www.icloud.com/shortcuts/e587180a282a4d9fb649dccb0b6fadc9)
 
-![](/assets/img_6044-aLiKb0ACWzhc.jpg)
+![]({{ baseUrl }}/assets/img_6044-aLiKb0ACWzhc.jpg)

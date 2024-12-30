@@ -6,6 +6,8 @@ eleventyNavigation:
     order: 2
 ---
 
+{% include "std-icons.md" %}
+
 ## contactme
 I’m active on various platforms and communities / forums.
 
@@ -29,5 +31,3 @@ out to me on those platforms:
 
 - E-Mail 📧: [hi@flohgro.com](mailto:hi@flohgro.com)
 - GitHub: [@FlohGro-dev](https://github.com/FlohGro-dev)
-
-{% include "std-icons.md" %}

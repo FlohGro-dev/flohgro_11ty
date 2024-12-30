@@ -6,7 +6,9 @@ eleventyNavigation:
     order: 5
 ---
 
-## Search
+{% include "std-icons.md" %}
+
+## search
 
 <div class="search-container"> 
 <input type="text" id="searchInput" placeholder="Search posts...">
@@ -39,5 +41,3 @@ eleventyNavigation:
     })
     .catch(error => console.error('Error loading search index:', error));
 </script>
-
-{% include "std-icons.md" %}

@@ -6,6 +6,8 @@ eleventyNavigation:
     order: 1
 ---
 
+{% include "std-icons.md" %}
+
 ## whoami
 
 I am Floh Gro – a 31-year young software developer 👨‍💻 from South Germany 🇩🇪.
@@ -16,7 +18,4 @@ During my studies I deep dived into the productivity topic and tried a lot of ap
 
 I listen to various podcasts 🎙️ and love (loud) music 🎧️, too. I listen to many different genres from Hip-Hop to Dance / Electronics and Rap to Worship – totally depends on my current mood 🍄.
 
-![a picture of me hiking in the mountains](/assets/me-hiking.jpeg)
-
-{% include "std-icons.md" %}
-
+![a picture of me hiking in the mountains]({{ baseUrl }}/assets/me-hiking.jpeg)

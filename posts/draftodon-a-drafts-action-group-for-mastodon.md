@@ -24,7 +24,7 @@ I was using a few Actions for Twitter in Drafts that I immideatly missed after I
 
 So I started developing and after hours (I didn’t count them) of work I was happy to release `Draftodon` an Action Group dedicated to integrate Drafts with Mastodon.
 
-![](/assets/Tuesday-14-Feb-2023-221648-fxpHqKT0KQOC.png)
+![]({{ baseUrl }}/assets/Tuesday-14-Feb-2023-221648-fxpHqKT0KQOC.png)
 
 The Action Group has an easy setup procedure (you need to download the underlying `Draftodon.js` file with an Action and configure your mastodon instance and user handle in the `Draftodon Settings` Action) so hopefully anybody can use it.
 

@@ -17,6 +17,14 @@ const sortByDateAsc = (a, b) => {
 };
 
 export default function (eleventyConfig) {
+    // Determine the base URL
+    const baseUrl = process.env.ELEVENTY_ENV === "production"
+        ? "/11ty-test" // Replace with your GitHub repo name
+        : "";
+
+    // Add baseUrl as global data
+    eleventyConfig.addGlobalData("baseUrl", baseUrl);
+
     eleventyConfig.addCollection("posts", (collectionApi) => {
         return collectionApi.getFilteredByTag("post").sort((a, b) => {
             return b.date - a.date; // Sort by descending date
@@ -153,4 +161,15 @@ export default function (eleventyConfig) {
         }
     });
 
+    return {
+        dir: {
+            input: ".",            // Use the root directory as input
+            includes: "_includes", // Default for reusable components/templates
+            data: "_data",         // Default for global data files
+            output: "_site",       // Output folder
+        },
+    };
 }
+
+
+

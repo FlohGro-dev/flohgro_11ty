@@ -32,4 +32,4 @@ To create your template just create it in Craft and export the document in markd
 
 [GET THE SHORTCUT](https://www.icloud.com/shortcuts/73d101dee65b489db36022e09175af98)
 
-![](/assets/img_6043-l6beFBpZbAVy.png)
+![]({{ baseUrl }}/assets/img_6043-l6beFBpZbAVy.png)

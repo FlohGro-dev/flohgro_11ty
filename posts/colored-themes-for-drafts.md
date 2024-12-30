@@ -24,7 +24,7 @@ Having used my [Vivid Black+ themes](https://directory.getdrafts.com/search?utf8
 
 Take a look at these great themes
 
-![](/assets/Saturday-23-Sep-2023-104719-8BboS5eZsAy6.png)
+![]({{ baseUrl }}/assets/Saturday-23-Sep-2023-104719-8BboS5eZsAy6.png)
 
 If your interested to try them you can download them in the Drafts directory:
 
@@ -38,7 +38,7 @@ If your interested to try them you can download them in the Drafts directory:
 
 To assign a them to a workspace edit the workspace, scroll down and pick the theme you like as preferred theme.
 
-![](/assets/Saturday-23-Sep-2023-093320-5c5iEnnVslbz.png)
+![]({{ baseUrl }}/assets/Saturday-23-Sep-2023-093320-5c5iEnnVslbz.png)
 
 If you have any suggestions to improve the themes, or requests for new colors don’t hesitate to contact me either on [Mastodon](https://social.lol/@flohgro/111047399310538089) or in the [Drafts forum](https://forums.getdrafts.com/t/c-olor-ed-themes/14513?u=flohgro).
 

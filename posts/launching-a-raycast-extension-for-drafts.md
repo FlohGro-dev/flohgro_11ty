@@ -21,7 +21,7 @@ tags:
 ---
 If you want to jump right into it – use this button to install the extension from the Raycast store.
 
-[![](/assets/install_button@2x-OvG6C7oki2qS.png)](https://www.raycast.com/FlohGro/drafts#install "Install Drafts Raycast Extension")
+[![]({{ baseUrl }}/assets/install_button@2x-OvG6C7oki2qS.png)](https://www.raycast.com/FlohGro/drafts#install "Install Drafts Raycast Extension")
 
 I just jumped into the rabbit hole of building my first extension for Raycast to integrate it with Drafts – which was quite a fun experience 🙌🏽🙌🏽
 

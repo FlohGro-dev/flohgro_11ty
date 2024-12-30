@@ -25,7 +25,7 @@ I updated Draftist an Action Group to integrate Drafts with Todoist with many op
 
 If you’re using it you need to run the „Draftist Setup/Update“ action to jump to the new version.
 
-![](/assets/B2F5CE1B-CCA3-4DE9-BD51-1E6494-QibyCKDrWRY8.jpeg)
+![]({{ baseUrl }}/assets/B2F5CE1B-CCA3-4DE9-BD51-1E6494-QibyCKDrWRY8.jpeg)
 
 I hope to reach most users because the new version migrates the script to Todoists new API version.
 

@@ -21,7 +21,7 @@ This is no theoretical stuff neither a step-by step guide with success guarantee
 
 If we don‘t set goals we might regret things we didn‘t do afterwards.
 
-![](/assets/-fYVgXEqdKIQm.png)
+![]({{ baseUrl }}/assets/-fYVgXEqdKIQm.png)
 
 We can set goals in various areas of our lives  
 • family & friends  
@@ -53,9 +53,9 @@ I found that there are 4 important principles to follow when you set goals. They
 
 How can you step out of your comfort zone?
 
-![](/assets/-LQrt7NyS4Nuz.png)
+![]({{ baseUrl }}/assets/-LQrt7NyS4Nuz.png)
 
-![](/assets/-BHhJLmVxEuLl.png)
+![]({{ baseUrl }}/assets/-BHhJLmVxEuLl.png)
 
 ## MAKE YOUR GOALS VISIBLE
 
@@ -72,9 +72,9 @@ How can you step out of your comfort zone?
 
 Whats your next step?
 
-![](/assets/-W1imMRC0yxi0.png)
+![]({{ baseUrl }}/assets/-W1imMRC0yxi0.png)
 
-![](/assets/-8rAmyI8xzz6d.png)
+![]({{ baseUrl }}/assets/-8rAmyI8xzz6d.png)
 
 ## HAVE FUN & STAY FLEXIBLE
 
@@ -83,9 +83,9 @@ Whats your next step?
 🤩 You won‘t reach your goals if you don‘t enjoy your work  
 ⚠️ there will always be unfulfilling phases – don‘t give up easily!
 
-![](/assets/-rGzkXPqw7AX3.png)
+![]({{ baseUrl }}/assets/-rGzkXPqw7AX3.png)
 
-![](/assets/-RdC02CWLvPai.png)
+![]({{ baseUrl }}/assets/-RdC02CWLvPai.png)
 
 What did you learn from this Thread?  
 What are your most helpful tips for goal settings?  

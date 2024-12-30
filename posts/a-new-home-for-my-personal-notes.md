@@ -20,7 +20,7 @@ tags:
 ---
 Something has changed on my phone – to be precise in the dock of my iPhone. An App I started using nearly two years ago got exchanged and went back to the App Library.
 
-![](/assets/5E94FFBC-A0C1-4754-8E57-077FE3-aHqmhtzzBMHp.jpeg)
+![]({{ baseUrl }}/assets/5E94FFBC-A0C1-4754-8E57-077FE3-aHqmhtzzBMHp.jpeg)
 
 Some of you already seen the [Tweet](https://twitter.com/flohgro/status/1584472605918400512) – I moved my notes from Craft to Obsidian a few weeks after the launch of [Obsidian 1.0](https://obsidian.md/1.0). I want to explain a bit why I decided to switch and move my notes to Obsidian.
 

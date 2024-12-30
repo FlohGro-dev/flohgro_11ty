@@ -36,7 +36,7 @@ These posts on [Reddit](https://www.reddit.com/r/CraftDocs/comments/y1sbqg/expor
 
 The first step of course was to export the notes from Craft. To do so you can tap the three dots icon in the upper left corner. Select „Export (All Documents)“ and then „Markdown“ as shown in the screenshots below (actually the latest Craft Update changed something in that process since I was able to select the markdown format in the next prompt – do not use the Craft format there, I used the _GitHub/Notable/iA Writer_ option).
 
-![](/assets/68F06555-B6A6-4A3E-AF4D-A260CF-J40ojoZrtaRx.png)
+![]({{ baseUrl }}/assets/68F06555-B6A6-4A3E-AF4D-A260CF-J40ojoZrtaRx.png)
 
 Depending on the amount of notes you have in Craft this might take a while (I think it was more than an hour for me). I stored the finished export locally on my iPhone and moved it to the Obsidian folder (On My iPhone/Obsidian). Of course you need to install the [Obsidian App](https://apps.apple.com/de/app/obsidian-connected-notes/id1557175442?l=en) first so that folder will appear. I strongly recommend to make a backup from that folder immediately (just duplicate and rename it). You can already launch the Obsidian App and choose to open the exported folder as vault in Obsidian but there several things in the documents that need adaption before they will be really useful in Obsidian.
 
@@ -52,22 +52,22 @@ If you also want to use Shortcuts for that purpose You‘ll find a link to the o
 
 Now we already made a big step forward – all the links to Daily Notes should work again in Obsidian – maybe just check it by opening the graph view – you should see connections for the Daily Notes here:
 
-![](/assets/CAC5CCB4-7174-499E-AA51-CF0381-7JyYF2w0ZWNW.png)
+![]({{ baseUrl }}/assets/CAC5CCB4-7174-499E-AA51-CF0381-7JyYF2w0ZWNW.png)
 
 This was the easier part. Craft didn’t offer native tags that‘s why I used standalone documents and treated them as tags (by the way a great read about using tags, links, folders and so on: [All you need is links](https://subconscious.substack.com/p/all-you-need-is-links)). These documents all had the same format for their title `#[tagname]` and where stored in the same folder in my Craft space `[resources]/tags/`. The links to those documents didn‘t work properly for me and I also wanted to convert them to real tags in Obsidian. I needed to change all links to tag documents that looked like this `[[[resources]/tags/#[tagname]]]` to just the hashtags `#[tagname]`. Again a regex substitution helps us to do that substitution. Please note that you will need to adapt this to your own structure in Craft. If you created the tag documents similar than I did at least you need to change the path to the documents do match your structure in Craft. Again I used [regex101](https://regex101.com) to develop and test the regular expression for my needs. Just copy over a few different links to the editor of regex101 and build the regex.  
 I did the substitution in two steps – first I removed the path to the tags (and also other documents in the `[resources]` folder) with this regex: `\[resources\]\/[a-z]*\/` and replaced it with an empty string. The (most) links to the documents in that folder should work without further adaption. One exception are illegal or unsupported characters in file-paths or -names. Which will be covered later.  
 In my structure the links to „tag documents“ now looked like this `[[#[tagname]]]` but they don‘t work and also are not displayed as tags in Obsidian. To change this we need to remove the brackets – we can use a regex replacement again: When we replace `\[\[#(.*?)\]\]` with `#$1` in all files the links will be changed to tags recognized by Obsidian: `#[tagname]`. After that replacement you can open your vault and check the tags view – your tags should now appear here.
 
-![](/assets/38B22B1B-537F-4F40-A673-CEDD60-Gl0NwGInVMGQ.png)
+![]({{ baseUrl }}/assets/38B22B1B-537F-4F40-A673-CEDD60-Gl0NwGInVMGQ.png)
 
 This is already a great starting point to explore your notes in Obsidian. I found out that quite a lot of links worked out of the box and didn‘t need adaption – even links to blocks inside of other notes from Craft seemed to work. I didn‘t go through all my documents to check all of them. Instead I‘m doing it iteratively now. When I open existing notes then I can always check if the links are still working – you can distinguish it easily by looking at the color of the link. If its displayed in a bright color then the link points to an existing document. If the color looks not bright that means the linked document couldn‘t be found be Obsidian. You can see the example in the following screenshot.
 
-![](/assets/536E5B22-7197-488C-AA52-DBA87C-BG6oHpRgj5oR.png)
+![]({{ baseUrl }}/assets/536E5B22-7197-488C-AA52-DBA87C-BG6oHpRgj5oR.png)
 
 Now you have to search for the exact problem with the link. In almost all of the dead-end-links i found this was related to the file name which contained illegal characters for Obsidian. Files are (unfortunately)not allowed to contain `/`,`\` or `:`. If one of those characters is in the link then Obsidian will not find the correct file. You need to change the filename and adapt the link afterwards. I was not able to do this via Shortcuts since renaming and storing them as `.md` file didn‘t work on my iPhone. I would recommend to search for files with those characters in the finder or an other IDE to change all of them. This is only necessary if you have files with those characters. Since I imported highlights from articles I read I have a few files that mostly contain a `:`. If you don‘t have such files you shouldn’t have any problems.  
 After fixing the filename and link, it should be displayed in a bright color.
 
-![](/assets/73B6938C-4875-44B0-9E14-E067D7-a8MQGS3LtAVW.png)
+![]({{ baseUrl }}/assets/73B6938C-4875-44B0-9E14-E067D7-a8MQGS3LtAVW.png)
 
 The same problem can occur when you create new notes and want to link them to some of your old ones. If you type `[[]]`, search and select an exisitng note it might happen that Obsidian creates the link but it is again a dead-end. If that happens then make sure to check for illegal characters in the filename. Sometimes the path to the file (folder / subfolders) might also contain an illegal character.
 
@@ -77,7 +77,7 @@ You can also check your Obsidian graph to see the recognized connections between
 
 A last and easy step is to reuse your templates that you created in Craft. The templates folder of Craft is also exported. You‘ll find all your templates in the `My Templates` folder in your vault. You can either keep the name or rename it depending on your preferences. I renamed mine to `templates` and pointed the Core Plugin for Templates to that folder.
 
-![](/assets/F3127477-91F7-4A28-8989-C69455-RDcw5DWAoSdS.png)
+![]({{ baseUrl }}/assets/F3127477-91F7-4A28-8989-C69455-RDcw5DWAoSdS.png)
 
 Now I can use the templates I created for Craft in Obsidian. Some might need adaptions because not all stylings that are available in Craft are not supported by Obsidian. Just open the corresponding file and remove the styling markers. This especially affects highlight colors that are exported as `::highlighted text::`. You need to change the colons to equal signs in Obsidian: `==highlighted text==`
 

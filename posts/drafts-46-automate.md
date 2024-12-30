@@ -20,7 +20,7 @@ tags:
 ---
 [Drafts](https://getdrafts.com) Version 46 was released today. In this post, I will highlight new features and my personal highlights of the release.
 
-![](/assets/Thursday-12-Dec-2024-201012-Y0bAJGRP2SFo.png)
+![]({{ baseUrl }}/assets/Thursday-12-Dec-2024-201012-Y0bAJGRP2SFo.png)
 
 A few weeks ago I [dipped my toes](https://social.lol/@flohgro/113534112362382431) into [Syntax development](https://docs.getdrafts.com/docs/extending/development/syntax-format) for Drafts. I have no need to make big changes but I wanted to define some custom link definitions to e.g. run an action with `[[r:process INBOX]]`or open a tag filter with `[[t:project::active]]` – it is also published to the [directory](https://directory.getdrafts.com/s/2Vj) (and I maintain it in the respective [GitHub repository](https://github.com/FlohGro-dev/drafts-syntaxes)). When I added those link definitions I quickly noticed that the URL scheme that the [/search](https://docs.getdrafts.com/docs/automation/urlschemes#search) URL scheme did default to the inbox folder in Drafts. What I wanted was to directly jump to the _all_ folder to see every draft tagged with the given tag. After requesting the additional parameter it was added with this release and it works great. Now you can pass a folder parameter to force switching the folder tab in the draft list. E.g. `drafts://search?tag=project&folder=all` will filter the drafts list for all drafts tagged with _project_. I use this e.g. in my Weekly Review checklist together with the mentioned syntax it is easily possible to quickly filter for all drafts that are tagged with `project::active`. Another way I use this is to link to special searches from routine tasks in Todoist that open a specific predefined search.
 

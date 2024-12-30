@@ -23,11 +23,11 @@ I was very excited about that because there are many use cases for AI within Dra
 
 I released the [AI Tools](https://directory.getdrafts.com/g/2PG) action group today. It contains a few ready-to-use actions and a template action to easily create actions for your own use cases.
 
-![](/assets/CleanShot-2024-01-16-at-00.34.-1ZHIXUrqrp0q.png)
+![]({{ baseUrl }}/assets/CleanShot-2024-01-16-at-00.34.-1ZHIXUrqrp0q.png)
 
 My idea was to create a template action that users can duplicate and then configure for their own purposes. The action has three important configuration options that define what “question” is sent to ChatGPT with the option to include “input text” that e.g. should be translated and of course tell the underlying script, what to do with the response text from ChatGPT. The configuration is done with the so-called “Define Template Tag” steps in the action. They contain the available options so you can easily choose what you want. The action group description in the Drafts directory contains detailed information, on what the different options mean.
 
-![](/assets/CleanShot-2024-01-16-at-00.34.-MLSaMzpyokyx.png)
+![]({{ baseUrl }}/assets/CleanShot-2024-01-16-at-00.34.-MLSaMzpyokyx.png)
 
 If you want to try the [AI Tools](https://directory.getdrafts.com/g/2PG) and create your own, just download the action group from the directory and make sure to read through the docs before using any of the actions or create your own.
 
