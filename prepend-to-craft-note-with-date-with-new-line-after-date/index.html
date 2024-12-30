@@ -418,7 +418,7 @@ nav {
     display: flex;
     /*flex-wrap: wrap; Allow icons to wrap to the next line if needed */
     justify-content: center; /* Center icons horizontally */
-    gap: 10px; /* Add gap between icons */
+    /* gap: 10px; Add gap between icons */
 	padding: 10px 0; /* Add vertical padding for consistent spacing */
     list-style: none;
     padding: 0;
@@ -428,10 +428,11 @@ nav {
 }
 
 .std-icons li {
-    flex: 0 1 26px; /* Each icon container will have a max width of 30px */
+    flex: 0 1 26px; /* Each icon container will have a max width of 26px */
     display: flex;
     justify-content: center;
     align-items: center;
+	margin: 0 10px; /* Add horizontal margin between icons */
 }
 
 .std-icons img {
@@ -442,13 +443,7 @@ nav {
 }
 
 /* Responsive behavior for smaller screens */
-@media screen and (max-width: 600px) {
-    .std-icons {
-        gap: 5px; /* Reduce gap between icons on smaller screens */
-    }
-    .std-icons li {
-        flex: 0 1 calc(100% / 5 - 10px); /* Dynamically scale to fit 5 icons per row with gap */
-    }
+@media screen and (max-width: 600px) {    
     .std-icons img {
         max-width: 100%; /* Allow icons to resize based on container */
     }
@@ -555,7 +550,7 @@ nav {
         <br> <br> &copy; FlohGro 2024
       </p>
     </footer>
-    <!-- This page `/prepend-to-craft-note-with-date-with-new-line-after-date/` was built on 2024-12-30T21:09:45.192Z -->
+    <!-- This page `/prepend-to-craft-note-with-date-with-new-line-after-date/` was built on 2024-12-30T22:58:13.990Z -->
     <script type="module" src="/dist/rJ3_G-2ArF.js"></script>
   </body>
 </html>
