@@ -10,6 +10,7 @@ eleventyNavigation:
 
 Everything I built is free to use for you.
 If you want to give something back to thank me and support my future work you can donate a (few) coffee(s) ✌🏼
+
 I really appreciate your support – that not only keeps me motivated to develop more useful automations but also covers for some of my expenses.
 
 ---
