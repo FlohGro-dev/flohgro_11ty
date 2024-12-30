@@ -447,6 +447,41 @@ nav {
     .std-icons img {
         max-width: 100%; /* Allow icons to resize based on container */
     }
+}
+
+.support-buttons {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    align-items: center; /* Center buttons vertically */
+    gap: clamp(10px, 4vw, 20px); /* Dynamic gap between buttons, responsive */
+    margin: 10px 0; /* Margin above and below the buttons */
+    flex-wrap: nowrap; /* Allow buttons to wrap on smaller screens */
+}
+
+.support-buttons a {
+    display: block;
+    height: 50px; /* Set height for consistent button size */
+    flex-shrink: 1; 
+	flex-grow: 1; 
+    width: auto; /* Width based on image aspect ratio */
+}
+
+.support-buttons img {
+    height: 100%; /* Ensure the image fills the height */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Maintain image scaling without distortion */
+}
+
+/* Responsive behavior for smaller screens */
+@media screen and (max-width: 600px) {    
+	.support-buttons {
+        gap: clamp(8px, 5vw, 30px); /* Smaller gap on smaller screens */
+        flex-direction: column; /* Stack buttons vertically */
+    }
+	.support-buttons a {
+        width: 40%; /* Make buttons take up 100% of available width */
+		height: auto;
+    }
 }</style><script src="/src/js/menu-toggle.js" defer=""></script>
   </head>
   <body>
@@ -527,7 +562,7 @@ nav {
         <br> <br> &copy; FlohGro 2024
       </p>
     </footer>
-    <!-- This page `/sort-checklist/` was built on 2024-12-30T22:58:13.996Z -->
+    <!-- This page `/sort-checklist/` was built on 2024-12-30T23:08:02.702Z -->
     <script type="module" src="/dist/rJ3_G-2ArF.js"></script>
   </body>
 </html>
