@@ -299,7 +299,6 @@ nav {
 	color: #1e66f5;
 }
 
-
 /* Responsive behavior for smaller screens */
 @media screen and (max-width: 800px) {
 	.nav-item a {
@@ -398,8 +397,10 @@ nav {
   }
 
   .std-icons {
+	flex: 1;
 	list-style: none;
 	display: flex;
+	box-sizing: border-box;
 	justify-content: center; /* Center icons horizontally */
   }
   
@@ -411,3 +412,14 @@ nav {
 	width: 24px; /* Adjust icon size as needed */
 	height: 24px;
   }
+
+  /* Responsive behavior for smaller screens */
+@media screen and (max-width: 600px) {
+	.std-icons li {
+		margin: 0 5px; /* Adjust spacing between icons */
+	  }
+	.std-icons img {
+		width: 20px; /* Adjust icon size as needed */
+		height: 20px;
+	  }
+}
