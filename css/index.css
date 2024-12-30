@@ -463,4 +463,7 @@ nav {
         width: 40%; /* Make buttons take up 100% of available width */
 		height: auto;
     }
+	.support-buttons a:not(:last-child) {
+        margin-bottom: 5px; /* Add a small gap between stacked buttons */
+    }
 }
