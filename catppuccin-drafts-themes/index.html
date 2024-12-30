@@ -414,33 +414,44 @@ nav {
   #searchResults li {
 	margin-left: 0; /* Left-align list items */
   }
-
   .std-icons {
-	flex: 1;
-	list-style: none;
-	display: flex;
-	box-sizing: border-box;
-	justify-content: center; /* Center icons horizontally */
-  }
-  
-  .std-icons li {
-	margin: 0 10px; /* Adjust spacing between icons */
-  }
-  
-  .std-icons img {
-	width: 24px; /* Adjust icon size as needed */
-	height: 24px;
-  }
+    display: flex;
+    /*flex-wrap: wrap; Allow icons to wrap to the next line if needed */
+    justify-content: center; /* Center icons horizontally */
+    gap: 10px; /* Add gap between icons */
+	padding: 10px 0; /* Add vertical padding for consistent spacing */
+    list-style: none;
+    padding: 0;
+    margin: 0 auto; /* Center the entire list */
+    box-sizing: border-box;
+	align-items: center;
+}
 
-  /* Responsive behavior for smaller screens */
+.std-icons li {
+    flex: 0 1 26px; /* Each icon container will have a max width of 30px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.std-icons img {
+    width: 100%; /* Scale the icon size to the li container */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 26px; /* Define the maximum icon size */
+    max-height: 26px;
+}
+
+/* Responsive behavior for smaller screens */
 @media screen and (max-width: 600px) {
-	.std-icons li {
-		margin: 0 5px; /* Adjust spacing between icons */
-	  }
-	.std-icons img {
-		width: 20px; /* Adjust icon size as needed */
-		height: 20px;
-	  }
+    .std-icons {
+        gap: 5px; /* Reduce gap between icons on smaller screens */
+    }
+    .std-icons li {
+        flex: 0 1 calc(100% / 5 - 10px); /* Dynamically scale to fit 5 icons per row with gap */
+    }
+    .std-icons img {
+        max-width: 100%; /* Allow icons to resize based on container */
+    }
 }</style><script src="/src/js/menu-toggle.js" defer=""></script>
   </head>
   <body>
@@ -525,7 +536,7 @@ nav {
         <br> <br> &copy; FlohGro 2024
       </p>
     </footer>
-    <!-- This page `/catppuccin-drafts-themes/` was built on 2024-12-30T21:00:44.296Z -->
+    <!-- This page `/catppuccin-drafts-themes/` was built on 2024-12-30T21:09:45.178Z -->
     <script type="module" src="/dist/rJ3_G-2ArF.js"></script>
   </body>
 </html>
