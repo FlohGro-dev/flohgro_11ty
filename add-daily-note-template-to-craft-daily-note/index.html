@@ -235,7 +235,7 @@ header {
 	justify-content: space-between; /* Place items at the left and right edges */
 	/* max-width: 40em; */
 	/* margin: auto; */
-	width: 90%;
+	width: 100%;
 }
 .home-link {
 	/* display: flex; Ensure the logo and title are inline */
@@ -286,7 +286,8 @@ nav {
 	border: 2px solid #1e66f5; /* Define a border */
 	border-radius: 2px; /* Add rounded corners */
 	background-color: #111118; /* Button background color */
-	font-size: 1rem; /* Adjust font size */
+	font-size: clamp(0.75rem, 2vw, 1rem); /* Font size adjusts dynamically */
+	/*font-size: 1rem; /* Adjust font size */
 	text-decoration: none; /* Remove underline */
 	text-align: center; /* Center text inside the buttons */
 	transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
@@ -316,14 +317,6 @@ nav {
 
 .nav-item a:visited {
 	color: #1e66f5;
-}
-
-/* Responsive behavior for smaller screens */
-@media screen and (max-width: 800px) {
-	.nav-item a {
-		font-size: 0.8rem; /* Reduce font size */
-		padding: 0.4em; /* Adjust padding */
-	}
 }
 
 /* Posts list */
@@ -588,7 +581,7 @@ nav {
         <br> <br> &copy; FlohGro 2024
       </p>
     </footer>
-    <!-- This page `/add-daily-note-template-to-craft-daily-note/` was built on 2024-12-30T23:28:57.403Z -->
+    <!-- This page `/add-daily-note-template-to-craft-daily-note/` was built on 2024-12-30T23:38:28.096Z -->
     <script type="module" src="/dist/rJ3_G-2ArF.js"></script>
   </body>
 </html>
