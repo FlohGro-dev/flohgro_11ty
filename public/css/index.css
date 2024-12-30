@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
 /* Importing JetBrains Mono from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
 
@@ -14,33 +12,17 @@
 :root {
 	--color-gray-20: #e0e0e0;
 	--color-gray-50: #C0C0C0;
-	--color-gray-90: #333;
+	--color-gray-90: #dad8d8;
 
-	--background-color: #fff;
+	/* --text-color is assigned to --color-gray-_ above */
+	--text-color-link: #1e66f5;
+	--text-color-link-active: #89B4FA;
+	--text-color-link-visited: #89B4FA;/* #1e66f5; /*89B4FA*/
 
-	--text-color: var(--color-gray-90);
-	--text-color-link: #082840;
-	--text-color-link-active: #5f2b48;
-	--text-color-link-visited: #17050F;
-
-	--syntax-tab-size: 2;
+	/* --background-color: #15202b; other #FF6F59*/
+	--background-color: #111118;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--color-gray-20: #e0e0e0;
-		--color-gray-50: #C0C0C0;
-		--color-gray-90: #dad8d8;
-
-		/* --text-color is assigned to --color-gray-_ above */
-		--text-color-link: #a6e3a1;
-		--text-color-link-active: #306B34;
-		--text-color-link-visited: #6BD062; /* #4B88A2;*/
-
-		/* --background-color: #15202b; other #FF6F59*/
-		--background-color: #111118;
-	}
-}
 
 
 /* Global stylesheet */
@@ -48,23 +30,33 @@
 	box-sizing: border-box;
 }
 
-@view-transition {
-	navigation: auto;
-}
-
 html,
 body {
 	padding: 0;
 	margin: 0 auto;
 	font-family: var(--font-family);
-	color: var(--text-color);
+	color: #D9D9D9;
+	/* color: var(--text-color); */
 	background-color: var(--background-color);
+	text-align: justify;
+	word-spacing: 0.1em;
+	max-width: 50em;
 }
+
+/* Exclude justify for all headings */
+h1, h2, h3, h4, h5, h6 {
+	text-align: left; /* Set text alignment to left for headings */
+	word-spacing: normal; /* Optional: Reset word spacing for headings */
+  }
+
+/* Exclude justify for all links */
+a {
+	text-align: left; /* Ensure links are left-aligned */
+	word-spacing: normal; /* Reset word-spacing for links */
+  }
+
 html {
 	overflow-y: scroll;
-}
-body {
-	max-width: 50em;
 }
 
 /* https://www.a11yproject.com/posts/how-to-hide-content/ */
@@ -115,19 +107,55 @@ a[href]:active {
 
 main,
 footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
 	padding: 1rem;
 }
+
+footer p {
+	margin: 0; /* Remove default margin for the paragraph */
+	text-align: center; /* Center the text inside the footer */
+	white-space: nowrap;
+	text-decoration: none;
+	image-rendering: optimizeSpeed;
+	display: inline-block;
+  }
+
+  footer a {
+    display: inline-block; /* Make anchors behave like inline elements with block-level properties */
+    text-decoration: none; 
+}
+
 main :first-child {
 	margin-top: 0;
 }
 
-header {
-	border-bottom: 1px solid var(--color-gray-20);
-}
 header:after {
 	content: "";
 	display: table;
 	clear: both;
+}
+
+.container-full {
+	width: 100%;
+	box-sizing: border-box;
+  }
+  
+  .container {
+	width: 100%;
+	max-width: 1200px; /* or your desired max width */
+	margin: 0 auto;
+	padding: 0 1rem;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+  }
+  
+
+.container-sm {
+    width: 100%;
+    max-width: 800px;
 }
 
 .links-nextprev {
@@ -180,81 +208,104 @@ code {
 /* Header */
 header {
 	display: flex;
-	gap: 1em .5em;
+	/* gap: 1em .5em; */
 	/* flex-wrap: wrap; */
-	/* flex-wrap: nowrap; */
+	flex-wrap: nowrap; 
 	align-items: center;
 	padding: 1em;
 	justify-content: space-between; /* Place items at the left and right edges */
+	/* max-width: 40em; */
+	/* margin: auto; */
+	width: 100%;
 }
 .home-link {
-	display: flex; /* Ensure the logo and title are inline */
+	/* display: flex; Ensure the logo and title are inline */
     align-items: center; /* Center the icon and any text */
 	font-size: 1em; /* 16px /16 */
 	font-weight: 700;
-	margin-right: 2em;
+	margin-right: 0.5em;
+	width: 40px;
+	height: 40px;
+	object-fit: cover;
+	float: left;
+	display: bloxk;
+	flex-shrink: 0;
 }
 .home-link:link:not(:hover) {
 	text-decoration: none;
 }
-.site-logo {
-	height: 40px; /* Set the desired height */
-	max-height: 40px; /* Ensure it doesn't exceed this height */
-	width: 40px; /* Maintain the aspect ratio */
-	margin-right: 2px; /* Add spacing between the logo and title */
-	border-radius: 2px; /* Adds rounded corners */
-	transition: all 0.3s ease; /* Smooth scaling effect */
-  }
-
-
-/* Nav */
 
 /* Nav */
 nav {
-    flex-shrink: 0; /* Prevent shrinking */
+	display: flex;
+	justify-content: space-between; /* Ensure buttons fill the width */
+	width: 100%; /* Stretch navigation across the entire page */
+	margin: 0; /* Remove extra margin */
+	padding: 0; /* Remove extra padding */
 }
 
+/* Navigation list */
 .nav {
-    display: flex; /* Make navigation horizontal */
-    padding: 0;
-    margin: 0;
-    list-style: none; /* Remove bullets */
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: flex;
+	width: 100%; /* Full width */
+	gap: 0.5em; /* Add space between buttons */
+	justify-content: flex-start;
 }
 
+/* Navigation item */
 .nav-item {
-    margin-left: 1em; /* Add spacing between navigation items */
+	flex: 1; /* Each item takes equal space */
 }
 
+/* Navigation link */
 .nav-item a {
-    display: inline-block; /* Ensure the link behaves like a button */
-    padding: 0.5em 1em; /* Add padding for the button shape */
-    border: 2px solid #306B34; /* Define a border */
-    border-radius: 5px; /* Add rounded corners */
-    background-color: #306B34; /* Set button background color */
-    color: black; /* Set text color */
-    font-size: 1rem; /* Adjust font size */
-    text-decoration: none; /* Remove underline */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
-	visibility: visible;
+	display: flex; /* Make links behave like block elements */
+	/* padding: 0.4em 1em; Adjust padding inside the buttons */
+	border: 2px solid #1e66f5; /* Define a border */
+	border-radius: 2px; /* Add rounded corners */
+	background-color: #111118; /* Button background color */
+	font-size: 1rem; /* Adjust font size */
+	text-decoration: none; /* Remove underline */
+	text-align: center; /* Center text inside the buttons */
+	transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+	box-sizing: border-box; /* Include padding and border in width */
+	white-space: nowrap; /* Prevent text wrapping */
+	height: 40px;
+	justify-content: center;
+	align-items: center;
 }
 
 /* Button hover and active states */
 .nav-item a:hover {
-	border: 2px solid #fff; /* Define a border */
-    background-color: #306B34; /* Darker blue on hover */
-    color: white; /* Ensure text stays white */
+	background-color: #111118; /* Darker green on hover */
+	color: #D9D9D9; /* Ensure text stays white */
 }
 
 .nav-item a:active {
-    border: 2px solid #fff; /* Define a border */
-	background-color: #111118; /* Even darker blue on click */
-    color: white;
+	background-color: #D9D9D9; /* Even darker green on click */
+	color: white;
 }
 
 /* Current page button */
 .nav-item a[aria-current="page"] {
-    background-color: #111118; /* Highlight current page */
-    font-weight: bold; /* Optional: Make it visually distinct */
+	background-color: #89B4FA; /* Highlight current page */
+	font-weight: bold; /* Optional: Make it visually distinct */
+}
+
+.nav-item a:visited {
+	color: #1e66f5;
+}
+
+
+/* Responsive behavior for smaller screens */
+@media screen and (max-width: 800px) {
+	.nav-item a {
+		font-size: 0.8rem; /* Reduce font size */
+		padding: 0.4em; /* Adjust padding */
+	}
 }
 
 /* Posts list */
@@ -324,3 +375,39 @@ nav {
 .post-metadata time {
 	margin-right: 1em;
 }
+ 
+  .search-container {
+	display: flex;
+	width: 100%;
+  }
+  #searchInput {
+	width: 100%; /* Ensure full width from the start */
+	box-sizing: border-box; 
+	margin: 0em;
+	padding: 1em;
+  }
+  
+  #searchResults {
+	list-style: none; /* Remove default bullet styling */
+	padding: 0; /* Remove default padding */
+	margin: 0; /* Remove default margin */
+  }
+  
+  #searchResults li {
+	margin-left: 0; /* Left-align list items */
+  }
+
+  .std-icons {
+	list-style: none;
+	display: flex;
+	justify-content: center; /* Center icons horizontally */
+  }
+  
+  .std-icons li {
+	margin: 0 10px; /* Adjust spacing between icons */
+  }
+  
+  .std-icons img {
+	width: 24px; /* Adjust icon size as needed */
+	height: 24px;
+  }

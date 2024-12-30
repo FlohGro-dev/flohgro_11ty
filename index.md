@@ -1,1 +1,24 @@
-# Heading
+---
+layout: layouts/home
+title: Home
+---
+
+{% include "std-icons.md" %}
+
+{% for post in collections.latestPost %}
+## [{{ post.data.title }}]({{ post.url }}) ({{post.data.date | isoDate}})
+{{ post.templateContent }}
+{% endfor %}
+
+---
+
+# Recent Posts
+
+{% for post in collections.recentPostsWithoutLatest %}
+## [{{ post.data.title }}]({{ post.url }}) ({{post.data.date | isoDate}})
+{{ post.templateContent | truncate: 300 }}
+{% endfor %}
+
+---
+
+## [All Posts](/pages/archive/)

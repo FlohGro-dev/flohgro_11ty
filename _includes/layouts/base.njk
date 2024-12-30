@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="{{ metadata.language }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title or metadata.title }}</title>
+    <meta name="description" content="{{ description or metadata.description }}">
+    <meta name="fediverse:creator" content="@flohgro@social.lol"/>
+    <link rel="alternate" type="application/atom+xml" title="{{ metadata.title }} Atom Feed" href="{{ metadata.url }}/atom.xml">
+    <link rel="alternate" type="application/rss+xml" title="{{ metadata.title }} RSS Feed" href="{{ metadata.url }}/rss.xml">
+    <link rel="alternate" type="application/json" title="{{ metadata.title }} JSON Feed" href="{{ metadata.url }}/feed.json">
+    <meta name="generator" content="{{ eleventy.generator }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/web-icon-2-180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/web-icon-2-32.png">
+    <link
+    rel="icon" type="image/png" sizes="16x16" href="/assets/web-icon-2-16.png"> {# <link rel="manifest" href="/assets/icons/site.webmanifest"> #}
+    <link rel="mask-icon" href="/assets/web-icon-2.svg" color="#111118">
+    <meta name="msapplication-TileColor" content="#111118">
+    <meta name="theme-color" content="#111118">
+    <link rel='icon' type='image/x-icon' href='/assets/web-icon-2.ico'> {%- css %}
+    {% include "public/css/index.css" %}
+    {% endcss %}
+    <style>{% getBundle "css" %}</style>
+    {%- js %}{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}{% endjs %}<script src="{{ '/src/js/menu-toggle.js' | url }}" defer></script>
+  </head>
+  <body>
+    <a href="#skip" class="visually-hidden">Skip to main content</a>
+    <header class="container-full bg-light border border-rounded">
+      <a href="/" class="home-link">
+        <img src="/assets/web-icon-2.ico" alt="{{ metadata.title }}"/>
+      </a>
+      {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+      <nav>
+        <ul class="nav">
+          {%- for entry in collections.all | eleventyNavigation %}
+            <li class="nav-item">
+              <a href="{{ entry.url }}" {% if entry.url == page.url %} aria-current="page" {% endif %}>{{ entry.title }}</a>
+            </li>
+          {%- endfor %}
+        </ul>
+      </nav>
+    </header>
+    <main id="skip">
+      <heading-anchors>
+        {{ content | safe }}
+      </heading-anchors>
+    </main>
+    <footer>
+      <p>
+        <a href="/rss.xml" target="_blank">
+          <img
+            src="/assets/rssfeed-icon.png"
+            alt="RSS Feed"
+            style="width: 40px; height: auto; vertical-align: middle; margin-right: 5px;"/>
+        </a>
+        <a href="/feed.json" target="_blank">
+          <img
+            src="/assets/jsonfeed-icon.png"
+            alt="JSON Feed"
+            style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;"/>
+        </a>
+        <a href="/atom.xml" target="_blank">
+          <img
+            src="/assets/atomfeed-icon.png"
+            alt="Atom Feed"
+            style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;"/>
+        </a>
+        <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">
+          <img
+            src="/assets/11ty-icon.svg"
+            alt="11ty"
+            style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;"/>
+        </a>
+        <a href="https://people.pledge.party" target="_blank" rel="noopener noreferrer">
+          <img
+            src="/assets/people_pledge_badge_stacked_black_white_125x75.png"
+            alt="11ty"
+            style="width: auto; height: 30px; vertical-align: middle; margin-right: 5px;"/>
+        </a>
+        <br/> <br/> &copy; FlohGro {{ page.date | currentYear() }}
+      </p>
+    </footer>
+    <!-- This page `{{ page.url }}` was built on {% currentBuildDate %} -->
+    <script type="module" src="{% getBundleFileUrl "js" %}"></script>
+  </body>
+</html>
