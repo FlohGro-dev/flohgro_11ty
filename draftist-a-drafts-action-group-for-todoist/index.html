@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draftist &amp;#8211; a Drafts Action Group for Todoist</title>
+    <meta name="description" content="I code more than I write.">
+    <meta name="fediverse:creator" content="@flohgro@social.lol">
+    <link rel="alternate" type="application/atom+xml" title="FlohGro Atom Feed" href="https://flohgro.com/drafts-actions/draftist-a-drafts-action-group-for-todoist//atom.xml">
+    <link rel="alternate" type="application/rss+xml" title="FlohGro RSS Feed" href="https://flohgro.com/drafts-actions/draftist-a-drafts-action-group-for-todoist//rss.xml">
+    <link rel="alternate" type="application/json" title="FlohGro JSON Feed" href="https://flohgro.com/drafts-actions/draftist-a-drafts-action-group-for-todoist//feed.json">
+    <meta name="generator" content="Eleventy v3.0.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/web-icon-2-180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/web-icon-2-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/web-icon-2-16.png"> 
+    <link rel="mask-icon" href="/assets/web-icon-2.svg" color="#111118">
+    <meta name="msapplication-TileColor" content="#111118">
+    <meta name="theme-color" content="#111118">
+    <link rel="icon" type="image/x-icon" href="/assets/web-icon-2.ico">
+    <style>/* Importing JetBrains Mono from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+
+/* Defaults */
+:root {
+	--font-family: 'JetBrains Mono', 'Roboto', -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #dad8d8;
+
+	/* --text-color is assigned to --color-gray-_ above */
+	--text-color-link: #1e66f5;
+	--text-color-link-active: #89B4FA;
+	--text-color-link-visited: #89B4FA;/* #1e66f5; /*89B4FA*/
+
+	/* --background-color: #15202b; other #FF6F59*/
+	--background-color: #111118;
+}
+
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: #D9D9D9;
+	/* color: var(--text-color); */
+	background-color: var(--background-color);
+	text-align: justify;
+	word-spacing: 0.1em;
+	max-width: 50em;
+}
+
+/* Exclude justify for all headings */
+h1, h2, h3, h4, h5, h6 {
+	text-align: left; /* Set text alignment to left for headings */
+	word-spacing: normal; /* Optional: Reset word spacing for headings */
+  }
+
+/* Exclude justify for all links */
+a {
+	text-align: left; /* Ensure links are left-aligned */
+	word-spacing: normal; /* Reset word-spacing for links */
+  }
+
+html {
+	overflow-y: scroll;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+/* Fluid images via https://www.zachleat.com/web/fluid-images/ */
+img {
+  max-width: 100%;
+}
+img[width][height] {
+  height: auto;
+}
+img[src$=".svg"] {
+  width: 100%;
+  height: auto;
+  max-width: none;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main,
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	padding: 1rem;
+}
+
+footer p {
+	margin: 0; /* Remove default margin for the paragraph */
+	text-align: center; /* Center the text inside the footer */
+	white-space: nowrap;
+	text-decoration: none;
+	image-rendering: optimizeSpeed;
+	display: inline-block;
+  }
+
+  footer a {
+    display: inline-block; /* Make anchors behave like inline elements with block-level properties */
+    text-decoration: none; 
+}
+
+main :first-child {
+	margin-top: 0;
+}
+
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.container-full {
+	width: 100%;
+	box-sizing: border-box;
+  }
+  
+  .container {
+	width: 100%;
+	max-width: 1200px; /* or your desired max width */
+	margin: 0 auto;
+	padding: 0 1rem;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+  }
+  
+
+.container-sm {
+    width: 100%;
+    max-width: 800px;
+}
+
+.links-nextprev {
+	display: flex;
+	justify-content: space-between;
+	gap: .5em 1em;
+	list-style: "";
+	border-top: 1px solid var(--color-gray-20);
+	padding: 1em 0;
+}
+.links-nextprev > * {
+	flex-grow: 1;
+}
+.links-nextprev-next {
+	text-align: right;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	overflow-x: auto;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	/* gap: 1em .5em; */
+	/* flex-wrap: wrap; */
+	flex-wrap: nowrap; 
+	align-items: center;
+	padding: 1em;
+	justify-content: space-between; /* Place items at the left and right edges */
+	/* max-width: 40em; */
+	/* margin: auto; */
+	width: 100%;
+}
+.home-link {
+	/* display: flex; Ensure the logo and title are inline */
+    align-items: center; /* Center the icon and any text */
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 0.5em;
+	width: 40px;
+	height: 40px;
+	object-fit: cover;
+	float: left;
+	display: bloxk;
+	flex-shrink: 0;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+nav {
+	display: flex;
+	justify-content: space-between; /* Ensure buttons fill the width */
+	width: 100%; /* Stretch navigation across the entire page */
+	margin: 0; /* Remove extra margin */
+	padding: 0; /* Remove extra padding */
+}
+
+/* Navigation list */
+.nav {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: flex;
+	width: 100%; /* Full width */
+	gap: 0.5em; /* Add space between buttons */
+	justify-content: flex-start;
+}
+
+/* Navigation item */
+.nav-item {
+	flex: 1; /* Each item takes equal space */
+}
+
+/* Navigation link */
+.nav-item a {
+	display: flex; /* Make links behave like block elements */
+	/* padding: 0.4em 1em; Adjust padding inside the buttons */
+	border: 2px solid #1e66f5; /* Define a border */
+	border-radius: 2px; /* Add rounded corners */
+	background-color: #111118; /* Button background color */
+	font-size: 1rem; /* Adjust font size */
+	text-decoration: none; /* Remove underline */
+	text-align: center; /* Center text inside the buttons */
+	transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+	box-sizing: border-box; /* Include padding and border in width */
+	white-space: nowrap; /* Prevent text wrapping */
+	height: 40px;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Button hover and active states */
+.nav-item a:hover {
+	background-color: #111118; /* Darker green on hover */
+	color: #D9D9D9; /* Ensure text stays white */
+}
+
+.nav-item a:active {
+	background-color: #D9D9D9; /* Even darker green on click */
+	color: white;
+}
+
+/* Current page button */
+.nav-item a[aria-current="page"] {
+	background-color: #89B4FA; /* Highlight current page */
+	font-weight: bold; /* Optional: Make it visually distinct */
+}
+
+.nav-item a:visited {
+	color: #1e66f5;
+}
+
+
+/* Responsive behavior for smaller screens */
+@media screen and (max-width: 800px) {
+	.nav-item a {
+		font-size: 0.8rem; /* Reduce font size */
+		padding: 0.4em; /* Adjust padding */
+	}
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+ 
+  .search-container {
+	display: flex;
+	width: 100%;
+  }
+  #searchInput {
+	width: 100%; /* Ensure full width from the start */
+	box-sizing: border-box; 
+	margin: 0em;
+	padding: 1em;
+  }
+  
+  #searchResults {
+	list-style: none; /* Remove default bullet styling */
+	padding: 0; /* Remove default padding */
+	margin: 0; /* Remove default margin */
+  }
+  
+  #searchResults li {
+	margin-left: 0; /* Left-align list items */
+  }
+
+  .std-icons {
+	list-style: none;
+	display: flex;
+	justify-content: center; /* Center icons horizontally */
+  }
+  
+  .std-icons li {
+	margin: 0 10px; /* Adjust spacing between icons */
+  }
+  
+  .std-icons img {
+	width: 24px; /* Adjust icon size as needed */
+	height: 24px;
+  }</style><script src="/src/js/menu-toggle.js" defer=""></script>
+  </head>
+  <body>
+    <a href="#skip" class="visually-hidden">Skip to main content</a>
+    <header class="container-full bg-light border border-rounded">
+      <a href="/" class="home-link">
+        <img src="/assets/web-icon-2.ico" alt="FlohGro">
+      </a>
+      <nav>
+        <ul class="nav">
+            <li class="nav-item">
+              <a href="/pages/whoami/">whoami</a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/contactme/">contactme</a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/support/">supportme</a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/archive/">archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/search/">search</a>
+            </li>
+        </ul>
+      </nav>
+    </header>
+    <main id="skip">
+      <heading-anchors>
+        
+
+<h1>Draftist &amp;#8211; a Drafts Action Group for Todoist</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2022-05-17">17 May 2022</time></li>
+	<li><a href="/tags/drafts-actions/" class="post-tag">drafts-actions</a></li>
+</ul>
+
+<p>Finally I can launch a project I wanted to do for quite a while. After a few months of work I’m happy to release <strong>Draftist – a Drafts Action Group for integrating Drafts with Todoist</strong>.</p>
+<h2>A bit of background</h2>
+<p>Drafts is one of my most used App on all devices. If I had to pick a favorite app it would be a hard pick between Drafts, Craft and Todoist – luckily I don’t need to 😉</p>
+<p>Drafts made it easy to quickly throw tasks into Todoist without actually opening it which 1) speeds up adding tasks and 2) removed friction since I don’t see anything else but a blank draft when I quickly add tasks.</p>
+<p>I digged deeper into the rabbit hole of automating Todoist with Drafts early to e.g. simply switch labels of tasks or resolve waiting4 items by using the Scripting API of Drafts for Todoist.</p>
+<p>While this was really helpful for myself it always was a bit <em>hacky</em> and put together with a lot of duck tape. This was working fine but what bothered me was that I could not share this with other users since it simply was too complicated to configure and maintain. Additionally I did not document the Actions I built for myself very well which only complicated sharing possibilities.</p>
+<p>Therefore I never shared more complex automations for Todoist with Drafts in the past.</p>
+<p>Earlier this year I decided I want to change this and after the success of Craftist it was only a matter of finding time to built an Action Group for Todoist from the ground up.</p>
+<p>After a few months of work I finally released the first version.</p>
+<h2>What is Draftist</h2>
+<p>Draftist is an Action Group you can download from the action directory of Drafts to install it in your Drafts application.</p>
+<p>It contains a bunch of Actions to integrate Drafts with Todoist – starting from very basic ones to quickly add tasks to your account (with or without settings) to very complex ones like importing of tasks or modifying labels or due dates.</p>
+<p>Since everyone uses Todoist differently I wanted to develop Draftist very flexible to adapt to everyone’s needs by both – keeping it simple to configure and easy to use at the same time.</p>
+<p>I also wanted to make sure I can imorove or add features and fix issues easily. Which is why I created Draftist as a single source file which contains all the necessary functions which is loaded in all the Actions. The <code>Draftist.js</code> file is maintained in the public <a href="https://github.com/FlohGro-dev/Draftist">GitHub repository of Draftist</a> and downloaded by the <code>Draftist Setup/Update</code> Action into the Drafts directory in iCloud Drive.</p>
+<p>Using a single source file and building Actions from those functions allows two things:</p>
+<ol>
+<li>Actions can be duplicated and configured differently very easily</li>
+<li>Experienced Scripting users can actually use the functions I implemented to create extended workflows for their own by just including the <code>Draftist</code> Action into theirs.</li>
+</ol>
+<p>Since Draftist is interacting with the Todoist API and some of the Actions load your project / label names to create tasks in projects or assign labels the Actions require an internet connection. I wanted to prevent endless loading times when users often create Tasks with settings and therefore came up with the solution to store the data of labels, projects and sections (but thats for later) in a file in your iCloud Drive. This is updated once a day by default but you can configure this to be faster or slower. This (massively) speeds up the process and also reduces the amounts of requests Draftist makes to the Todoist API. To ensure the user is always in control you can force a sync of the Todoist data with the <code>update local Todoist data</code> Action (if a user created a new project and wants to immideately use it with Draftist).</p>
+<p>The user defined settings are also stored in a file in your iCloud Drive directory. A nice benefit of this is that the settings (and Todoist data) are synced between your devices via iCloud and users don’t need to do anything about this.</p>
+<h2>What can I do with Draftist</h2>
+<p>Draftist intends to simplify your repeating workflows and remove frictions from processes.</p>
+<p>This starts with a couple of Actions to easily create tasks from a Draft in Todoist. You can quickly note or brainstorm tasks into a Draft and then run an Action to e.g. create a new task for each line in the current draft (either using Todoist quick add syntax or manually selecting the settings for the tasks from prompts).</p>
+<p>Next you can import Tasks into the current Draft – this is possible for simple things like importing the todays tasks, or tasks from a project to more complicated user defined filters.</p>
+<p>I also built a few more complex Actions which let you modify existing tasks. You can update the labels or due dates of tasks you select (Draftist shows the options from a filter in a prompt), resolve or delete tasks and one thing I constantly use is to duplicate tasks with switching a label (e.g. from @waiting4 to @followUP).</p>
+<p>Several Actions in Draftist seem to be duplicates but this is actually intended. Some Actions just present a prompt where you can e.g. type in the tasks you have in mind and send them to Todoist (without creating a new Draft at all) and others allow you to predefined things like a filter which should be used by the action to e.g. always present you the tasks from the filter “today” in a prompt to select tasks.</p>
+<p>The nice thing is, that you can duplicate and rename those Actions without breaking anything and use it with different configurations.</p>
+<p>I recommend you to create your own (blank) Action Group e.g. named “my Draftist” and use the <code>Draftist Action Replicator</code> Action to duplicate the Actions you want into your own Draftist Action Group. There you can then configure and rename them to your preference and the original Draftist Action Group remains untouched.</p>
+<p>I know the setup might seem a bit tricky but really thats the most simple setup I could imagine. To help users remove the initial barriers I plan to record some videos to show you how to setup Draftist and also how to configure and use the Actions. If you have specific usecases which you would like to see or struggle with the setup – please <a href="https://flohgro.com/contactme">let me know</a>.</p>
+<h2>What are the future plans for Draftist</h2>
+<p>This is only the first step for Draftist and I have a few other ideas I can implement for users. I want to support even more specific usecases and probably also integrating / crosslinking with other Third Party apps. I’m also thinking about Actions to create projects / sections.</p>
+<p>I would love to hear your needs which hopefully can be replicated with Draftist. Again – just let me know what you’re up to.</p>
+<p>I hope that Draftist simplyfies and speeds up many of your workflows and helps to remove friction from your processes.</p>
+<p>Let me know what you are thinking 🚀</p>
+<h2>Where to get Draftist</h2>
+<p>You can download the Action Group from the Drafts Action directory: <a href="https://directory.getdrafts.com/g/1wK">Draftist Action Group</a></p>
+<p>The code and also all Action Descriptions and Instructions are hosted in the <a href="https://github.com/FlohGro-dev/Draftist">Draftist GitHub repository</a></p>
+<p>Make sure to run the <code>Draftist Setup/Update</code> Action after downloading the Action Group into your Drafts App.</p>
+
+<ul class="links-nextprev"><li class="links-nextprev-prev">← <a href="/craftist-0-8-was-released-🚀/">Craftist 0.8 was released 🚀</a></li><li class="links-nextprev-next"><a href="/how-i-try-to-conquer-fomo-the-fear-of-missing-out/">How I try to conquer FOMO &amp;#8211; the Fear Of Missing Out</a>  →</li>
+</ul>
+
+      </heading-anchors>
+    </main>
+    <footer>
+      <p>
+        <a href="/rss.xml" target="_blank">
+          <img src="/assets/rssfeed-icon.png" alt="RSS Feed" style="width: 40px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="/feed.json" target="_blank">
+          <img src="/assets/jsonfeed-icon.png" alt="JSON Feed" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="/atom.xml" target="_blank">
+          <img src="/assets/atomfeed-icon.png" alt="Atom Feed" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/11ty-icon.svg" alt="11ty" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="https://people.pledge.party" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/people_pledge_badge_stacked_black_white_125x75.png" alt="11ty" style="width: auto; height: 30px; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <br> <br> &copy; FlohGro 2024
+      </p>
+    </footer>
+    <!-- This page `/draftist-a-drafts-action-group-for-todoist/` was built on 2024-12-30T13:11:11.302Z -->
+    <script type="module" src="/dist/rJ3_G-2ArF.js"></script>
+  </body>
+</html>

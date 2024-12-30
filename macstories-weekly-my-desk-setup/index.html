@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MacStories Weekly &amp;#8211; my Desk Setup</title>
+    <meta name="description" content="I code more than I write.">
+    <meta name="fediverse:creator" content="@flohgro@social.lol">
+    <link rel="alternate" type="application/atom+xml" title="FlohGro Atom Feed" href="https://flohgro.com/general/macstories-weekly-my-desk-setup//atom.xml">
+    <link rel="alternate" type="application/rss+xml" title="FlohGro RSS Feed" href="https://flohgro.com/general/macstories-weekly-my-desk-setup//rss.xml">
+    <link rel="alternate" type="application/json" title="FlohGro JSON Feed" href="https://flohgro.com/general/macstories-weekly-my-desk-setup//feed.json">
+    <meta name="generator" content="Eleventy v3.0.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/web-icon-2-180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/web-icon-2-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/web-icon-2-16.png"> 
+    <link rel="mask-icon" href="/assets/web-icon-2.svg" color="#111118">
+    <meta name="msapplication-TileColor" content="#111118">
+    <meta name="theme-color" content="#111118">
+    <link rel="icon" type="image/x-icon" href="/assets/web-icon-2.ico">
+    <style>/* Importing JetBrains Mono from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+
+/* Defaults */
+:root {
+	--font-family: 'JetBrains Mono', 'Roboto', -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #dad8d8;
+
+	/* --text-color is assigned to --color-gray-_ above */
+	--text-color-link: #1e66f5;
+	--text-color-link-active: #89B4FA;
+	--text-color-link-visited: #89B4FA;/* #1e66f5; /*89B4FA*/
+
+	/* --background-color: #15202b; other #FF6F59*/
+	--background-color: #111118;
+}
+
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: #D9D9D9;
+	/* color: var(--text-color); */
+	background-color: var(--background-color);
+	text-align: justify;
+	word-spacing: 0.1em;
+	max-width: 50em;
+}
+
+/* Exclude justify for all headings */
+h1, h2, h3, h4, h5, h6 {
+	text-align: left; /* Set text alignment to left for headings */
+	word-spacing: normal; /* Optional: Reset word spacing for headings */
+  }
+
+/* Exclude justify for all links */
+a {
+	text-align: left; /* Ensure links are left-aligned */
+	word-spacing: normal; /* Reset word-spacing for links */
+  }
+
+html {
+	overflow-y: scroll;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+/* Fluid images via https://www.zachleat.com/web/fluid-images/ */
+img {
+  max-width: 100%;
+}
+img[width][height] {
+  height: auto;
+}
+img[src$=".svg"] {
+  width: 100%;
+  height: auto;
+  max-width: none;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main,
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	padding: 1rem;
+}
+
+footer p {
+	margin: 0; /* Remove default margin for the paragraph */
+	text-align: center; /* Center the text inside the footer */
+	white-space: nowrap;
+	text-decoration: none;
+	image-rendering: optimizeSpeed;
+	display: inline-block;
+  }
+
+  footer a {
+    display: inline-block; /* Make anchors behave like inline elements with block-level properties */
+    text-decoration: none; 
+}
+
+main :first-child {
+	margin-top: 0;
+}
+
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.container-full {
+	width: 100%;
+	box-sizing: border-box;
+  }
+  
+  .container {
+	width: 100%;
+	max-width: 1200px; /* or your desired max width */
+	margin: 0 auto;
+	padding: 0 1rem;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+  }
+  
+
+.container-sm {
+    width: 100%;
+    max-width: 800px;
+}
+
+.links-nextprev {
+	display: flex;
+	justify-content: space-between;
+	gap: .5em 1em;
+	list-style: "";
+	border-top: 1px solid var(--color-gray-20);
+	padding: 1em 0;
+}
+.links-nextprev > * {
+	flex-grow: 1;
+}
+.links-nextprev-next {
+	text-align: right;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	overflow-x: auto;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	/* gap: 1em .5em; */
+	/* flex-wrap: wrap; */
+	flex-wrap: nowrap; 
+	align-items: center;
+	padding: 1em;
+	justify-content: space-between; /* Place items at the left and right edges */
+	/* max-width: 40em; */
+	/* margin: auto; */
+	width: 100%;
+}
+.home-link {
+	/* display: flex; Ensure the logo and title are inline */
+    align-items: center; /* Center the icon and any text */
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 0.5em;
+	width: 40px;
+	height: 40px;
+	object-fit: cover;
+	float: left;
+	display: bloxk;
+	flex-shrink: 0;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+nav {
+	display: flex;
+	justify-content: space-between; /* Ensure buttons fill the width */
+	width: 100%; /* Stretch navigation across the entire page */
+	margin: 0; /* Remove extra margin */
+	padding: 0; /* Remove extra padding */
+}
+
+/* Navigation list */
+.nav {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: flex;
+	width: 100%; /* Full width */
+	gap: 0.5em; /* Add space between buttons */
+	justify-content: flex-start;
+}
+
+/* Navigation item */
+.nav-item {
+	flex: 1; /* Each item takes equal space */
+}
+
+/* Navigation link */
+.nav-item a {
+	display: flex; /* Make links behave like block elements */
+	/* padding: 0.4em 1em; Adjust padding inside the buttons */
+	border: 2px solid #1e66f5; /* Define a border */
+	border-radius: 2px; /* Add rounded corners */
+	background-color: #111118; /* Button background color */
+	font-size: 1rem; /* Adjust font size */
+	text-decoration: none; /* Remove underline */
+	text-align: center; /* Center text inside the buttons */
+	transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+	box-sizing: border-box; /* Include padding and border in width */
+	white-space: nowrap; /* Prevent text wrapping */
+	height: 40px;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Button hover and active states */
+.nav-item a:hover {
+	background-color: #111118; /* Darker green on hover */
+	color: #D9D9D9; /* Ensure text stays white */
+}
+
+.nav-item a:active {
+	background-color: #D9D9D9; /* Even darker green on click */
+	color: white;
+}
+
+/* Current page button */
+.nav-item a[aria-current="page"] {
+	background-color: #89B4FA; /* Highlight current page */
+	font-weight: bold; /* Optional: Make it visually distinct */
+}
+
+.nav-item a:visited {
+	color: #1e66f5;
+}
+
+
+/* Responsive behavior for smaller screens */
+@media screen and (max-width: 800px) {
+	.nav-item a {
+		font-size: 0.8rem; /* Reduce font size */
+		padding: 0.4em; /* Adjust padding */
+	}
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+ 
+  .search-container {
+	display: flex;
+	width: 100%;
+  }
+  #searchInput {
+	width: 100%; /* Ensure full width from the start */
+	box-sizing: border-box; 
+	margin: 0em;
+	padding: 1em;
+  }
+  
+  #searchResults {
+	list-style: none; /* Remove default bullet styling */
+	padding: 0; /* Remove default padding */
+	margin: 0; /* Remove default margin */
+  }
+  
+  #searchResults li {
+	margin-left: 0; /* Left-align list items */
+  }
+
+  .std-icons {
+	list-style: none;
+	display: flex;
+	justify-content: center; /* Center icons horizontally */
+  }
+  
+  .std-icons li {
+	margin: 0 10px; /* Adjust spacing between icons */
+  }
+  
+  .std-icons img {
+	width: 24px; /* Adjust icon size as needed */
+	height: 24px;
+  }</style><script src="/src/js/menu-toggle.js" defer=""></script>
+  </head>
+  <body>
+    <a href="#skip" class="visually-hidden">Skip to main content</a>
+    <header class="container-full bg-light border border-rounded">
+      <a href="/" class="home-link">
+        <img src="/assets/web-icon-2.ico" alt="FlohGro">
+      </a>
+      <nav>
+        <ul class="nav">
+            <li class="nav-item">
+              <a href="/pages/whoami/">whoami</a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/contactme/">contactme</a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/support/">supportme</a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/archive/">archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/search/">search</a>
+            </li>
+        </ul>
+      </nav>
+    </header>
+    <main id="skip">
+      <heading-anchors>
+        
+
+<h1>MacStories Weekly &amp;#8211; my Desk Setup</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2022-07-09">09 July 2022</time></li>
+	<li><a href="/tags/general/" class="post-tag">general</a></li>
+</ul>
+
+<p>This week I had the opportunity to write about my desk setup on MacStories Weekly.<br>
+Read through the details in my setup below if you’re interested.</p>
+<hr>
+<p><img src="/assets/ReaderSetup-FlohGro-1-BITgQ9yhefYw.png" alt="ReaderSetup-FlohGro-1"></p>
+<p>Hi there ✌️ I’m Floh, a productivity and note-making (read <em>taking</em>) enthusiast and Software Developer from Germany 🇩🇪. I develop software in my day job and during my free time, where my goal is to remove friction from processes and workflows for myself and others.</p>
+<p>My setup evolved quite a bit during the pandemic since this was the first time I had to work from home in my day job. I started with only my Laptop / MacBook on our dining table. But working from home with my wife in the same room distracted us from our work. That’s why I build a new desk setup in our bedroom (right between my part of the closet and our bed).</p>
+<p>We’re tied up in the Windows universe at our jobs but only use Apple products when we work in our free time. The setup relies on Thunderbolt / USB-C and Bluetooth to connect to the peripherals.</p>
+<p>I use my good old 13″ MacBook Pro from 2017, which I bought from the Apple Refurbished Store (Specs: 3.1 GHz Intel Core i5 with 16GB of RAM and 512GB storage). I will switch to Apple Silicon at some point in the future, but I’m pretty happy with it for now.</p>
+<p>The main display is a <a href="https://www.dell.com/en-us/work/shop/ultrasharp-25-usb-c-monitor-u2520d/apd/210-avkg/monitors-monitor-accessories">DELL U2520D</a> with 25″ – I know it could be bigger (read <em>wider</em>) but its enough most of the times. To let my MacBook serve as a secondary display, I wanted to lift it a bit. There are brilliant solutions available, but I haven’t decided how I want to set this up in the future. Right now, I use our <a href="https://www.explodingkittens.com/products/exploding-kittens-original-edition">Exploding Kittens</a> card game to raise it 😄 (this is not a joke, but I hope you’re laughing right now). Don’t judge me for not cleaning my MacBooks screen before taking the photos ☺️</p>
+<p><img src="/assets/ReaderSetup-FlohGro-2-Mw8dQOFRwBSk.png" alt="ReaderSetup-FlohGro-2"></p>
+<p>The <a href="https://www.caldigit.com/ts3-plus/">CalDigit TS3+</a> serves as a dock to connect my MacBook (or other devices) with the peripherals. It connects webcam (<a href="https://www.logitech.com/en-us/products/webcams/c920s-pro-hd-webcam.960-001257.html">Logitech C920s PRO HD</a>), wired Ethernet, display, keyboard, and mouse when they need charging. I also use it to connect external drives for video material.</p>
+<p>Speaking of keyboard and mouse: I use the <a href="https://www.keychron.com/products/keychron-k4-wireless-mechanical-keyboard-version-2?variant=32287344427097">Keychron K4 Version 2</a> (with Gateron Red Switches) and the <a href="https://www.logitech.com/en-us/products/mice/mx-master-3-mac-wireless-mouse.910-005693.html">Logitech MX Master 3 for Mac</a>. I miss both when working with other input devices at work or the MacBook alone.</p>
+<p><img src="/assets/ReaderSetup-FlohGro-3-3RSAKKNncolI.png" alt="ReaderSetup-FlohGro-3"></p>
+<p>I would consider myself a <em>keyboard guy</em> but using the extra buttons of the MX Master is beneficial in many Apps. Assigning app-specific actions or keyboard shortcuts speeds up and simplifies many workflows. I built a wooden wrist raiser by myself that eliminates pain in my wrist when typing a lot.</p>
+<p>Although we have active hobbies (like mountain biking), we would still sit too much at a desk. So we assembled a height-adjustable desk with a <a href="https://www.boho-office.com/products/height-adjustable-desk-frames/basic-line">boho office Basic Line frame</a> and a table plate from IKEA (that I fluffed a bit in the past).</p>
+<p><img src="/assets/ReaderSetup-FlohGro-4-EnCDxZ6skW8M.png" alt="ReaderSetup-FlohGro-4"></p>
+<p>The desk frame allows for storing four positions. Now both of us can save the perfect height for sitting and standing. All cables are tucked away in a cable tray and a slim line down to the bottom. The chair needs some time to get used to, but I like it, and it almost always prevents me from lurking around.</p>
+<p>The last Apple device on my desk is my 9th generation iPad, nothing special here. I use it with Universal Control from time to time but at most for reading and making notes when I’m not at my desk.</p>
+<p><img src="/assets/ReaderSetup-FlohGro-5-hSmlLgeT8ICE.png" alt="ReaderSetup-FlohGro-5"></p>
+<p>While working, I listen to music most of the time, which helps me to focus (my <a href="https://music.apple.com/de/playlist/edmfocus/pl.u-0Ao3UYl8r9e?l=en">edmFocus playlist</a>). I use the original <a href="https://www.libratone.com/us/products/speakers/zipp/">Libratone ZIPP</a> (the one without Alexa built-in), which is sitting next to me. I attached an NFC tag to quickly hand over the playback via Shortcuts (if I’m not using a more complex Shortcut).</p>
+<p>You can also see what I meant writing about the messed-up desk plate in the corner. When I assembled the desk with its associated frame from IKEA, I didn’t read the instructions (who does 🤷🏼‍♂️). I forgot some spacers, the screw pierced the plate, and now I have four stripes of white tape on the back side of the desk to hide those holes 😅.</p>
+<p>My goal with this setup was to have a flexible working space that works with all our devices and looks clean. I’m pretty happy with it so far. This setup supports me with volunteering work, and I enjoy developing scripts, extensions, and workflows for my most used tools (Drafts, Craft, Todoist, and DEVONthink).</p>
+<p>That’s it! If you have any questions about the setup or the tools I created, feel free to ask me in the MacStories Discord or on Twitter.</p>
+
+<ul class="links-nextprev"><li class="links-nextprev-prev">← <a href="/drafts-vivid-black-colored-themes/">Drafts Vivid Black+ Colored Themes</a></li><li class="links-nextprev-next"><a href="/launching-a-raycast-extension-for-drafts/">Launching a Raycast extension for Drafts</a>  →</li>
+</ul>
+
+      </heading-anchors>
+    </main>
+    <footer>
+      <p>
+        <a href="/rss.xml" target="_blank">
+          <img src="/assets/rssfeed-icon.png" alt="RSS Feed" style="width: 40px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="/feed.json" target="_blank">
+          <img src="/assets/jsonfeed-icon.png" alt="JSON Feed" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="/atom.xml" target="_blank">
+          <img src="/assets/atomfeed-icon.png" alt="Atom Feed" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/11ty-icon.svg" alt="11ty" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="https://people.pledge.party" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/people_pledge_badge_stacked_black_white_125x75.png" alt="11ty" style="width: auto; height: 30px; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <br> <br> &copy; FlohGro 2024
+      </p>
+    </footer>
+    <!-- This page `/macstories-weekly-my-desk-setup/` was built on 2024-12-30T13:11:11.306Z -->
+    <script type="module" src="/dist/rJ3_G-2ArF.js"></script>
+  </body>
+</html>

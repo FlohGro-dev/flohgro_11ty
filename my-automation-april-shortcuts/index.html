@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Automation April Shortcuts</title>
+    <meta name="description" content="I code more than I write.">
+    <meta name="fediverse:creator" content="@flohgro@social.lol">
+    <link rel="alternate" type="application/atom+xml" title="FlohGro Atom Feed" href="https://flohgro.com/ios-shortcuts/my-automation-april-shortcuts//atom.xml">
+    <link rel="alternate" type="application/rss+xml" title="FlohGro RSS Feed" href="https://flohgro.com/ios-shortcuts/my-automation-april-shortcuts//rss.xml">
+    <link rel="alternate" type="application/json" title="FlohGro JSON Feed" href="https://flohgro.com/ios-shortcuts/my-automation-april-shortcuts//feed.json">
+    <meta name="generator" content="Eleventy v3.0.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/web-icon-2-180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/web-icon-2-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/web-icon-2-16.png"> 
+    <link rel="mask-icon" href="/assets/web-icon-2.svg" color="#111118">
+    <meta name="msapplication-TileColor" content="#111118">
+    <meta name="theme-color" content="#111118">
+    <link rel="icon" type="image/x-icon" href="/assets/web-icon-2.ico">
+    <style>/* Importing JetBrains Mono from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+
+/* Defaults */
+:root {
+	--font-family: 'JetBrains Mono', 'Roboto', -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #dad8d8;
+
+	/* --text-color is assigned to --color-gray-_ above */
+	--text-color-link: #1e66f5;
+	--text-color-link-active: #89B4FA;
+	--text-color-link-visited: #89B4FA;/* #1e66f5; /*89B4FA*/
+
+	/* --background-color: #15202b; other #FF6F59*/
+	--background-color: #111118;
+}
+
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: #D9D9D9;
+	/* color: var(--text-color); */
+	background-color: var(--background-color);
+	text-align: justify;
+	word-spacing: 0.1em;
+	max-width: 50em;
+}
+
+/* Exclude justify for all headings */
+h1, h2, h3, h4, h5, h6 {
+	text-align: left; /* Set text alignment to left for headings */
+	word-spacing: normal; /* Optional: Reset word spacing for headings */
+  }
+
+/* Exclude justify for all links */
+a {
+	text-align: left; /* Ensure links are left-aligned */
+	word-spacing: normal; /* Reset word-spacing for links */
+  }
+
+html {
+	overflow-y: scroll;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+/* Fluid images via https://www.zachleat.com/web/fluid-images/ */
+img {
+  max-width: 100%;
+}
+img[width][height] {
+  height: auto;
+}
+img[src$=".svg"] {
+  width: 100%;
+  height: auto;
+  max-width: none;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main,
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	padding: 1rem;
+}
+
+footer p {
+	margin: 0; /* Remove default margin for the paragraph */
+	text-align: center; /* Center the text inside the footer */
+	white-space: nowrap;
+	text-decoration: none;
+	image-rendering: optimizeSpeed;
+	display: inline-block;
+  }
+
+  footer a {
+    display: inline-block; /* Make anchors behave like inline elements with block-level properties */
+    text-decoration: none; 
+}
+
+main :first-child {
+	margin-top: 0;
+}
+
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.container-full {
+	width: 100%;
+	box-sizing: border-box;
+  }
+  
+  .container {
+	width: 100%;
+	max-width: 1200px; /* or your desired max width */
+	margin: 0 auto;
+	padding: 0 1rem;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+  }
+  
+
+.container-sm {
+    width: 100%;
+    max-width: 800px;
+}
+
+.links-nextprev {
+	display: flex;
+	justify-content: space-between;
+	gap: .5em 1em;
+	list-style: "";
+	border-top: 1px solid var(--color-gray-20);
+	padding: 1em 0;
+}
+.links-nextprev > * {
+	flex-grow: 1;
+}
+.links-nextprev-next {
+	text-align: right;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	overflow-x: auto;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	/* gap: 1em .5em; */
+	/* flex-wrap: wrap; */
+	flex-wrap: nowrap; 
+	align-items: center;
+	padding: 1em;
+	justify-content: space-between; /* Place items at the left and right edges */
+	/* max-width: 40em; */
+	/* margin: auto; */
+	width: 100%;
+}
+.home-link {
+	/* display: flex; Ensure the logo and title are inline */
+    align-items: center; /* Center the icon and any text */
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 0.5em;
+	width: 40px;
+	height: 40px;
+	object-fit: cover;
+	float: left;
+	display: bloxk;
+	flex-shrink: 0;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+nav {
+	display: flex;
+	justify-content: space-between; /* Ensure buttons fill the width */
+	width: 100%; /* Stretch navigation across the entire page */
+	margin: 0; /* Remove extra margin */
+	padding: 0; /* Remove extra padding */
+}
+
+/* Navigation list */
+.nav {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: flex;
+	width: 100%; /* Full width */
+	gap: 0.5em; /* Add space between buttons */
+	justify-content: flex-start;
+}
+
+/* Navigation item */
+.nav-item {
+	flex: 1; /* Each item takes equal space */
+}
+
+/* Navigation link */
+.nav-item a {
+	display: flex; /* Make links behave like block elements */
+	/* padding: 0.4em 1em; Adjust padding inside the buttons */
+	border: 2px solid #1e66f5; /* Define a border */
+	border-radius: 2px; /* Add rounded corners */
+	background-color: #111118; /* Button background color */
+	font-size: 1rem; /* Adjust font size */
+	text-decoration: none; /* Remove underline */
+	text-align: center; /* Center text inside the buttons */
+	transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+	box-sizing: border-box; /* Include padding and border in width */
+	white-space: nowrap; /* Prevent text wrapping */
+	height: 40px;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Button hover and active states */
+.nav-item a:hover {
+	background-color: #111118; /* Darker green on hover */
+	color: #D9D9D9; /* Ensure text stays white */
+}
+
+.nav-item a:active {
+	background-color: #D9D9D9; /* Even darker green on click */
+	color: white;
+}
+
+/* Current page button */
+.nav-item a[aria-current="page"] {
+	background-color: #89B4FA; /* Highlight current page */
+	font-weight: bold; /* Optional: Make it visually distinct */
+}
+
+.nav-item a:visited {
+	color: #1e66f5;
+}
+
+
+/* Responsive behavior for smaller screens */
+@media screen and (max-width: 800px) {
+	.nav-item a {
+		font-size: 0.8rem; /* Reduce font size */
+		padding: 0.4em; /* Adjust padding */
+	}
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+ 
+  .search-container {
+	display: flex;
+	width: 100%;
+  }
+  #searchInput {
+	width: 100%; /* Ensure full width from the start */
+	box-sizing: border-box; 
+	margin: 0em;
+	padding: 1em;
+  }
+  
+  #searchResults {
+	list-style: none; /* Remove default bullet styling */
+	padding: 0; /* Remove default padding */
+	margin: 0; /* Remove default margin */
+  }
+  
+  #searchResults li {
+	margin-left: 0; /* Left-align list items */
+  }
+
+  .std-icons {
+	list-style: none;
+	display: flex;
+	justify-content: center; /* Center icons horizontally */
+  }
+  
+  .std-icons li {
+	margin: 0 10px; /* Adjust spacing between icons */
+  }
+  
+  .std-icons img {
+	width: 24px; /* Adjust icon size as needed */
+	height: 24px;
+  }</style><script src="/src/js/menu-toggle.js" defer=""></script>
+  </head>
+  <body>
+    <a href="#skip" class="visually-hidden">Skip to main content</a>
+    <header class="container-full bg-light border border-rounded">
+      <a href="/" class="home-link">
+        <img src="/assets/web-icon-2.ico" alt="FlohGro">
+      </a>
+      <nav>
+        <ul class="nav">
+            <li class="nav-item">
+              <a href="/pages/whoami/">whoami</a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/contactme/">contactme</a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/support/">supportme</a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/archive/">archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/search/">search</a>
+            </li>
+        </ul>
+      </nav>
+    </header>
+    <main id="skip">
+      <heading-anchors>
+        
+
+<h1>My Automation April Shortcuts</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2022-04-20">20 April 2022</time></li>
+	<li><a href="/tags/ios-shortcuts/" class="post-tag">ios-shortcuts</a></li>
+</ul>
+
+<p>While Automation April by <a href="www.macstories.net">MacStories</a> is still for another week – the deadline for the <a href="https://www.macstories.net/stories/enter-your-shortcuts-in-the-automation-april-shortcuts-contest/">Automation April Shortcuts Contest</a> is today.<br>
+I want to share the Shortcuts I submitted to the contest with you.</p>
+<p>The first one <em>“BE PRODUCTIVE BOTCUT”</em> is of course productivity related and should help you doing and reflecting on focused working sessions. Additionally It suggests effective breaks you can make during your working day.<br>
+The second shortcut <em>”LinkCut”</em> is an easy to use solution to store and retrieve often used (markdown) links.</p>
+<p>You’ll find the descriptions and the download links below. Let me know if you find them useful.</p>
+<h2>BE PRODUCTIVE BOTCUT</h2>
+<p>BE PRODUCTIVE BOTCUT – a shortcut to support you being productive and make effective breaks.</p>
+<p>This shortcut helps you to do (or to schedule) sessions of focused work, reflect on them, and make effective breaks in between or afterwards.</p>
+<p>I made this shortcut after reading and learning many things about Deep Working. I use it to kick off deep working sessions with no distractions for a limited time. After the session ends I quickly reflect if I achieved what I wanted and then make an effective break to help my brain to relax. This helps me a lot for the next focused work sessions and get the right things done in less time. Also typing the focus task and the reflections into the questions of the shortcuts sets me into the right mood of doing.</p>
+<p>When you run the shortcut you can either choose to start a focus session or directly get inspirations to make an effective break.</p>
+<p>If you choose to start a focus session the shortcut will ask you for the duration and the task you want to complete. The shortcut will run additionally configured shortcuts at the beginning (to e.g. set HomeKit scenes / start time tracking,…) and create a reminder for the end time of your focus session.</p>
+<p>At the end of your session the reminder will notify you – when you open the reminder you can simply click on the link in the reminder (to run the BE PRODUCTIVE BOTCUT) which will start a reflection session for the focus session. The questions for the reflection are customizable for your personal taste. After the reflection you can choose to start a new session, schedule a new session for later, make a break or finish working.</p>
+<p>The reminders created by this shortcut will be marked as complete automatically when you run the shortcut from the links inside the reminders.</p>
+<p>You can just start using the BE PRODUCTIVE BOTCUT without customizing and see if it works for you with the default settings or read through the customization options at the beginning of the shortcut to customize it to your needs.</p>
+<p>During Automation April I combined several Shortcuts I used into this single shortcut and came up with the idea to use dictionaries as inputs to distinguish different actions in a single shortcuts with different input parameters in the dictionary depending on the intended action. Running the Shortcut with those parameters from Reminders does not require any Third-Party apps which I wanted to make it usable for as many people as possible.</p>
+<p>WARNING: When you change the name of the shortcut (or just duplicate it to make your own modifications) you have to adapt the name in the configuration text in user define „5)“</p>
+<p><a href="https://www.icloud.com/shortcuts/7c300009bb0248efa0f2a43f9864412a">GET THE SHORTCUT</a></p>
+<h2>LinkCut</h2>
+<p>LinkCut – a Shortcut to easily store / retrieve often used (markdown) links.</p>
+<p>LinkCut was designed as an easy to use Shortcut to either store or retrieve links in the required format. Links will be stored in the Shortcuts directory of iCloud Drive. This enables usage of LinkCut without any Third Party App and it works right out of the box. Because of iCloud sync you’ll have your stored links available on all your devices.</p>
+<h4>Usage of LinkCut</h4>
+<p>If you share any link via the ShareSheet to this Shortcut (on iOS/iPadOS) you can store this link in the LinkCut directory to quickly retrieve it later (on any of your devices). To store a Link you first need to choose an existing (or create a new) category and give the link a title – this title will also be used as title when you later retrieve it and copy the md url.<br>
+Note: On the Mac you can store links, too. If you run this shortcut on a mac (with no provided input) it will ask you if you want to retrieve or store a link. If you select to store a link, the frontmost webpage in safari will be used – this is working as expected when Safari is the active window – with Safari in the background this could lead to errors out of my control.</p>
+<p>It is totally fine to store a link in two (or more) categories, this is entirely up to you.</p>
+<p>If you run this Shortcut from a widget / the Shortcuts app or a Launcher App without an input, you can select a category and then one or more links from that category.<br>
+LinkCut offers different options to interact with selected links:</p>
+<ul>
+<li>remove them from the store</li>
+<li>open them</li>
+<li>copy the url(s)</li>
+<li>copy the markdown url(s)</li>
+</ul>
+<p>If the Shortcut detects that you either selected an empty category or removed the last link from a category you’ll have the option to delete the category, too.</p>
+<p>LinkCuts interacts only with files in its folder and will ask for permissions to access / store / delete files especially when you use it the first time(s).</p>
+<h3>How LinkCut works</h3>
+<p>Under the hood LinkCut uses markdown files which are stored in the Shortcuts directory of LinkCut at the specified path (below). Each category is represented by a single markdwon file.<br>
+If you want to store (or remove) a lot of links you also can edit the markdown files in the directory and add your markdown formatted links directly into the file.<br>
+Please ensure that you don’t insert empty lines in the file (also not at the end after the last link)</p>
+<p><a href="https://www.icloud.com/shortcuts/ee1a479d5bd442469ffcf9d044eb4416">GET THE SHORTCUT</a></p>
+
+<ul class="links-nextprev"><li class="links-nextprev-prev">← <a href="/raindrop-shortcuts/">Raindrop Shortcuts</a></li><li class="links-nextprev-next"><a href="/experiments-with-shortcuts-for-raindrop/">Experiments with Shortcuts for Raindrops</a>  →</li>
+</ul>
+
+      </heading-anchors>
+    </main>
+    <footer>
+      <p>
+        <a href="/rss.xml" target="_blank">
+          <img src="/assets/rssfeed-icon.png" alt="RSS Feed" style="width: 40px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="/feed.json" target="_blank">
+          <img src="/assets/jsonfeed-icon.png" alt="JSON Feed" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="/atom.xml" target="_blank">
+          <img src="/assets/atomfeed-icon.png" alt="Atom Feed" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/11ty-icon.svg" alt="11ty" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="https://people.pledge.party" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/people_pledge_badge_stacked_black_white_125x75.png" alt="11ty" style="width: auto; height: 30px; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <br> <br> &copy; FlohGro 2024
+      </p>
+    </footer>
+    <!-- This page `/my-automation-april-shortcuts/` was built on 2024-12-30T13:11:11.307Z -->
+    <script type="module" src="/dist/rJ3_G-2ArF.js"></script>
+  </body>
+</html>

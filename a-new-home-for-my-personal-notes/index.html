@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A new Home for my Personal Notes</title>
+    <meta name="description" content="I code more than I write.">
+    <meta name="fediverse:creator" content="@flohgro@social.lol">
+    <link rel="alternate" type="application/atom+xml" title="FlohGro Atom Feed" href="https://flohgro.com/obsidian/a-new-home-for-my-personal-notes//atom.xml">
+    <link rel="alternate" type="application/rss+xml" title="FlohGro RSS Feed" href="https://flohgro.com/obsidian/a-new-home-for-my-personal-notes//rss.xml">
+    <link rel="alternate" type="application/json" title="FlohGro JSON Feed" href="https://flohgro.com/obsidian/a-new-home-for-my-personal-notes//feed.json">
+    <meta name="generator" content="Eleventy v3.0.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/web-icon-2-180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/web-icon-2-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/web-icon-2-16.png"> 
+    <link rel="mask-icon" href="/assets/web-icon-2.svg" color="#111118">
+    <meta name="msapplication-TileColor" content="#111118">
+    <meta name="theme-color" content="#111118">
+    <link rel="icon" type="image/x-icon" href="/assets/web-icon-2.ico">
+    <style>/* Importing JetBrains Mono from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+
+/* Defaults */
+:root {
+	--font-family: 'JetBrains Mono', 'Roboto', -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #dad8d8;
+
+	/* --text-color is assigned to --color-gray-_ above */
+	--text-color-link: #1e66f5;
+	--text-color-link-active: #89B4FA;
+	--text-color-link-visited: #89B4FA;/* #1e66f5; /*89B4FA*/
+
+	/* --background-color: #15202b; other #FF6F59*/
+	--background-color: #111118;
+}
+
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: #D9D9D9;
+	/* color: var(--text-color); */
+	background-color: var(--background-color);
+	text-align: justify;
+	word-spacing: 0.1em;
+	max-width: 50em;
+}
+
+/* Exclude justify for all headings */
+h1, h2, h3, h4, h5, h6 {
+	text-align: left; /* Set text alignment to left for headings */
+	word-spacing: normal; /* Optional: Reset word spacing for headings */
+  }
+
+/* Exclude justify for all links */
+a {
+	text-align: left; /* Ensure links are left-aligned */
+	word-spacing: normal; /* Reset word-spacing for links */
+  }
+
+html {
+	overflow-y: scroll;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+/* Fluid images via https://www.zachleat.com/web/fluid-images/ */
+img {
+  max-width: 100%;
+}
+img[width][height] {
+  height: auto;
+}
+img[src$=".svg"] {
+  width: 100%;
+  height: auto;
+  max-width: none;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main,
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	padding: 1rem;
+}
+
+footer p {
+	margin: 0; /* Remove default margin for the paragraph */
+	text-align: center; /* Center the text inside the footer */
+	white-space: nowrap;
+	text-decoration: none;
+	image-rendering: optimizeSpeed;
+	display: inline-block;
+  }
+
+  footer a {
+    display: inline-block; /* Make anchors behave like inline elements with block-level properties */
+    text-decoration: none; 
+}
+
+main :first-child {
+	margin-top: 0;
+}
+
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.container-full {
+	width: 100%;
+	box-sizing: border-box;
+  }
+  
+  .container {
+	width: 100%;
+	max-width: 1200px; /* or your desired max width */
+	margin: 0 auto;
+	padding: 0 1rem;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+  }
+  
+
+.container-sm {
+    width: 100%;
+    max-width: 800px;
+}
+
+.links-nextprev {
+	display: flex;
+	justify-content: space-between;
+	gap: .5em 1em;
+	list-style: "";
+	border-top: 1px solid var(--color-gray-20);
+	padding: 1em 0;
+}
+.links-nextprev > * {
+	flex-grow: 1;
+}
+.links-nextprev-next {
+	text-align: right;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	overflow-x: auto;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	/* gap: 1em .5em; */
+	/* flex-wrap: wrap; */
+	flex-wrap: nowrap; 
+	align-items: center;
+	padding: 1em;
+	justify-content: space-between; /* Place items at the left and right edges */
+	/* max-width: 40em; */
+	/* margin: auto; */
+	width: 100%;
+}
+.home-link {
+	/* display: flex; Ensure the logo and title are inline */
+    align-items: center; /* Center the icon and any text */
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 0.5em;
+	width: 40px;
+	height: 40px;
+	object-fit: cover;
+	float: left;
+	display: bloxk;
+	flex-shrink: 0;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+nav {
+	display: flex;
+	justify-content: space-between; /* Ensure buttons fill the width */
+	width: 100%; /* Stretch navigation across the entire page */
+	margin: 0; /* Remove extra margin */
+	padding: 0; /* Remove extra padding */
+}
+
+/* Navigation list */
+.nav {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: flex;
+	width: 100%; /* Full width */
+	gap: 0.5em; /* Add space between buttons */
+	justify-content: flex-start;
+}
+
+/* Navigation item */
+.nav-item {
+	flex: 1; /* Each item takes equal space */
+}
+
+/* Navigation link */
+.nav-item a {
+	display: flex; /* Make links behave like block elements */
+	/* padding: 0.4em 1em; Adjust padding inside the buttons */
+	border: 2px solid #1e66f5; /* Define a border */
+	border-radius: 2px; /* Add rounded corners */
+	background-color: #111118; /* Button background color */
+	font-size: 1rem; /* Adjust font size */
+	text-decoration: none; /* Remove underline */
+	text-align: center; /* Center text inside the buttons */
+	transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+	box-sizing: border-box; /* Include padding and border in width */
+	white-space: nowrap; /* Prevent text wrapping */
+	height: 40px;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Button hover and active states */
+.nav-item a:hover {
+	background-color: #111118; /* Darker green on hover */
+	color: #D9D9D9; /* Ensure text stays white */
+}
+
+.nav-item a:active {
+	background-color: #D9D9D9; /* Even darker green on click */
+	color: white;
+}
+
+/* Current page button */
+.nav-item a[aria-current="page"] {
+	background-color: #89B4FA; /* Highlight current page */
+	font-weight: bold; /* Optional: Make it visually distinct */
+}
+
+.nav-item a:visited {
+	color: #1e66f5;
+}
+
+
+/* Responsive behavior for smaller screens */
+@media screen and (max-width: 800px) {
+	.nav-item a {
+		font-size: 0.8rem; /* Reduce font size */
+		padding: 0.4em; /* Adjust padding */
+	}
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+ 
+  .search-container {
+	display: flex;
+	width: 100%;
+  }
+  #searchInput {
+	width: 100%; /* Ensure full width from the start */
+	box-sizing: border-box; 
+	margin: 0em;
+	padding: 1em;
+  }
+  
+  #searchResults {
+	list-style: none; /* Remove default bullet styling */
+	padding: 0; /* Remove default padding */
+	margin: 0; /* Remove default margin */
+  }
+  
+  #searchResults li {
+	margin-left: 0; /* Left-align list items */
+  }
+
+  .std-icons {
+	list-style: none;
+	display: flex;
+	justify-content: center; /* Center icons horizontally */
+  }
+  
+  .std-icons li {
+	margin: 0 10px; /* Adjust spacing between icons */
+  }
+  
+  .std-icons img {
+	width: 24px; /* Adjust icon size as needed */
+	height: 24px;
+  }</style><script src="/src/js/menu-toggle.js" defer=""></script>
+  </head>
+  <body>
+    <a href="#skip" class="visually-hidden">Skip to main content</a>
+    <header class="container-full bg-light border border-rounded">
+      <a href="/" class="home-link">
+        <img src="/assets/web-icon-2.ico" alt="FlohGro">
+      </a>
+      <nav>
+        <ul class="nav">
+            <li class="nav-item">
+              <a href="/pages/whoami/">whoami</a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/contactme/">contactme</a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/support/">supportme</a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/archive/">archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/search/">search</a>
+            </li>
+        </ul>
+      </nav>
+    </header>
+    <main id="skip">
+      <heading-anchors>
+        
+
+<h1>A new Home for my Personal Notes</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2022-10-24">24 October 2022</time></li>
+	<li><a href="/tags/obsidian/" class="post-tag">obsidian</a></li>
+</ul>
+
+<p>Something has changed on my phone – to be precise in the dock of my iPhone. An App I started using nearly two years ago got exchanged and went back to the App Library.</p>
+<p><img src="/assets/5E94FFBC-A0C1-4754-8E57-077FE3-aHqmhtzzBMHp.jpeg" alt=""></p>
+<p>Some of you already seen the <a href="https://twitter.com/flohgro/status/1584472605918400512">Tweet</a> – I moved my notes from Craft to Obsidian a few weeks after the launch of <a href="https://obsidian.md/1.0">Obsidian 1.0</a>. I want to explain a bit why I decided to switch and move my notes to Obsidian.</p>
+<blockquote>
+<p>Disclaimer: I‘m just sharing my personal opinion and „feelings“. This post is just to explain why I switched and not meant to be offending criticism of Craft or the great team behind it.</p>
+</blockquote>
+<p>I‘ll start with the biggest issue in the last months for me: I‘m unhappy with the development path of Craft. They stopped doing what I really loved about the app: Prioritizing native development for iOS and macOS. Honestly I think that the team still is pushing hard to develop the apps there to the limit but there is a clear shift in the last year. After releasing the web-version they also launched the windows version a couple weeks back. This goes also hand-in-hand with the focus on growing the user-base by becoming cross-platform and focusing a lot on business features. A year ago I was excited about each and every update. Like many others I was eagerly waiting for the next update with new features and improvements to the app. I read all details in the <a href="https://www.craft.do/s/gy6m6pUAYiCxqA">What’s New</a> document. Nowadays I‘m not excited anymore, I don‘t read through the whole document and many updates didn‘t bring stuff thats necessary &amp; important for me and my usecases. Actually the latest Update (2.3.7) which iterates tables is interesting and long overdue, but doesn‘t change my general feelings.</p>
+<p>This brings me to my next big issue: The <a href="https://developer.craft.do">Craft eXtensions developer platform</a>. The API got released in the end of last year and the team and many users where very excited (myself included). I started developing my first eXtension and learned a lot during that process. I really enjoyed developing <a href="https://github.com/FlohGro-dev/Craftist">Craftist</a> for Todoist and <a href="https://github.com/FlohGro-dev/Craftcuts">Craftcuts</a> for Shortcuts and got a lot of great feedback (and support). Since then there was no update for the API for stuff which is really necessary. The team made a brave move and started to rethink the API but there was no update on that process since then – also no timeline. So we don‘t know if and when a new version of that API will be released. This is really disappointing for me given the enthusiasm we all had at the beginning. We have no idea when we will be able to add custom features to Craft that we need with powerful eXtensions.</p>
+<p>Kind of related to the API is also the issue for me that awesome native stuff like proper support for Apple Shortcuts with improved Actions for the Craft app are still not implemented. I (and several other users) requested those updates with concrete suggestions several times but also nothing happened on that end since more than a year. Sure Obsidian also doesn‘t offer Shortcuts Actions but the file-based approach enables a lot of automation / integration without native Shortcut Actions.</p>
+<p>Without the PROs of a native first App and due to my personal feelings Obsidian for me is worth the try and probably the better choice: bigger community, powerful API, many available (advanced) plugins and the Obsidian 1.0 release on iOS also changed the experience a lot.</p>
+<p>Additionally of course there is the encrypted sync with zero-knowledge of the obsidian Team which is also a big plus on that end.</p>
+<p>When I tested the exported markdown data from Craft in Obsidian I also noticed that a few things are still Craft specific and needed manual changes which kind of counts against the „Your Data is Yours“ approach from Craft – many links to other notes needed adaptions and all links to daily notes where still in the Craft-specific format. Other than that the switch was pretty easy and I just did everything on my iPhone with the help of Shortcuts (and a lot of processing time :D). If you’re interested in that, let me know and I‘ll maybe do a write-up 🙂</p>
+<p>While I‘m still on the road and traveling I‘ll explore the mobile experience of Obsidian and test it further if it really fits my needs, but until know I‘m pretty happy with it! Of course I have to adapt some of my workflows and automations (looking forward to share them with you) but I adapted a few of them very quickly to work with Obsidian instead of Craft now.</p>
+<p>This switch doesn‘t mean that I will completely stop using Craft – there are some features especially the collaboration and sharing of documents which are simpler than anything else I know and for those I‘ll keep using Craft and move the documents to Obsidian when no collaboration or sharing is needed anymore.</p>
+<p>In the end I just want to say that I really love the Craft community and the people at Craft that I had a few chats with. You‘re doing a great job to care for the community and I‘m sure that its hard to balance all the different requests from users with the product strategy. Special thanks to Tom Norman the community manager! I‘ll hang around with you guys and help where I can 🙂 The Craft eXtensions I built still work and I will maintain them – if there is a new API one day then I need to check how much work it will be to migrate the extensions but thats something for later.</p>
+<p>Thank you for reading 🙌</p>
+
+<ul class="links-nextprev"><li class="links-nextprev-prev">← <a href="/migrating-notes-from-craft-to-obsidian/">Migrating Notes from Craft to Obsidian</a></li><li class="links-nextprev-next"><a href="/draftist-action-group-update-to-migrate-to-new-todoist-rest-api-version/">Draftist Action Group Update to migrate to new Todoist REST API Version</a>  →</li>
+</ul>
+
+      </heading-anchors>
+    </main>
+    <footer>
+      <p>
+        <a href="/rss.xml" target="_blank">
+          <img src="/assets/rssfeed-icon.png" alt="RSS Feed" style="width: 40px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="/feed.json" target="_blank">
+          <img src="/assets/jsonfeed-icon.png" alt="JSON Feed" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="/atom.xml" target="_blank">
+          <img src="/assets/atomfeed-icon.png" alt="Atom Feed" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/11ty-icon.svg" alt="11ty" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="https://people.pledge.party" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/people_pledge_badge_stacked_black_white_125x75.png" alt="11ty" style="width: auto; height: 30px; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <br> <br> &copy; FlohGro 2024
+      </p>
+    </footer>
+    <!-- This page `/a-new-home-for-my-personal-notes/` was built on 2024-12-30T13:11:11.294Z -->
+    <script type="module" src="/dist/rJ3_G-2ArF.js"></script>
+  </body>
+</html>

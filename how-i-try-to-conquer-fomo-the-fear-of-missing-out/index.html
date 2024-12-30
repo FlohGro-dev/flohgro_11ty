@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How I try to conquer FOMO &amp;#8211; the Fear Of Missing Out</title>
+    <meta name="description" content="I code more than I write.">
+    <meta name="fediverse:creator" content="@flohgro@social.lol">
+    <link rel="alternate" type="application/atom+xml" title="FlohGro Atom Feed" href="https://flohgro.com/productivity/how-i-try-to-conquer-fomo-the-fear-of-missing-out//atom.xml">
+    <link rel="alternate" type="application/rss+xml" title="FlohGro RSS Feed" href="https://flohgro.com/productivity/how-i-try-to-conquer-fomo-the-fear-of-missing-out//rss.xml">
+    <link rel="alternate" type="application/json" title="FlohGro JSON Feed" href="https://flohgro.com/productivity/how-i-try-to-conquer-fomo-the-fear-of-missing-out//feed.json">
+    <meta name="generator" content="Eleventy v3.0.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/web-icon-2-180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/web-icon-2-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/web-icon-2-16.png"> 
+    <link rel="mask-icon" href="/assets/web-icon-2.svg" color="#111118">
+    <meta name="msapplication-TileColor" content="#111118">
+    <meta name="theme-color" content="#111118">
+    <link rel="icon" type="image/x-icon" href="/assets/web-icon-2.ico">
+    <style>/* Importing JetBrains Mono from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+
+/* Defaults */
+:root {
+	--font-family: 'JetBrains Mono', 'Roboto', -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #dad8d8;
+
+	/* --text-color is assigned to --color-gray-_ above */
+	--text-color-link: #1e66f5;
+	--text-color-link-active: #89B4FA;
+	--text-color-link-visited: #89B4FA;/* #1e66f5; /*89B4FA*/
+
+	/* --background-color: #15202b; other #FF6F59*/
+	--background-color: #111118;
+}
+
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: #D9D9D9;
+	/* color: var(--text-color); */
+	background-color: var(--background-color);
+	text-align: justify;
+	word-spacing: 0.1em;
+	max-width: 50em;
+}
+
+/* Exclude justify for all headings */
+h1, h2, h3, h4, h5, h6 {
+	text-align: left; /* Set text alignment to left for headings */
+	word-spacing: normal; /* Optional: Reset word spacing for headings */
+  }
+
+/* Exclude justify for all links */
+a {
+	text-align: left; /* Ensure links are left-aligned */
+	word-spacing: normal; /* Reset word-spacing for links */
+  }
+
+html {
+	overflow-y: scroll;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+/* Fluid images via https://www.zachleat.com/web/fluid-images/ */
+img {
+  max-width: 100%;
+}
+img[width][height] {
+  height: auto;
+}
+img[src$=".svg"] {
+  width: 100%;
+  height: auto;
+  max-width: none;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main,
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	padding: 1rem;
+}
+
+footer p {
+	margin: 0; /* Remove default margin for the paragraph */
+	text-align: center; /* Center the text inside the footer */
+	white-space: nowrap;
+	text-decoration: none;
+	image-rendering: optimizeSpeed;
+	display: inline-block;
+  }
+
+  footer a {
+    display: inline-block; /* Make anchors behave like inline elements with block-level properties */
+    text-decoration: none; 
+}
+
+main :first-child {
+	margin-top: 0;
+}
+
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.container-full {
+	width: 100%;
+	box-sizing: border-box;
+  }
+  
+  .container {
+	width: 100%;
+	max-width: 1200px; /* or your desired max width */
+	margin: 0 auto;
+	padding: 0 1rem;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+  }
+  
+
+.container-sm {
+    width: 100%;
+    max-width: 800px;
+}
+
+.links-nextprev {
+	display: flex;
+	justify-content: space-between;
+	gap: .5em 1em;
+	list-style: "";
+	border-top: 1px solid var(--color-gray-20);
+	padding: 1em 0;
+}
+.links-nextprev > * {
+	flex-grow: 1;
+}
+.links-nextprev-next {
+	text-align: right;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	overflow-x: auto;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	/* gap: 1em .5em; */
+	/* flex-wrap: wrap; */
+	flex-wrap: nowrap; 
+	align-items: center;
+	padding: 1em;
+	justify-content: space-between; /* Place items at the left and right edges */
+	/* max-width: 40em; */
+	/* margin: auto; */
+	width: 100%;
+}
+.home-link {
+	/* display: flex; Ensure the logo and title are inline */
+    align-items: center; /* Center the icon and any text */
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 0.5em;
+	width: 40px;
+	height: 40px;
+	object-fit: cover;
+	float: left;
+	display: bloxk;
+	flex-shrink: 0;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+nav {
+	display: flex;
+	justify-content: space-between; /* Ensure buttons fill the width */
+	width: 100%; /* Stretch navigation across the entire page */
+	margin: 0; /* Remove extra margin */
+	padding: 0; /* Remove extra padding */
+}
+
+/* Navigation list */
+.nav {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: flex;
+	width: 100%; /* Full width */
+	gap: 0.5em; /* Add space between buttons */
+	justify-content: flex-start;
+}
+
+/* Navigation item */
+.nav-item {
+	flex: 1; /* Each item takes equal space */
+}
+
+/* Navigation link */
+.nav-item a {
+	display: flex; /* Make links behave like block elements */
+	/* padding: 0.4em 1em; Adjust padding inside the buttons */
+	border: 2px solid #1e66f5; /* Define a border */
+	border-radius: 2px; /* Add rounded corners */
+	background-color: #111118; /* Button background color */
+	font-size: 1rem; /* Adjust font size */
+	text-decoration: none; /* Remove underline */
+	text-align: center; /* Center text inside the buttons */
+	transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+	box-sizing: border-box; /* Include padding and border in width */
+	white-space: nowrap; /* Prevent text wrapping */
+	height: 40px;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Button hover and active states */
+.nav-item a:hover {
+	background-color: #111118; /* Darker green on hover */
+	color: #D9D9D9; /* Ensure text stays white */
+}
+
+.nav-item a:active {
+	background-color: #D9D9D9; /* Even darker green on click */
+	color: white;
+}
+
+/* Current page button */
+.nav-item a[aria-current="page"] {
+	background-color: #89B4FA; /* Highlight current page */
+	font-weight: bold; /* Optional: Make it visually distinct */
+}
+
+.nav-item a:visited {
+	color: #1e66f5;
+}
+
+
+/* Responsive behavior for smaller screens */
+@media screen and (max-width: 800px) {
+	.nav-item a {
+		font-size: 0.8rem; /* Reduce font size */
+		padding: 0.4em; /* Adjust padding */
+	}
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+ 
+  .search-container {
+	display: flex;
+	width: 100%;
+  }
+  #searchInput {
+	width: 100%; /* Ensure full width from the start */
+	box-sizing: border-box; 
+	margin: 0em;
+	padding: 1em;
+  }
+  
+  #searchResults {
+	list-style: none; /* Remove default bullet styling */
+	padding: 0; /* Remove default padding */
+	margin: 0; /* Remove default margin */
+  }
+  
+  #searchResults li {
+	margin-left: 0; /* Left-align list items */
+  }
+
+  .std-icons {
+	list-style: none;
+	display: flex;
+	justify-content: center; /* Center icons horizontally */
+  }
+  
+  .std-icons li {
+	margin: 0 10px; /* Adjust spacing between icons */
+  }
+  
+  .std-icons img {
+	width: 24px; /* Adjust icon size as needed */
+	height: 24px;
+  }</style><script src="/src/js/menu-toggle.js" defer=""></script>
+  </head>
+  <body>
+    <a href="#skip" class="visually-hidden">Skip to main content</a>
+    <header class="container-full bg-light border border-rounded">
+      <a href="/" class="home-link">
+        <img src="/assets/web-icon-2.ico" alt="FlohGro">
+      </a>
+      <nav>
+        <ul class="nav">
+            <li class="nav-item">
+              <a href="/pages/whoami/">whoami</a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/contactme/">contactme</a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/support/">supportme</a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/archive/">archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/search/">search</a>
+            </li>
+        </ul>
+      </nav>
+    </header>
+    <main id="skip">
+      <heading-anchors>
+        
+
+<h1>How I try to conquer FOMO &amp;#8211; the Fear Of Missing Out</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2022-05-06">06 May 2022</time></li>
+	<li><a href="/tags/productivity/" class="post-tag">productivity</a></li>
+</ul>
+
+<p>messages|videos|breaking news|workflows|great ideas|questions|updates|[…] the list goes on and on (and on)</p>
+<p>We are constantly flooded w/ new inputs we try to process to not miss anything important</p>
+<p>In the last months I joined a few great communities like Club MacStories+ by @ClubMacStories | Todoist Experimentalists by @todoist | Tools 4 Thought by @TfTHacker | @craftdocsapp’s Slack, I love the @draftsapp forums and use Twitter more often on a day to day basis</p>
+<p>All these communities are really great and you can get a lot of interesting new inputs – the problem is where (or when) do you stop scrolling or checking your phone?</p>
+<p>I noticed quickly that I check my phone more often when I posted something or release a new version of Craftist or Craftcuts up to a point where it felt unhealthy for me and my productivity</p>
+<p>Thinking about it I stumbled across several ideas – already implement a few of them and I’m still working on it.<br>
+The following unprioritized list helps me to conquer FOMO on a daily basis – not meaning that I solved this problem for myself</p>
+<h2>[1] 🤷🏼‍♂️ ALLOW YOURSELF TO MISS INFORMATION</h2>
+<p>Its impossible to process all information we see. You can’t read / watch / listen to everything. Accept that and allow yourself to miss information. You will be fell less tempted to store everything on endless checklists.</p>
+<h2>[2] ✅ MARK EVERYTHING AS READ (sometimes)</h2>
+<p>Being offline for a bit – the unread counter of your feed may overwhelm you – you may never have the time to dig through all of it. Maybe this is the time to just scroll to the top and mark everything as read.</p>
+<h2>[3] ❌ DON’T READ EVERY ARTICLE IN YOUR FEED(s)</h2>
+<p>If you’re like me you may have many great blogs in your RSS feed. Make sure to don’t open every link. Screening the headlines should be sufficent to decide if this article is relevant and valuable for you or not!</p>
+<h2>[4] 🕵️‍♀️ CHOOSE YOUR SOURCES WISLEY – DO THEY ADD VALUE TO YOUR LIFE?</h2>
+<p>We tend to follow more feeds than we (ever) can read. Reevaluate regularly if a source is still valuable for you – maybe remove it for a week and see if you miss anything.</p>
+<h2>[5] 🤔 ASK WHY YOU’RE READING THIS – YOU’RE ALLOWED TO ABORT IT</h2>
+<p>I often read articles completely even when I asked myself – not even half through it – if if its really meaningful for me. Try to change that and abort reading an article if I don’t like it.</p>
+<h2>[6] 🔀 USE CROSS-READING (SKIMMING)</h2>
+<p>It’s really helpful to cross-read / skim posts. This massively decreases the time you need to find what you’re hoping for in that article or you can skip it faster when nothing really attrackts you.<br>
+Don’t cross-read / skim your most valuable sources!</p>
+<h2>[7] 🏗 CREATE NOT CONSUME</h2>
+<p>We don’t learn while consuming – we learn when we articulate knowledge in our own words. I heard the “CREATE NOT CONSUME” mindset in an episode of the @_focusedfm podcast. How can you integrate the knowledge you read into your own work?</p>
+<h2>[8] 🤝 CREATE RULES</h2>
+<p>This applies to nearly every [point] I’m writing here. Create rules for yourself and try to stick to them. You can limit the unread counters or articles read on each day – just look whats working for you and adapt from time to time if needed.</p>
+<h2>[9] 🧘 USE FOCUS MODES / RESTRICT NOTIFICATIONS</h2>
+<p>Interuptions are the killers of every focused work session. Try focus modes on your devices to restrict notifications in certain contexts. This helps to stay focused on the work that matters for you.</p>
+<h2>[10] 📱 SET SCREEN TIME LIMITS</h2>
+<p>Screen time limits are helpful to reflect on the time you spent in apps. If you set a limit of 30min to an app and iOS will block access – you’ll learn how to use the time more wisely. Stick to the limits as good as you can.</p>
+<h2>[11] 🔕 MUTE THINGS</h2>
+<p>Mute things you don’t want to read anymore. This could be keywords in @tweetbot, a group chat / channel or an “unfollow”. If you don’t see the unread counter you won’t try to read messages / tweets that aren’t valuable for you anyways.</p>
+<h2>[12] 💔 (TRY) TO IGNORE THE LIKE COUNTS</h2>
+<p>We all thrive to get as many likes / reactions / retweets as possible. We want to be liked and hope that our work is valuable for others. We measure it with like counts but is that true?</p>
+<h2>[13] 📵 MAKE YOUR PHONE UNREACHABLE</h2>
+<p>Our phones are a major distraction for focused work and if our mind wanders we are likely to grab it and just check what happened. Don’t have your phone next to you all the time.</p>
+<h2>[14] 💭 THINK IF YOU NEED TO ANSWER (IMMEDIATELY)</h2>
+<p>Instant messaging apps want us to answer immediately to messages / comments. Think before responding to complex requests if it’s necessary to answer immediately or later if you have time.</p>
+<h2>[15] 🫣 DON’T LOOK AT YOUR PHONE OUT OF BOREDOM</h2>
+<p>If you’re bored don’t use your phone to refresh your feeds every 2 minutes. Use it intentionally to create something great 😊</p>
+<h2>[16] ⏯ BE IN THE MOMENT</h2>
+<p>Our time on earth / with friends and family is limited – enjoy the moments with your full presence. Enjoy moments of silence and loneliness in the nature</p>
+
+<ul class="links-nextprev"><li class="links-nextprev-prev">← <a href="/draftist-a-drafts-action-group-for-todoist/">Draftist &amp;#8211; a Drafts Action Group for Todoist</a></li><li class="links-nextprev-next"><a href="/raindrop-shortcuts/">Raindrop Shortcuts</a>  →</li>
+</ul>
+
+      </heading-anchors>
+    </main>
+    <footer>
+      <p>
+        <a href="/rss.xml" target="_blank">
+          <img src="/assets/rssfeed-icon.png" alt="RSS Feed" style="width: 40px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="/feed.json" target="_blank">
+          <img src="/assets/jsonfeed-icon.png" alt="JSON Feed" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="/atom.xml" target="_blank">
+          <img src="/assets/atomfeed-icon.png" alt="Atom Feed" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/11ty-icon.svg" alt="11ty" style="width: 30px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="https://people.pledge.party" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/people_pledge_badge_stacked_black_white_125x75.png" alt="11ty" style="width: auto; height: 30px; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <br> <br> &copy; FlohGro 2024
+      </p>
+    </footer>
+    <!-- This page `/how-i-try-to-conquer-fomo-the-fear-of-missing-out/` was built on 2024-12-30T13:11:11.305Z -->
+    <script type="module" src="/dist/rJ3_G-2ArF.js"></script>
+  </body>
+</html>
