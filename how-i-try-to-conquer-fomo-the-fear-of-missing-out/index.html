@@ -318,7 +318,6 @@ nav {
 	color: #1e66f5;
 }
 
-
 /* Responsive behavior for smaller screens */
 @media screen and (max-width: 800px) {
 	.nav-item a {
@@ -417,8 +416,10 @@ nav {
   }
 
   .std-icons {
+	flex: 1;
 	list-style: none;
 	display: flex;
+	box-sizing: border-box;
 	justify-content: center; /* Center icons horizontally */
   }
   
@@ -429,7 +430,18 @@ nav {
   .std-icons img {
 	width: 24px; /* Adjust icon size as needed */
 	height: 24px;
-  }</style><script src="/src/js/menu-toggle.js" defer=""></script>
+  }
+
+  /* Responsive behavior for smaller screens */
+@media screen and (max-width: 600px) {
+	.std-icons li {
+		margin: 0 5px; /* Adjust spacing between icons */
+	  }
+	.std-icons img {
+		width: 20px; /* Adjust icon size as needed */
+		height: 20px;
+	  }
+}</style><script src="/src/js/menu-toggle.js" defer=""></script>
   </head>
   <body>
     <a href="#skip" class="visually-hidden">Skip to main content</a>
@@ -543,7 +555,7 @@ Don’t cross-read / skim your most valuable sources!</p>
         <br> <br> &copy; FlohGro 2024
       </p>
     </footer>
-    <!-- This page `/how-i-try-to-conquer-fomo-the-fear-of-missing-out/` was built on 2024-12-30T20:40:21.058Z -->
+    <!-- This page `/how-i-try-to-conquer-fomo-the-fear-of-missing-out/` was built on 2024-12-30T21:00:44.306Z -->
     <script type="module" src="/dist/rJ3_G-2ArF.js"></script>
   </body>
 </html>
