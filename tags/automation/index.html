@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts tagged with {{ tag }}</title>
+    <meta name="description" content="I code more than I write.">
+    <meta name="fediverse:creator" content="@flohgro@social.lol">
+    <link rel="alternate" type="application/atom+xml" title="FlohGro Atom Feed" href="https://flohgro.com/atom.xml">
+    <link rel="alternate" type="application/rss+xml" title="FlohGro RSS Feed" href="https://flohgro.com/rss.xml">
+    <link rel="alternate" type="application/json" title="FlohGro JSON Feed" href="https://flohgro.com/feed.json">
+    <meta name="generator" content="Eleventy v3.0.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/11ty_test/assets/icon-180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/11ty_test/assets/icon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/11ty_test/assets/icon-16.png"> 
+    <link rel="mask-icon" href="/11ty_test/assets/icon.svg" color="#111118">
+    <meta name="msapplication-TileColor" content="#111118">
+    <meta name="theme-color" content="#111118">
+    <link rel="icon" type="image/x-icon" href="/11ty_test/assets/icon.ico">
+    <style>/* Importing JetBrains Mono from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+
+/* Defaults */
+:root {
+	--font-family: 'JetBrains Mono', 'Roboto', -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #dad8d8;
+
+	/* --text-color is assigned to --color-gray-_ above */
+	--text-color-link: #1e66f5;
+	--text-color-link-active: #89B4FA;
+	--text-color-link-visited: #89B4FA;/* #1e66f5; /*89B4FA*/
+
+	/* --background-color: #15202b; other #FF6F59*/
+	--background-color: #111118;
+}
+
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: #D9D9D9;
+	/* color: var(--text-color); */
+	background-color: var(--background-color);
+	text-align: justify;
+	word-spacing: 0.1em;
+	max-width: 50em;
+}
+
+/* Exclude justify for all headings */
+h1, h2, h3, h4, h5, h6 {
+	text-align: left; /* Set text alignment to left for headings */
+	word-spacing: normal; /* Optional: Reset word spacing for headings */
+  }
+
+/* Exclude justify for all links */
+a {
+	text-align: left; /* Ensure links are left-aligned */
+	word-spacing: normal; /* Reset word-spacing for links */
+  }
+
+html {
+	overflow-y: scroll;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+/* Fluid images via https://www.zachleat.com/web/fluid-images/ */
+img {
+  max-width: 100%;
+}
+img[width][height] {
+  height: auto;
+}
+img[src$=".svg"] {
+  width: 100%;
+  height: auto;
+  max-width: none;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main,
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	padding: 1rem;
+}
+
+footer p {
+	margin: 0; /* Remove default margin for the paragraph */
+	text-align: center; /* Center the text inside the footer */
+	white-space: nowrap;
+	text-decoration: none;
+	image-rendering: optimizeSpeed;
+	display: inline-block;
+  }
+
+  footer a {
+    display: inline-block; /* Make anchors behave like inline elements with block-level properties */
+    text-decoration: none; 
+}
+
+main :first-child {
+	margin-top: 0;
+}
+
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.container-full {
+	width: 100%;
+	box-sizing: border-box;
+  }
+  
+  .container {
+	width: 100%;
+	max-width: 1200px; /* or your desired max width */
+	margin: 0 auto;
+	padding: 0 1rem;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+  }
+  
+
+.container-sm {
+    width: 100%;
+    max-width: 800px;
+}
+
+.links-nextprev {
+	display: flex;
+	justify-content: space-between;
+	gap: .5em 1em;
+	list-style: "";
+	border-top: 1px solid var(--color-gray-20);
+	padding: 1em 0;
+}
+.links-nextprev > * {
+	flex-grow: 1;
+}
+.links-nextprev-next {
+	text-align: right;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	overflow-x: auto;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	/* gap: 1em .5em; */
+	/* flex-wrap: wrap; */
+	flex-wrap: nowrap; 
+	align-items: center;
+	padding: 1em;
+	justify-content: space-between; /* Place items at the left and right edges */
+	/* max-width: 40em; */
+	/* margin: auto; */
+	width: 100%;
+}
+.home-link {
+	/* display: flex; Ensure the logo and title are inline */
+    align-items: center; /* Center the icon and any text */
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 0.5em;
+	width: 40px;
+	height: 40px;
+	object-fit: cover;
+	float: left;
+	display: bloxk;
+	flex-shrink: 0;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+nav {
+	display: flex;
+	justify-content: space-between; /* Ensure buttons fill the width */
+	width: 100%; /* Stretch navigation across the entire page */
+	margin: 0; /* Remove extra margin */
+	padding: 0; /* Remove extra padding */
+}
+
+/* Navigation list */
+.nav {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: flex;
+	width: 100%; /* Full width */
+	gap: 0.5em; /* Add space between buttons */
+	justify-content: flex-start;
+}
+
+/* Navigation item */
+.nav-item {
+	flex: 1; /* Each item takes equal space */
+}
+
+/* Navigation link */
+.nav-item a {
+	display: flex; /* Make links behave like block elements */
+	/* padding: 0.4em 1em; Adjust padding inside the buttons */
+	border: 2px solid #1e66f5; /* Define a border */
+	border-radius: 2px; /* Add rounded corners */
+	background-color: #111118; /* Button background color */
+	font-size: clamp(0.75rem, 2vw, 1rem); /* Font size adjusts dynamically */
+	/*font-size: 1rem; /* Adjust font size */
+	text-decoration: none; /* Remove underline */
+	text-align: center; /* Center text inside the buttons */
+	transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+	box-sizing: border-box; /* Include padding and border in width */
+	white-space: nowrap; /* Prevent text wrapping */
+	height: 40px;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Button hover and active states */
+.nav-item a:hover {
+	background-color: #111118; /* Darker green on hover */
+	color: #D9D9D9; /* Ensure text stays white */
+}
+
+.nav-item a:active {
+	background-color: #D9D9D9; /* Even darker green on click */
+	color: white;
+}
+
+/* Current page button */
+.nav-item a[aria-current="page"] {
+	background-color: #89B4FA; /* Highlight current page */
+	font-weight: bold; /* Optional: Make it visually distinct */
+}
+
+.nav-item a:visited {
+	color: #1e66f5;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+ 
+  .search-container {
+	display: flex;
+	width: 100%;
+  }
+  #searchInput {
+	width: 100%; /* Ensure full width from the start */
+	box-sizing: border-box; 
+	margin: 0em;
+	padding: 1em;
+  }
+  
+  #searchResults {
+	list-style: none; /* Remove default bullet styling */
+	padding: 0; /* Remove default padding */
+	margin: 0; /* Remove default margin */
+  }
+  
+  #searchResults li {
+	margin-left: 0; /* Left-align list items */
+  }
+  .std-icons {
+    display: flex;
+    /*flex-wrap: wrap; Allow icons to wrap to the next line if needed */
+    justify-content: center; /* Center icons horizontally */
+    /* gap: 10px; Add gap between icons */
+	padding: 10px 0; /* Add vertical padding for consistent spacing */
+    list-style: none;
+    padding: 0;
+    margin: 0 auto; /* Center the entire list */
+    box-sizing: border-box;
+	align-items: center;
+}
+
+.std-icons li {
+    flex: 0 1 26px; /* Each icon container will have a max width of 26px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	margin: 0 10px; /* Add horizontal margin between icons */
+}
+
+.std-icons img {
+    width: 100%; /* Scale the icon size to the li container */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 26px; /* Define the maximum icon size */
+    max-height: 26px;
+}
+
+/* Responsive behavior for smaller screens */
+@media screen and (max-width: 600px) {    
+    .std-icons img {
+        max-width: 100%; /* Allow icons to resize based on container */
+    }
+}
+
+.support-buttons {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    align-items: center; /* Center buttons vertically */
+    gap: clamp(10px, 4vw, 20px); /* Dynamic gap between buttons, responsive */
+    margin: 10px 0; /* Margin above and below the buttons */
+    flex-wrap: nowrap; /* Allow buttons to wrap on smaller screens */
+}
+
+.support-buttons a {
+    display: block;
+    height: 50px; /* Set height for consistent button size */
+    flex-shrink: 1; 
+	flex-grow: 1; 
+    width: auto; /* Width based on image aspect ratio */
+}
+
+.support-buttons img {
+    height: 100%; /* Ensure the image fills the height */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Maintain image scaling without distortion */
+}</style><script src="/src/js/menu-toggle.js" defer=""></script>
+  </head>
+  <body>
+    <a href="#skip" class="visually-hidden">Skip to main content</a>
+    <header class="container-full bg-light border border-rounded">
+      <a href="/11ty_test/" class="home-link">
+        <img src="/11ty_test/assets/icon.ico" alt="FlohGro">
+      </a>
+      <nav>
+        <ul class="nav">
+            <li class="nav-item">
+              <a href="/11ty_test/pages/whoami/">whoami</a>
+            </li>
+            <li class="nav-item">
+              <a href="/11ty_test/pages/contactme/">contactme</a>
+            </li>
+            <li class="nav-item">
+              <a href="/11ty_test/pages/support/">supportme</a>
+            </li>
+            <li class="nav-item">
+              <a href="/11ty_test/pages/archive/">archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/11ty_test/pages/search/">search</a>
+            </li>
+        </ul>
+      </nav>
+    </header>
+    <main id="skip">
+      <heading-anchors>
+        
+<hr>
+
+<ul class="std-icons">
+    
+        <li>
+            <a href="https://social.lol/@flohgro" target="_blank">
+                <img src="/11ty_test/assets/icons/mastodon-icon.svg" alt="Mastodon"></a>
+        </li>
+    
+        <li>
+            <a href="https://bsky.app/profile/flohgro.bsky.social" target="_blank">
+                <img src="/11ty_test/assets/icons/bluesky-icon.png" alt="Bluesky"></a>
+        </li>
+    
+        <li>
+            <a href="https://github.com/FlohGro-dev" target="_blank">
+                <img src="/11ty_test/assets/icons/github-icon.svg" alt="GitHub"></a>
+        </li>
+    
+        <li>
+            <a href="https://flohgro.omg.lol" target="_blank">
+                <img src="/11ty_test/assets/icons/omglol-icon.svg" alt="omg.lol"></a>
+        </li>
+    
+        <li>
+            <a href="https://buymeacoffee.com/flohgro" target="_blank">
+                <img src="/11ty_test/assets/icons/bmac-icon.png" alt="Buy ma a coffee"></a>
+        </li>
+    
+        <li>
+            <a href="https://ko-fi.com/flohgro" target="_blank">
+                <img src="/11ty_test/assets/icons/kofi-icon.svg" alt="ko-fi"></a>
+        </li>
+    
+        <li>
+            <a href="https://patreon.com/flohgro" target="_blank">
+                <img src="/11ty_test/assets/icons/patreon-icon.svg" alt="patreon"></a>
+        </li>
+    
+        <li>
+            <a href="/rss" target="_blank">
+                <img src="/11ty_test/assets/icons/rssfeed-icon.png" alt="rss"></a>
+        </li>
+    
+        <li>
+            <a href="https://forums.getdrafts.com/u/flohgro/summary" target="_blank">
+                <img src="/11ty_test/assets/icons/drafts-icon.png" alt="drafts forum"></a>
+        </li>
+    
+        <li>
+            <a href="mailto:hi@flohgro.com" target="_blank">
+                <img src="/11ty_test/assets/icons/mail-icon.png" alt="e-mail"></a>
+        </li>
+    
+</ul>
+
+<hr>
+<h1>Posts tagged "automation"</h1>
+<ul>
+    
+    
+        <li>
+            <a href="/automating-readwise-highlights-import-into-drafts/">Automating Readwise Highlights Import into Drafts</a>
+            (2024-05-29)
+        </li>
+    
+</ul>
+<!-- Add subtle footer with link to "All Tags" -->
+<div style="margin-top: 2rem; font-size: 0.9em; color: #666;">
+    <p>
+        Looking for more tags? Visit the
+        <a href="/11ty_test/tags">All Tags</a>
+        page.
+    </p>
+</div>
+      </heading-anchors>
+    </main>
+    <footer>
+      <p>
+        <a href="/11ty_test/rss.xml" target="_blank">
+          <img src="/11ty_test/assets/icons/rssfeed-icon.png" alt="RSS Feed" style="width: 35px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="/11ty_test/feed.json" target="_blank">
+          <img src="/11ty_test/assets/icons/jsonfeed-icon.png" alt="JSON Feed" style="width: 25px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="/11ty_test/atom.xml" target="_blank">
+          <img src="/11ty_test/assets/icons/atomfeed-icon.png" alt="Atom Feed" style="width: 25px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">
+          <img src="/11ty_test/assets/icons/11ty-icon.svg" alt="11ty" style="width: 25px; height: auto; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <a href="https://people.pledge.party" target="_blank" rel="noopener noreferrer">
+          <img src="/11ty_test/assets/icons/people_pledge_badge_stacked_black_white_125x75.png" alt="11ty" style="width: auto; height: 25px; vertical-align: middle; margin-right: 5px;">
+        </a>
+        <br> <br> &copy; FlohGro 2024
+      </p>
+    </footer>
+    <!-- This page `/tags/automation/` was built on 2024-12-31T00:33:07.185Z -->
+    <script type="module" src="/dist/rJ3_G-2ArF.js"></script>
+  </body>
+</html>
