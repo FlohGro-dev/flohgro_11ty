@@ -11,5 +11,5 @@ eleventyNavigation:
 ## archive of all posts
 
 {% for post in collections.posts %}
-  - [{{ post.data.title }}]({{ post.url }}) - {{ post.data.date | isoDate }}
+  - [{{ post.data.title }}]({{ baseUrl }}{{ post.url }}) - {{ post.data.date | isoDate }}
 {% endfor %}
