@@ -1,4 +1,4 @@
----
+<hr>
 
 <ul class="std-icons">
     {% for link in stdLinks.stdLinks %}
@@ -9,4 +9,4 @@
     {% endfor %}
 </ul>
 
----
+<hr>
