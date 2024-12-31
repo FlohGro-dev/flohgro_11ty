@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ metadata.title }} - {{ title }}</title>
+    <title>{{ metadata.title }}
+      {% if title %}
+        - {{ title }}
+      {% endif %}
+    </title>
     <meta name="description" content="{{ description or metadata.description }}">
     <meta name="fediverse:creator" content="@flohgro@social.lol"/>
     <link rel="alternate" type="application/atom+xml" title="{{ metadata.title }} Atom Feed" href="{{ metadata.url }}/atom.xml">
