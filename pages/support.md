@@ -1,8 +1,8 @@
 ---
 layout: layouts/base
-title: supportme
+title: say thanks
 eleventyNavigation: 
-    key: supportme
+    key: say thanks
     order: 3
 ---
 
