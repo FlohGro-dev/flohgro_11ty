@@ -174,7 +174,6 @@ export default function (eleventyConfig) {
                 });
             }
         });
-        console.log("Collected Tags: ", Array.from(tags));
         return Array.from(tags);
     });
 
@@ -206,7 +205,6 @@ export default function (eleventyConfig) {
             }
             return acc;
         }, {});
-        console.log(Object.keys(tagMap));
         let pages = [];
         for (let tag in tagMap) {
             pages.push({
