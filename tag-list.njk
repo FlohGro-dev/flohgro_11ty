@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+title: "All Tags"
+permalink: "/tags/"
+---
+
+{% include "std-icons.md" %}
+<h1>All Tags</h1>
+<ul>
+    {% if collections.tagslist and collections.tagslist.length > 0 %}
+        {% for tag in collections.tagslist %}
+            <li>
+                <a href="{{ site.baseUrl }}/tags/{{ tag | slug }}">{{ tag }}</a>
+            </li>
+        {% endfor %}
+    {% else %}
+        <li>No tags available.</li>
+    {% endif %}
+</ul>

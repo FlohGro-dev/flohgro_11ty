@@ -1,0 +1,29 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+permalink: /tags/{{ tag }}/
+layout: layouts/base.njk
+title: "Posts tagged with {{ tag }}"
+---
+
+{% include "std-icons.md" %}
+<h1>Posts tagged "{{ tag }}"</h1>
+<ul>
+    {% set taglist = collections[ tag ] %}
+    {% for post in taglist | reverse %}
+        <li>
+            <a href="{{ post.url }}">{{ post.data.title }}</a>
+            ({{ post.data.date | isoDate }})
+        </li>
+    {% endfor %}
+</ul>
+<!-- Add subtle footer with link to "All Tags" -->
+<div style="margin-top: 2rem; font-size: 0.9em; color: #666;">
+    <p>
+        Looking for more tags? Visit the
+        <a href="{{ site.baseUrl }}/tags">All Tags</a>
+        page.
+    </p>
+</div>

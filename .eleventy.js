@@ -161,6 +161,66 @@ export default function (eleventyConfig) {
         }
     });
 
+    // Collect tags from all posts
+    eleventyConfig.addCollection("tags", function (collectionApi) {
+        let tags = {};
+        collectionApi.getAll().forEach(function (item) {
+            if (item.data.tags) {
+                item.data.tags.forEach(tag => {
+                    if (!tags[tag]) {
+                        tags[tag] = [];
+                    }
+                    tags[tag].push(item);
+                });
+            }
+        });
+        console.log("Collected Tags: ", Array.from(tags));
+        return Array.from(tags);
+    });
+
+
+    eleventyConfig.addCollection("tagslist", function (collectionApi) {
+        let tags = new Set();
+        collectionApi.getAll().forEach(function (item) {
+            if (item.data.tags) {
+                item.data.tags.forEach(tag => {
+                    tags.add(tag); // Add unique tags
+                });
+            }
+        });
+        let tagsArray = Array.from(tags);
+        tagsArray.splice(tagsArray.indexOf("post"), 1);
+        return tagsArray.sort();
+    });
+
+    // Create the tag pages dynamically
+    eleventyConfig.addCollection("tagPages", function (collectionApi) {
+        let tagMap = collectionApi.getAll().reduce((acc, post) => {
+            if (post.data.tags) {
+                post.data.tags.forEach(tag => {
+                    if (!acc[tag]) {
+                        acc[tag] = [];
+                    }
+                    acc[tag].push(post);
+                });
+            }
+            return acc;
+        }, {});
+        console.log(Object.keys(tagMap));
+        let pages = [];
+        for (let tag in tagMap) {
+            pages.push({
+                outputPath: `/tags/${tag}/index.html`,
+                templateData: {
+                    tag: tag,
+                    posts: tagMap[tag]
+                }
+            });
+        }
+
+        return pages;
+    });
+
     return {
         dir: {
             input: ".",            // Use the root directory as input
