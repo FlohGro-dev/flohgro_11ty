@@ -262,7 +262,7 @@ nav {
 
 /* Navigation link */
 .nav-item a {
-	display: flex; /* Make links behave like block elements */
+	display: flex; 
 	/* padding: 0.4em 1em; Adjust padding inside the buttons */
 	border: 2px solid #1e66f5; /* Define a border */
 	border-radius: 2px; /* Add rounded corners */
@@ -377,6 +377,8 @@ nav {
 	box-sizing: border-box; 
 	margin: 0em;
 	padding: 1em;
+	background-color: #111118;
+	border-radius: 10px;
   }
   
   #searchResults {
@@ -390,9 +392,7 @@ nav {
   }
   .std-icons {
     display: flex;
-    /*flex-wrap: wrap; Allow icons to wrap to the next line if needed */
     justify-content: center; /* Center icons horizontally */
-    /* gap: 10px; Add gap between icons */
 	padding: 10px 0; /* Add vertical padding for consistent spacing */
     list-style: none;
     padding: 0;
