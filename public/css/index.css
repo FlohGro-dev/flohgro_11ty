@@ -271,7 +271,6 @@ nav {
 	border: 2px solid #1e66f5; /* Define a border */
 	border-radius: 2px; /* Add rounded corners */
 	background-color: #111118; /* Button background color */
-	font-size: clamp(0.6rem, 2vw, 1rem); /* Font size adjusts dynamically */
 	text-decoration: none; /* Remove underline */
 	text-align: center; /* Center text inside the buttons */
 	transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
@@ -279,7 +278,7 @@ nav {
 	height: 40px;
 	justify-content: center;
 	align-items: center;
-	font-size: clamp(0.6rem, 2vw, 3rem); /* Adjust dynamically for buttons */
+	font-size: clamp(0.6rem, 2vw, 1.2rem); /* Adjust dynamically for buttons */
 }
 
 /* Button hover and active states */
