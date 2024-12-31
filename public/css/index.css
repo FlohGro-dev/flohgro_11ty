@@ -381,6 +381,8 @@ nav {
 	padding: 1em;
 	background-color: #111118;
 	border-radius: 10px;
+	color: #D9D9D9;
+	font-size: clamp(16px, 2vw, 18px);
   }
   
   #searchResults {
