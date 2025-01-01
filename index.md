@@ -1,5 +1,5 @@
 ---
-layout: layouts/home
+layout: layouts/base
 ---
 
 {% include "std-icons.md" %}
