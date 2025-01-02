@@ -459,9 +459,9 @@ nav {
 	margin: 0em;
 	padding: 1em;
 	background-color: #111118;
-	border-radius: 10px;
+	border-radius: 2px;
 	color: #D9D9D9;
-	font-size: clamp(16px, 2vw, 18px);
+	font-size: clamp(14px, 2vw, 18px);
 }
 
 #searchResults {
