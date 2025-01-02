@@ -1,8 +1,8 @@
 ---
 layout: layouts/base
-title: say thanks
+title: saythanks
 eleventyNavigation: 
-    key: say thanks
+    key: saythanks
     order: 3
 ---
 

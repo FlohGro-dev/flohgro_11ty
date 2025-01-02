@@ -1,8 +1,8 @@
 ---
 layout: layouts/base
-title: contact me
+title: contactme
 eleventyNavigation: 
-    key: contact me
+    key: contactme
     order: 2
 ---
 
