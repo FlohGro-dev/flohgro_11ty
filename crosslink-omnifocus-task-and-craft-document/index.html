@@ -79,8 +79,8 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	/* Set text alignment to left for headings */
 	text-align: left;
-	/* Optional: Reset word spacing for headings */
 	word-spacing: normal;
+	color: #89B4FA;
 }
 
 /* Exclude justify for all links */
@@ -453,7 +453,7 @@ nav {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	text-transform: capitalize;
+	text-transform: lowercase;
 	font-style: italic;
 }
 
@@ -667,16 +667,23 @@ nav {
 </ul>
 
 <hr>
-
-
-    <h1>
-crosslink Omnifocus task and Craft document
+<h1>
+    crosslink Omnifocus task and Craft document
 </h1>
-    <ul class="post-metadata"> <li>
+<ul class="post-metadata">
+    <li>
         <time datetime="2022-02-28">28 February 2022</time>
     </li>
         <li>
-            <a href="/11ty_test/tags/drafts-actions/" class="post-tag">drafts-actions</a>
+            <a href="/11ty_test/tags/drafts-actions/" class="post-tag">drafts-actions</a>,
+            
+        </li>
+        <li>
+            <a href="/11ty_test/tags/craft/" class="post-tag">craft</a>,
+            
+        </li>
+        <li>
+            <a href="/11ty_test/tags/omnifocus/" class="post-tag">omnifocus</a>
         </li>
 </ul>
 <p>This action will create a cross-linked Task between Omnifocus and a Craft document.</p>
@@ -689,7 +696,7 @@ crosslink Omnifocus task and Craft document
 The action uses Drafts possibility to store <a href="https://docs.getdrafts.com/docs/settings/credentials">credentials</a> to distinguish different spaces. When you duplicate the action for another space you have to change the name of the credential. Therefore you need edit this line <code>const spaceIdCredentialName = &quot;CraftDocumentSpace&quot;</code> in the script step of the action and change the <code>CraftDocumentSpace</code> to something different (e.g. describe the space in a suffix like „CraftDocumentSpacePersonal” or „CraftDocumentSpaceWork“. If you use several of my Craft actions you should use the same credential name in all of them.</p>
 <h2>[Usage]</h2>
 <p>Use this action to create a cross-linked task / document between your task manager and Craft. If you e.g. took some notes during a meeting or while reading a book / blog in Drafts which you need to review or complete later – just run this action. It will help you to quickly navigate between the task and the document without seeing distracting other content.</p>
-<p><a href="https://directory.getdrafts.com/a/1lZ">GET THE ACTION</a></p>
+<p>➡️ <a href="https://directory.getdrafts.com/a/1lZ">GET THE ACTION</a></p>
 
         <ul class="links-nextprev">
                 <li class="links-nextprev-prev">←
@@ -724,4 +731,4 @@ The action uses Drafts possibility to store <a href="https://docs.getdrafts.com/
       </p>
     </footer></body>
   
-</html><p></p><!-- This page `/crosslink-omnifocus-task-and-craft-document/` was built on 2025-01-02T19:51:33.144Z --><script type="module" src="/dist/rJ3_G-2ArF.js"></script>
+</html><p></p><!-- This page `/crosslink-omnifocus-task-and-craft-document/` was built on 2025-01-02T20:56:05.082Z --><script type="module" src="/dist/rJ3_G-2ArF.js"></script>

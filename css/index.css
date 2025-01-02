@@ -51,8 +51,8 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	/* Set text alignment to left for headings */
 	text-align: left;
-	/* Optional: Reset word spacing for headings */
 	word-spacing: normal;
+	color: #89B4FA;
 }
 
 /* Exclude justify for all links */
@@ -425,7 +425,7 @@ nav {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	text-transform: capitalize;
+	text-transform: lowercase;
 	font-style: italic;
 }
 

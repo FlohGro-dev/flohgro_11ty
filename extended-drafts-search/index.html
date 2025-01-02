@@ -79,8 +79,8 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	/* Set text alignment to left for headings */
 	text-align: left;
-	/* Optional: Reset word spacing for headings */
 	word-spacing: normal;
+	color: #89B4FA;
 }
 
 /* Exclude justify for all links */
@@ -453,7 +453,7 @@ nav {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	text-transform: capitalize;
+	text-transform: lowercase;
 	font-style: italic;
 }
 
@@ -667,16 +667,19 @@ nav {
 </ul>
 
 <hr>
-
-
-    <h1>
-extended drafts search
+<h1>
+    extended drafts search
 </h1>
-    <ul class="post-metadata"> <li>
+<ul class="post-metadata">
+    <li>
         <time datetime="2022-02-28">28 February 2022</time>
     </li>
         <li>
-            <a href="/11ty_test/tags/drafts-actions/" class="post-tag">drafts-actions</a>
+            <a href="/11ty_test/tags/drafts-actions/" class="post-tag">drafts-actions</a>,
+            
+        </li>
+        <li>
+            <a href="/11ty_test/tags/drafts/" class="post-tag">drafts</a>
         </li>
 </ul>
 <p>This actions gives you some options to search through your drafts library which are not possible with the standard search or the quick search view.</p>
@@ -691,7 +694,7 @@ extended drafts search
 <p>You can just use the action as it is. If you don’t need one of the search types you can modify this line <code>const searchTypes = [&quot;in titles&quot;, &quot;in content&quot;, &quot;as regex&quot;, &quot;in tags&quot;];</code> and just remove e.g. „<em>“as regex”,</em>“ from the list.</p>
 <h2>[Usage]</h2>
 <p>Just run the action anytime you want to search in you drafts library. It will display a prompt where you can type your query and then press the button to select the type of your search. If the resulting prompt shows the draft you searched for just select it and it will be opened. If you didn’t found what you searched for just „cancel“ the draft selection prompt and the action will ask you if you want to perform another search.</p>
-<p><a href="https://directory.getdrafts.com/a/11Y">GET THE ACTION</a></p>
+<p>➡️ <a href="https://directory.getdrafts.com/a/11Y">GET THE ACTION</a></p>
 
         <ul class="links-nextprev">
                 <li class="links-nextprev-prev">←
@@ -726,4 +729,4 @@ extended drafts search
       </p>
     </footer></body>
   
-</html><p></p><!-- This page `/extended-drafts-search/` was built on 2025-01-02T19:51:33.148Z --><script type="module" src="/dist/rJ3_G-2ArF.js"></script>
+</html><p></p><!-- This page `/extended-drafts-search/` was built on 2025-01-02T20:56:05.087Z --><script type="module" src="/dist/rJ3_G-2ArF.js"></script>

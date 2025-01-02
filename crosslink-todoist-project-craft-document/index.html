@@ -79,8 +79,8 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	/* Set text alignment to left for headings */
 	text-align: left;
-	/* Optional: Reset word spacing for headings */
 	word-spacing: normal;
+	color: #89B4FA;
 }
 
 /* Exclude justify for all links */
@@ -453,7 +453,7 @@ nav {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	text-transform: capitalize;
+	text-transform: lowercase;
 	font-style: italic;
 }
 
@@ -667,16 +667,23 @@ nav {
 </ul>
 
 <hr>
-
-
-    <h1>
-crosslink Todoist project &amp;#038; Craft document
+<h1>
+    crosslink Todoist project &amp;#038; Craft document
 </h1>
-    <ul class="post-metadata"> <li>
+<ul class="post-metadata">
+    <li>
         <time datetime="2022-02-28">28 February 2022</time>
     </li>
         <li>
-            <a href="/11ty_test/tags/drafts-actions/" class="post-tag">drafts-actions</a>
+            <a href="/11ty_test/tags/drafts-actions/" class="post-tag">drafts-actions</a>,
+            
+        </li>
+        <li>
+            <a href="/11ty_test/tags/craft/" class="post-tag">craft</a>,
+            
+        </li>
+        <li>
+            <a href="/11ty_test/tags/todoist/" class="post-tag">todoist</a>
         </li>
 </ul>
 <p>This action will create a cross-linked project between Todoist and Craft.</p>
@@ -702,7 +709,7 @@ The action uses Drafts possibility to store <a href="https://docs.getdrafts.com/
 <p>The prompt will appear and you can use either the content of the current draft as the project name or just type a new name.</p>
 <p>The action will then create the project in Todoist, retrieve its id and create a new craft document (eventually with your configured template) and link that project in the document. Then the action will create an uncompletable task in the new Todoist project containing a clickable link to the project document in Craft.</p>
 <p><em>note: the Craft document will actually contain two links to Todoist. The name of the project will be a link which can be used on mobile (iOS / iPadOS) to directly open the project in the Todoist app. the „Webview“ link is necessary for macOS since the mobile url is not working properly on the Mac.</em></p>
-<p><a href="https://directory.getdrafts.com/a/1sk">GET THE ACTION</a></p>
+<p>➡️ <a href="https://directory.getdrafts.com/a/1sk">GET THE ACTION</a></p>
 
         <ul class="links-nextprev">
                 <li class="links-nextprev-prev">←
@@ -737,4 +744,4 @@ The action uses Drafts possibility to store <a href="https://docs.getdrafts.com/
       </p>
     </footer></body>
   
-</html><p></p><!-- This page `/crosslink-todoist-project-craft-document/` was built on 2025-01-02T19:51:33.145Z --><script type="module" src="/dist/rJ3_G-2ArF.js"></script>
+</html><p></p><!-- This page `/crosslink-todoist-project-craft-document/` was built on 2025-01-02T20:56:05.083Z --><script type="module" src="/dist/rJ3_G-2ArF.js"></script>
