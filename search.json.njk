@@ -5,8 +5,7 @@ eleventyExcludeFromCollections: true
 
 [{%- for post in collections.post -%}{
       "title": {{ post.data.title | jsonify | safe }},
-      "url": {{ site.baseUrl }}
-      {{ post.url | jsonify | safe }},
+      "url": {{ post.url | jsonify | safe }},
       "content": {{ post.templateContent | striptags | trim | jsonify | safe }}
     }
     {%- if not loop.last -%},{%- endif -%}{%- endfor -%}]
