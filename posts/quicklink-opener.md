@@ -17,6 +17,7 @@ metadata:
   url: https://flohgro.com/drafts-actions/quicklink-opener/
 tags:
   - drafts-actions
+  - drafts
 ---
 Opening the same link(s) over and over again on different platforms can be annoying if you always have to type them or you need to rely on bookmarks or other apps.
 
@@ -26,4 +27,4 @@ Of course I created a Drafts action to solve this problem for me. **QuickLink Op
 
 When I want to open one of the configured links I just hit the action and select the category + url that I want to open. I immediately added the action to my Drafts widget in the Today View on iOS – to get really easy access to it.
 
-[GET THE ACTION](https://directory.getdrafts.com/a/2Qo)
+➡️ [GET THE ACTION](https://directory.getdrafts.com/a/2Qo)

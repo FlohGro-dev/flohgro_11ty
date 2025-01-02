@@ -16,6 +16,8 @@ metadata:
   url: https://flohgro.com/craftist/craftist-0-8-was-released-%f0%9f%9a%80/
 tags:
   - craftist
+  - craft
+  - todoist
 ---
 My Craft eXtension for Todoist just got better 👍️
 

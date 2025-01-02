@@ -19,6 +19,8 @@ metadata:
   url: https://flohgro.com/drafts-actions/crosslink-things-task-craft-document/
 tags:
   - drafts-actions
+  - craft
+  - things
 ---
 This action will create a cross-linked Task between Things and a Craft document.
 
@@ -39,4 +41,4 @@ The action uses Drafts possibility to store [credentials](https://docs.getdrafts
 
 Use this action to create a cross-linked task / document between your task manager and Craft. If you e.g. took some notes during a meeting or while reading a book / blog in Drafts which you need to review or complete later – just run this action. It will help you to quickly navigate between the task and the document without seeing distracting other content.
 
-[GET THE ACTION](https://directory.getdrafts.com/a/1k7)
+➡️ [GET THE ACTION](https://directory.getdrafts.com/a/1k7)

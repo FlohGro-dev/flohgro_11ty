@@ -17,6 +17,7 @@ metadata:
   url: https://flohgro.com/drafts-actions/dictate-multilingual/
 tags:
   - drafts-actions
+  - drafts
 ---
 This action allows to start dictating for different languages. This is really useful if you e.g. want to dictate in your native language and sometimes in english.
 
@@ -69,4 +70,4 @@ If you can’t find your language (or your variation) in the array, you can e.g.
 
 Just run this action whenever you want to dictate a note to Drafts. You can add a keyboard shortcut to speed this up or e.g. add this action to a Drafts Widget on your homescreen.
 
-[GET THE ACTION](https://directory.getdrafts.com/a/1lJ)
+➡️ [GET THE ACTION](https://directory.getdrafts.com/a/1lJ)

@@ -17,6 +17,7 @@ metadata:
   url: https://flohgro.com/drafts-actions/prepend-draft-to-craft-note-with-date/
 tags:
   - drafts-actions
+  - craft
 ---
 This action prepends the content of the current draft to a selectable document in one of your Craft spaces. The current date will be prefixed before the content.
 
@@ -30,12 +31,12 @@ the first time you run the action, it will create a new draft titled “Append /
 
 Now you can configure to which Craft documents the action can append/prepend:
 
--   Open the Document / Page you want to add to the Menu of this action in the Craft app.
--   click the three dots in the upper right corner and select “Share & Export”, scroll down and click “Copy Markdown Deeplink”
--   In Drafts, open the draft “Append / Prepend to Craft Action Configuration” and paste that Markdown Deeplink into it (I’d recommend a bullet list for each page / document, however **it’s absolutely necessary to have a new line for each item** which should appear in the menu).
--   Repeat this for each Craft document / page you are likely to append/prepend content to
--   To test your set up, create a new Draft and run the Append / Prepend action. You should see a menu of the Craft documents in your configuration. Select the Craft document to append/prepend the content and that’s it!
--   note: if you want to add contents to a block you should create this block as a subpage or add content into it in Craft first to make sure that this works
+- Open the Document / Page you want to add to the Menu of this action in the Craft app.
+- click the three dots in the upper right corner and select “Share & Export”, scroll down and click “Copy Markdown Deeplink”
+- In Drafts, open the draft “Append / Prepend to Craft Action Configuration” and paste that Markdown Deeplink into it (I’d recommend a bullet list for each page / document, however **it’s absolutely necessary to have a new line for each item** which should appear in the menu).
+- Repeat this for each Craft document / page you are likely to append/prepend content to
+- To test your set up, create a new Draft and run the Append / Prepend action. You should see a menu of the Craft documents in your configuration. Select the Craft document to append/prepend the content and that’s it!
+- note: if you want to add contents to a block you should create this block as a subpage or add content into it in Craft first to make sure that this works
 
 Here is a small example to illustrate how a configuration Draft could look like:
 
@@ -60,4 +61,4 @@ If you want to have different destinations in craft for those actions or e.g. wa
 
 This action supports you for many different use cases. You can e.g. append / prepend notes and thoughts to a list of gift ideas, a list of places you want to visit or a list of things you are grateful for. You can also create a document in Craft for regular meetings you have and add things you want to mention in the meetings to this document by using this action.
 
-[GET THE ACTION](https://actions.getdrafts.com/a/1ko)
+➡️ [GET THE ACTION](https://actions.getdrafts.com/a/1ko)

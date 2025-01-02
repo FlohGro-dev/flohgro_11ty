@@ -17,6 +17,7 @@ metadata:
   url: https://flohgro.com/drafts-actions/search-craft/
 tags:
   - drafts-actions
+  - craft
 ---
 With this action you can open the search in Craft prefilled with the content of the current draft in a configurable space
 
@@ -31,4 +32,4 @@ The action uses Drafts possibility to store [credentials](https://docs.getdrafts
 
 Use this action to search for the content of the current draft in the configured space.
 
-[GET THE ACTION](https://directory.getdrafts.com/a/1jL)
+➡️ [GET THE ACTION](https://directory.getdrafts.com/a/1jL)

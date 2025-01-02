@@ -20,6 +20,8 @@ metadata:
     https://flohgro.com/drafts-actions/draftist-action-group-update-to-migrate-to-new-todoist-rest-api-version/
 tags:
   - drafts-actions
+  - drafts
+  - todoist
 ---
 I updated Draftist an Action Group to integrate Drafts with Todoist with many options to configure it to users needs.
 

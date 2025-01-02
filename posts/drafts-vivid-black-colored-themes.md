@@ -17,6 +17,7 @@ metadata:
   url: https://flohgro.com/drafts/drafts-vivid-black-colored-themes/
 tags:
   - drafts
+  - drafts-themes
 ---
 I took some time to adapt @agiletortoise’s “Vivid Dark+” theme to my personal needs and taste.
 
@@ -36,10 +37,10 @@ To easily distinguish between different workspaces I use in Drafts I created sev
     
 You can view and download the different themes from the Drafts directory:
 
--   [Yellow](https://directory.getdrafts.com/t/2Db)
--   [Blue](https://directory.getdrafts.com/t/2Dc)
--   [Green](https://directory.getdrafts.com/t/2Da)
--   [Red](https://directory.getdrafts.com/t/2Dd)
--   [Purple](https://directory.getdrafts.com/t/2De)
+- [Yellow](https://directory.getdrafts.com/t/2Db)
+- [Blue](https://directory.getdrafts.com/t/2Dc)
+- [Green](https://directory.getdrafts.com/t/2Da)
+- [Red](https://directory.getdrafts.com/t/2Dd)
+- [Purple](https://directory.getdrafts.com/t/2De)
 
 Let me know if you would like to have other highlight colors or simply use the Online [Theme Builder](https://tools.getdrafts.com/themes/theme-builder) of Drafts to modify it to your needs

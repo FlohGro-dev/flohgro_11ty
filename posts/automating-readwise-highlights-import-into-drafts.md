@@ -21,6 +21,10 @@ metadata:
     https://flohgro.com/automation/automating-readwise-highlights-import-into-drafts/
 tags:
   - automation
+  - drafts
+  - drafts-actions
+  - readwise
+  - shortcuts
 ---
 Using Shortcuts and a Drafts Action you can automate the import of highlights from Readwise Reader into Drafts once a day.
 

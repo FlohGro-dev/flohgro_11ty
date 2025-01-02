@@ -17,6 +17,8 @@ metadata:
   url: https://flohgro.com/obsidian/migrating-notes-from-craft-to-obsidian/
 tags:
   - obsidian
+  - craft
+  - obsidian
 ---
 **TL;DR What you need to do:**  
 – export all documents  

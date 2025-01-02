@@ -17,6 +17,7 @@ metadata:
   url: https://flohgro.com/ios-shortcuts/get-craft-date-link-for-today/
 tags:
   - ios-shortcuts
+  - craft
 ---
 This shortcut just creates a link to the todays note for Craft and outputs it.  
 It’s useful to integrate in other shortcuts with a “Run Shortcut” action where you want to have the todays date in a text.

@@ -16,6 +16,7 @@ metadata:
   url: https://flohgro.com/drafts-actions/fantastic-event-parser/
 tags:
   - drafts-actions
+  - drafts
 ---
 I extended the awesome _Fantastically Good Event Parser_ by @pdavisonreiber (original [Drafts forum post](https://forums.getdrafts.com/t/fantastically-good-event-parser/1745?u=flohgro) and [action](https://actions.getdrafts.com/a/1Lk)) to allow the users more control over the actually created event.
 

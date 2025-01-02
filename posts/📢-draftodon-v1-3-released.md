@@ -17,6 +17,8 @@ metadata:
   url: https://flohgro.com/drafts-actions/%f0%9f%93%a2-draftodon-v1-3-released/
 tags:
   - drafts-actions
+  - drafts
+  - mastodon
 ---
 I just released a new version for Draftodon – my Drafts Action Group for Mastodon.
 

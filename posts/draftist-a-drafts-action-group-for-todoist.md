@@ -20,6 +20,8 @@ metadata:
     https://flohgro.com/drafts-actions/draftist-a-drafts-action-group-for-todoist/
 tags:
   - drafts-actions
+  - drafts
+  - todoist
 ---
 Finally I can launch a project I wanted to do for quite a while. After a few months of work I’m happy to release **Draftist – a Drafts Action Group for integrating Drafts with Todoist**.
 

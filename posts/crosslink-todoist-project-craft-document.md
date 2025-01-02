@@ -19,6 +19,8 @@ metadata:
   url: https://flohgro.com/drafts-actions/crosslink-todoist-project-craft-document/
 tags:
   - drafts-actions
+  - craft
+  - todoist
 ---
 This action will create a cross-linked project between Todoist and Craft.
 
@@ -65,4 +67,4 @@ The action will then create the project in Todoist, retrieve its id and create a
 
 _note: the Craft document will actually contain two links to Todoist. The name of the project will be a link which can be used on mobile (iOS / iPadOS) to directly open the project in the Todoist app. the „Webview“ link is necessary for macOS since the mobile url is not working properly on the Mac._
 
-[GET THE ACTION](https://directory.getdrafts.com/a/1sk)
+➡️ [GET THE ACTION](https://directory.getdrafts.com/a/1sk)

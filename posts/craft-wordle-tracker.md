@@ -16,6 +16,7 @@ metadata:
   url: https://flohgro.com/ios-shortcuts/craft-wordle-tracker/
 tags:
   - ios-shortcuts
+  - craft
 ---
 This shortcut is for the [Wordle](https://www.nytimes.com/games/wordle/index.html) players out there who want to keep track of their stats and the solution words in Craft – plus share their solving statistic with someone.  
 It is based on on [@viticci](https://twitter.com/viticci)‘s [WordleBot Shortcut](https://www.macstories.net/ios/wordlebot-1-1-now-fully-accessible-with-native-emoji-to-image-conversion/) – so full credits to him 🙂

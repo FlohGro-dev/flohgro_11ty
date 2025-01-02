@@ -17,6 +17,7 @@ metadata:
   url: https://flohgro.com/drafts-actions/add-to-list/
 tags:
   - drafts-actions
+  - drafts
 ---
 This action adds the content of the current draft to the list draft you select in a prompt. The content will be added after a checkbox. You can also create a list for a new topic from the prompt.
 
@@ -30,4 +31,4 @@ After you configured the action you can add the content of the current open draf
 
 To quickly open one of your lists check out the [Show List](https://flohgro.com/web/drafts-actions/show-list/) action
 
-[GET THE ACTION](https://directory.getdrafts.com/a/1Vz)
+➡️ [GET THE ACTION](https://directory.getdrafts.com/a/1Vz)

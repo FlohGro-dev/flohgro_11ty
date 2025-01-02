@@ -17,6 +17,8 @@ metadata:
   url: https://flohgro.com/ios-shortcuts/add-text-input-to-todays-note/
 tags:
   - ios-shortcuts
+  - craft
+  - craft-daily-notes
 ---
 This shortcut adds the provided (text) input to the todays note in Craft.
 

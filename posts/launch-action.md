@@ -17,6 +17,7 @@ metadata:
   url: https://flohgro.com/drafts-actions/launch-action/
 tags:
   - drafts-actions
+  - drafts
 ---
 This action can be used as a launcher of Actions from an ActionGroup in Drafts.
 
@@ -40,4 +41,4 @@ Use this Action to quickly launch an action from a specific Action Group or all 
 
 You can assign it to a keyboard shortcut or add it to an action bar.
 
-[GET THE ACTION](https://directory.getdrafts.com/a/1nW)
+➡️ [GET THE ACTION](https://directory.getdrafts.com/a/1nW)

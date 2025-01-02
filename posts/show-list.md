@@ -17,6 +17,7 @@ metadata:
   url: https://flohgro.com/drafts-actions/show-list/
 tags:
   - drafts-actions
+  - drafts
 ---
 This action queries all your drafts for a specific tag and presents their titles in a prompt. The selected draft will be loaded into the editor
 
@@ -30,4 +31,4 @@ After you configured the action you can use it to quickly open your most used li
 
 If you want to add Text to a list you can look at the [Add to List](https://flohgro.com/web/drafts-actions/add-to-list/) Action.
 
-[GET THE ACTION](https://directory.getdrafts.com/a/1Uv)
+➡️ [GET THE ACTION](https://directory.getdrafts.com/a/1Uv)

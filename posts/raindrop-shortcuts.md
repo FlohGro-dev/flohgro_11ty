@@ -17,17 +17,18 @@ metadata:
   url: https://flohgro.com/ios-shortcuts/raindrop-shortcuts/
 tags:
   - ios-shortcuts
+  - raindrop
 ---
 Over the past weeks I used [Raindrop](raindro.io) to read and highlight articles. I build a Shortcuts to quickly retrieve the highlights of the latest document in my account and also a few ones to quickly add links via the Share Sheet.  
 You can find the download links and descriptions below.  
 All shortcuts require an API token for your account which you can create following these steps:
 
--   go into the web app of Raindrop
--   Navigate to the Settings
--   Select Integrations
--   Scroll to the bottom and click on the “For Developers” section
--   create a new App
--   generate the token you can paste into the Shortcuts
+- go into the web app of Raindrop
+- Navigate to the Settings
+- Select Integrations
+- Scroll to the bottom and click on the “For Developers” section
+- create a new App
+- generate the token you can paste into the Shortcuts
 
 ## import highlights
 
@@ -37,10 +38,10 @@ This Shortcut retrieves the raindrop highlights from the most recently highlight
 The imported highlights are indented depending on the color in Raindrop to enable you to make structured highlights using different colors for different indentation levels in the markdown export. This makes it obsolete to reformat highlights in the exports after sharing them to your preferred app.  
 The indentation level is created based on the colors in raindrop (from left to right):
 
--   yellow: 0
--   blue: 1 (=4 spaces)
--   green: 2 (=8 spaces)
--   red: 3 (=12 spaces)
+- yellow: 0
+- blue: 1 (=4 spaces)
+- green: 2 (=8 spaces)
+- red: 3 (=12 spaces)
 
 [GET THE SHORTCUT](https://www.icloud.com/shortcuts/257f09c1e64c4702b3571d51390872e3)
 

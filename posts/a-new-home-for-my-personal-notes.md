@@ -17,6 +17,7 @@ metadata:
   url: https://flohgro.com/obsidian/a-new-home-for-my-personal-notes/
 tags:
   - obsidian
+  - craft
 ---
 Something has changed on my phone – to be precise in the dock of my iPhone. An App I started using nearly two years ago got exchanged and went back to the App Library.
 

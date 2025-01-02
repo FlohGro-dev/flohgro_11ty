@@ -18,6 +18,8 @@ metadata:
   url: https://flohgro.com/raycast/launching-a-raycast-extension-for-drafts/
 tags:
   - raycast
+  - drafts
+  - raycast
 ---
 If you want to jump right into it – use this button to install the extension from the Raycast store.
 
@@ -75,11 +77,11 @@ Open the dictation interface in Drafts to quickly create a new Draft from dictat
 
 This is a helper command to easily create additional Raycast Quicklinks to perform the following actions:
 
--   create a draft
--   open the quicksearch in Drafts
--   search in the drafts list
--   search in the Action list
--   capture text with Drafts capture window
--   open the dictation window
+- create a draft
+- open the quicksearch in Drafts
+- search in the drafts list
+- search in the Action list
+- capture text with Drafts capture window
+- open the dictation window
 
 If you want to provide some feedback, find any issues or have additional requests just reply below or reach out to me on [Twitter](https://twitter.com/FlohGro) or via [e-mail](mailto:hi@flohgro.com)

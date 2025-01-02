@@ -63,10 +63,10 @@ It is totally fine to store a link in two (or more) categories, this is entirely
 If you run this Shortcut from a widget / the Shortcuts app or a Launcher App without an input, you can select a category and then one or more links from that category.  
 LinkCut offers different options to interact with selected links:
 
--   remove them from the store
--   open them
--   copy the url(s)
--   copy the markdown url(s)
+- remove them from the store
+- open them
+- copy the url(s)
+- copy the markdown url(s)
 
 If the Shortcut detects that you either selected an empty category or removed the last link from a category you’ll have the option to delete the category, too.
 

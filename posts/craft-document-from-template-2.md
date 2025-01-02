@@ -17,6 +17,7 @@ metadata:
   url: https://flohgro.com/ios-shortcuts/craft-document-from-template-2/
 tags:
   - ios-shortcuts
+  - craft
 ---
 This shortcut creates a new document in Craft from a configured (markdown) template.
 

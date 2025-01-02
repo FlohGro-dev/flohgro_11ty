@@ -1,5 +1,5 @@
 ---
-title: Draftodon &#8211; a Drafts Action Group for Mastodon
+title: Draftodon - a Drafts Action Group for Mastodon
 authors:
   - name: flohgro
     url: http://flohgro.com/web
@@ -17,6 +17,7 @@ metadata:
   url: https://flohgro.com/drafts/draftodon-a-drafts-action-group-for-mastodon/
 tags:
   - drafts
+  - mastodon
 ---
 Along with many others I significantly reduced my usage of Twitter recently and switchted my activities to the shiny “new” Mastodon. You can find me at [@FlohGro](https://social.lol/@flohgro) on [social.lol](https://social.lol) if you want to follow me.
 
@@ -44,9 +45,9 @@ I hope Draftodon is a helpful tool for you and speeds up many of your workflows 
 
 Whats next? I have a few requests that I’ll be working on:
 
--   integrate an Action that allows you to reply to other posts (refer to [this action](https://directory.getdrafts.com/a/2GG))
--   cover issues with authentication (sometimes Drafts is not authenticated properly but a credential will be creadet which needs a manual reset)
--   improve parts of the documentation (more prominently mention that the template tag names must not be changed)
--   find an easy solution to use Draftodon with mulitple accounts
+- integrate an Action that allows you to reply to other posts (refer to [this action](https://directory.getdrafts.com/a/2GG))
+- cover issues with authentication (sometimes Drafts is not authenticated properly but a credential will be creadet which needs a manual reset)
+- improve parts of the documentation (more prominently mention that the template tag names must not be changed)
+- find an easy solution to use Draftodon with mulitple accounts
 
 If you like the Action Group I would appreciate if you share that you’re using it on Mastodon, boost my posts about it (e.g. launch of [Draftodon 1.1](https://social.lol/@flohgro/109857674459597077)) and consider to support my work by [donating](https://flohgro.com/donate)

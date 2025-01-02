@@ -17,6 +17,7 @@ metadata:
   url: https://flohgro.com/drafts-actions/create-todoist-task-with-description/
 tags:
   - drafts-actions
+  - todoist
 ---
 This action creates a task in Todoist with a description.
 
@@ -34,4 +35,4 @@ _no configuration needed_
 
 If you noted a quick tasks e.g. on the go into Drafts you can provide some details (later) to it and run this action to quickly create a task in the inbox of your todoist account.
 
-[GET THE ACTION](https://directory.getdrafts.com/a/1wH)
+➡️ [GET THE ACTION](https://directory.getdrafts.com/a/1wH)

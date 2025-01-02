@@ -425,7 +425,7 @@ nav {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	text-transform: capitalize;
+	text-transform: lowercase;
 	font-style: italic;
 }
 

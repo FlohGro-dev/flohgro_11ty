@@ -16,6 +16,7 @@ metadata:
   url: https://flohgro.com/drafts/catppuccin-drafts-themes/
 tags:
   - drafts
+  - drafts-themes
 ---
 I took some time to create some [Drafts](https://getdrafts.com) themes inspired by [Catppuccin](https://catppuccin.com). I already enjoy using the Mocha theme in VS Code so it was only a matter of time to finally create one for my favorite app.
 

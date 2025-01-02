@@ -19,6 +19,8 @@ metadata:
     https://flohgro.com/drafts-actions/add-daily-note-template-to-craft-daily-note/
 tags:
   - drafts-actions
+  - craft-templates
+  - craft
 ---
 This action is designed to add a template to the body of todays Daily Note in Craft
 
@@ -34,8 +36,8 @@ Before you can use this action you have to configure it with your Daily Note tem
 
 To configure this action correctly you need to do two things:
 
--   setup a template draft
--   insert the UUID of the template draft into this action
+- setup a template draft
+- insert the UUID of the template draft into this action
 
 #### Setup of the Template Draft
 
@@ -84,6 +86,6 @@ If you want to include running this action into something like a „morning rout
 
 ### Known Issues
 
--   if you create your daily note on one of your devices (e.g. your iPhone) and Craft did not sync on another device (e.g. your iPad) and you run the action again, you will see two daily notes next to each other. This is a known issue at Craft → don’t run the action on two different devices on the same day (which does not make sense anyways)
+- if you create your daily note on one of your devices (e.g. your iPhone) and Craft did not sync on another device (e.g. your iPad) and you run the action again, you will see two daily notes next to each other. This is a known issue at Craft → don’t run the action on two different devices on the same day (which does not make sense anyways)
 
-[GET THE ACTION](https://directory.getdrafts.com/a/1ri)
+➡️ [GET THE ACTION](https://directory.getdrafts.com/a/1ri)

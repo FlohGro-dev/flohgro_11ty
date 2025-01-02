@@ -16,6 +16,7 @@ metadata:
   url: https://flohgro.com/drafts-actions/process-drafts-in-inbox/
 tags:
   - drafts-actions
+  - drafts
 ---
 This action can be used to quickly sort out your INBOX workspace.
 
@@ -55,4 +56,4 @@ I recommend to keep the line `['skip', ''],` inside the action to enable you to 
 
 Drafts is my main INBOX for everything text related. Whether its a link from a webpage, a quick thought, a task or any other note I want to save. I want to stay Inbox Zero and that’s where this action speeds the things up a lot. I just run it and I can decide just with the title of the draft what needs to be done with it (e.g. push it to the todoist inbox, bookmark the link in DEVONthink and so on). The actions I select to run on the draft will actually be executed after the „process Drafts in INBOX“ action one after the other.
 
-[GET THE ACTION](https://directory.getdrafts.com/a/1ch)
+➡️ [GET THE ACTION](https://directory.getdrafts.com/a/1ch)

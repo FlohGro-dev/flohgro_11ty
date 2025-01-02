@@ -17,6 +17,7 @@ metadata:
   url: https://flohgro.com/drafts-actions/bookmark-to-devonthink/
 tags:
   - drafts-actions
+  - devonthink
 ---
 This action lets you add bookmarks to DEVONthink on the Mac / DEVONthink To Go on i(Pad)OS.
 
@@ -32,9 +33,9 @@ It will search the current draft for markdown formatted urls e.g.:
 
 Depending on how many URLs are available in the draft the action will either
 
--   bookmark the only existing markdown URL to DEVONthink
--   display a prompt if multiple URLs are present in the draft – you can select by the given title which URL should be bookmarked.
--   the prompt will allow you to bookmark all available URLs in the draft to DEVONthink, too
+- bookmark the only existing markdown URL to DEVONthink
+- display a prompt if multiple URLs are present in the draft – you can select by the given title which URL should be bookmarked.
+- the prompt will allow you to bookmark all available URLs in the draft to DEVONthink, too
 
 The action automatically detects if you use this action on the Mac or an iOS device to ensure it calls the correct URL scheme for DEVONthink / DTTG
 
@@ -48,4 +49,4 @@ _no configuration needed_
 
 run this action whenever you want to bookmark a (markdown) URL from a draft to DEVONthink.
 
-[GET THE ACTION](https://directory.getdrafts.com/a/18n)
+➡️ [GET THE ACTION](https://directory.getdrafts.com/a/18n)

@@ -17,6 +17,7 @@ metadata:
   url: https://flohgro.com/drafts-actions/craft-document-from-template/
 tags:
   - drafts-actions
+  - craft
 ---
 This action creates documents in Craft from templates stored in Drafts.
 
@@ -32,15 +33,15 @@ If you want to add a template to your Daily Note – use the [add Daily Note Tem
 
 Before you can use the action you have to configure it to your needs as follows.
 
--   **template tags:** you have to configure the tags which your templates should include (the action will only display these drafts in the menu)
--   therefore you have to edit the script step of the action
--   in line 4 `const templateTags = ["3 template", "3 sw craft"];` you will see the constant „templateTags“
-    -   this constant defines the tags which identify your craft template drafts. Please add them as comma-separated-strings into the array.
-    -   feel free to delete the standard configuration of `"3 template", "3 sw craft"`
-    -   make sure to at at least one tag into the array
--   _\[optional\]_ **template omit tags:** you can configure tags which should not be included in the drafts found by this action
--   e.g. you have configured your templateTags to “3 template”, “3 sw craft“, but you have other drafts with the tag „todo“ which should be ignored by this action
--   add these tags into the empty array of the constant „templateOmitTags“ in line 7 `const templateOmitTags = [];` and the corresponding drafts containing this tag will be ignored by this action
+- **template tags:** you have to configure the tags which your templates should include (the action will only display these drafts in the menu)
+- therefore you have to edit the script step of the action
+- in line 4 `const templateTags = ["3 template", "3 sw craft"];` you will see the constant „templateTags“
+    - this constant defines the tags which identify your craft template drafts. Please add them as comma-separated-strings into the array.
+    - feel free to delete the standard configuration of `"3 template", "3 sw craft"`
+    - make sure to at at least one tag into the array
+- _\[optional\]_ **template omit tags:** you can configure tags which should not be included in the drafts found by this action
+- e.g. you have configured your templateTags to “3 template”, “3 sw craft“, but you have other drafts with the tag „todo“ which should be ignored by this action
+- add these tags into the empty array of the constant „templateOmitTags“ in line 7 `const templateOmitTags = [];` and the corresponding drafts containing this tag will be ignored by this action
 
 When you first run any of my Craft actions requiring the space id it will ask you to store the space id of your Craft space. This is a one time action and you don’t need to do it for any other of my Craft actions you install.
 
@@ -69,4 +70,4 @@ When you configured the action and set up one or more templates the action can b
 
 When you run it the prompt will display the titles of all drafts with the configured tags, just select the template you want to use and the action will create and directly open the new document in Craft.
 
-[GET THE ACTION](https://directory.getdrafts.com/a/1re)
+➡️ [GET THE ACTION](https://directory.getdrafts.com/a/1re)

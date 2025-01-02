@@ -20,6 +20,7 @@ metadata:
   url: https://flohgro.com/drafts-actions/on-my-mind-action-group/
 tags:
   - drafts-actions
+  - drafts
 ---
 I was intrigued by [Federico Viticci](https://twitter.com/viticci)’s Workflow with his “On My Mind” Shortcut to simplify ‘Thought Capture’ he shared recently in the [MacStories](https://macstories.net) Weekly.
 

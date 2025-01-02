@@ -17,6 +17,7 @@ metadata:
   url: https://flohgro.com/drafts-actions/create-craft-note/
 tags:
   - drafts-actions
+  - craft
 ---
 This action creates a new Document in Craft in a configurable space.
 
@@ -35,4 +36,4 @@ When you made notes during a meeting or while reading something and you decide t
 
 If you want to use the actions for different spaces in Craft just follow the instructions above.
 
-[GET THE ACTION](https://directory.getdrafts.com/a/1g1)
+➡️ [GET THE ACTION](https://directory.getdrafts.com/a/1g1)

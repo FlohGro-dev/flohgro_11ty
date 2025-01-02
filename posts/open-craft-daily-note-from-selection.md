@@ -17,6 +17,7 @@ metadata:
   url: https://flohgro.com/ios-shortcuts/open-craft-daily-note-from-selection/
 tags:
   - ios-shortcuts
+  - craft
 ---
 This shortcut lets you open the daily note you select (yesterday, today or tomorrow).  
 You have to set the space in every of the „open document“ actions since this is currently the only way to open a daily note you select directly

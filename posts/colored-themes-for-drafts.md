@@ -17,6 +17,7 @@ metadata:
   url: https://flohgro.com/drafts/colored-themes-for-drafts/
 tags:
   - drafts
+  - drafts-themes
 ---
 Sometimes you need a fresh paint for apps you use the most. The great thing about [Drafts](https://getdrafts.com) is that themes can totally change the look (and feel) of the app especially when you assign them to different workspaces.
 

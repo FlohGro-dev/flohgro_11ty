@@ -18,6 +18,8 @@ metadata:
     https://flohgro.com/drafts-actions/%f0%9f%93%a3-draftodon-v1-4-released-%f0%9f%93%a3/
 tags:
   - drafts-actions
+  - drafts
+  - mastodon
 ---
 I just released a new version for Draftodon – my Drafts Action Group for Mastodon.
 

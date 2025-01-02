@@ -18,6 +18,7 @@ metadata:
   url: https://flohgro.com/raycast/raycast-extension-for-drafts/
 tags:
   - raycast
+  - drafts
 ---
 I updated my Raycast extension for Drafts with the new command `Create Draft from Selection` that will create a new draft from the currently selected text 🥳. It was a suggestion by a user of it, and I (finally) took some time to add it and really enjoy using it!
 

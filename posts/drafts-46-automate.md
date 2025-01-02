@@ -17,6 +17,7 @@ metadata:
   url: https://flohgro.com/drafts/drafts-46-automate/
 tags:
   - drafts
+  - drafts-release
 ---
 [Drafts](https://getdrafts.com) Version 46 was released today. In this post, I will highlight new features and my personal highlights of the release.
 

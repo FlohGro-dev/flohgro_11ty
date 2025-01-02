@@ -16,6 +16,7 @@ metadata:
   url: https://flohgro.com/general/joining-the-one-a-month-club-%e2%98%ba%ef%b8%8f/
 tags:
   - general
+  - community
 ---
 I stumbled across some posts on Mastodon and blogs I follow about „One a Month“. [Jarrod](https://bio.link/jarrod) has set up a cool site for the [One a Month Club](https://oneamonth.club) to round up all sites / people who are following this framework.
 

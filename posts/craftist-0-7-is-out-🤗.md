@@ -17,6 +17,8 @@ metadata:
   url: https://flohgro.com/craftist/craftist-0-7-is-out-%f0%9f%a4%97/
 tags:
   - craftist
+  - craft
+  - todoist
 ---
 Another step forward for my Craft eXtension to integrate with Todoist.
 

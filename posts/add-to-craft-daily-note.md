@@ -17,6 +17,8 @@ metadata:
   url: https://flohgro.com/drafts-actions/add-to-craft-daily-note/
 tags:
   - drafts-actions
+  - craft
+  - craft-daily-notes
 ---
 This action adds the content of the current draft to your todays note in Craft. It requires the shortcut [Add (Text-Input) to Todays Note](https://flohgro.com/web/ios-shortcuts/add-text-input-to-todays-note/) to be installed on your device.
 
@@ -28,4 +30,4 @@ As mentioned you have to install the shortcut [Add (Text-Input) to Todays Note](
 
 Use this shortcut to add stuff you quickly noted like ideas, thoughts or feelings to your todays note in Craft.
 
-[GET THE ACTION](https://directory.getdrafts.com/a/1sM)
+➡️ [GET THE ACTION](https://directory.getdrafts.com/a/1sM)

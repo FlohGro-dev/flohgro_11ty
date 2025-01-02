@@ -18,6 +18,7 @@ metadata:
   url: https://flohgro.com/ios-shortcuts/daily-note-template-to-craft/
 tags:
   - ios-shortcuts
+  - craft
 ---
 This shortcut lets you configure a markdown template and adds (appends) it to your Daily Note in Craft when you run it.
 

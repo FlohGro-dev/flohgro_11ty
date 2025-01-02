@@ -17,6 +17,7 @@ metadata:
     https://flohgro.com/craftcuts/update-time-for-craftcuts-%e2%8f%b2%e2%9c%8c%f0%9f%8f%bd/
 tags:
   - craftcuts
+  - ios-shortcuts
 ---
 My eXtension to integrate your Craft Contents with any App that supports Shortcuts got some new convenience features 🙌🏽
 

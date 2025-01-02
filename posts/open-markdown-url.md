@@ -16,6 +16,7 @@ metadata:
   url: https://flohgro.com/drafts-actions/open-markdown-url/
 tags:
   - drafts-actions
+  - drafts
 ---
 This action will search the current draft for markdown formatted urls e.g.:
 
@@ -29,8 +30,8 @@ This action will search the current draft for markdown formatted urls e.g.:
 
 Depending on how many URLs are available in the draft the action will either
 
--   open the only existing link immediately
--   display a prompt if multiple URLs are present in the draft – you can select by the given title which URL should be opened.
+- open the only existing link immediately
+- display a prompt if multiple URLs are present in the draft – you can select by the given title which URL should be opened.
 
 The URLs are opened with Safari by default – this will also enable „app links“ e.g. „drafts://open..)
 
@@ -44,4 +45,4 @@ _no configuration needed_
 
 run this action whenever you want to open a (markdown) URL from a draft. You don’t need to enter link mode in the editor – if only one link is present in the draft this action will speed up your workflow. You can even set a keyboard shortcut to the action or add it to your action bar if you frequently want to open URLs from your drafts.
 
-[GET THE ACTION](https://directory.getdrafts.com/a/17E)
+➡️ [GET THE ACTION](https://directory.getdrafts.com/a/17E)
