@@ -46,15 +46,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
-
-      - name: Set status to success
-        uses: actions/create-status@v2
-        with:
-          context: 'workflow-status'
-          description: 'Deployed to GitHub Pages 🎉'
-          state: 'success'  # You can change this to 'failure' for error notifications
-          target_url: 'https://flohgro-dev.github.io/11ty_test/'  # Optional, link to more information (e.g., build logs)
-
-      - name: Notify on success
-        run: |
-          echo "Workflow completed successfully!"
