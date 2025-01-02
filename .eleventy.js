@@ -183,7 +183,7 @@ export default function (eleventyConfig) {
         collectionApi.getAll().forEach(function (item) {
             if (item.data.tags) {
                 item.data.tags.forEach(tag => {
-                    tags.add(tag); // Add unique tags
+                    tags.add(tag);
                 });
             }
         });
