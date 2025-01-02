@@ -45,7 +45,7 @@
 	/* --text-color is assigned to --color-gray-_ above */
 	--text-color-link: #1e66f5;
 	--text-color-link-active: #89B4FA;
-	--text-color-link-visited: #89B4FA;/* #1e66f5; /*89B4FA*/
+	--text-color-link-visited: #89B4FA;
 
 	/* --background-color: #15202b; other #FF6F59*/
 	--background-color: #111118;
@@ -58,7 +58,7 @@
 	box-sizing: border-box;
 }
 
-html{
+html {
 	font-size: clamp(12px, 2vw, 20px);
 }
 
@@ -77,15 +77,19 @@ body {
 
 /* Exclude justify for all headings */
 h1, h2, h3, h4, h5, h6 {
-	text-align: left; /* Set text alignment to left for headings */
-	word-spacing: normal; /* Optional: Reset word spacing for headings */
-  }
+	/* Set text alignment to left for headings */
+	text-align: left;
+	/* Optional: Reset word spacing for headings */
+	word-spacing: normal;
+}
 
 /* Exclude justify for all links */
 a {
-	text-align: left; /* Ensure links are left-aligned */
-	word-spacing: normal; /* Reset word-spacing for links */
-  }
+	/* Ensure links are left-aligned */
+	text-align: left;
+	/* Reset word-spacing for links */
+	word-spacing: normal;
+}
 
 html {
 	overflow-y: scroll;
@@ -104,20 +108,23 @@ html {
 
 /* Fluid images via https://www.zachleat.com/web/fluid-images/ */
 img {
-  max-width: 100%;
+	max-width: 100%;
 }
+
 img[width][height] {
-  height: auto;
+	height: auto;
 }
+
 img[src$=".svg"] {
-  width: 100%;
-  height: auto;
-  max-width: none;
+	width: 100%;
+	height: auto;
+	max-width: none;
 }
 
 p:last-child {
 	margin-bottom: 0;
 }
+
 p {
 	line-height: 1.5;
 }
@@ -129,9 +136,11 @@ li {
 a[href] {
 	color: var(--text-color-link);
 }
+
 a[href]:visited {
 	color: var(--text-color-link-visited);
 }
+
 a[href]:hover,
 a[href]:active {
 	color: var(--text-color-link-active);
@@ -147,17 +156,20 @@ footer {
 }
 
 footer p {
-	margin: 0; /* Remove default margin for the paragraph */
-	text-align: center; /* Center the text inside the footer */
+	/* Remove default margin for the paragraph */
+	margin: 0;
+	/* Center the text inside the footer */
+	text-align: center;
 	white-space: nowrap;
 	text-decoration: none;
 	image-rendering: optimizeSpeed;
 	display: inline-block;
-  }
+}
 
-  footer a {
-    display: inline-block; /* Make anchors behave like inline elements with block-level properties */
-    text-decoration: none; 
+footer a {
+	/* Make anchors behave like inline elements with block-level properties */
+	display: inline-block;
+	text-decoration: none;
 }
 
 main :first-child {
@@ -173,21 +185,22 @@ header:after {
 .container-full {
 	width: 100%;
 	box-sizing: border-box;
-  }
-  
-  .container {
+}
+
+.container {
 	width: 100%;
-	max-width: 1200px; /* or your desired max width */
+	/* or your desired max width */
+	max-width: 1200px;
 	margin: 0 auto;
 	padding: 0 1rem;
 	box-sizing: border-box;
 	margin-bottom: 10px;
-  }
-  
+}
+
 
 .container-sm {
-    width: 100%;
-    max-width: 800px;
+	width: 100%;
+	max-width: 800px;
 }
 
 .links-nextprev {
@@ -198,9 +211,11 @@ header:after {
 	border-top: 1px solid var(--color-gray-20);
 	padding: 1em 0;
 }
-.links-nextprev > * {
+
+.links-nextprev>* {
 	flex-grow: 1;
 }
+
 .links-nextprev-next {
 	text-align: right;
 }
@@ -208,6 +223,7 @@ header:after {
 table {
 	margin: 1em 0;
 }
+
 table td,
 table th {
 	padding-right: 1em;
@@ -217,9 +233,10 @@ pre,
 code {
 	font-family: var(--font-family-monospace);
 }
+
 pre:not([class*="language-"]) {
 	margin: .5em 0;
-	line-height: 1.375; /* 22px /16 */
+	line-height: 1.375;
 	-moz-tab-size: var(--syntax-tab-size);
 	-o-tab-size: var(--syntax-tab-size);
 	tab-size: var(--syntax-tab-size);
@@ -233,6 +250,7 @@ pre:not([class*="language-"]) {
 	word-break: normal;
 	overflow-x: auto;
 }
+
 code {
 	word-break: break-all;
 }
@@ -240,29 +258,28 @@ code {
 /* Header */
 header {
 	display: flex;
-	/* gap: 1em .5em; */
-	/* flex-wrap: wrap; */
-	flex-wrap: nowrap; 
+	flex-wrap: nowrap;
 	align-items: center;
 	padding: 1em;
-	justify-content: space-between; /* Place items at the left and right edges */
-	/* max-width: 40em; */
-	/* margin: auto; */
+	/* Place items at the left and right edges */
+	justify-content: space-between;
 	width: 100%;
 }
+
 .home-link {
-	/* display: flex; Ensure the logo and title are inline */
-    align-items: center; /* Center the icon and any text */
-	font-size: 1em; /* 16px /16 */
+	/* Center the icon and any text */
+	align-items: center;
+	font-size: 1em;
 	font-weight: 700;
 	margin-right: 0.5em;
 	width: 40px;
 	height: 40px;
 	object-fit: cover;
 	float: left;
-	display: bloxk;
+	display: block;
 	flex-shrink: 0;
 }
+
 .home-link:link:not(:hover) {
 	text-decoration: none;
 }
@@ -270,10 +287,14 @@ header {
 /* Nav */
 nav {
 	display: flex;
-	justify-content: space-between; /* Ensure buttons fill the width */
-	width: 100%; /* Stretch navigation across the entire page */
-	margin: 0; /* Remove extra margin */
-	padding: 0; /* Remove extra padding */
+	/* Ensure buttons fill the width */
+	justify-content: space-between;
+	/* Stretch navigation across the entire page */
+	width: 100%;
+	/* Remove extra margin */
+	margin: 0;
+	/* Remove extra padding */
+	padding: 0;
 }
 
 /* Navigation list */
@@ -282,52 +303,98 @@ nav {
 	margin: 0;
 	list-style: none;
 	display: flex;
-	width: 100%; /* Full width */
-	gap: 0.5em; /* Add space between buttons */
+	/* Full width */
+	width: 100%;
+	gap: 0.5em;
+	/* Add space between buttons */
 	justify-content: flex-start;
 }
 
 /* Navigation item */
 .nav-item {
-	flex: 1; /* Each item takes equal space */
+	/* Each item takes equal space */
+	flex: 1;
 }
 
 /* Navigation link */
 .nav-item a {
-	display: flex; 
 	/* padding: 0.4em 1em; Adjust padding inside the buttons */
-	border: 2px solid #1e66f5; /* Define a border */
-	border-radius: 2px; /* Add rounded corners */
-	background-color: #111118; /* Button background color */
-	text-decoration: none; /* Remove underline */
-	text-align: center; /* Center text inside the buttons */
-	transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
-	box-sizing: border-box; /* Include padding and border in width */
+	display: flex;
+	/* Define a border */
+	border: 2px solid #1e66f5;
+	/* Add rounded corners */
+	border-radius: 2px;
+	/* Button background color */
+	background-color: #111118;
+	/* Remove underline */
+	text-decoration: none;
+	/* Center text inside the buttons */
+	text-align: center;
+	/* Smooth hover effect */
+	transition: background-color 0.3s ease, color 0.3s ease;
+	/* Include padding and border in width */
+	box-sizing: border-box;
 	height: 40px;
 	justify-content: center;
 	align-items: center;
-	font-size: clamp(0.6rem, 2vw, 1rem); /* Adjust dynamically for buttons */
+	/* static font size as long as screen width is above 1000px */
+	font-size: 1rem;
+	white-space: nowrap;
 }
 
 /* Button hover and active states */
 .nav-item a:hover {
-	background-color: #111118; /* Darker green on hover */
-	color: #D9D9D9; /* Ensure text stays white */
+	background-color: #111118;
+	/* Ensure text stays white */
+	color: #D9D9D9;
 }
 
 .nav-item a:active {
-	background-color: #D9D9D9; /* Even darker green on click */
+	background-color: #D9D9D9;
 	color: white;
 }
 
 /* Current page button */
 .nav-item a[aria-current="page"] {
-	background-color: #89B4FA; /* Highlight current page */
-	font-weight: bold; /* Optional: Make it visually distinct */
+	/* Highlight current page */
+	background-color: #89B4FA;
+	font-weight: bold;
 }
 
 .nav-item a:visited {
 	color: #1e66f5;
+}
+
+@media screen and (max-width: 1000px) {
+	.nav-item a {
+		font-size: clamp(0.8rem, 2vw, 1rem);
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.nav {
+		flex-wrap: wrap;
+	}
+
+	.nav-item:nth-child(1),
+	.nav-item:nth-child(2),
+	.nav-item:nth-child(3) {
+		flex: 1 1 calc(33.33% - 0.5em);
+		/* 3 buttons in the first row */
+	}
+
+	.nav-item:nth-child(4),
+	.nav-item:nth-child(5) {
+		flex: 1 1 calc(50% - 0.5em);
+		/* 2 buttons in the second row */
+	}
+
+	/* Navigation link */
+	.nav-item a {
+		border: 1px solid #1e66f5;
+		/* Define a border */
+		height: 18px;
+	}
 }
 
 /* Posts list */
@@ -336,6 +403,7 @@ nav {
 	padding: 0;
 	padding-left: 1.5rem;
 }
+
 .postlist-item {
 	display: flex;
 	flex-wrap: wrap;
@@ -343,24 +411,30 @@ nav {
 	counter-increment: start-from -1;
 	margin-bottom: 1em;
 }
+
 .postlist-item:before {
 	display: inline-block;
 	pointer-events: none;
-	content: "" counter(start-from, decimal-leading-zero) ". ";
+	content: ""counter(start-from, decimal-leading-zero) ". ";
 	line-height: 100%;
 	text-align: right;
 	margin-left: -1.5rem;
 }
+
 .postlist-date,
 .postlist-item:before {
-	font-size: 0.8125em; /* 13px /16 */
+	font-size: 0.8125em;
+	/* 13px /16 */
 	color: var(--color-gray-90);
 }
+
 .postlist-date {
 	word-spacing: -0.5px;
 }
+
 .postlist-link {
-	font-size: 1.1875em; /* 19px /16 */
+	font-size: 1.1875em;
+	/* 19px /16 */
 	font-weight: 700;
 	flex-basis: calc(100% - 1.5rem);
 	padding-left: .25em;
@@ -369,6 +443,7 @@ nav {
 	text-underline-offset: 0;
 	text-decoration-thickness: 1px;
 }
+
 .postlist-item-active .postlist-link {
 	font-weight: bold;
 }
@@ -381,7 +456,8 @@ nav {
 	text-transform: capitalize;
 	font-style: italic;
 }
-.postlist-item > .post-tag {
+
+.postlist-item>.post-tag {
 	align-self: center;
 }
 
@@ -394,95 +470,122 @@ nav {
 	padding: 0;
 	margin: 0;
 }
+
 .post-metadata time {
 	margin-right: 1em;
 }
- 
-  .search-container {
+
+.search-container {
 	display: flex;
 	width: 100%;
-  }
-  #searchInput {
-	width: 100%; /* Ensure full width from the start */
-	box-sizing: border-box; 
+}
+
+#searchInput {
+	width: 100%;
+	/* Ensure full width from the start */
+	box-sizing: border-box;
 	margin: 0em;
 	padding: 1em;
 	background-color: #111118;
 	border-radius: 10px;
 	color: #D9D9D9;
 	font-size: clamp(16px, 2vw, 18px);
-  }
-  
-  #searchResults {
-	list-style: none; /* Remove default bullet styling */
-	padding: 0; /* Remove default padding */
-	margin: 0; /* Remove default margin */
-  }
-  
-  #searchResults li {
-	margin-left: 0; /* Left-align list items */
-  }
-  .std-icons {
-    display: flex;
-    justify-content: center; /* Center icons horizontally */
-	padding: 10px 0; /* Add vertical padding for consistent spacing */
-    list-style: none;
-    padding: 0;
-    margin: 0 auto; /* Center the entire list */
-    box-sizing: border-box;
+}
+
+#searchResults {
+	list-style: none;
+	/* Remove default bullet styling */
+	padding: 0;
+	/* Remove default padding */
+	margin: 0;
+	/* Remove default margin */
+}
+
+#searchResults li {
+	margin-left: 0;
+	/* Left-align list items */
+}
+
+.std-icons {
+	display: flex;
+	justify-content: center;
+	/* Center icons horizontally */
+	padding: 10px 0;
+	/* Add vertical padding for consistent spacing */
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+	/* Center the entire list */
+	box-sizing: border-box;
 	align-items: center;
 }
 
 .std-icons li {
-    flex: 0 1 26px; /* Each icon container will have a max width of 26px */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-	margin: 0 10px; /* Add horizontal margin between icons */
+	flex: 0 1 26px;
+	/* Each icon container will have a max width of 26px */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 10px;
+	/* Add horizontal margin between icons */
 }
 
 .std-icons img {
-    width: 100%; /* Scale the icon size to the li container */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 26px; /* Define the maximum icon size */
-    max-height: 26px;
+	width: 100%;
+	/* Scale the icon size to the li container */
+	height: auto;
+	/* Maintain aspect ratio */
+	max-width: 26px;
+	/* Define the maximum icon size */
+	max-height: 26px;
 }
 
 /* Responsive behavior for smaller screens */
-@media screen and (max-width: 600px) {    
-    .std-icons img {
-        max-width: 100%; /* Allow icons to resize based on container */
-    }
+@media screen and (max-width: 600px) {
+	.std-icons img {
+		max-width: 100%;
+		/* Allow icons to resize based on container */
+	}
 }
 
 .support-buttons {
-    display: flex;
-    justify-content: center; /* Center buttons horizontally */
-    align-items: center; /* Center buttons vertically */
-    gap: clamp(10px, 4vw, 20px); /* Dynamic gap between buttons, responsive */
-    margin: 10px 0; /* Margin above and below the buttons */
-    flex-wrap: nowrap; /* Allow buttons to wrap on smaller screens */
+	display: flex;
+	justify-content: center;
+	/* Center buttons horizontally */
+	align-items: center;
+	/* Center buttons vertically */
+	gap: clamp(10px, 4vw, 20px);
+	/* Dynamic gap between buttons, responsive */
+	margin: 10px 0;
+	/* Margin above and below the buttons */
+	flex-wrap: nowrap;
+	/* Allow buttons to wrap on smaller screens */
 }
 
 .support-buttons a {
-    display: block;
-    height: 50px; /* Set height for consistent button size */
-    flex-shrink: 1; 
-	flex-grow: 1; 
-    width: auto; /* Width based on image aspect ratio */
+	display: block;
+	height: 50px;
+	/* Set height for consistent button size */
+	flex-shrink: 1;
+	flex-grow: 1;
+	width: auto;
+	/* Width based on image aspect ratio */
 }
 
 .support-buttons img {
-    height: 100%; /* Ensure the image fills the height */
-    width: auto; /* Maintain aspect ratio */
-    object-fit: contain; /* Maintain image scaling without distortion */
+	height: 100%;
+	/* Ensure the image fills the height */
+	width: auto;
+	/* Maintain aspect ratio */
+	object-fit: contain;
+	/* Maintain image scaling without distortion */
 }</style><script src="/src/js/menu-toggle.js" defer=""></script>
   </head>
   <body>
     <a href="#skip" class="visually-hidden">Skip to main content</a>
     <header class="container-full bg-light border border-rounded">
       <a href="/11ty_test/" class="home-link">
-        <img src="/11ty_test/assets/icon.ico" alt="FlohGro">
+        <img src="/11ty_test/assets/icons/home-icon.png" alt="FlohGro">
       </a>
       <nav>
         <ul class="nav">
@@ -490,10 +593,10 @@ nav {
               <a href="/11ty_test/pages/whoami/">whoami</a>
             </li>
             <li class="nav-item">
-              <a href="/11ty_test/pages/contactme/">contact me</a>
+              <a href="/11ty_test/pages/contactme/">contactme</a>
             </li>
             <li class="nav-item">
-              <a href="/11ty_test/pages/support/">say thanks</a>
+              <a href="/11ty_test/pages/support/">saythanks</a>
             </li>
             <li class="nav-item">
               <a href="/11ty_test/pages/archive/">archive</a>
@@ -639,4 +742,4 @@ Append to Craft Note with Date with new line after Date
       </p>
     </footer></body>
   
-</html><p></p><!-- This page `/append-to-craft-note-with-date-with-new-line-after-date/` was built on 2025-01-01T17:33:23.649Z --><script type="module" src="/dist/rJ3_G-2ArF.js"></script>
+</html><p></p><!-- This page `/append-to-craft-note-with-date-with-new-line-after-date/` was built on 2025-01-02T19:18:17.229Z --><script type="module" src="/dist/rJ3_G-2ArF.js"></script>
