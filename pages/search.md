@@ -17,7 +17,7 @@ eleventyNavigation:
 
 <script>
   // Fetch the JSON index
-  fetch('/search.json')
+  fetch("{{ site.baseUrl }}/search.json")
     .then(response => response.json())
     .then(data => {
       const input = document.getElementById('searchInput');
