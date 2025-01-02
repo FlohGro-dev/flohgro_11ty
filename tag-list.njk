@@ -10,8 +10,14 @@ permalink: "/tags/"
     <ul>
         {% if collections.tagslist and collections.tagslist.length > 0 %}
             {% for tag in collections.tagslist %}
+                {% set postsWithTag = collections[tag] %}
                 <li>
                     <a href="{{ site.baseUrl }}/tags/{{ tag | slug }}">{{ tag }}</a>
+                    {% if postsWithTag %}
+                        ({{ postsWithTag.length }})
+                    {% else %}
+                        (0)
+                    {% endif %}
                 </li>
             {% endfor %}
         {% else %}
