@@ -1,0 +1,60 @@
+name: ⚙️ Build Eleventy Site
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 🛠️ Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: 🗄️ Cache npm Dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
+
+      - name: 💾 Persist Eleventy .cache
+        uses: actions/cache@v3
+        with:
+          path: ./.cache
+          key: ${{ runner.os }}-eleventy-fetch-cache
+
+      - run: npm install
+
+      - name: 🏗️ Build Eleventy Site
+        run: npm run build-ghpages
+        env: 
+          ELEVENTY_ENV: production
+
+      - name: 🌐 Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: false && github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+      
+      - name: 📡 Deploy to FTP Server
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./_site/
+          server-dir: ./
+          protocol: ftps
+          port: 21
+      
