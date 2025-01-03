@@ -40,21 +40,4 @@ jobs:
         env: 
           ELEVENTY_ENV: production
 
-      - name: 🌐 Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        if: false && github.ref == 'refs/heads/main'
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-      
-      - name: 📡 Deploy to FTP Server
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./_site/
-          server-dir: ./
-          protocol: ftps
-          port: 21
       
