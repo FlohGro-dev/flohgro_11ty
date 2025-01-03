@@ -19,7 +19,7 @@ const sortByDateAsc = (a, b) => {
 export default function (eleventyConfig) {
     // Determine the base URL
     const baseUrl = process.env.ELEVENTY_ENV === "production"
-        ? "/11ty_test"
+        ? "/new-site"
         : "";
 
     // Add baseUrl as global data
