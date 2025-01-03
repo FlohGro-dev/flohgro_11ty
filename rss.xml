@@ -7,25 +7,6 @@
     <description>I code more than I write.</description>
     <language>en</language>
     <item>
-      <title>Fantastic Event Parser</title>
-      <link>https://flohgro.com/fantastic-event-parser/</link>
-      <description>&lt;p&gt;I extended the awesome &lt;em&gt;Fantastically Good Event Parser&lt;/em&gt; by @pdavisonreiber (original &lt;a href=&quot;https://forums.getdrafts.com/t/fantastically-good-event-parser/1745?u=flohgro&quot;&gt;Drafts forum post&lt;/a&gt; and &lt;a href=&quot;https://actions.getdrafts.com/a/1Lk&quot;&gt;action&lt;/a&gt;) to allow the users more control over the actually created event.&lt;/p&gt;
-&lt;p&gt;It uses the same parsing technique so full credits to @pdavisonreiber for that logic! I added a prompt for each event the action will create where you can check the interpreted data and make adjustments if you want to.&lt;/p&gt;
-&lt;p&gt;I included an extended documentation on how to use the action in the directory. A few examples of events that will be recognized by the action:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Important discussion with coworkers tomorrow 9:00-11:30 /work alert 30min at Apple Park
-Dinner sunday 19:00 for 3h /private at FavoritePizza
-Workshop 2024-02-01 to 2024-02-03 /work at San Francisco
-Call with Somebody today 17:00
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Find the documentation and download it in the action directory&lt;br&gt;
-&lt;a href=&quot;https://directory.getdrafts.com/a/2Og&quot;&gt;https://directory.getdrafts.com/a/2Og&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;If you want to discuss about the action head over to the &lt;a href=&quot;https://forums.getdrafts.com/t/fantastic-event-parser/14766?u=flohgro&quot;&gt;Drafts forum&lt;/a&gt;. I also posted about it on &lt;a href=&quot;https://social.lol/@flohgro/111623974163344208&quot;&gt;Mastodon&lt;/a&gt; – let me know what you think ☺️&lt;/p&gt;
-</description>
-      <pubDate>Fri, 22 Dec 2023 21:52:11 GMT</pubDate>
-      <dc:creator>FlohGro</dc:creator>
-      <guid>https://flohgro.com/fantastic-event-parser/</guid>
-    </item>
-    <item>
       <title>Drafts AI Tools</title>
       <link>https://flohgro.com/drafts-ai-tools/</link>
       <description>&lt;p&gt;&lt;a href=&quot;https://getdrafts.com&quot;&gt;Drafts&lt;/a&gt; added scripting support for OpenAI’s ChatGPT already in &lt;a href=&quot;https://docs.getdrafts.com/changelog/#390&quot;&gt;version 39&lt;/a&gt; together with a &lt;a href=&quot;https://forums.getdrafts.com/t/using-openai-chatgpt-with-drafts/14221&quot;&gt;forum post&lt;/a&gt; which contains some example actions what you can do with it.&lt;/p&gt;
@@ -178,6 +159,15 @@ Of course, this is not only relevant for automation, this can also be used to ru
       <pubDate>Thu, 12 Dec 2024 17:49:24 GMT</pubDate>
       <dc:creator>FlohGro</dc:creator>
       <guid>https://flohgro.com/drafts-46-automate/</guid>
+    </item>
+    <item>
+      <title>Test Post</title>
+      <link>https://flohgro.com/test-post/</link>
+      <description>&lt;p&gt;a test post to see if this is working properly.&lt;/p&gt;
+</description>
+      <pubDate>Fri, 03 Jan 2025 14:35:24 GMT</pubDate>
+      <dc:creator>FlohGro</dc:creator>
+      <guid>https://flohgro.com/test-post/</guid>
     </item>
   </channel>
 </rss>
