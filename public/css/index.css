@@ -532,16 +532,15 @@ nav {
 	/* Margin above and below the buttons */
 	flex-wrap: nowrap;
 	/* Allow buttons to wrap on smaller screens */
+	flex: 1;
 }
 
 .support-buttons a {
 	display: block;
-	height: 50px;
 	/* Set height for consistent button size */
-	flex-shrink: 1;
-	flex-grow: 1;
-	width: auto;
+	height: 60px;
 	/* Width based on image aspect ratio */
+	width: auto;
 }
 
 .support-buttons img {
