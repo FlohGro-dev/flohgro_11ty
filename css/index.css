@@ -225,6 +225,17 @@ pre:not([class*="language-"]) {
 
 code {
 	word-break: break-all;
+	background-color: #313244;
+}
+
+em, i {
+	font-style: italic;
+	color: #cdd6f4;
+}
+
+strong, b {
+	font-weight: bold;
+	color: #cdd6f4;
 }
 
 /* Header */
