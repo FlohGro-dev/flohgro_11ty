@@ -1,6 +1,7 @@
 ---
 layout: layouts/base
 title: saythanks
+permalink: /saythanks/
 eleventyNavigation: 
     key: saythanks
     order: 3

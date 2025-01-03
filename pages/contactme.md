@@ -1,6 +1,7 @@
 ---
 layout: layouts/base
 title: contactme
+permalink: /contactme/
 eleventyNavigation: 
     key: contactme
     order: 2

@@ -1,6 +1,7 @@
 ---
 layout: layouts/base
 title: search
+permalink: /search/
 eleventyNavigation: 
     key: search
     order: 5
@@ -9,6 +10,8 @@ eleventyNavigation:
 {% include "std-icons.md" %}
 
 ## search
+
+Looking for something specific? Try the search here - if you can't find what you're looking for don't hesitate to [contact me](/contactme)
 
 <div class="search-container"> 
 <input type="text" id="searchInput" placeholder="Search posts...">

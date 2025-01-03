@@ -1,6 +1,7 @@
 ---
 layout: layouts/base
 title: archive
+permalink: /archive/
 eleventyNavigation: 
     key: archive
     order: 4

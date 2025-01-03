@@ -1,6 +1,7 @@
 ---
 layout: layouts/base
 title: whoami
+permalink: /whoami/
 eleventyNavigation: 
     key: whoami
     order: 1
