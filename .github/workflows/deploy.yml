@@ -1,8 +1,8 @@
-name: 🌍Deploy Site
+name: 🌍 Deploy Site
 
 on:
   workflow_run:
-    workflows: ["Build Eleventy Site"]
+    workflows: ["⚙️ Build Eleventy Site"]
     types:
       - completed
 
