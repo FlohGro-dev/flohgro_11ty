@@ -1,4 +1,4 @@
-name: ⚙️ Build Eleventy Site
+name: ⚙️ Build And Deploy Eleventy Site
 
 on:
   push:
@@ -40,4 +40,26 @@ jobs:
         env: 
           ELEVENTY_ENV: production
 
+  deploy:
+    runs-on: ubuntu-22.04
+    needs: build
+    steps:
+      - uses: actions/checkout@v3  
+      - name: 🌐 Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: false && github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+      
+      - name: 📡 Deploy to FTP Server
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./_site/
+          server-dir: ./
+          protocol: ftps
+          port: 21
       
