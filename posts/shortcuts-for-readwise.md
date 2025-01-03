@@ -20,7 +20,6 @@ tags:
   - ios-shortcuts
   - craft
   - drafts
-  - shortcuts
 ---
 After trying [Readwise Reader](https://read.readwise.io) and experimenting a bit with the [Readwise](https://readwise.io) trial I subscribed to the service because its just great 😄.
 
