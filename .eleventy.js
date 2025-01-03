@@ -113,7 +113,7 @@ export default function (eleventyConfig) {
         },
         metadata: {
             language: "en",
-            title: "FlohGro's Blog",
+            title: "FlohGro",
             subtitle: "I code more than I write.",
             base: "https://flohgro.com/",
             author: {
@@ -132,7 +132,7 @@ export default function (eleventyConfig) {
         },
         metadata: {
             language: "en",
-            title: "FlohGro's Blog",
+            title: "FlohGro",
             subtitle: "I code more than I write.",
             base: "https://flohgro.com/",
             author: {
@@ -151,7 +151,7 @@ export default function (eleventyConfig) {
         },
         metadata: {
             language: "en",
-            title: "FlohGro's Blog",
+            title: "FlohGro",
             subtitle: "I code more than I write.",
             base: "https://flohgro.com/",
             author: {
