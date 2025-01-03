@@ -1,4 +1,4 @@
-const baseUrl = process.env.ELEVENTY_ENV === "production" ? "/new-site" : "";
+const baseUrl = process.env.ELEVENTY_ENV === "production" ? "" : "";
 
 export default {
     baseUrl,
