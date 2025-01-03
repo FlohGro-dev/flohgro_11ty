@@ -41,7 +41,7 @@ jobs:
           ELEVENTY_ENV: production
     
       - name: 🗃️ Upload _site directory as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: _site
           path: ./_site
@@ -53,9 +53,11 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: 🗃️ Download _site directory artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: _site
+      - name: 📝 List Files in Workspace
+        run: ls -R ./_site
 
       - name: 🌐 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
