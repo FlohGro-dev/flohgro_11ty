@@ -4,12 +4,30 @@
   <subtitle>I code more than I write.</subtitle>
   <link href="https://flohgro.com/atom.xml" rel="self" />
   <link href="https://flohgro.com/" />
-  <updated>2025-01-03T14:35:24Z</updated>
+  <updated>2024-12-12T17:49:24Z</updated>
   <id>https://flohgro.com/</id>
   <author>
     <name>FlohGro</name>
     <email>hi@flohgro.com</email>
   </author>
+  <entry>
+    <title>Fantastic Event Parser</title>
+    <link href="https://flohgro.com/fantastic-event-parser/" />
+    <updated>2023-12-22T21:52:11Z</updated>
+    <id>https://flohgro.com/fantastic-event-parser/</id>
+    <content type="html">&lt;p&gt;I extended the awesome &lt;em&gt;Fantastically Good Event Parser&lt;/em&gt; by @pdavisonreiber (original &lt;a href=&quot;https://forums.getdrafts.com/t/fantastically-good-event-parser/1745?u=flohgro&quot;&gt;Drafts forum post&lt;/a&gt; and &lt;a href=&quot;https://actions.getdrafts.com/a/1Lk&quot;&gt;action&lt;/a&gt;) to allow the users more control over the actually created event.&lt;/p&gt;
+&lt;p&gt;It uses the same parsing technique so full credits to @pdavisonreiber for that logic! I added a prompt for each event the action will create where you can check the interpreted data and make adjustments if you want to.&lt;/p&gt;
+&lt;p&gt;I included an extended documentation on how to use the action in the directory. A few examples of events that will be recognized by the action:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Important discussion with coworkers tomorrow 9:00-11:30 /work alert 30min at Apple Park
+Dinner sunday 19:00 for 3h /private at FavoritePizza
+Workshop 2024-02-01 to 2024-02-03 /work at San Francisco
+Call with Somebody today 17:00
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Find the documentation and download it in the action directory&lt;br&gt;
+&lt;a href=&quot;https://directory.getdrafts.com/a/2Og&quot;&gt;https://directory.getdrafts.com/a/2Og&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you want to discuss about the action head over to the &lt;a href=&quot;https://forums.getdrafts.com/t/fantastic-event-parser/14766?u=flohgro&quot;&gt;Drafts forum&lt;/a&gt;. I also posted about it on &lt;a href=&quot;https://social.lol/@flohgro/111623974163344208&quot;&gt;Mastodon&lt;/a&gt; – let me know what you think ☺️&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Drafts AI Tools</title>
     <link href="https://flohgro.com/drafts-ai-tools/" />
@@ -153,14 +171,6 @@ A few months ago I found a (tacky) solution to &lt;a href=&quot;https://flohgro.
 If you have a use case I recommend just trying to run the Action from a Shortcut without setting up the automation first. Then double-check if you see the expected result in Drafts and set up the automation afterward. The potential for this feature is big! If you’re using Daily Notes you can let Drafts create that note daily (or weekly/monthly) in the background and once you open the app they will already be there. I will try to automate posting quotes to Mastodon with this feature.&lt;br&gt;
 Of course, this is not only relevant for automation, this can also be used to run Drafts actions in other shortcuts.&lt;/p&gt;
 &lt;p&gt;Another solid release of Drafts – if you want to dive into the discussions of the new release head over to the announcement &lt;a href=&quot;https://forums.getdrafts.com/t/drafts-46-released-text-to-speech-background-actions/15670?u=flohgro&quot;&gt;in the forum&lt;/a&gt;. I’m interested in your use cases for the new &lt;em&gt;Run Action in Background&lt;/em&gt; shortcuts action step – whether as automation or integrated into any other shortcut. Share them in the forum or send them over to me on &lt;a href=&quot;https://social.lol/@flohgro&quot;&gt;Mastodon&lt;/a&gt; or &lt;a href=&quot;https://bsky.app/profile/flohgro.bsky.social&quot;&gt;Bluesky&lt;/a&gt;.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Test Post</title>
-    <link href="https://flohgro.com/test-post/" />
-    <updated>2025-01-03T14:35:24Z</updated>
-    <id>https://flohgro.com/test-post/</id>
-    <content type="html">&lt;p&gt;a test post to see if this is working properly.&lt;/p&gt;
 </content>
   </entry>
 </feed>
