@@ -62,12 +62,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: _site
+          path: ./_site
 
       - name: 📝 List ALL directory contents
         run: ls -R .  # Debugging: List the contents of the _site directory    
-      
-      - name: 📝 List Files in Workspace
-        run: ls -R ./_site
 
       - name: 🌐 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
