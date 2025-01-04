@@ -39,6 +39,9 @@ jobs:
         run: npm run build-ghpages
         env: 
           ELEVENTY_ENV: production
+
+      - name: 📝 List all directory contents
+        run: ls -R .  # Debugging: List the contents of the _site directory
     
       - name: 🗃️ Upload _site directory as artifact
         uses: actions/upload-artifact@v4
@@ -52,10 +55,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: 📝 List ALL directory contents before download
+        run: ls -R .  # Debugging: List the contents of the _site directory
+
       - name: 🗃️ Download _site directory artifact
         uses: actions/download-artifact@v4
         with:
           name: _site
+
+      - name: 📝 List ALL directory contents
+        run: ls -R .  # Debugging: List the contents of the _site directory    
+      
       - name: 📝 List Files in Workspace
         run: ls -R ./_site
 
