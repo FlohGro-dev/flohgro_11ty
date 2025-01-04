@@ -359,7 +359,7 @@ nav {
 
 @media screen and (max-width: 1000px) {
 	.nav-item a {
-		font-size: clamp(0.8rem, 2vw, 1rem);
+		font-size: clamp(12px, 2vw, 18px);
 	}
 }
 
