@@ -518,8 +518,8 @@ nav {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 0 10px;
 	/* Add horizontal margin between icons */
+	margin: 0 10px;
 }
 
 .std-icons img {
@@ -535,8 +535,8 @@ nav {
 /* Responsive behavior for smaller screens */
 @media screen and (max-width: 600px) {
 	.std-icons img {
-		max-width: 100%;
 		/* Allow icons to resize based on container */
+		max-width: 100%;
 	}
 }
 
@@ -591,7 +591,7 @@ nav {
 
 .error-message {
 	font-size: 1.5rem;
-	color: #666;
+	color: #777;
 	/* margin-top: 10px; */
 }
 
@@ -616,4 +616,29 @@ nav {
 
 .error-link:hover {
 	color: #D9D9D9 !important;
+}
+
+.timeline {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.timeline-item {
+	padding: 1rem;
+	border: 1px solid #89B4FA;
+	border-radius: 3px;
+	background: #1e1e2e;
+}
+
+.timeline-date {
+	font-size: 0.9rem;
+	font-weight: bold;
+	color: #6c7086;
+	margin-bottom: 0.5rem;
+}
+
+.timeline-content {
+	font-size: 1rem;
+	color: #D9D9D9;
 }
