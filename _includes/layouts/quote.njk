@@ -10,6 +10,7 @@ layout: layouts/base.njk
     {{ title }}
 </h1>
 <ul class="post-metadata"></li>
+<i>#tagged</i>
 {%- for tag in tags | filterTagList %}
     {%- set tagUrl %}{{ site.baseUrl }}/tags/{{ tag | slugify }}/{% endset %}
     <li>
@@ -17,19 +18,19 @@ layout: layouts/base.njk
         {%- if not loop.last %},
         {% endif %}
     </li>
-{%- endfor %}</ul>{{ content | safe }}{%- if collections.socialPosts %}
-{%- set previousSocialPost = collections.socialPosts | getPreviousCollectionItem %}
-{%- set nextSocialPost = collections.socialPosts | getNextCollectionItem %}
-{%- if nextSocialPost or previousSocialPost %}
+{%- endfor %}</ul><blockquote>{{ content | safe }}</blockquote>{%- if collections.quotePosts %}
+{%- set previousQuotePost = collections.quotePosts | getPreviousCollectionItem %}
+{%- set nextQuotePost = collections.quotePosts | getNextCollectionItem %}
+{%- if nextQuotePost or previousQuotePost %}
     <ul class="links-nextprev">
-        {%- if previousSocialPost %}
+        {%- if previousQuotePost %}
             <li class="links-nextprev-prev">←
-                <a href="{{ site.baseUrl }}{{ previousSocialPost.url }}">{{ previousSocialPost.data.title }}</a>
+                <a href="{{ site.baseUrl }}{{ previousQuotePost.url }}">{{ previousQuotePost.data.title }}</a>
             </li>
         {% endif %}
-        {%- if nextSocialPost %}
+        {%- if nextQuotePost %}
             <li class="links-nextprev-next">
-                <a href="{{ site.baseUrl }}{{ nextSocialPost.url }}">{{ nextSocialPost.data.title }}</a>
+                <a href="{{ site.baseUrl }}{{ nextQuotePost.url }}">{{ nextQuotePost.data.title }}</a>
                 →</li>
         {% endif %}
     </ul>

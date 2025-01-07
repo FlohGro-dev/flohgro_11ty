@@ -1,0 +1,45 @@
+---
+layout: layouts/base.njk
+---
+
+{% include "std-icons.md" %}
+{%- css %}
+{% include "public/css/index.css" %}
+{% endcss %}
+<h1>
+    {{ title }}
+</h1>
+<ul class="post-metadata">
+    <li>
+        <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+    </li>
+    {%- for tag in tags | filterTagList %}
+        {%- set tagUrl %}{{ site.baseUrl }}/tags/{{ tag | slugify }}/{% endset %}
+        <li>
+            <a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>
+            {%- if not loop.last %},
+            {% endif %}
+        </li>
+    {%- endfor %}
+</ul>
+{{ content | safe }}
+{%- if collections.blogPosts %}
+    {%- set previousPost = collections.blogPosts | getPreviousCollectionItem %}
+    {%- set nextPost = collections.blogPosts | getNextCollectionItem %}
+    {%- if nextPost or previousPost %}
+        <ul class="links-nextprev">
+            {%- if previousPost %}
+                <li class="links-nextprev-prev">←
+                    <a href="{{ site.baseUrl }}{{ previousPost.url }}">{{ previousPost.data.title }}</a>
+                </li>
+            {% endif %}
+            {%- if nextPost %}
+                <li class="links-nextprev-next">
+                    <a href="{{ site.baseUrl }}{{ nextPost.url }}">{{ nextPost.data.title }}</a>
+                    →</li>
+            {% endif %}
+        </ul>
+    {%- endif %}
+{%- endif %}
+<div style="width: 100%; height: 0; overflow: hidden;">Stupid hack to ensure the post always uses the full width of the
+    page since I don't know how to fix this otherwise.</div>
