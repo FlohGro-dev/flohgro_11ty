@@ -4,7 +4,7 @@ layout: layouts/base
 
 {% include "std-icons.md" %}
 
-{% for post in collections.latestPost %}
+{% for post in collections.latestBlogPost %}
 ## [{{ post.data.title }}]({{ site.baseUrl }}{{ post.url }}) ({{post.data.date | isoDate}})
 {{ post.templateContent }}
 {% endfor %}
@@ -13,11 +13,11 @@ layout: layouts/base
 
 # Recent Posts
 
-{% for post in collections.recentPostsWithoutLatest %}
+{% for post in collections.recentBlogPostsWithoutLatest %}
 ## [{{ post.data.title }}]({{ site.baseUrl }}{{ post.url }}) ({{post.data.date | isoDate}})
 {{ post.templateContent | truncate: 300 }}
 {% endfor %}
 
 ---
 
-## [All Posts](/pages/archive/)
+## [All Posts](/archive/)

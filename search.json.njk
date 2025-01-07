@@ -3,9 +3,19 @@ permalink: /search.json
 eleventyExcludeFromCollections: true
 ---
 
-[{%- for post in collections.post -%}{
-      "title": {{ post.data.title | jsonify | safe }},
-      "url": "{{ site.baseUrl }}{{ post.url }}",
-      "content": {{ post.templateContent | striptags | trim | jsonify | safe }}
+[{%- for blogPost in collections.blogPosts -%}{
+      "title": {{ blogPost.data.title | jsonify | safe }},
+      "url": "{{ site.baseUrl }}{{ blogPost.url }}",
+      "content": {{ blogPost.templateContent | striptags | trim | jsonify | safe }}
+    }
+    {%- if not loop.last or collections.quotePosts.length > 0 -%},{%- endif -%}{%- endfor -%}{%- for quotePost in collections.quotePosts -%}{
+      "title": {{ quotePost.data.title | jsonify | safe }},
+      "url": "{{ site.baseUrl }}{{ quotePost.url }}",
+      "content": {{ quotePost.templateContent | striptags | trim | jsonify | safe }}
+    }
+    {%- if not loop.last or collections.socialPosts.length>0 -%},{%- endif -%}{%- endfor -%}{%- for socialPost in collections.socialPosts -%}{
+      "title": {{ socialPost.data.title | jsonify | safe }},
+      "url": "{{ site.baseUrl }}{{ socialPost.url }}",
+      "content": {{ socialPost.templateContent | striptags | trim | jsonify | safe }}
     }
     {%- if not loop.last -%},{%- endif -%}{%- endfor -%}]
