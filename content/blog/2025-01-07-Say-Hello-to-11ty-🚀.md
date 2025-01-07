@@ -2,8 +2,7 @@
 title: Say Hello to 11ty 🚀
 date: 2025-01-07T18:15:28.355+01:00
 tags: ["11ty","general"]
-permalink: /blog/Say-Hello-to-11ty-🚀/index.html
-draft: true
+permalink: /blog/say-hello-to-11ty-🚀/index.html
 ---
 
 Over the last ~two weeks I took some time to **finally** work on a project that I wanted to do since I first visited [@Robb](https://social.lol/@Robb)'s awesome [website](https://rknight.me). Besides caring for our [little one](https://social.lol/@flohgro/113730313406491012) I had some time to finish my initial version of this *submarine* project.
