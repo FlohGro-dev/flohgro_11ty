@@ -25,7 +25,19 @@ export default function (eleventyConfig) {
     // Add baseUrl as global data
     eleventyConfig.addGlobalData("baseUrl", baseUrl);
 
-    eleventyConfig.addCollection("posts", (collectionApi) => {
+    eleventyConfig.addCollection("blogPosts", (collectionApi) => {
+        return collectionApi.getFilteredByTag("blog").sort((a, b) => {
+            return b.date - a.date; // Sort by descending date
+        });
+    });
+
+    eleventyConfig.addCollection("quotePosts", (collectionApi) => {
+        return collectionApi.getFilteredByTag("quote").sort((a, b) => {
+            return b.date - a.date; // Sort by descending date
+        });
+    });
+
+    eleventyConfig.addCollection("socialPosts", (collectionApi) => {
         return collectionApi.getFilteredByTag("post").sort((a, b) => {
             return b.date - a.date; // Sort by descending date
         });
@@ -38,34 +50,34 @@ export default function (eleventyConfig) {
         .addPassthroughCopy("src/js")
         .addPassthroughCopy({ "src/": "/" });
 
-    eleventyConfig.addCollection("limitedPosts", function (collectionApi) {
+    eleventyConfig.addCollection("limitedBlogPosts", function (collectionApi) {
 
-        let posts = collectionApi.getFilteredByGlob("posts/**/*.md");
-        posts.sort((a, b) => {
+        let blogPosts = collectionApi.getFilteredByGlob("content/blog/*.md");
+        blogPosts.sort((a, b) => {
             return new Date(b.data.date) - new Date(a.data.date);
         });
 
-        return posts.slice(0, 10);
+        return blogPosts.slice(0, 10);
     });
 
-    eleventyConfig.addCollection("latestPost", function (collectionApi) {
+    eleventyConfig.addCollection("latestBlogPost", function (collectionApi) {
 
-        let posts = collectionApi.getFilteredByGlob("posts/**/*.md");
-        posts.sort((a, b) => {
+        let blogPosts = collectionApi.getFilteredByGlob("content/blog/*.md");
+        blogPosts.sort((a, b) => {
             return new Date(b.data.date) - new Date(a.data.date);
         });
 
-        return posts.slice(0, 1);
+        return blogPosts.slice(0, 1);
     });
 
-    eleventyConfig.addCollection("recentPostsWithoutLatest", function (collectionApi) {
+    eleventyConfig.addCollection("recentBlogPostsWithoutLatest", function (collectionApi) {
 
-        let posts = collectionApi.getFilteredByGlob("posts/**/*.md");
-        posts.sort((a, b) => {
+        let blogPosts = collectionApi.getFilteredByGlob("content/blog/*.md");
+        blogPosts.sort((a, b) => {
             return new Date(b.data.date) - new Date(a.data.date);
         });
 
-        return posts.slice(1, 6);
+        return blogPosts.slice(1, 6);
     });
 
     // Adds the {% css %} paired shortcode
@@ -108,7 +120,7 @@ export default function (eleventyConfig) {
         type: "atom", // or "rss", "json"
         outputPath: "/atom.xml",
         collection: {
-            name: "limitedPosts",
+            name: "limitedBlogPosts",
             limit: 0,
         },
         metadata: {
@@ -127,7 +139,7 @@ export default function (eleventyConfig) {
         type: "rss", // or "rss", "json"
         outputPath: "/rss.xml",
         collection: {
-            name: "limitedPosts",
+            name: "limitedBlogPosts",
             limit: 0,
         },
         metadata: {
@@ -146,7 +158,7 @@ export default function (eleventyConfig) {
         type: "json", // or "rss", "json"
         outputPath: "/feed.json",
         collection: {
-            name: "limitedPosts",
+            name: "limitedBlogPosts",
             limit: 0,
         },
         metadata: {
@@ -161,7 +173,47 @@ export default function (eleventyConfig) {
         }
     });
 
-    // Collect tags from all posts
+    // feed for social posts
+    eleventyConfig.addPlugin(feedPlugin, {
+        type: "rss",
+        outputPath: "/social-rss.xml",
+        collection: {
+            name: "socialPosts",
+            limit: 0,
+        },
+        metadata: {
+            language: "en",
+            title: "FlohGro Social Posts",
+            subtitle: "Feed for social posts that shall be crossposted to several networks.",
+            base: "https://flohgro.com/",
+            author: {
+                name: "FlohGro",
+                email: "hi@flohgro.com",
+            }
+        }
+    });
+
+    // feed for quote posts
+    eleventyConfig.addPlugin(feedPlugin, {
+        type: "rss",
+        outputPath: "/quote-rss.xml",
+        collection: {
+            name: "quotePosts",
+            limit: 0,
+        },
+        metadata: {
+            language: "en",
+            title: "FlohGro Quote Posts",
+            subtitle: "Feed for quote posts that shall be crossposted to several networks.",
+            base: "https://flohgro.com/",
+            author: {
+                name: "FlohGro",
+                email: "hi@flohgro.com",
+            }
+        }
+    });
+
+    // Collect tags from all blogPosts
     eleventyConfig.addCollection("tags", function (collectionApi) {
         let tags = {};
         collectionApi.getAll().forEach(function (item) {
@@ -228,6 +280,4 @@ export default function (eleventyConfig) {
         },
     };
 }
-
-
 
