@@ -38,7 +38,33 @@ export default function (eleventyConfig) {
 	});
 
 	eleventyConfig.addFilter("filterTagList", function filterTagList(tags) {
-		return (tags || []).filter(tag => ["all", "posts", "post"].indexOf(tag) === -1);
+		return (tags || []).filter(tag => ["all", "posts", "post", "blog"].indexOf(tag) === -1);
+	});
+
+	// Helper function for date suffixes
+	const nth = (d) => {
+		if (d > 3 && d < 21) return "th";
+		switch (d % 10) {
+			case 1: return "st";
+			case 2: return "nd";
+			case 3: return "rd";
+			default: return "th";
+		}
+	};
+
+	eleventyConfig.addFilter("postDate", (dateObj) => {
+		const d = DateTime.fromJSDate(dateObj).setZone("Europe/Berlin");
+		return `${d.toFormat("d")}${nth(d.day)} ${d.toFormat("LLLL yyyy")}`;
+	});
+
+	eleventyConfig.addFilter("postIsoDate", (dateObj) => {
+		const d = DateTime.fromJSDate(dateObj).setZone("Europe/Berlin");
+		return `${d.toFormat("yyyy-MM-dd")}`;
+	});
+
+
+	eleventyConfig.addFilter("postTime", (dateObj) => {
+		return DateTime.fromJSDate(dateObj).setZone("Europe/Berlin").toFormat("HH:mm");
 	});
 
 };
