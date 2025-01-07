@@ -1,0 +1,8 @@
+{
+    "eleventyComputed": {
+        "title": "Post from {{ date | postIsoDate }} at {{ date | postTime }}"
+    },
+    "layout": "layouts/post.njk",
+    "tags": "post",
+    "permalink": "/post/{{ page.fileSlug }}/"
+}

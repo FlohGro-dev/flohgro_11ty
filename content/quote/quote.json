@@ -1,0 +1,8 @@
+{
+    "eleventyComputed": {
+        "title": "Quote Posted on {{ date | postIsoDate }} at {{ date | postTime }}"
+    },
+    "layout": "layouts/quote.njk",
+    "tags": "quote",
+    "permalink": "/quote/{{ page.fileSlug }}/"
+}
