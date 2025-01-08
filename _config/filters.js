@@ -38,7 +38,7 @@ export default function (eleventyConfig) {
 	});
 
 	eleventyConfig.addFilter("filterTagList", function filterTagList(tags) {
-		return (tags || []).filter(tag => ["all", "posts", "post", "blog"].indexOf(tag) === -1);
+		return (tags || []).filter(tag => ["all", "posts", "post", "blog", "drafts-action-directory-feed"].indexOf(tag) === -1);
 	});
 
 	// Helper function for date suffixes

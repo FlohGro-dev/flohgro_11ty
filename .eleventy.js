@@ -43,6 +43,12 @@ export default function (eleventyConfig) {
         });
     });
 
+    eleventyConfig.addCollection("draftActionDirectoryFeed", (collectionApi) => {
+        return collectionApi.getFilteredByTag("drafts-action-directory-feed").sort((a, b) => {
+            return b.date - a.date; // Sort by descending date
+        });
+    });
+
     eleventyConfig.addPassthroughCopy("assets")
         .addPassthroughCopy({
             "./public/": "/"
@@ -205,6 +211,25 @@ export default function (eleventyConfig) {
             language: "en",
             title: "FlohGro Quote Posts",
             subtitle: "Feed for quote posts that shall be crossposted to several networks.",
+            base: "https://flohgro.com/",
+            author: {
+                name: "FlohGro",
+                email: "hi@flohgro.com",
+            }
+        }
+    });
+
+    eleventyConfig.addPlugin(feedPlugin, {
+        type: "json", // or "rss", "json"
+        outputPath: "/drafts-action-directory-feed.json",
+        collection: {
+            name: "draftActionDirectoryFeed",
+            limit: 0,
+        },
+        metadata: {
+            language: "en",
+            title: "FlohGro - Drafts Action Directory Feed",
+            subtitle: "These are not (all) my actions, they are the publicly shared ones in the directory.",
             base: "https://flohgro.com/",
             author: {
                 name: "FlohGro",
