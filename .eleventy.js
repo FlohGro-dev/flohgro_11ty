@@ -45,7 +45,7 @@ export default function (eleventyConfig) {
 
     eleventyConfig.addCollection("draftActionDirectoryFeed", (collectionApi) => {
         return collectionApi.getFilteredByTag("drafts-action-directory-feed").sort((a, b) => {
-            return a.date - b.date; // Sort by descending date
+            return b.date - a.date; // Sort by descending date
         });
     });
 
