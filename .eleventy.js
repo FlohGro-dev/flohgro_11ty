@@ -238,6 +238,25 @@ export default function (eleventyConfig) {
         }
     });
 
+    eleventyConfig.addPlugin(feedPlugin, {
+        type: "rss", // or "rss", "json"
+        outputPath: "/drafts-action-directory-feed-rss.xml",
+        collection: {
+            name: "draftActionDirectoryFeed",
+            limit: 0,
+        },
+        metadata: {
+            language: "en",
+            title: "FlohGro - Drafts Action Directory Feed",
+            subtitle: "These are not (all) my actions, they are the publicly shared ones in the directory.",
+            base: "https://flohgro.com/",
+            author: {
+                name: "FlohGro",
+                email: "hi@flohgro.com",
+            }
+        }
+    });
+
     // Collect tags from all blogPosts
     eleventyConfig.addCollection("tags", function (collectionApi) {
         let tags = {};
