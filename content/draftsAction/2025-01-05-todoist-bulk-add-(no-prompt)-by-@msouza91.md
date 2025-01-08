@@ -1,6 +1,6 @@
 ---
 title: Todoist Bulk Add (No Prompt) by @msouza91
-date: 2025-01-08T19:18:37.120Z
+date: 2025-01-05T15:18:37.120Z
 ---
     
 > DISCLAIMER: I don’t do JS, so please go easy on me, I just tried to combine some ideas and after some LLM shenanigans I got this working. I’m sure there are better ways to do this, but it solves my issue.
@@ -64,4 +64,4 @@ date: 2025-01-08T19:18:37.120Z
 > 
 > _Credit to @agiletortoise for Todoist integration guidance and @davenichols for parameter-based quick add implementation._
 
-https://directory.getdrafts.com/a/2W4
+[https://directory.getdrafts.com/a/2W4](https://directory.getdrafts.com/a/2W4)
