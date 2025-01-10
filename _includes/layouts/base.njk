@@ -9,7 +9,7 @@
       {% endif %}
     </title>
     <meta name="description" content="{{ description or metadata.description }}">
-    <meta name="fediverse:creator" content="@flohgro@social.lol"/>
+    <meta name="fediverse:creator" content="@flohgro@social.lol">
     <link rel="alternate" type="application/atom+xml" title="{{ metadata.title }} Atom Feed" href="{{ metadata.url }}/atom.xml">
     <link rel="alternate" type="application/rss+xml" title="{{ metadata.title }} RSS Feed" href="{{ metadata.url }}/rss.xml">
     <link rel="alternate" type="application/json" title="{{ metadata.title }} JSON Feed" href="{{ metadata.url }}/feed.json">
@@ -79,6 +79,7 @@
         </a>
         <br/> <br/> &copy; FlohGro {{ page.date | currentYear() }}
       </p>
-    </body>
+      </footer>
+    <script type="module" src="{% getBundleFileUrl "js" %}"></script>
   </body>
-</html></p></footer><script type="module" src="{% getBundleFileUrl "js" %}"></script></body></html>
+</html>
