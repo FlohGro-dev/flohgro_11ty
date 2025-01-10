@@ -3,6 +3,7 @@ title: Draftist Action Group Update to migrate to new Todoist REST API Version
 date: '2022-10-17T17:59:49.000Z'
 tags:
 - drafts-actions
+- drafts-action-group
 - drafts
 - todoist
 ---

@@ -4,6 +4,8 @@ date: '2023-02-14T20:19:11.000Z'
 tags:
 - drafts
 - mastodon
+- drafts-actions
+- drafts-action-group
 ---
 Along with many others I significantly reduced my usage of Twitter recently and switchted my activities to the shiny “new” Mastodon. You can find me at [@FlohGro](https://social.lol/@flohgro) on [social.lol](https://social.lol) if you want to follow me.
 

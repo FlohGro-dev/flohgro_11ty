@@ -3,6 +3,8 @@ title: Drafts AI Tools
 date: '2024-01-15T22:52:35.000Z'
 tags:
 - drafts
+- drafts-actions
+- drafts-action-group
 ---
 [Drafts](https://getdrafts.com) added scripting support for OpenAI’s ChatGPT already in [version 39](https://docs.getdrafts.com/changelog/#390) together with a [forum post](https://forums.getdrafts.com/t/using-openai-chatgpt-with-drafts/14221) which contains some example actions what you can do with it.
 

@@ -3,6 +3,7 @@ title: Draftist &#8211; a Drafts Action Group for Todoist
 date: '2022-05-17T09:16:05.000Z'
 tags:
 - drafts-actions
+- drafts-action-group
 - drafts
 - todoist
 ---

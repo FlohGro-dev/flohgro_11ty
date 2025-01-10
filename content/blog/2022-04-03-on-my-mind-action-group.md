@@ -3,6 +3,7 @@ title: On My Mind Action Group
 date: '2022-04-03T10:45:00.000Z'
 tags:
 - drafts-actions
+- drafts-action-group
 - drafts
 ---
 I was intrigued by [Federico Viticci](https://twitter.com/viticci)’s Workflow with his “On My Mind” Shortcut to simplify ‘Thought Capture’ he shared recently in the [MacStories](https://macstories.net) Weekly.
