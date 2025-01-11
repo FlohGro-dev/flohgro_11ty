@@ -4,5 +4,5 @@
     },
     "layout": "layouts/quote.njk",
     "tags": "quote",
-    "permalink": "/quote/{{ page.fileSlug }}/"
+    "permalink": "/quote/{{ page.filePathStem }}/"
 }
