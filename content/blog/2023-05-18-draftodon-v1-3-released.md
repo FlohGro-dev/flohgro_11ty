@@ -3,6 +3,7 @@ title: "\U0001F4E2 Draftodon v1.3 released"
 date: '2023-05-18T09:32:14.000Z'
 tags:
 - drafts-actions
+- drafts-action-group
 - drafts
 - mastodon
 ---
