@@ -2,7 +2,7 @@
 title: Halide Challenge 2025 - Week 2 - Rule of Thirds
 date: 2025-01-11T22:57:34.784+01:00
 tags: ["photography","halide-2025"]
-permalink: /blog/publish-blog-post-via-workingcopy-for-11ty-site/index.html
+permalink: /blog/halide-challenge-2025-week-2-rule-of-thirds/index.html
 ---
 
 [Halide](https://halide.cam) started a great [challenge](https://mastodon.social/@halide/113754547695933024) to complete 52 weeks of shooting to improve photography skills. 
