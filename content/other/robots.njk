@@ -1,0 +1,14 @@
+---
+eleventyExcludeFromCollections: true
+eleventyComputed:
+    permalink: "/robots.txt"
+---
+
+User-agent: *
+Disallow:
+Crawl-delay: 10
+
+{% for bot in bots %}
+User-Agent: {{bot}}
+Disallow: /
+{% endfor %}
