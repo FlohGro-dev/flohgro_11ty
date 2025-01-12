@@ -11,4 +11,4 @@ I always enjoyed iPhone photography and especially since I got my iPhone 16 Pro 
 
 The theme of week 2 was **Rule of Thirds** and here is my shot from a walk in our hometown today:
 
-![A serene winter landscape showcasing quaint, triangular-roofed houses in soft pastel colors behind a weathered stone wall. The still river in front mirrors the snowy rooftops and bare trees on a gray, cloudy day.]({{ baseUrl }}/assets/halide-challenge-2025-week-2-rule-of-thirds.jpeg).
+![A serene winter landscape showcasing quaint, triangular-roofed houses in soft pastel colors behind a weathered stone wall. The still river in front mirrors the snowy rooftops and bare trees on a gray, cloudy day.]({{ baseUrl }}/assets/halide-challenge-2025-week-2-rule-of-thirds.jpeg)
