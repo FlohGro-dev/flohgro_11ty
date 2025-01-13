@@ -1,14 +1,7 @@
 ---
+permalink: /robots.txt
 eleventyExcludeFromCollections: true
-eleventyComputed:
-    permalink: "/robots.txt"
+seo:
+  excludeFromSitemap: true
 ---
-
-User-agent: *
-Disallow:
-Crawl-delay: 10
-
-{% for bot in bots %}
-User-Agent: {{bot}}
-Disallow: /
-{% endfor %}
+{{ badbots }}
