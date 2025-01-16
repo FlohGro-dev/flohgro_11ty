@@ -8,6 +8,8 @@ import striptags from "striptags";
 
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 
+import imgMagnifier from "eleventy-plugin-img-magnifier"
+
 const sortByDateDesc = (a, b) => {
     return new Date(b.data.date) - new Date(a.data.date);
 };
@@ -314,6 +316,8 @@ export default function (eleventyConfig) {
 
         return pages;
     });
+
+    eleventyConfig.addPlugin(imgMagnifier)
 
     return {
         dir: {

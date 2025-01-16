@@ -29,6 +29,7 @@
     <link rel='icon' type='image/x-icon' href='{{ site.baseUrl }}/assets/icon.ico'> {%- css %}
     {% include "public/css/index.css" %}
     {% endcss %}
+    {% imgmagnifier %}
     <style>{% getBundle "css" %}</style>
     {%- js %}{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}{% endjs %}
   </head>
