@@ -32,15 +32,17 @@ export default function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("quotePosts", (collectionApi) => {
-    return collectionApi.getFilteredByTag("quote").sort((a, b) => {
+    let quotePosts = collectionApi.getFilteredByTag("quote").sort((a, b) => {
       return b.date - a.date; // Sort by descending date
     });
+    return quotePosts.reverse()
   });
 
   eleventyConfig.addCollection("socialPosts", (collectionApi) => {
-    return collectionApi.getFilteredByTag("post").sort((a, b) => {
+    let socialPosts = collectionApi.getFilteredByTag("post").sort((a, b) => {
       return b.date - a.date; // Sort by descending date
     });
+    return socialPosts.reverse()
   });
 
   eleventyConfig.addCollection("draftActionDirectoryFeed", (collectionApi) => {
@@ -200,10 +202,48 @@ export default function (eleventyConfig) {
     }
   });
 
+  // feed for social posts
+  eleventyConfig.addPlugin(feedPlugin, {
+    type: "json",
+    outputPath: "/social-feed.json",
+    collection: {
+      name: "socialPosts",
+      limit: 0,
+    },
+    metadata: {
+      language: "en",
+      title: "FlohGro Social Posts",
+      subtitle: "Feed for social posts that shall be crossposted to several networks.",
+      base: "https://flohgro.com/",
+      author: {
+        name: "FlohGro",
+        email: "hi@flohgro.com",
+      }
+    }
+  });
   // feed for quote posts
   eleventyConfig.addPlugin(feedPlugin, {
     type: "rss",
     outputPath: "/quote-rss.xml",
+    collection: {
+      name: "quotePosts",
+      limit: 0,
+    },
+    metadata: {
+      language: "en",
+      title: "FlohGro Quote Posts",
+      subtitle: "Feed for quote posts that shall be crossposted to several networks.",
+      base: "https://flohgro.com/",
+      author: {
+        name: "FlohGro",
+        email: "hi@flohgro.com",
+      }
+    }
+  });
+
+  eleventyConfig.addPlugin(feedPlugin, {
+    type: "json",
+    outputPath: "/quote-feed.json",
     collection: {
       name: "quotePosts",
       limit: 0,
