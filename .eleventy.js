@@ -63,7 +63,8 @@ export default function (eleventyConfig) {
       return new Date(b.data.date) - new Date(a.data.date);
     });
 
-    return blogPosts.slice(0, 10);
+    let latestBlogPosts = blogPosts.slice(0, 10);
+    return latestBlogPosts.reverse();
   });
 
   eleventyConfig.addCollection("latestBlogPost", function (collectionApi) {
