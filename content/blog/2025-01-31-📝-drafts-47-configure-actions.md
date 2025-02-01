@@ -1,5 +1,5 @@
 ---
-title: 📝 Drafts 47 - Configure Actions
+title: Drafts 47 - Configure Actions
 date: 2025-01-31T22:05:04.213+01:00
 tags: ["drafts-release","drafts"]
 permalink: /blog/📝-drafts-47-configure-actions/index.html
