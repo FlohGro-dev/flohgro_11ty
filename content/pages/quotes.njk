@@ -6,7 +6,7 @@ permalink: /quotes/
 
 <h1>Quotes</h1>
 <div class="timeline">
-    {% for post in collections.quotePosts %}
+    {% for post in collections.quotePosts | reverse %}
         <div class="timeline-item">
             <div class="timeline-date">
                 {{ post.data.date | postDate }}

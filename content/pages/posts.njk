@@ -6,7 +6,7 @@ permalink: /posts/
 
 <h1>Social Posts</h1>
 <div class="timeline">
-    {% for post in collections.socialPosts %}
+    {% for post in collections.socialPosts | reverse %}
         <div class="timeline-item">
             <div class="timeline-date">
                 {{ post.data.date | postDate }} at {{ post.data.date | postTime }}
