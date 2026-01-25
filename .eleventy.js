@@ -163,24 +163,7 @@ export default function (eleventyConfig) {
     }
   });
 
-  eleventyConfig.addPlugin(feedPlugin, {
-    type: "json", // or "rss", "json"
-    outputPath: "/feed.json",
-    collection: {
-      name: "limitedBlogPosts",
-      limit: 0,
-    },
-    metadata: {
-      language: "en",
-      title: "FlohGro",
-      subtitle: "I code more than I write.",
-      base: "https://flohgro.com/",
-      author: {
-        name: "FlohGro",
-        email: "hi@flohgro.com",
-      }
-    }
-  });
+  // Custom JSON feed with excerpt/socialPost support is in feed-custom.json.njk
 
   // feed for social posts
   eleventyConfig.addPlugin(feedPlugin, {

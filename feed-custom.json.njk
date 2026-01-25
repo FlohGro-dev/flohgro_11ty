@@ -1,0 +1,36 @@
+---
+permalink: /feed.json
+eleventyExcludeFromCollections: true
+---
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "FlohGro",
+  "language": "en",
+  "home_page_url": "https://flohgro.com/",
+  "feed_url": "https://flohgro.com/feed.json",
+  "description": "I code more than I write.",
+  "authors": [
+    {
+      "name": "FlohGro",
+      "url": "mailto:hi@flohgro.com"
+    }
+  ],
+  "items": [
+    {%- for post in collections.limitedBlogPosts | reverse %}
+    {%- set absolutePostUrl = post.url | htmlBaseUrl("https://flohgro.com/") %}
+    {
+      "id": "{{ absolutePostUrl }}",
+      "url": "{{ absolutePostUrl }}",
+      "title": "{{ post.data.title }}",
+      "content_html": {{ post.content | dump | safe }},
+      "date_published": "{{ post.date | dateToRfc3339 }}"
+      {%- if post.data.summary %},
+      "summary": {{ post.data.summary | dump | safe }}
+      {%- endif %}
+      {%- if post.data._social_post %},
+      "_social_post": {{ post.data._social_post | dump | safe }}
+      {%- endif %}
+    }{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ]
+}
