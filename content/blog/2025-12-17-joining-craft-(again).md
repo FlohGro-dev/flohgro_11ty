@@ -3,6 +3,7 @@ title: Joining Craft (Again)
 date: 2025-12-17T17:36:28.348+01:00
 tags: ["drafts","workflow","drafts-action","craft","drafts-action-group"]
 permalink: /blog/joining-craft-(again)/index.html
+summary: "After 2 years away, Craft's new API brought me back. I built CraftWork, an action group integrating Drafts and Craft."
 ---
 
 On the Thanksgiving weekend I stumbled across an interesting email from the Craft Team. Reading the abbreviations "MCP" and "API" in the subject for the new update got me hooked.
