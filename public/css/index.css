@@ -274,30 +274,73 @@ blockquote {
 /* Header */
 header {
   display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
+  flex-direction: column;
   padding: 1em;
-  /* Place items at the left and right edges */
-  justify-content: space-between;
+  gap: 0.75em;
   width: 100%;
 }
 
-.home-link {
-  /* Center the icon and any text */
+.header-top {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  font-size: 1em;
-  font-weight: 700;
-  margin-right: 0.5em;
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  float: left;
-  display: block;
-  flex-shrink: 0;
+  width: 100%;
 }
 
-.home-link:link:not(:hover) {
+.site-branding {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
   text-decoration: none;
+}
+
+.site-branding img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.site-title {
+  font-family: var(--font-family);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #89B4FA;
+}
+
+.site-branding:hover .site-title {
+  color: var(--text-color-link-active);
+}
+
+.header-social {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.5em;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.header-social li {
+  display: flex;
+}
+
+.header-social a {
+  display: flex;
+  align-items: center;
+}
+
+.header-social img,
+.header-social img[src$=".svg"] {
+  width: 24px;
+  height: 24px;
+  max-width: 24px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.header-social img:hover {
+  transform: scale(1.1);
 }
 
 /* Nav */
@@ -382,16 +425,23 @@ nav {
 }
 
 @media screen and (max-width: 600px) {
-  .home-link {
-    /* 2 rows of 36px buttons + gap = ~78px */
-    width: 78px;
-    height: 78px;
+  .header-top {
+    flex-wrap: wrap;
+    gap: 0.5em;
   }
 
-  .home-link img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+  .site-branding {
+    flex: 0 0 auto;
+  }
+
+  .header-social {
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  .header-social img {
+    width: 20px;
+    height: 20px;
   }
 
   .nav {
