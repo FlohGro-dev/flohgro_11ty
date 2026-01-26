@@ -7,8 +7,6 @@ eleventyNavigation:
     order: 4
 ---
 
-{% include "std-icons.md" %}
-
 ## archive of all posts
 
 {% for blogPost in collections.blogPosts %}

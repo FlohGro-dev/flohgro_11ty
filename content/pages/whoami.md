@@ -7,8 +7,6 @@ eleventyNavigation:
     order: 1
 ---
 
-{% include "std-icons.md" %}
-
 ## whoami
 
 I am Floh Gro – a 31-year young software developer 👨‍💻 from South Germany 🇩🇪.

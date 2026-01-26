@@ -2,8 +2,6 @@
 layout: layouts/base
 ---
 
-{% include "std-icons.md" %}
-
 {% for post in collections.latestBlogPost %}
 ## [{{ post.data.title }}]({{ site.baseUrl }}{{ post.url }}) ({{post.data.date | isoDate}})
 {{ post.templateContent }}

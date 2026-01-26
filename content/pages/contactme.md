@@ -7,8 +7,6 @@ eleventyNavigation:
     order: 2
 ---
 
-{% include "std-icons.md" %}
-
 ## contactme
 I’m active on various platforms and communities / forums.
 

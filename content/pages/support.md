@@ -7,8 +7,6 @@ eleventyNavigation:
     order: 3
 ---
 
-{% include "std-icons.md" %}
-
 Everything I built is free to use for you.
 If you want to give something back to thank me and support my future work you can donate a (few) coffee(s) ✌🏼
 

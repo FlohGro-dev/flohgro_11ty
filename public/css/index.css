@@ -302,7 +302,7 @@ header {
 
 .site-title {
   font-family: var(--font-family);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: #89B4FA;
 }
@@ -316,14 +316,18 @@ header {
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 0.5em;
+  gap: 0.75em;
   flex-wrap: wrap;
   justify-content: flex-end;
 }
 
+/* Ensure symmetric 2x5 layout when wrapping */
 .header-social li {
   display: flex;
+  flex: 0 0 auto;
 }
+
+
 
 .header-social a {
   display: flex;
@@ -425,25 +429,6 @@ nav {
 }
 
 @media screen and (max-width: 600px) {
-  .header-top {
-    flex-wrap: wrap;
-    gap: 0.5em;
-  }
-
-  .site-branding {
-    flex: 0 0 auto;
-  }
-
-  .header-social {
-    flex: 1;
-    justify-content: flex-end;
-  }
-
-  .header-social img {
-    width: 20px;
-    height: 20px;
-  }
-
   .nav {
     flex-wrap: wrap;
     gap: 0.4em;
@@ -466,6 +451,47 @@ nav {
     height: 36px;
     font-size: 0.85rem;
     padding: 0 0.3em;
+  }
+}
+
+/* Medium screens: 2 rows of social icons, home icon grows */
+@media screen and (max-width: 700px) {
+  .header-social {
+    /* 5 icons per row */
+    max-width: calc(5 * 24px + 4 * 0.75em);
+  }
+
+  /* Home icon matches 2 rows of icons + gap */
+  .site-branding img {
+    width: auto;
+    height: calc(2 * 24px + 0.75em);
+  }
+
+  .site-title {
+    font-size: 1.4rem;
+  }
+}
+
+/* Narrow screens: hide FlohGro text */
+@media screen and (max-width: 500px) {
+  .site-title {
+    display: none;
+  }
+
+  .header-social img,
+  .header-social img[src$=".svg"] {
+    width: 20px;
+    height: 20px;
+    max-width: 20px;
+  }
+
+  .header-social {
+    max-width: calc(5 * 20px + 4 * 0.5em);
+    gap: 0.5em;
+  }
+
+  .site-branding img {
+    height: calc(2 * 20px + 0.5em);
   }
 }
 
