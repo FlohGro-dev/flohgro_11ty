@@ -21,7 +21,12 @@
       "icon": "/assets/icons/omglol-icon.svg"
     },
     {
-      "name": "Buy ma a coffee",
+      "name": "rss",
+      "url": "/rss.xml",
+      "icon": "/assets/icons/rssfeed-icon.png"
+    },
+    {
+      "name": "Buy me a coffee",
       "url": "https://buymeacoffee.com/flohgro",
       "icon": "/assets/icons/bmac-icon.png"
     },
@@ -34,11 +39,6 @@
       "name": "patreon",
       "url": "https://patreon.com/flohgro",
       "icon": "/assets/icons/patreon-icon.svg"
-    },
-    {
-      "name": "rss",
-      "url": "/rss.xml",
-      "icon": "/assets/icons/rssfeed-icon.png"
     },
     {
       "name": "drafts forum",
