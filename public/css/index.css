@@ -287,7 +287,7 @@ header {
   display: flex;
   flex-direction: column;
   padding: 1em;
-  gap: 0.75em;
+  gap: 0.5em;
   width: 100%;
 }
 
@@ -337,7 +337,7 @@ header {
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 0.75em;
+  gap: 0;
   flex-wrap: wrap;
   justify-content: flex-end;
 }
@@ -348,23 +348,26 @@ header {
   flex: 0 0 auto;
 }
 
-
-
 .header-social a {
   display: flex;
   align-items: center;
+  justify-content: center;
+  /* 44px touch target for accessibility */
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px;
 }
 
 .header-social img,
 .header-social img[src$=".svg"] {
-  width: 24px;
-  height: 24px;
-  max-width: 24px;
+  width: 28px;
+  height: 28px;
+  max-width: 28px;
   object-fit: contain;
   transition: transform 0.2s ease;
 }
 
-.header-social img:hover {
+.header-social a:hover img {
   transform: scale(1.1);
 }
 
@@ -478,33 +481,39 @@ nav {
 /* Medium screens: 2 rows of social icons, home icon grows */
 @media screen and (max-width: 580px) {
   .header-social {
-    /* 5 icons per row */
-    max-width: calc(5 * 24px + 4 * 0.75em);
+    /* 5 icons per row with 44px touch targets */
+    max-width: calc(5 * 44px);
   }
 
-  /* Home icon matches 2 rows of icons + gap */
+  /* Home icon matches 2 rows of icons */
   .site-branding img {
     width: auto;
-    height: calc(2 * 24px + 0.75em);
+    height: calc(2 * 44px);
   }
 }
 
-/* Smaller screens: scale down to fit iPhone 16e (375px) */
+/* Smaller screens: reduce icon size but keep touch targets */
 @media screen and (max-width: 450px) {
   .header-social img,
   .header-social img[src$=".svg"] {
-    width: 18px;
-    height: 18px;
-    max-width: 18px;
+    width: 24px;
+    height: 24px;
+    max-width: 24px;
+  }
+
+  .header-social a {
+    /* Slightly smaller touch targets but still accessible (40px) */
+    min-width: 40px;
+    min-height: 40px;
+    padding: 8px;
   }
 
   .header-social {
-    max-width: calc(5 * 18px + 4 * 0.4em);
-    gap: 0.4em;
+    max-width: calc(5 * 40px);
   }
 
   .site-branding img {
-    height: calc(2 * 18px + 0.4em);
+    height: calc(2 * 40px);
   }
 
   .site-title {
@@ -513,6 +522,34 @@ nav {
 
   .site-branding {
     gap: 0.3em;
+  }
+}
+
+/* Very narrow screens: smaller touch targets to fit */
+@media screen and (max-width: 375px) {
+  .header-social img,
+  .header-social img[src$=".svg"] {
+    width: 22px;
+    height: 22px;
+    max-width: 22px;
+  }
+
+  .header-social a {
+    min-width: 36px;
+    min-height: 36px;
+    padding: 7px;
+  }
+
+  .header-social {
+    max-width: calc(5 * 36px);
+  }
+
+  .site-branding img {
+    height: calc(2 * 36px);
+  }
+
+  .site-title {
+    font-size: 1.2rem;
   }
 }
 
