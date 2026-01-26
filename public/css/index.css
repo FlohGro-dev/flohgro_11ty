@@ -30,6 +30,17 @@
   box-sizing: border-box;
 }
 
+/* Custom text selection */
+::selection {
+  background-color: #89B4FA;
+  color: #111118;
+}
+
+::-moz-selection {
+  background-color: #89B4FA;
+  color: #111118;
+}
+
 html {
   font-size: clamp(12px, 2vw, 18px);
 }
@@ -305,6 +316,16 @@ header {
   font-size: 1.75rem;
   font-weight: 700;
   color: #89B4FA;
+}
+
+.site-title::after {
+  content: "_";
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .site-branding:hover .site-title {
