@@ -455,7 +455,7 @@ nav {
 }
 
 /* Medium screens: 2 rows of social icons, home icon grows */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 580px) {
   .header-social {
     /* 5 icons per row */
     max-width: calc(5 * 24px + 4 * 0.75em);
@@ -466,14 +466,10 @@ nav {
     width: auto;
     height: calc(2 * 24px + 0.75em);
   }
-
-  .site-title {
-    font-size: 1.4rem;
-  }
 }
 
 /* Narrow screens: hide FlohGro text */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 420px) {
   .site-title {
     display: none;
   }
