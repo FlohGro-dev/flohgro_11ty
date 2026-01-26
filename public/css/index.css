@@ -306,7 +306,7 @@ header {
 }
 
 .site-branding img {
-  width: 40px;
+  width: auto;
   height: 40px;
   object-fit: contain;
 }
@@ -338,11 +338,10 @@ header {
   margin: 0;
   padding: 0;
   gap: 0;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-end;
 }
 
-/* Ensure symmetric 2x5 layout when wrapping */
 .header-social li {
   display: flex;
   flex: 0 0 auto;
@@ -360,9 +359,9 @@ header {
 
 .header-social img,
 .header-social img[src$=".svg"] {
-  width: 28px;
-  height: 28px;
-  max-width: 28px;
+  width: 24px;
+  height: 24px;
+  max-width: 24px;
   object-fit: contain;
   transition: transform 0.2s ease;
 }
@@ -478,86 +477,69 @@ nav {
   }
 }
 
-/* Medium screens: 2 rows of social icons, home icon grows */
-@media screen and (max-width: 580px) {
-  .header-social {
-    /* 5 icons per row with 44px touch targets */
-    max-width: calc(5 * 44px);
-  }
+/* Progressive icon hiding based on screen width */
+/* Order in HTML: patreon, omg.lol, bmac, kofi, drafts, mail, github, bluesky, mastodon, rss */
+/* Priority (keep): rss(10), mastodon(9), bluesky(8), github(7), mail(6), drafts(5), kofi(4), bmac(3), omg.lol(2), patreon(1) */
 
-  /* Home icon matches 2 rows of icons */
-  .site-branding img {
-    width: auto;
-    height: calc(2 * 44px);
-  }
+/* Hide patreon (1st) */
+@media screen and (max-width: 850px) {
+  .header-social li:nth-child(1) { display: none; }
 }
 
-/* Smaller screens: reduce icon size but keep touch targets */
-@media screen and (max-width: 450px) {
-  .header-social img,
-  .header-social img[src$=".svg"] {
-    width: 24px;
-    height: 24px;
-    max-width: 24px;
-  }
+/* Hide omg.lol (2nd) */
+@media screen and (max-width: 750px) {
+  .header-social li:nth-child(2) { display: none; }
+}
+
+/* Hide bmac (3rd) */
+@media screen and (max-width: 650px) {
+  .header-social li:nth-child(3) { display: none; }
+}
+
+/* Hide kofi (4th) */
+@media screen and (max-width: 550px) {
+  .header-social li:nth-child(4) { display: none; }
+}
+
+/* Hide drafts (5th) */
+@media screen and (max-width: 480px) {
+  .header-social li:nth-child(5) { display: none; }
+}
+
+/* Hide mail (6th) - also reduce touch targets */
+@media screen and (max-width: 420px) {
+  .header-social li:nth-child(6) { display: none; }
 
   .header-social a {
-    /* Slightly smaller touch targets but still accessible (40px) */
     min-width: 40px;
     min-height: 40px;
-    padding: 8px;
   }
 
-  .header-social {
-    max-width: calc(5 * 40px);
-  }
-
-  .site-branding img {
-    height: calc(2 * 40px);
-  }
-
-  .site-title {
-    font-size: 1.4rem;
-  }
-
-  .site-branding {
-    gap: 0.3em;
+  .header-social img,
+  .header-social img[src$=".svg"] {
+    width: 20px;
+    height: 20px;
+    max-width: 20px;
   }
 }
 
-/* Very narrow screens: smaller touch targets to fit */
-@media screen and (max-width: 375px) {
-  .header-social img,
-  .header-social img[src$=".svg"] {
-    width: 22px;
-    height: 22px;
-    max-width: 22px;
-  }
-
-  .header-social a {
-    min-width: 36px;
-    min-height: 36px;
-    padding: 7px;
-  }
-
-  .header-social {
-    max-width: calc(5 * 36px);
-  }
-
-  .site-branding img {
-    height: calc(2 * 36px);
-  }
+/* Hide github (7th) */
+@media screen and (max-width: 360px) {
+  .header-social li:nth-child(7) { display: none; }
 
   .site-title {
     font-size: 1.2rem;
   }
 }
 
-/* Very narrow screens: hide FlohGro text */
-@media screen and (max-width: 340px) {
-  .site-title {
-    display: none;
-  }
+/* Very narrow: hide bluesky (8th), keep mastodon + rss */
+@media screen and (max-width: 300px) {
+  .header-social li:nth-child(8) { display: none; }
+}
+
+/* Extreme: hide mastodon (9th), keep only rss */
+@media screen and (max-width: 250px) {
+  .header-social li:nth-child(9) { display: none; }
 }
 
 /* Posts list */

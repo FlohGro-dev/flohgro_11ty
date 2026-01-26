@@ -1,29 +1,14 @@
 {
   "stdLinks": [
     {
-      "name": "Mastodon",
-      "url": "https://social.lol/@flohgro",
-      "icon": "/assets/icons/mastodon-icon.svg"
-    },
-    {
-      "name": "Bluesky",
-      "url": "https://bsky.app/profile/flohgro.bsky.social",
-      "icon": "/assets/icons/bluesky-icon.png"
-    },
-    {
-      "name": "GitHub",
-      "url": "https://github.com/FlohGro-dev",
-      "icon": "/assets/icons/github-icon.svg"
+      "name": "patreon",
+      "url": "https://patreon.com/flohgro",
+      "icon": "/assets/icons/patreon-icon.svg"
     },
     {
       "name": "omg.lol",
       "url": "https://flohgro.omg.lol",
       "icon": "/assets/icons/omglol-icon.svg"
-    },
-    {
-      "name": "rss",
-      "url": "/rss.xml",
-      "icon": "/assets/icons/rssfeed-icon.png"
     },
     {
       "name": "Buy me a coffee",
@@ -36,19 +21,34 @@
       "icon": "/assets/icons/kofi-icon.svg"
     },
     {
-      "name": "patreon",
-      "url": "https://patreon.com/flohgro",
-      "icon": "/assets/icons/patreon-icon.svg"
-    },
-    {
       "name": "drafts forum",
       "url": "https://forums.getdrafts.com/u/flohgro/summary",
       "icon": "/assets/icons/drafts-icon.png"
     },
     {
+      "name": "GitHub",
+      "url": "https://github.com/FlohGro-dev",
+      "icon": "/assets/icons/github-icon.svg"
+    },
+    {
       "name": "e-mail",
       "url": "mailto:hi@flohgro.com",
       "icon": "/assets/icons/mail-icon.png"
+    },
+    {
+      "name": "Bluesky",
+      "url": "https://bsky.app/profile/flohgro.bsky.social",
+      "icon": "/assets/icons/bluesky-icon.png"
+    },
+    {
+      "name": "Mastodon",
+      "url": "https://social.lol/@flohgro",
+      "icon": "/assets/icons/mastodon-icon.svg"
+    },
+    {
+      "name": "rss",
+      "url": "/rss.xml",
+      "icon": "/assets/icons/rssfeed-icon.png"
     }
   ]
 }
