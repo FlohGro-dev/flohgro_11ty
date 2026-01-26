@@ -15,7 +15,7 @@
   --color-gray-90: #dad8d8;
 
   /* --text-color is assigned to --color-gray-_ above */
-  --text-color-link: #1e66f5;
+  --text-color-link: #5c9aff;
   --text-color-link-active: #89B4FA;
   --text-color-link-visited: #89B4FA;
 
@@ -126,7 +126,18 @@ a[href]:active {
   color: var(--text-color-link-active);
 }
 
-main,
+a[href]:focus,
+button:focus,
+.nav-item a:focus {
+  outline: 2px solid #89B4FA;
+  outline-offset: 2px;
+}
+
+main {
+  display: block;
+  padding: 1rem;
+}
+
 footer {
   display: flex;
   justify-content: center;
@@ -651,4 +662,15 @@ nav {
 .timeline-content {
   font-size: 1rem;
   color: #D9D9D9;
+}
+
+/* Footer icons - needs high specificity to override img[src$=".svg"] rule */
+footer img.footer-icon,
+footer img.footer-icon[src$=".svg"] {
+  width: auto;
+  height: 30px;
+  max-width: none;
+  max-height: 30px;
+  vertical-align: middle;
+  margin-right: 5px;
 }

@@ -3,11 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ metadata.title }}
-      {% if title %}
-        - {{ title }}
-      {% endif %}
-    </title>
+    <title>{{ metadata.title }}{% if title %} - {{ title }}{% endif %}</title>
     <meta name="description" content="{{ description or metadata.description }}">
     <meta name="fediverse:creator" content="@flohgro@social.lol">
     <link rel="alternate" type="application/atom+xml" title="{{ metadata.title }} Atom Feed" href="{{ metadata.url }}/atom.xml">
@@ -65,27 +61,27 @@
     </main>
     <footer>
       <p>
-        <a href=" {{ site.baseUrl }}/rss.xml" target=" _blank">
-          <img src="{{ site.baseUrl }}/assets/icons/rssfeed-icon.png" alt="RSS Feed" style="width: auto; height: 30px; vertical-align: middle; margin-right: 5px;"/>
+        <a href="{{ site.baseUrl }}/rss.xml" target="_blank">
+          <img src="{{ site.baseUrl }}/assets/icons/rssfeed-icon.png" alt="RSS Feed" class="footer-icon"/>
         </a>
         <a href="{{ site.baseUrl }}/feed.json" target="_blank">
-          <img src="{{ site.baseUrl }}/assets/icons/jsonfeed-icon.png" alt="JSON Feed" style="width: auto; height: 30px; vertical-align: middle; margin-right: 5px;"/>
+          <img src="{{ site.baseUrl }}/assets/icons/jsonfeed-icon.png" alt="JSON Feed" class="footer-icon"/>
         </a>
         <a href="{{ site.baseUrl }}/atom.xml" target="_blank">
-          <img src="{{ site.baseUrl }}/assets/icons/atomfeed-icon.png" alt="Atom Feed" style="width: auto; height: 30px; vertical-align: middle; margin-right: 5px;"/>
+          <img src="{{ site.baseUrl }}/assets/icons/atomfeed-icon.png" alt="Atom Feed" class="footer-icon"/>
         </a>
         <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">
-          <img src="{{ site.baseUrl }}/assets/icons/11ty-icon.svg" alt="11ty" style="width: auto; height: 30px; vertical-align: middle; margin-right: 5px;"/>
+          <img src="{{ site.baseUrl }}/assets/icons/11ty-icon.svg" alt="11ty" class="footer-icon"/>
         </a>
         <a href="https://people.pledge.party" target="_blank" rel="noopener noreferrer">
-          <img src="{{ site.baseUrl }}/assets/icons/people_pledge_badge_stacked_black_white_125x75.png" alt="11ty" style="width: auto; height: 30px; vertical-align: middle; margin-right: 5px;"/>
+          <img src="{{ site.baseUrl }}/assets/icons/people_pledge_badge_stacked_black_white_125x75.png" alt="People Pledge" class="footer-icon"/>
         </a>
         <a href="https://echofeed.app" target="_blank" rel="noopener noreferrer">
-          <img src="{{ site.baseUrl }}/assets/icons/powered-by-echofeed-white-alt.gif" alt="11ty" style="width: auto; height: 30px; vertical-align: middle; margin-right: 5px;"/>
+          <img src="{{ site.baseUrl }}/assets/icons/powered-by-echofeed-white-alt.gif" alt="EchoFeed" class="footer-icon"/>
         </a>
-        <br/> <br/> &copy; FlohGro {{ page.date | currentYear() }}
+        <br/><br/>&copy; FlohGro {{ page.date | currentYear() }}
       </p>
-      </footer>
+    </footer>
     <script type="module" src="{% getBundleFileUrl "js" %}"></script>
   </body>
 </html>
