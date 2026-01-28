@@ -238,9 +238,10 @@ code {
   font-family: var(--font-family-monospace);
 }
 
-pre:not([class*="language-"]) {
-  margin: .5em 0;
-  line-height: 1.375;
+pre {
+  position: relative;
+  margin: 1em 0;
+  line-height: 1.2;
   -moz-tab-size: var(--syntax-tab-size);
   -o-tab-size: var(--syntax-tab-size);
   tab-size: var(--syntax-tab-size);
@@ -253,11 +254,49 @@ pre:not([class*="language-"]) {
   word-spacing: normal;
   word-break: normal;
   overflow-x: auto;
+  background-color: #1e1e2e;
+  padding: 1em;
+  border-radius: 3px;
+  border-left: 3px solid #89B4FA;
+}
+
+pre code {
+  background-color: transparent;
+  word-break: normal;
+  padding: 0;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  background: #313244;
+  border: 1px solid #555;
+  color: #cdd6f4;
+  border-radius: 3px;
+  padding: 0.3em 0.5em;
+  font-size: 0.75em;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+pre:hover .copy-btn {
+  opacity: 1;
+}
+
+.copy-btn:hover {
+  background: #89B4FA;
+  color: #111118;
+  border-color: #89B4FA;
 }
 
 code {
   word-break: break-all;
   background-color: #313244;
+  padding: 0.15em 0.3em;
+  border-radius: 3px;
+  font-size: 0.9em;
 }
 
 em,
