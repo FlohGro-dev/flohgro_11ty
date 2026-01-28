@@ -3,9 +3,8 @@
   date: 2026-01-28T23:30:26.411+01:00
   tags: ["hazel","automation","ai"]
   permalink: /blog/automatic-pdf-renaming-with-local-ai/index.html
-summary: "A practical guide to automating PDF renaming using local AI models with Ollama. Learn how to set up a privacy-preserving paperless workflow that automatically renames scanned documents based on their content and imports them into DEVONthink — all without sending sensitive data to the cloud."
-_social_post: "How I built a privacy-preserving paperless workflow using local AI.
-Ollama + ai-pdf-renamer + Hazel = automatic document renaming without sending sensitive data to the cloud."
+  summary: "A practical guide to automating PDF renaming using local AI models with Ollama. Learn how to set up a privacy-preserving paperless workflow that automatically renames scanned documents based on their content and imports them into DEVONthink — all without sending sensitive data to the cloud."
+  _social_post: "How I built a privacy-preserving paperless workflow using local AI. Ollama + ai-pdf-renamer + Hazel = automatic document renaming without sending sensitive data to the cloud."
 ---
 
 Last year we moved into our house and with that I (once again) touched a lot of old paper stuff that I really don't want to keep physically anymore. I am 99.9% paperless for many years; every document I receive gets scanned with a ScanSnap iX100 (the Software is not great but scanning works fine for the amount of documents I receive) and properly filed into DEVONthink.
