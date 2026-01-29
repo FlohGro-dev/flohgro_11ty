@@ -978,3 +978,13 @@ footer img.footer-icon[src$=".svg"] {
   }
 }
 
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background-color: var(--border-accent);
+  z-index: 9999;
+}
+
