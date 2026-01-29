@@ -6,23 +6,67 @@
 :root {
   --font-family: 'JetBrains Mono', 'Roboto', -apple-system, system-ui, sans-serif;
   --font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
-}
 
-/* Theme colors */
-:root {
+  /* Color variables — dark theme (default) */
+  --bg-primary: #111118;
+  --text-primary: #D9D9D9;
+  --text-heading: #89B4FA;
+  --link-default: #5c9aff;
+  --link-hover: #89B4FA;
+  --link-visited: #89B4FA;
+  --surface-elevated: #1e1e2e;
+  --surface-inline: #313244;
+  --text-code: #cdd6f4;
+  --border-accent: #89B4FA;
+  --nav-border: #1e66f5;
+  --nav-text: #1e66f5;
+  --nav-hover-bg: #1e1e2e;
+  --nav-hover-text: #D9D9D9;
+  --nav-active-bg: #89B4FA;
+  --nav-active-text: #111118;
+  --copy-btn-bg: #313244;
+  --copy-btn-border: #555;
+  --copy-btn-hover-bg: #89B4FA;
+  --copy-btn-stroke: #cdd6f4;
+  --copy-btn-hover-stroke: #111118;
+  --selection-bg: #89B4FA;
+  --selection-text: #111118;
+  --text-muted: #6c7086;
   --color-gray-20: #e0e0e0;
   --color-gray-50: #C0C0C0;
   --color-gray-90: #dad8d8;
-
-  /* --text-color is assigned to --color-gray-_ above */
-  --text-color-link: #5c9aff;
-  --text-color-link-active: #89B4FA;
-  --text-color-link-visited: #89B4FA;
-
-  /* --background-color: #15202b; other #FF6F59*/
-  --background-color: #111118;
 }
 
+/* Light theme — Catppuccin Latte */
+[data-theme="light"] {
+  --bg-primary: #eff1f5;
+  --text-primary: #4c4f69;
+  --text-heading: #1e66f5;
+  --link-default: #1e66f5;
+  --link-hover: #04a5e5;
+  --link-visited: #7287fd;
+  --surface-elevated: #e6e9ef;
+  --surface-inline: #ccd0da;
+  --text-code: #4c4f69;
+  --border-accent: #1e66f5;
+  --nav-border: #7287fd;
+  --nav-text: #7287fd;
+  --nav-hover-bg: #e6e9ef;
+  --nav-hover-text: #4c4f69;
+  --nav-active-bg: #1e66f5;
+  --nav-active-text: #eff1f5;
+  --copy-btn-bg: #ccd0da;
+  --copy-btn-border: #bcc0cc;
+  --copy-btn-hover-bg: #1e66f5;
+  --copy-btn-stroke: #4c4f69;
+  --copy-btn-hover-stroke: #eff1f5;
+  --selection-bg: #1e66f5;
+  --selection-text: #eff1f5;
+  --text-muted: #8c8fa1;
+  --color-gray-20: #ccd0da;
+  --color-gray-50: #9ca0b0;
+  --color-gray-90: #6c6f85;
+}
 
 
 /* Global stylesheet */
@@ -32,13 +76,13 @@
 
 /* Custom text selection */
 ::selection {
-  background-color: #89B4FA;
-  color: #111118;
+  background-color: var(--selection-bg);
+  color: var(--selection-text);
 }
 
 ::-moz-selection {
-  background-color: #89B4FA;
-  color: #111118;
+  background-color: var(--selection-bg);
+  color: var(--selection-text);
 }
 
 html {
@@ -50,9 +94,8 @@ body {
   padding: 0;
   margin: 0 auto;
   font-family: var(--font-family);
-  color: #D9D9D9;
-  /* color: var(--text-color); */
-  background-color: var(--background-color);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
   text-align: justify;
   word-spacing: 0.1em;
   max-width: 50em;
@@ -68,7 +111,7 @@ h6 {
   /* Set text alignment to left for headings */
   text-align: left;
   word-spacing: normal;
-  color: #89B4FA;
+  color: var(--text-heading);
 }
 
 /* Exclude justify for all links */
@@ -125,24 +168,24 @@ li {
 }
 
 a[href] {
-  color: var(--text-color-link);
+  color: var(--link-default);
 }
 
 a[href]:visited {
-  color: var(--text-color-link-visited);
+  color: var(--link-visited);
 }
 
 a[href]:hover,
 a[href]:active,
 a[href]:visited:hover,
 a[href]:visited:active {
-  color: var(--text-color-link-active);
+  color: var(--link-hover);
 }
 
 a[href]:focus,
 button:focus,
 .nav-item a:focus {
-  outline: 2px solid #89B4FA;
+  outline: 2px solid var(--border-accent);
   outline-offset: 2px;
 }
 
@@ -254,10 +297,10 @@ pre {
   word-spacing: normal;
   word-break: normal;
   overflow-wrap: break-word;
-  background-color: #1e1e2e;
+  background-color: var(--surface-elevated);
   padding: 0.6em 0.8em;
   border-radius: 3px;
-  border-left: 3px solid #89B4FA;
+  border-left: 3px solid var(--border-accent);
 }
 
 pre code {
@@ -270,8 +313,8 @@ pre code {
   position: absolute;
   top: 0.4em;
   right: 0.4em;
-  background: #313244;
-  border: 1px solid #555;
+  background: var(--copy-btn-bg);
+  border: 1px solid var(--copy-btn-border);
   border-radius: 3px;
   padding: 4px;
   cursor: pointer;
@@ -286,7 +329,7 @@ pre code {
 .copy-btn svg {
   width: 16px;
   height: 16px;
-  stroke: #cdd6f4;
+  stroke: var(--copy-btn-stroke);
   fill: none;
   stroke-width: 2;
   stroke-linecap: round;
@@ -298,17 +341,17 @@ pre:hover .copy-btn {
 }
 
 .copy-btn:hover {
-  background: #89B4FA;
-  border-color: #89B4FA;
+  background: var(--copy-btn-hover-bg);
+  border-color: var(--copy-btn-hover-bg);
 }
 
 .copy-btn:hover svg {
-  stroke: #111118;
+  stroke: var(--copy-btn-hover-stroke);
 }
 
 code {
   word-break: break-all;
-  background-color: #313244;
+  background-color: var(--surface-inline);
   padding: 0.15em 0.3em;
   border-radius: 3px;
   font-size: 0.9em;
@@ -317,21 +360,21 @@ code {
 em,
 i {
   font-style: italic;
-  color: #cdd6f4;
+  color: var(--text-code);
 }
 
 strong,
 b {
   font-weight: bold;
-  color: #cdd6f4;
+  color: var(--text-code);
 }
 
 blockquote {
   font-style: italic;
-  color: #cdd6f4;
-  background-color: #1e1e2e;
+  color: var(--text-code);
+  background-color: var(--surface-elevated);
   padding: 10px;
-  border-left: 5px solid #89B4FA;
+  border-left: 5px solid var(--border-accent);
   margin: 10px 0;
   border-radius: 3px;
 }
@@ -369,7 +412,7 @@ header {
   font-family: var(--font-family);
   font-size: 1.75rem;
   font-weight: 700;
-  color: #89B4FA;
+  color: var(--text-heading);
 }
 
 .site-title::after {
@@ -383,7 +426,7 @@ header {
 }
 
 .site-branding:hover .site-title {
-  color: var(--text-color-link-active);
+  color: var(--link-hover);
 }
 
 .header-social {
@@ -456,12 +499,16 @@ nav {
   flex: 1;
 }
 
+.nav-item-toggle {
+  flex: 0 0 40px;
+}
+
 /* Navigation link */
 .nav-item a {
   display: flex;
-  border: 2px solid #1e66f5;
+  border: 2px solid var(--nav-border);
   border-radius: 2px;
-  background-color: #111118;
+  background-color: var(--bg-primary);
   text-decoration: none;
   text-align: center;
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
@@ -471,32 +518,32 @@ nav {
   align-items: center;
   font-size: 1rem;
   white-space: nowrap;
-  color: #1e66f5;
+  color: var(--nav-text);
 }
 
 /* Button hover and active states - include visited for consistent behavior */
 .nav-item a:hover,
 .nav-item a:visited:hover {
-  background-color: #1e1e2e;
-  color: #D9D9D9;
-  border-color: #89B4FA;
+  background-color: var(--nav-hover-bg);
+  color: var(--nav-hover-text);
+  border-color: var(--border-accent);
 }
 
 .nav-item a:active,
 .nav-item a:visited:active {
-  background-color: #89B4FA;
-  color: #111118;
+  background-color: var(--nav-active-bg);
+  color: var(--nav-active-text);
 }
 
 /* Current page button */
 .nav-item a[aria-current="page"] {
-  background-color: #89B4FA;
-  color: #111118;
+  background-color: var(--nav-active-bg);
+  color: var(--nav-active-text);
   font-weight: bold;
 }
 
 .nav-item a:visited {
-  color: #1e66f5;
+  color: var(--nav-text);
 }
 
 @media screen and (max-width: 1000px) {
@@ -676,7 +723,7 @@ nav {
 
 .reading-time {
   font-size: 0.8em;
-  color: #6c7086;
+  color: var(--text-muted);
   margin: 0.2em 0 0.5em;
   font-style: italic;
 }
@@ -692,9 +739,9 @@ nav {
   box-sizing: border-box;
   margin: 0em;
   padding: 1em;
-  background-color: #111118;
+  background-color: var(--bg-primary);
   border-radius: 2px;
-  color: #D9D9D9;
+  color: var(--text-primary);
   font-size: clamp(14px, 2vw, 18px);
 }
 
@@ -798,23 +845,22 @@ nav {
   /* Huge font size */
   font-size: 10rem;
   /* Red color for emphasis */
-  color: #89B4FA;
+  color: var(--text-heading);
   font-weight: bold;
   margin: 40px;
 }
 
 .error-message {
   font-size: 1.5rem;
-  color: #777;
-  /* margin-top: 10px; */
+  color: var(--text-muted);
 }
 
 .error-link {
-  border: 2px solid #1e66f5;
+  border: 2px solid var(--nav-border);
   /* Add rounded corners */
   border-radius: 2px;
   /* Button background color */
-  background-color: #111118;
+  background-color: var(--bg-primary);
   /* Remove underline */
   text-decoration: none;
   /* Center text inside the buttons */
@@ -825,11 +871,11 @@ nav {
   display: inline-block;
   margin: 30px;
   padding: 10px 20px;
-  color: #1e66f5 !important;
+  color: var(--nav-text) !important;
 }
 
 .error-link:hover {
-  color: #D9D9D9 !important;
+  color: var(--nav-hover-text) !important;
 }
 
 .timeline {
@@ -840,21 +886,21 @@ nav {
 
 .timeline-item {
   padding: 1rem;
-  border: 1px solid #89B4FA;
+  border: 1px solid var(--border-accent);
   border-radius: 3px;
-  background: #1e1e2e;
+  background: var(--surface-elevated);
 }
 
 .timeline-date {
   font-size: 0.9rem;
   font-weight: bold;
-  color: #6c7086;
+  color: var(--text-muted);
   margin-bottom: 0.5rem;
 }
 
 .timeline-content {
   font-size: 1rem;
-  color: #D9D9D9;
+  color: var(--text-primary);
 }
 
 /* Footer icons - needs high specificity to override img[src$=".svg"] rule */
@@ -867,3 +913,63 @@ footer img.footer-icon[src$=".svg"] {
   vertical-align: middle;
   margin-right: 5px;
 }
+
+/* Theme toggle button — styled like .nav-item a */
+.theme-toggle {
+  display: flex;
+  border: 2px solid var(--nav-border);
+  border-radius: 2px;
+  background-color: var(--bg-primary);
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  box-sizing: border-box;
+  height: 40px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--nav-text);
+}
+
+.theme-toggle:hover {
+  background-color: var(--nav-hover-bg);
+  color: var(--nav-hover-text);
+  border-color: var(--border-accent);
+}
+
+.theme-toggle:active {
+  background-color: var(--nav-active-bg);
+  color: var(--nav-active-text);
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Invert white-only icons in light mode (patreon=1st, github=6th) */
+[data-theme="light"] .header-social li:nth-child(1) img,
+[data-theme="light"] .header-social li:nth-child(6) img {
+  filter: invert(1);
+}
+
+/* Show sun in dark mode, moon in light mode */
+.theme-toggle .icon-moon {
+  display: none;
+}
+
+[data-theme="light"] .theme-toggle .icon-sun {
+  display: none;
+}
+
+[data-theme="light"] .theme-toggle .icon-moon {
+  display: block;
+}
+
