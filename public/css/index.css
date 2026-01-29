@@ -558,16 +558,14 @@ nav {
     gap: 0.4em;
   }
 
-  /* 3 buttons on first row, 2 on second */
+  /* 3 buttons on first row, 2 + toggle on second */
   .nav-item {
-    flex: 1 1 calc(50% - 0.4em);
+    flex: 1 1 calc(33.33% - 0.4em);
     min-width: 0;
   }
 
-  .nav-item:nth-child(1),
-  .nav-item:nth-child(2),
-  .nav-item:nth-child(3) {
-    flex: 1 1 calc(33.33% - 0.4em);
+  .nav-item-toggle {
+    flex: 0 0 36px;
   }
 
   .nav-item a {
@@ -971,5 +969,12 @@ footer img.footer-icon[src$=".svg"] {
 
 [data-theme="light"] .theme-toggle .icon-moon {
   display: block;
+}
+
+@media screen and (max-width: 600px) {
+  .theme-toggle {
+    height: 36px;
+    border-width: 1px;
+  }
 }
 
