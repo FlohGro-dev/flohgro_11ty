@@ -240,8 +240,8 @@ code {
 
 pre {
   position: relative;
-  margin: 1em 0;
-  line-height: 1.2;
+  margin: 0.75em 0;
+  line-height: 1.15;
   -moz-tab-size: var(--syntax-tab-size);
   -o-tab-size: var(--syntax-tab-size);
   tab-size: var(--syntax-tab-size);
@@ -250,12 +250,12 @@ pre {
   hyphens: none;
   direction: ltr;
   text-align: left;
-  white-space: pre;
+  white-space: pre-wrap;
   word-spacing: normal;
   word-break: normal;
-  overflow-x: auto;
+  overflow-wrap: break-word;
   background-color: #1e1e2e;
-  padding: 1em;
+  padding: 0.6em 0.8em;
   border-radius: 3px;
   border-left: 3px solid #89B4FA;
 }
@@ -268,17 +268,29 @@ pre code {
 
 .copy-btn {
   position: absolute;
-  top: 0.5em;
-  right: 0.5em;
+  top: 0.4em;
+  right: 0.4em;
   background: #313244;
   border: 1px solid #555;
-  color: #cdd6f4;
   border-radius: 3px;
-  padding: 0.3em 0.5em;
-  font-size: 0.75em;
+  padding: 4px;
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.copy-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: #cdd6f4;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 pre:hover .copy-btn {
@@ -287,8 +299,11 @@ pre:hover .copy-btn {
 
 .copy-btn:hover {
   background: #89B4FA;
-  color: #111118;
   border-color: #89B4FA;
+}
+
+.copy-btn:hover svg {
+  stroke: #111118;
 }
 
 code {
