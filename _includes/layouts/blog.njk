@@ -9,6 +9,7 @@ layout: layouts/base.njk
     <li>
         <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
     </li>
+    <li class="reading-time">{{ content | readingTime }}</li>
     {%- for tag in tags | filterTagList %}
         {%- set tagUrl %}{{ site.baseUrl }}/tags/{{ tag | slugify }}/{% endset %}
         <li>

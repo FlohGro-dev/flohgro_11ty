@@ -674,6 +674,13 @@ nav {
   margin-right: 1em;
 }
 
+.reading-time {
+  font-size: 0.8em;
+  color: #6c7086;
+  margin: 0.2em 0 0.5em;
+  font-style: italic;
+}
+
 .search-container {
   display: flex;
   width: 100%;

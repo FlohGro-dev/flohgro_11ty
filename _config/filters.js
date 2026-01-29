@@ -52,6 +52,13 @@ export default function (eleventyConfig) {
 		}
 	};
 
+	eleventyConfig.addFilter("readingTime", (content) => {
+		const text = (content || "").replace(/<[^>]*>/g, "");
+		const words = text.split(/\s+/).filter(w => w.length > 0).length;
+		const minutes = Math.max(1, Math.round(words / 200));
+		return `${minutes} min read (${words} words)`;
+	});
+
 	eleventyConfig.addFilter("postDate", (dateObj) => {
 		const d = DateTime.fromJSDate(dateObj).setZone("Europe/Berlin");
 		return `${d.toFormat("d")}${nth(d.day)} ${d.toFormat("LLLL yyyy")}`;
