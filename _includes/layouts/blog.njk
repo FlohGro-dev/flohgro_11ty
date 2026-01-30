@@ -20,6 +20,21 @@ layout: layouts/base.njk
     {%- endfor %}
 </ul>
 {{ content | safe }}
+{%- set related = collections.blogPosts | relatedPosts(tags, page.url, 3) %}
+{%- if related.length > 0 %}
+  <section class="related-posts">
+    <h2>Related Posts</h2>
+    <div class="related-posts-grid">
+      {%- for rel in related %}
+        <a href="{{ site.baseUrl }}{{ rel.url }}" class="related-post-card">
+          <h3>{{ rel.data.title }}</h3>
+          <time datetime="{{ rel.date | htmlDateString }}">{{ rel.date | readableDate }}</time>
+          <p>{{ rel.templateContent | truncate(300) }}</p>
+        </a>
+      {%- endfor %}
+    </div>
+  </section>
+{%- endif %}
 {%- if collections.blogPosts %}
     {%- set previousPost = collections.blogPosts | getPreviousCollectionItem %}
     {%- set nextPost = collections.blogPosts | getNextCollectionItem %}

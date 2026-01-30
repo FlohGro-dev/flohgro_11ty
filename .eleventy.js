@@ -112,6 +112,24 @@ export default function (eleventyConfig) {
   });
 
 
+  eleventyConfig.addFilter("relatedPosts", function (collection, tags, currentUrl, limit) {
+    const excludeTags = ["all", "posts", "post", "blog", "drafts-action-directory-feed"];
+    const currentTags = (tags || []).filter(tag => excludeTags.indexOf(tag) === -1);
+    if (currentTags.length === 0) return [];
+
+    return collection
+      .filter(post => post.url !== currentUrl)
+      .map(post => {
+        const postTags = (post.data.tags || []).filter(tag => excludeTags.indexOf(tag) === -1);
+        const shared = currentTags.filter(tag => postTags.includes(tag)).length;
+        return { post, shared };
+      })
+      .filter(item => item.shared > 0)
+      .sort((a, b) => b.shared - a.shared || b.post.date - a.post.date)
+      .slice(0, limit || 3)
+      .map(item => item.post);
+  });
+
   eleventyConfig.addFilter("truncate", function (str, length) {
     if (!str) return "";
     // Remove HTML tags

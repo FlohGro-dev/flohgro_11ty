@@ -978,6 +978,64 @@ footer img.footer-icon[src$=".svg"] {
   }
 }
 
+/* Related posts */
+.related-posts {
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 1px solid var(--color-gray-20);
+}
+
+.related-posts h2 {
+  margin-bottom: 0.75em;
+}
+
+.related-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14em, 1fr));
+  gap: 1em;
+}
+
+.related-post-card {
+  display: block;
+  padding: 1rem;
+  border: 1px solid var(--border-accent);
+  border-radius: 3px;
+  background: var(--surface-elevated);
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.related-post-card:visited {
+  color: var(--text-primary);
+}
+
+.related-post-card:hover,
+.related-post-card:visited:hover {
+  border-color: var(--link-hover);
+  background-color: var(--nav-hover-bg);
+  color: var(--text-primary);
+}
+
+.related-post-card h3 {
+  margin: 0 0 0.25em;
+  font-size: 1rem;
+}
+
+.related-post-card time {
+  display: block;
+  font-size: 0.8em;
+  color: var(--text-muted);
+  margin-bottom: 0.5em;
+}
+
+.related-post-card p {
+  margin: 0;
+  font-size: 0.85em;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
 #reading-progress {
   position: fixed;
   top: 0;
