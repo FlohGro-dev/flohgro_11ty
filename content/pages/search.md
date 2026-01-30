@@ -11,32 +11,42 @@ eleventyNavigation:
 
 Looking for something specific? Try the search here - if you can't find what you're looking for don't hesitate to [contact me](/contactme)
 
-<div class="search-container"> 
+<div class="search-container">
 <input type="text" id="searchInput" placeholder="Search posts...">
 </div>
-<ul id="searchResults"></ul>
+<div id="searchResults" class="recent-posts-list"></div>
 
 <script>
-  // Fetch the JSON index
+  function truncate(str, len) {
+    if (!str) return '';
+    if (str.length <= len) return str;
+    return str.substring(0, len) + '...';
+  }
+
   fetch("{{ site.baseUrl }}/search.json")
     .then(response => response.json())
     .then(data => {
       const input = document.getElementById('searchInput');
-      const resultsList = document.getElementById('searchResults');
+      const results = document.getElementById('searchResults');
 
       input.addEventListener('input', () => {
         const query = input.value.toLowerCase();
-        const filteredPosts = data.filter(blogPost =>
-          blogPost.title.toLowerCase().includes(query) ||
-          blogPost.content.toLowerCase().includes(query)
+        const filtered = data.filter(post =>
+          post.title.toLowerCase().includes(query) ||
+          post.content.toLowerCase().includes(query)
         );
 
-        // Clear and repopulate results
-        resultsList.innerHTML = '';
-        filteredPosts.forEach(blogPost => {
-          const li = document.createElement('li');
-          li.innerHTML = `<a href="${blogPost.url}">${blogPost.title}</a>`;
-          resultsList.appendChild(li);
+        results.innerHTML = '';
+        filtered.forEach(post => {
+          const excerpt = post.summary || truncate(post.content, 300);
+          const card = document.createElement('a');
+          card.href = post.url;
+          card.className = 'related-post-card';
+          card.innerHTML = `<h3>${post.title}</h3>` +
+            (post.date ? `<time datetime="${post.date}">${post.date}</time>` : '') +
+            (post.readingTime ? `<span class="reading-time">${post.readingTime}</span>` : '') +
+            `<p>${excerpt}</p>`;
+          results.appendChild(card);
         });
       });
     })

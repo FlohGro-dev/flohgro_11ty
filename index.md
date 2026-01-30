@@ -29,4 +29,4 @@ layout: layouts/base
 {% endfor %}
 </div>
 
-## [All Posts](/archive/)
+## [All Posts](/blog/)

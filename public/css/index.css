@@ -771,28 +771,29 @@ nav {
 
 #searchInput {
   width: 100%;
-  /* Ensure full width from the start */
   box-sizing: border-box;
-  margin: 0em;
-  padding: 1em;
-  background-color: var(--bg-primary);
-  border-radius: 2px;
+  margin: 0;
+  padding: 0.75em 1em;
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-accent);
+  border-radius: 3px;
   color: var(--text-primary);
-  font-size: clamp(14px, 2vw, 18px);
+  font-family: var(--font-family);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+#searchInput::placeholder {
+  color: var(--text-muted);
+}
+
+#searchInput:focus {
+  border-color: var(--link-hover);
 }
 
 #searchResults {
-  list-style: none;
-  /* Remove default bullet styling */
-  padding: 0;
-  /* Remove default padding */
-  margin: 0;
-  /* Remove default margin */
-}
-
-#searchResults li {
-  margin-left: 0;
-  /* Left-align list items */
+  margin-top: 1em;
 }
 
 .std-icons {

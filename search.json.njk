@@ -6,16 +6,25 @@ eleventyExcludeFromCollections: true
 [{%- for blogPost in collections.blogPosts -%}{
       "title": {{ blogPost.data.title | jsonify | safe }},
       "url": "{{ site.baseUrl }}{{ blogPost.url }}",
+      "date": "{{ blogPost.date | htmlDateString }}",
+      "readingTime": {{ blogPost.templateContent | readingTime | jsonify | safe }},
+      "summary": {{ (blogPost.data.summary or "") | jsonify | safe }},
       "content": {{ blogPost.templateContent | striptags | trim | jsonify | safe }}
     }
     {%- if not loop.last or collections.quotePosts.length > 0 -%},{%- endif -%}{%- endfor -%}{%- for quotePost in collections.quotePosts -%}{
       "title": {{ quotePost.data.title | jsonify | safe }},
       "url": "{{ site.baseUrl }}{{ quotePost.url }}",
+      "date": "{{ quotePost.date | htmlDateString }}",
+      "readingTime": {{ quotePost.templateContent | readingTime | jsonify | safe }},
+      "summary": "",
       "content": {{ quotePost.templateContent | striptags | trim | jsonify | safe }}
     }
     {%- if not loop.last or collections.socialPosts.length>0 -%},{%- endif -%}{%- endfor -%}{%- for socialPost in collections.socialPosts -%}{
       "title": {{ socialPost.data.title | jsonify | safe }},
       "url": "{{ site.baseUrl }}{{ socialPost.url }}",
+      "date": "{{ socialPost.date | htmlDateString }}",
+      "readingTime": {{ socialPost.templateContent | readingTime | jsonify | safe }},
+      "summary": "",
       "content": {{ socialPost.templateContent | striptags | trim | jsonify | safe }}
     }
     {%- if not loop.last -%},{%- endif -%}{%- endfor -%}]
