@@ -7,7 +7,7 @@ layout: layouts/base.njk
 </h1>
 <ul class="post-metadata">
     <li>
-        <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+        <time datetime="{{ page.date | htmlDateString }}">{{ page.date | smartDate }}</time>
     </li>
     <li class="reading-time">{{ content | readingTime }}</li>
     {%- for tag in tags | filterTagList %}
@@ -28,7 +28,7 @@ layout: layouts/base.njk
       {%- for rel in related %}
         <a href="{{ site.baseUrl }}{{ rel.url }}" class="related-post-card">
           <h3>{{ rel.data.title }}</h3>
-          <time datetime="{{ rel.date | htmlDateString }}">{{ rel.date | readableDate }}</time>
+          <time datetime="{{ rel.date | htmlDateString }}">{{ rel.date | smartDate }}</time>
           <span class="reading-time">{{ rel.templateContent | readingTime }}</span>
           <p>{{ rel.data.summary if rel.data.summary else rel.templateContent | truncate(150) }}</p>
         </a>

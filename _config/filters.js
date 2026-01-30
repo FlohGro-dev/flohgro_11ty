@@ -74,4 +74,31 @@ export default function (eleventyConfig) {
 		return DateTime.fromJSDate(dateObj).setZone("Europe/Berlin").toFormat("HH:mm");
 	});
 
+	const relativeLabel = (dateObj) => {
+		const now = DateTime.now().setZone("Europe/Berlin").startOf("day");
+		const post = DateTime.fromJSDate(dateObj).setZone("Europe/Berlin").startOf("day");
+		const days = Math.floor(now.diff(post, "days").days);
+
+		if (days === 0) return "today";
+		if (days === 1) return "yesterday";
+		if (days < 7) return `${days} days ago`;
+		if (days < 14) return "1 week ago";
+		if (days < 30) return `${Math.floor(days / 7)} weeks ago`;
+		return null;
+	};
+
+	eleventyConfig.addFilter("relativeDate", (dateObj) => relativeLabel(dateObj));
+
+	eleventyConfig.addFilter("smartDate", (dateObj, format, zone) => {
+		const relative = relativeLabel(dateObj);
+		if (relative) return relative;
+		return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(format || "dd LLLL yyyy");
+	});
+
+	eleventyConfig.addFilter("smartIsoDate", (dateObj) => {
+		const relative = relativeLabel(dateObj);
+		if (relative) return relative;
+		return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
+	});
+
 };

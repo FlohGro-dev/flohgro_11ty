@@ -3,8 +3,11 @@ layout: layouts/base
 ---
 
 {% for post in collections.latestBlogPost %}
-## [{{ post.data.title }}]({{ site.baseUrl }}{{ post.url }}) ({{post.data.date | isoDate}})
-<p class="reading-time">{{ post.templateContent | readingTime }}</p>
+## [{{ post.data.title }}]({{ site.baseUrl }}{{ post.url }})
+<ul class="post-metadata">
+<li><time datetime="{{ post.data.date | htmlDateString }}">{{ post.data.date | smartDate }}</time></li>
+<li class="reading-time">{{ post.templateContent | readingTime }}</li>
+</ul>
 
 {{ post.templateContent }}
 {% endfor %}
@@ -16,8 +19,11 @@ layout: layouts/base
 # Recent Posts
 
 {% for post in collections.recentBlogPostsWithoutLatest %}
-## [{{ post.data.title }}]({{ site.baseUrl }}{{ post.url }}) ({{post.data.date | isoDate}})
-<p class="reading-time">{{ post.templateContent | readingTime }}</p>
+## [{{ post.data.title }}]({{ site.baseUrl }}{{ post.url }})
+<ul class="post-metadata">
+<li><time datetime="{{ post.data.date | htmlDateString }}">{{ post.data.date | smartDate }}</time></li>
+<li class="reading-time">{{ post.templateContent | readingTime }}</li>
+</ul>
 
 {% if post.data.summary %}{{ post.data.summary }}{% else %}{{ post.templateContent | truncate: 300 }}{% endif %}
 {% endfor %}
