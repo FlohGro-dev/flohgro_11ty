@@ -155,6 +155,14 @@ img[src$=".svg"] {
   max-width: none;
 }
 
+mark {
+  background: none;
+  color: var(--border-accent);
+  text-decoration: underline;
+  text-decoration-color: var(--border-accent);
+  text-underline-offset: 2px;
+}
+
 hr {
   border: none;
   border-top: 1px solid var(--border-accent);

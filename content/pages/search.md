@@ -23,6 +23,12 @@ Looking for something specific? Try the search here - if you can't find what you
     return str.substring(0, len) + '...';
   }
 
+  function highlight(text, query) {
+    if (!query) return text;
+    const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return text.replace(new RegExp(`(${escaped})`, 'gi'), '<mark>$1</mark>');
+  }
+
   fetch("{{ site.baseUrl }}/search.json")
     .then(response => response.json())
     .then(data => {
@@ -42,10 +48,10 @@ Looking for something specific? Try the search here - if you can't find what you
           const card = document.createElement('a');
           card.href = post.url;
           card.className = 'related-post-card';
-          card.innerHTML = `<h3>${post.title}</h3>` +
+          card.innerHTML = `<h3>${highlight(post.title, query)}</h3>` +
             (post.date ? `<time datetime="${post.date}">${post.date}</time>` : '') +
             (post.readingTime ? `<span class="reading-time">${post.readingTime}</span>` : '') +
-            `<p>${excerpt}</p>`;
+            `<p>${highlight(excerpt, query)}</p>`;
           results.appendChild(card);
         });
       });
