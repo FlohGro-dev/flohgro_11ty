@@ -4,7 +4,7 @@ title: blog
 permalink: /blog/
 eleventyNavigation:
     key: blog
-    order: 4
+    order: 1
 ---
 
 ## All Posts

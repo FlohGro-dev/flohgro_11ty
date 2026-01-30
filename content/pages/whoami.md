@@ -4,7 +4,7 @@ title: whoami
 permalink: /whoami/
 eleventyNavigation: 
     key: whoami
-    order: 1
+    order: 3
 ---
 
 ## whoami

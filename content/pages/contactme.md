@@ -4,7 +4,7 @@ title: contactme
 permalink: /contactme/
 eleventyNavigation: 
     key: contactme
-    order: 2
+    order: 4
 ---
 
 ## contactme

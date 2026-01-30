@@ -4,7 +4,7 @@ title: saythanks
 permalink: /saythanks/
 eleventyNavigation: 
     key: saythanks
-    order: 3
+    order: 5
 ---
 
 ## saythanks
