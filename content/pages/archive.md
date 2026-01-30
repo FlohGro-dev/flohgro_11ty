@@ -1,9 +1,9 @@
 ---
 layout: layouts/base
-title: archive
-permalink: /archive/
-eleventyNavigation: 
-    key: archive
+title: blog
+permalink: /blog/
+eleventyNavigation:
+    key: blog
     order: 4
 ---
 

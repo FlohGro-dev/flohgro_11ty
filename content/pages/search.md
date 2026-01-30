@@ -4,7 +4,7 @@ title: search
 permalink: /search/
 eleventyNavigation: 
     key: search
-    order: 5
+    order: 6
 ---
 
 ## search

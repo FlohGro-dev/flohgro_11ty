@@ -580,9 +580,9 @@ nav {
     gap: 0.4em;
   }
 
-  /* 3 buttons on first row, 2 + toggle on second */
+  /* 3 buttons + icon toggles per row */
   .nav-item {
-    flex: 1 1 calc(33.33% - 0.4em);
+    flex: 1 1 calc((100% - 2 * 36px - 1.6em) / 3);
     min-width: 0;
   }
 
