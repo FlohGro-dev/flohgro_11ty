@@ -91,14 +91,14 @@ export default function (eleventyConfig) {
 
 	eleventyConfig.addFilter("smartDate", (dateObj, format, zone) => {
 		const relative = relativeLabel(dateObj);
-		if (relative) return relative;
-		return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(format || "dd LLLL yyyy");
+		if (relative) return `${relative}`;
+		return `${DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(format || "dd LLLL yyyy")}`;
 	});
 
 	eleventyConfig.addFilter("smartIsoDate", (dateObj) => {
 		const relative = relativeLabel(dateObj);
-		if (relative) return relative;
-		return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
+		if (relative) return `${relative}`;
+		return `${DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd")}`;
 	});
 
 };

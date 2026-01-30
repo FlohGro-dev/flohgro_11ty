@@ -14,7 +14,7 @@ title: "Posts tagged with {{ tag }}"
     {% for post in taglist | reverse %}
         <li>
             <a href="{{ site.baseUrl }}{{ post.url }}">{{ post.data.title }}</a>
-            ({{ post.data.date | isoDate }})
+            ({{ post.data.date | smartIsoDate }})
         </li>
     {% endfor %}
 </ul>
