@@ -1032,6 +1032,64 @@ footer img.footer-icon[src$=".svg"] {
   gap: 1em;
 }
 
+/* Contact grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
+  gap: 1em;
+  margin-bottom: 1.5em;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.25rem 1rem;
+  border: 1px solid var(--border-accent);
+  border-radius: 3px;
+  background: var(--surface-elevated);
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+a.contact-card:hover,
+a.contact-card:visited:hover {
+  border-color: var(--link-hover);
+  background-color: var(--nav-hover-bg);
+  color: var(--text-primary);
+}
+
+a.contact-card:visited {
+  color: var(--text-primary);
+}
+
+.contact-icon {
+  width: 2em;
+  height: 2em;
+  margin-bottom: 0.5em;
+  fill: var(--border-accent);
+  stroke: none;
+}
+
+.contact-icon[stroke="currentColor"] {
+  fill: none;
+  stroke: var(--border-accent);
+}
+
+.contact-name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-heading);
+  margin-bottom: 0.2em;
+}
+
+.contact-handle {
+  font-size: 0.85em;
+  color: var(--text-muted);
+}
+
 /* Related posts */
 .related-posts {
   margin-top: 2em;
