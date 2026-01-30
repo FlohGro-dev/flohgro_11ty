@@ -588,14 +588,31 @@ nav {
     gap: 0.4em;
   }
 
-  /* 3 buttons + icon toggles per row */
+  /* 3 nav buttons + 1 icon toggle per row */
   .nav-item {
-    flex: 1 1 calc((100% - 2 * 36px - 1.6em) / 3);
+    flex: 1 1 calc((100% - 36px - 1.2em) / 3);
     min-width: 0;
   }
 
   .nav-item-toggle {
     flex: 0 0 36px;
+  }
+
+  /* Row 1: first 3 nav + theme; Row 2: last 2 nav + search */
+  .nav-item:nth-child(-n+3) {
+    order: 1;
+  }
+
+  .nav-item-theme {
+    order: 2;
+  }
+
+  .nav-item:nth-child(n+4):not(.nav-item-toggle) {
+    order: 3;
+  }
+
+  .nav-item-search {
+    order: 4;
   }
 
   .nav-item a {
