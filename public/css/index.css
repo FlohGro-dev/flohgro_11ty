@@ -155,6 +155,12 @@ img[src$=".svg"] {
   max-width: none;
 }
 
+hr {
+  border: none;
+  border-top: 1px solid var(--border-accent);
+  margin: 1.5em 0;
+}
+
 p:last-child {
   margin-bottom: 0;
 }
@@ -976,6 +982,13 @@ footer img.footer-icon[src$=".svg"] {
     height: 36px;
     border-width: 1px;
   }
+}
+
+/* Recent posts (homepage vertical list) */
+.recent-posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
 /* Related posts */
