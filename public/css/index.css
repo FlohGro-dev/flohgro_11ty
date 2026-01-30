@@ -986,5 +986,11 @@ footer img.footer-icon[src$=".svg"] {
   width: 0%;
   background-color: var(--border-accent);
   z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+#reading-progress.complete {
+  opacity: 0;
 }
 

@@ -120,12 +120,28 @@
       }
 
       var progressBar = document.getElementById('reading-progress');
+      var endMarker = document.getElementById('reading-end');
+      var mainEl = document.getElementById('skip');
       if (progressBar) {
+        var wasComplete = false;
         window.addEventListener('scroll', function() {
-          var scrollTop = window.scrollY;
-          var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-          var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+          var endPoint;
+          if (endMarker) {
+            endPoint = endMarker.offsetTop - window.innerHeight;
+          } else if (mainEl) {
+            endPoint = mainEl.offsetTop + mainEl.offsetHeight - window.innerHeight;
+          } else {
+            endPoint = document.documentElement.scrollHeight - window.innerHeight;
+          }
+          var progress = endPoint > 0 ? Math.min(100, (window.scrollY / endPoint) * 100) : 100;
           progressBar.style.width = progress + '%';
+          if (progress >= 100 && !wasComplete) {
+            wasComplete = true;
+            progressBar.classList.add('complete');
+          } else if (progress < 100 && wasComplete) {
+            wasComplete = false;
+            progressBar.classList.remove('complete');
+          }
         });
       }
 

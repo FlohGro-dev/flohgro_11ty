@@ -11,6 +11,8 @@ layout: layouts/base
 
 ---
 
+<div id="reading-end"></div>
+
 # Recent Posts
 
 {% for post in collections.recentBlogPostsWithoutLatest %}
