@@ -15,6 +15,13 @@ export default function (eleventyConfig) {
 		return new Date().getFullYear();
 	});
 
+	eleventyConfig.addFilter('ageFromOct93', () => {
+		const now = new Date();
+		let age = now.getFullYear() - 1993;
+		if (now.getMonth() + 1 < 10) age--;
+		return age;
+	});
+
 	// Get the first `n` elements of a collection.
 	eleventyConfig.addFilter("head", (array, n) => {
 		if (!Array.isArray(array) || array.length === 0) {
