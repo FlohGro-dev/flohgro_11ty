@@ -29,7 +29,8 @@ layout: layouts/base.njk
         <a href="{{ site.baseUrl }}{{ rel.url }}" class="related-post-card">
           <h3>{{ rel.data.title }}</h3>
           <time datetime="{{ rel.date | htmlDateString }}">{{ rel.date | readableDate }}</time>
-          <p>{{ rel.templateContent | truncate(300) }}</p>
+          <span class="reading-time">{{ rel.templateContent | readingTime }}</span>
+          <p>{{ rel.data.summary if rel.data.summary else rel.templateContent | truncate(150) }}</p>
         </a>
       {%- endfor %}
     </div>
