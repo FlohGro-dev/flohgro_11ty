@@ -89,6 +89,26 @@ export default function (eleventyConfig) {
     return blogPosts.slice(1, 6);
   });
 
+  eleventyConfig.addCollection("nowPosts", function (collectionApi) {
+    return collectionApi.getFilteredByTag("now").sort((a, b) => {
+      return new Date(b.data.date) - new Date(a.data.date);
+    });
+  });
+
+  eleventyConfig.addCollection("latestNowPost", function (collectionApi) {
+    let nowPosts = collectionApi.getFilteredByTag("now").sort((a, b) => {
+      return new Date(b.data.date) - new Date(a.data.date);
+    });
+    return nowPosts.slice(0, 1);
+  });
+
+  eleventyConfig.addCollection("olderNowPosts", function (collectionApi) {
+    let nowPosts = collectionApi.getFilteredByTag("now").sort((a, b) => {
+      return new Date(b.data.date) - new Date(a.data.date);
+    });
+    return nowPosts.slice(1);
+  });
+
   // Adds the {% css %} paired shortcode
   eleventyConfig.addBundle("css", {
     toFileDirectory: "dist",
@@ -113,7 +133,7 @@ export default function (eleventyConfig) {
 
 
   eleventyConfig.addFilter("relatedPosts", function (collection, tags, currentUrl, limit) {
-    const excludeTags = ["all", "posts", "post", "blog", "drafts-action-directory-feed"];
+    const excludeTags = ["all", "posts", "post", "blog", "now", "drafts-action-directory-feed"];
     const currentTags = (tags || []).filter(tag => excludeTags.indexOf(tag) === -1);
     if (currentTags.length === 0) return [];
 
