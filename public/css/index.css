@@ -960,9 +960,25 @@ nav {
   margin-bottom: 0.5rem;
 }
 
+.timeline-permalink {
+  margin-left: 0.5em;
+  font-size: 0.8em;
+  opacity: 0.4;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.timeline-permalink:hover {
+  opacity: 1;
+}
+
 .timeline-content {
   font-size: 1rem;
   color: var(--text-primary);
+}
+
+.timeline .timeline-item .timeline-content img {
+  max-height: 35vh !important;
 }
 
 /* Footer icons - needs high specificity to override img[src$=".svg"] rule */
