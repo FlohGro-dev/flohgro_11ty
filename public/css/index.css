@@ -1202,3 +1202,120 @@ a.contact-card:visited {
   opacity: 0;
 }
 
+/* Keyboard shortcuts help popover */
+.keyboard-help {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.keyboard-help[hidden] {
+  display: none !important;
+}
+
+.keyboard-help:not([hidden]) {
+  display: flex;
+}
+
+.keyboard-help.visible {
+  opacity: 1;
+}
+
+.keyboard-help-content {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-accent);
+  border-radius: 3px;
+  max-width: 400px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.keyboard-help-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-accent);
+}
+
+.keyboard-help-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.keyboard-help-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.keyboard-help-close:hover {
+  color: var(--text-primary);
+}
+
+.keyboard-help-body {
+  padding: 1rem;
+}
+
+.keyboard-help-section {
+  margin-bottom: 1rem;
+}
+
+.keyboard-help-section:last-child {
+  margin-bottom: 0;
+}
+
+.keyboard-help-section h4 {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.keyboard-help-section dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.4rem 1rem;
+  align-items: baseline;
+}
+
+.keyboard-help-section dt {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: flex-end;
+}
+
+.keyboard-help-section dd {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.keyboard-help kbd {
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  font-family: var(--font-family);
+  font-size: 0.85em;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-accent);
+  border-radius: 3px;
+  min-width: 1.5em;
+  text-align: center;
+}
+

@@ -113,6 +113,38 @@
         <br/><br/>&copy; FlohGro {{ page.date | currentYear() }}
       </p>
     </footer>
+    <div id="keyboard-help" class="keyboard-help" hidden>
+      <div class="keyboard-help-content">
+        <div class="keyboard-help-header">
+          <h3>Keyboard Shortcuts</h3>
+          <button class="keyboard-help-close" aria-label="Close">&times;</button>
+        </div>
+        <div class="keyboard-help-body">
+          <div class="keyboard-help-section">
+            <h4>Navigation</h4>
+            <dl>
+              <dt><kbd>j</kbd> / <kbd>↓</kbd></dt>
+              <dd>Next post (on list pages)</dd>
+              <dt><kbd>k</kbd> / <kbd>↑</kbd></dt>
+              <dd>Previous post (on list pages)</dd>
+              <dt><kbd>l</kbd> / <kbd>→</kbd></dt>
+              <dd>Next post (on post pages)</dd>
+              <dt><kbd>h</kbd> / <kbd>←</kbd></dt>
+              <dd>Previous post (on post pages)</dd>
+            </dl>
+          </div>
+          <div class="keyboard-help-section">
+            <h4>General</h4>
+            <dl>
+              <dt><kbd>?</kbd></dt>
+              <dd>Show this help</dd>
+              <dt><kbd>Esc</kbd></dt>
+              <dd>Close this help</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="{% getBundleFileUrl "js" %}"></script>
     <script>
       const copyIcon = '<svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
@@ -165,6 +197,109 @@
         });
         pre.appendChild(btn);
       });
+
+      // Keyboard navigation
+      (function() {
+        var timelineItems = document.querySelectorAll('.timeline-item');
+        var postlistItems = document.querySelectorAll('.postlist-item');
+        var blogCards = document.querySelectorAll('.recent-posts-list .related-post-card');
+        var items = timelineItems.length ? timelineItems : (blogCards.length ? blogCards : postlistItems);
+        var currentIndex = -1;
+
+        // Find prev/next links for single post pages
+        var prevLink = document.querySelector('.links-nextprev-prev a');
+        var nextLink = document.querySelector('.links-nextprev-next a');
+
+        // Keyboard help popover
+        var helpPopover = document.getElementById('keyboard-help');
+        var helpClose = helpPopover ? helpPopover.querySelector('.keyboard-help-close') : null;
+
+        function showHelp() {
+          if (helpPopover) {
+            helpPopover.hidden = false;
+            setTimeout(function() { helpPopover.classList.add('visible'); }, 10);
+          }
+        }
+
+        function hideHelp() {
+          if (helpPopover) {
+            helpPopover.classList.remove('visible');
+            setTimeout(function() { helpPopover.hidden = true; }, 200);
+          }
+        }
+
+        if (helpClose) {
+          helpClose.addEventListener('click', hideHelp);
+        }
+
+        if (helpPopover) {
+          helpPopover.addEventListener('click', function(e) {
+            if (e.target === helpPopover) hideHelp();
+          });
+        }
+
+        document.addEventListener('keydown', function(e) {
+          // Ignore if user is typing in an input
+          if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) return;
+
+          var key = e.key;
+
+          // Show help with ?
+          if (key === '?') {
+            e.preventDefault();
+            if (helpPopover && !helpPopover.hidden) {
+              hideHelp();
+            } else {
+              showHelp();
+            }
+            return;
+          }
+
+          // Close help with Escape
+          if (key === 'Escape') {
+            if (helpPopover && !helpPopover.hidden) {
+              e.preventDefault();
+              hideHelp();
+              return;
+            }
+          }
+
+          // Don't process navigation keys if help is open
+          if (helpPopover && !helpPopover.hidden) return;
+
+          key = key.toLowerCase();
+
+          // Left/Right or h/l for prev/next post navigation
+          if (key === 'arrowleft' || key === 'h') {
+            if (prevLink) {
+              e.preventDefault();
+              prevLink.click();
+            }
+          } else if (key === 'arrowright' || key === 'l') {
+            if (nextLink) {
+              e.preventDefault();
+              nextLink.click();
+            }
+          }
+
+          // Up/Down or j/k for scrolling between items on list pages
+          if (items.length > 0) {
+            if (key === 'arrowdown' || key === 'j') {
+              e.preventDefault();
+              currentIndex = Math.min(currentIndex + 1, items.length - 1);
+              items[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+              items[currentIndex].style.outline = '2px solid var(--border-accent)';
+              setTimeout(function() { items[currentIndex].style.outline = ''; }, 1000);
+            } else if (key === 'arrowup' || key === 'k') {
+              e.preventDefault();
+              currentIndex = Math.max(currentIndex - 1, 0);
+              items[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+              items[currentIndex].style.outline = '2px solid var(--border-accent)';
+              setTimeout(function() { items[currentIndex].style.outline = ''; }, 1000);
+            }
+          }
+        });
+      })();
     </script>
   </body>
 </html>
