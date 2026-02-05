@@ -331,7 +331,7 @@ pre {
   overflow-wrap: break-word;
   background-color: var(--surface-elevated);
   padding: 0.6em 0.8em;
-  border-radius: 3px;
+  border-radius: 6px;
   border-left: 3px solid var(--border-accent);
 }
 
@@ -347,7 +347,7 @@ pre code {
   right: 0.4em;
   background: var(--copy-btn-bg);
   border: 1px solid var(--copy-btn-border);
-  border-radius: 3px;
+  border-radius: 6px;
   padding: 4px;
   cursor: pointer;
   opacity: 0;
@@ -385,7 +385,7 @@ code {
   word-break: break-all;
   background-color: var(--surface-inline);
   padding: 0.15em 0.3em;
-  border-radius: 3px;
+  border-radius: 6px;
   font-size: 0.9em;
 }
 
@@ -408,7 +408,7 @@ blockquote {
   padding: 10px;
   border-left: 5px solid var(--border-accent);
   margin: 10px 0;
-  border-radius: 3px;
+  border-radius: 6px;
 }
 
 /* Header */
@@ -546,7 +546,7 @@ nav {
 .nav-item a {
   display: flex;
   border: 2px solid var(--nav-border);
-  border-radius: 2px;
+  border-radius: 6px;
   background-color: var(--bg-primary);
   text-decoration: none;
   text-align: center;
@@ -828,7 +828,7 @@ nav {
   padding: 0.75em 1em;
   background-color: var(--surface-elevated);
   border: 1px solid var(--border-accent);
-  border-radius: 3px;
+  border-radius: 6px;
   color: var(--text-primary);
   font-family: var(--font-family);
   font-size: 1rem;
@@ -947,7 +947,7 @@ nav {
 .error-link {
   border: 2px solid var(--nav-border);
   /* Add rounded corners */
-  border-radius: 2px;
+  border-radius: 6px;
   /* Button background color */
   background-color: var(--bg-primary);
   /* Remove underline */
@@ -976,7 +976,7 @@ nav {
 .timeline-item {
   padding: 1rem;
   border: 1px solid var(--border-accent);
-  border-radius: 3px;
+  border-radius: 6px;
   background: var(--surface-elevated);
 }
 
@@ -1034,7 +1034,7 @@ footer img.footer-icon[src$=".svg"] {
 .theme-toggle {
   display: flex;
   border: 2px solid var(--nav-border);
-  border-radius: 2px;
+  border-radius: 6px;
   background-color: var(--bg-primary);
   text-decoration: none;
   text-align: center;
@@ -1100,7 +1100,7 @@ footer img.footer-icon[src$=".svg"] {
 .featured-post {
   padding: 1.25rem;
   border: 1px solid var(--border-accent);
-  border-radius: 3px;
+  border-radius: 6px;
   background: var(--surface-elevated);
   margin-bottom: 1.5em;
 }
@@ -1131,7 +1131,7 @@ footer img.footer-icon[src$=".svg"] {
   text-align: center;
   padding: 1.25rem 1rem;
   border: 1px solid var(--border-accent);
-  border-radius: 3px;
+  border-radius: 6px;
   background: var(--surface-elevated);
   text-decoration: none;
   color: var(--text-primary);
@@ -1195,7 +1195,7 @@ a.contact-card:visited {
   display: block;
   padding: 1rem;
   border: 1px solid var(--border-accent);
-  border-radius: 3px;
+  border-radius: 6px;
   background: var(--surface-elevated);
   text-decoration: none;
   color: var(--text-primary);
@@ -1284,7 +1284,7 @@ a.contact-card:visited {
 .keyboard-help-content {
   background: var(--surface-elevated);
   border: 1px solid var(--border-accent);
-  border-radius: 3px;
+  border-radius: 6px;
   max-width: 400px;
   width: 90%;
   max-height: 80vh;
@@ -1370,7 +1370,7 @@ a.contact-card:visited {
   font-size: 0.85em;
   background: var(--bg-primary);
   border: 1px solid var(--border-accent);
-  border-radius: 3px;
+  border-radius: 6px;
   min-width: 1.5em;
   text-align: center;
 }
