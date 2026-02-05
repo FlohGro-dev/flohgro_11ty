@@ -2,16 +2,20 @@
 layout: layouts/base
 title: Impressum & Datenschutz
 permalink: /impressum-datenschutz/
+bodyClass: legal-page
 ---
+
+[-> English version](/legal-notice/)
 
 ## Impressum & Datenschutz
 
-Florian Großmann
+Florian Großmann  
 Kleinunternehmer §4 Abs. 3 UStG
 
 ### Kontakt
 
 [hi@flohgro.com](mailto://hi@flohgro.com)
+-> bitte auch für postalische Anfragen per E-Mail kontaktieren.
 
 ### Redaktionell verantwortlich
 

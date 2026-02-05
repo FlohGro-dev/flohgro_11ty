@@ -451,8 +451,15 @@ header {
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 .site-branding:hover .site-title {
@@ -629,32 +636,44 @@ nav {
 
 /* Hide patreon (1st) */
 @media screen and (max-width: 850px) {
-  .header-social li:nth-child(1) { display: none; }
+  .header-social li:nth-child(1) {
+    display: none;
+  }
 }
 
 /* Hide omg.lol (2nd) */
 @media screen and (max-width: 750px) {
-  .header-social li:nth-child(2) { display: none; }
+  .header-social li:nth-child(2) {
+    display: none;
+  }
 }
 
 /* Hide bmac (3rd) */
 @media screen and (max-width: 650px) {
-  .header-social li:nth-child(3) { display: none; }
+  .header-social li:nth-child(3) {
+    display: none;
+  }
 }
 
 /* Hide kofi (4th) */
 @media screen and (max-width: 550px) {
-  .header-social li:nth-child(4) { display: none; }
+  .header-social li:nth-child(4) {
+    display: none;
+  }
 }
 
 /* Hide drafts (5th) */
 @media screen and (max-width: 480px) {
-  .header-social li:nth-child(5) { display: none; }
+  .header-social li:nth-child(5) {
+    display: none;
+  }
 }
 
 /* Hide mail (6th) - also reduce touch targets */
 @media screen and (max-width: 420px) {
-  .header-social li:nth-child(6) { display: none; }
+  .header-social li:nth-child(6) {
+    display: none;
+  }
 
   .header-social a {
     min-width: 40px;
@@ -671,7 +690,9 @@ nav {
 
 /* Hide github (7th) */
 @media screen and (max-width: 360px) {
-  .header-social li:nth-child(7) { display: none; }
+  .header-social li:nth-child(7) {
+    display: none;
+  }
 
   .site-title {
     font-size: 1.2rem;
@@ -680,12 +701,16 @@ nav {
 
 /* Very narrow: hide bluesky (8th), keep mastodon + rss */
 @media screen and (max-width: 300px) {
-  .header-social li:nth-child(8) { display: none; }
+  .header-social li:nth-child(8) {
+    display: none;
+  }
 }
 
 /* Extreme: hide mastodon (9th), keep only rss */
 @media screen and (max-width: 250px) {
-  .header-social li:nth-child(9) { display: none; }
+  .header-social li:nth-child(9) {
+    display: none;
+  }
 }
 
 /* Posts list */
@@ -979,6 +1004,17 @@ nav {
 
 .timeline .timeline-item .timeline-content img {
   max-height: 35vh !important;
+}
+
+footer .footer-legal {
+  display: inline;
+  font-size: 0.55em;
+  opacity: 0.3;
+  text-decoration: none;
+}
+
+footer .footer-legal:hover {
+  opacity: 0.8;
 }
 
 /* Footer icons - needs high specificity to override img[src$=".svg"] rule */
@@ -1307,6 +1343,11 @@ a.contact-card:visited {
   font-size: 0.9rem;
 }
 
+/* Legal / Impressum page — smaller text */
+.legal-page main {
+  font-size: 0.8em;
+}
+
 .keyboard-help kbd {
   display: inline-block;
   padding: 0.2em 0.5em;
@@ -1318,4 +1359,3 @@ a.contact-card:visited {
   min-width: 1.5em;
   text-align: center;
 }
-
