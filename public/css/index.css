@@ -1096,6 +1096,19 @@ footer img.footer-icon[src$=".svg"] {
   }
 }
 
+/* Featured post (homepage) */
+.featured-post {
+  padding: 1.25rem;
+  border: 1px solid var(--border-accent);
+  border-radius: 3px;
+  background: var(--surface-elevated);
+  margin-bottom: 1.5em;
+}
+
+.featured-post h1 {
+  margin-top: 0;
+}
+
 /* Recent posts (homepage vertical list) */
 .recent-posts-list {
   display: flex;

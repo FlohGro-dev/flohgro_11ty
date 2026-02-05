@@ -3,20 +3,22 @@ layout: layouts/base
 ---
 
 {% for post in collections.latestBlogPost %}
-## [{{ post.data.title }}]({{ site.baseUrl }}{{ post.url }})
+<div class="featured-post">
+
+# [{{ post.data.title }}]({{ site.baseUrl }}{{ post.url }})
 <ul class="post-metadata">
 <li><time datetime="{{ post.data.date | htmlDateString }}">{{ post.data.date | smartDate }}</time></li>
 <li class="reading-time">{{ post.templateContent | readingTime }}</li>
 </ul>
 
 {{ post.templateContent }}
-{% endfor %}
 
----
+</div>
+{% endfor %}
 
 <div id="reading-end"></div>
 
-# Recent Posts
+## Recent Posts
 
 <div class="recent-posts-list">
 {% for post in collections.recentBlogPostsWithoutLatest %}
@@ -29,4 +31,4 @@ layout: layouts/base
 {% endfor %}
 </div>
 
-## [All Posts](/blog/)
+### [All Posts](/blog/)
