@@ -1144,14 +1144,38 @@ footer img.footer-icon[src$=".svg"] {
   background: var(--surface-elevated);
   text-decoration: none;
   color: var(--text-primary);
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 }
 
 a.contact-card:hover,
-a.contact-card:visited:hover {
-  border-color: var(--link-hover);
+a.contact-card:visited:hover,
+div.contact-card:hover {
   background-color: var(--nav-hover-bg);
-  color: var(--text-primary);
+  border-color: var(--border-accent);
+  color: var(--nav-hover-text);
+  transform: translateY(-2px);
+}
+
+div.contact-card:hover {
+  cursor: default;
+}
+
+a.contact-card:hover .contact-name,
+a.contact-card:hover .contact-handle,
+div.contact-card:hover .contact-name,
+div.contact-card:hover .contact-handle {
+  color: var(--nav-hover-text);
+}
+
+a.contact-card:hover .contact-icon,
+div.contact-card:hover .contact-icon {
+  fill: var(--nav-hover-text);
+}
+
+a.contact-card:hover .contact-icon[stroke="currentColor"],
+div.contact-card:hover .contact-icon[stroke="currentColor"] {
+  fill: none;
+  stroke: var(--nav-hover-text);
 }
 
 a.contact-card:visited {
@@ -1164,6 +1188,7 @@ a.contact-card:visited {
   margin-bottom: 0.5em;
   fill: var(--border-accent);
   stroke: none;
+  transition: fill 0.3s ease, stroke 0.3s ease;
 }
 
 .contact-icon[stroke="currentColor"] {
@@ -1176,11 +1201,13 @@ a.contact-card:visited {
   font-size: 1rem;
   color: var(--text-heading);
   margin-bottom: 0.2em;
+  transition: color 0.3s ease;
 }
 
 .contact-handle {
   font-size: 0.85em;
   color: var(--text-muted);
+  transition: color 0.3s ease;
 }
 
 /* Related posts */
