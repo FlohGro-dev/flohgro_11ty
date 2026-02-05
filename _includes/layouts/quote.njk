@@ -6,16 +6,7 @@ layout: layouts/base.njk
 <h1>
     {{ title }}
 </h1>
-<ul class="post-metadata">
-<i>#tagged</i>
-{%- for tag in tags | filterTagList %}
-    {%- set tagUrl %}{{ site.baseUrl }}/tags/{{ tag | slugify }}/{% endset %}
-    <li>
-        <a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>
-        {%- if not loop.last %},
-        {% endif %}
-    </li>
-{%- endfor %}</ul><blockquote>{{ content | safe }}</blockquote>
+<blockquote>{{ content | safe }}</blockquote>
 </div>{%- if collections.quotePosts %}
 {%- set previousQuotePost = collections.quotePosts | getPreviousCollectionItem %}
 {%- set nextQuotePost = collections.quotePosts | getNextCollectionItem %}

@@ -2,6 +2,7 @@
 layout: layouts/base.njk
 ---
 
+<div class="post-card">
 <h1>
     {{ title }}
 </h1>
@@ -20,6 +21,7 @@ layout: layouts/base.njk
     {%- endfor %}
 </ul>
 {{ content | safe }}
+</div>
 {%- set related = collections.blogPosts | relatedPosts(tags, page.url, 3) %}
 {%- if related.length > 0 %}
   <section class="related-posts">
