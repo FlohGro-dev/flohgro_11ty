@@ -2,13 +2,10 @@
 layout: layouts/base.njk
 ---
 
-{%- css %}
-{% include "public/css/index.css" %}
-{% endcss %}
 <h1>
     {{ date | postDate }} at {{ date | postTime }}
 </h1>
-<ul class="post-metadata"></li>
+<ul class="post-metadata">
 {%- for tag in tags | filterTagList %}
     {%- set tagUrl %}{{ site.baseUrl }}/tags/{{ tag | slugify }}/{% endset %}
     <li>
