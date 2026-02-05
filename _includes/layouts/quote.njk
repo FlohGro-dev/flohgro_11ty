@@ -2,6 +2,7 @@
 layout: layouts/base.njk
 ---
 
+<div class="post-card">
 <h1>
     {{ title }}
 </h1>
@@ -14,7 +15,8 @@ layout: layouts/base.njk
         {%- if not loop.last %},
         {% endif %}
     </li>
-{%- endfor %}</ul><blockquote>{{ content | safe }}</blockquote>{%- if collections.quotePosts %}
+{%- endfor %}</ul><blockquote>{{ content | safe }}</blockquote>
+</div>{%- if collections.quotePosts %}
 {%- set previousQuotePost = collections.quotePosts | getPreviousCollectionItem %}
 {%- set nextQuotePost = collections.quotePosts | getNextCollectionItem %}
 {%- if nextQuotePost or previousQuotePost %}

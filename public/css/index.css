@@ -1103,8 +1103,9 @@ footer img.footer-icon[src$=".svg"] {
   }
 }
 
-/* Featured post (homepage) */
-.featured-post {
+/* Post card (shared by featured post + single post pages) */
+.featured-post,
+.post-card {
   padding: 1.25rem;
   border: 1px solid var(--border-accent);
   border-radius: 6px;
@@ -1112,7 +1113,8 @@ footer img.footer-icon[src$=".svg"] {
   margin-bottom: 1.5em;
 }
 
-.featured-post h1 {
+.featured-post h1,
+.post-card h1 {
   margin-top: 0;
 }
 

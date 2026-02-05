@@ -2,18 +2,12 @@
 layout: layouts/base.njk
 ---
 
-<h1>
+<div class="post-card">
+<h2>
     {{ date | postDate }} at {{ date | postTime }}
-</h1>
-<ul class="post-metadata">
-{%- for tag in tags | filterTagList %}
-    {%- set tagUrl %}{{ site.baseUrl }}/tags/{{ tag | slugify }}/{% endset %}
-    <li>
-        <a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>
-        {%- if not loop.last %},
-        {% endif %}
-    </li>
-{%- endfor %}</ul>{{ content | safe }}{%- if collections.socialPosts %}
+</h2>
+{{ content | safe }}
+</div>{%- if collections.socialPosts %}
 {%- set previousSocialPost = collections.socialPosts | getPreviousCollectionItem %}
 {%- set nextSocialPost = collections.socialPosts | getNextCollectionItem %}
 {%- if nextSocialPost or previousSocialPost %}
