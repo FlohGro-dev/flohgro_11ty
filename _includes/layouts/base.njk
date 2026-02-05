@@ -91,7 +91,7 @@
       </heading-anchors>
     </main>
     <footer>
-      <p>
+      <div class="footer-icons">
         <a href="{{ site.baseUrl }}/rss.xml" target="_blank">
           <img src="{{ site.baseUrl }}/assets/icons/rssfeed-icon.png" alt="RSS Feed" class="footer-icon"/>
         </a>
@@ -110,9 +110,9 @@
         <a href="https://echofeed.app" target="_blank" rel="noopener noreferrer">
           <img src="{{ site.baseUrl }}/assets/icons/powered-by-echofeed-white-alt.gif" alt="EchoFeed" class="footer-icon"/>
         </a>
-        <br/><br/>&copy; FlohGro {{ page.date | currentYear() }}
-        <br/><a href="{{ site.baseUrl }}/legal-notice/" class="footer-legal">Legal Notice & Privacy</a>
-      </p>
+      </div>
+      <p class="footer-copyright">&copy; FlohGro {{ page.date | currentYear() }}</p>
+      <a href="{{ site.baseUrl }}/legal-notice/" class="footer-legal">Legal Notice & Privacy</a>
     </footer>
     <div id="keyboard-help" class="keyboard-help" hidden>
       <div class="keyboard-help-content">

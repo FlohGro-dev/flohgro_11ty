@@ -221,31 +221,34 @@ button:focus,
 main {
   display: block;
   padding: 1rem;
+  width: 100%;
+  min-width: 0;
 }
 
 footer {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  text-decoration: none;
-  padding: 1rem;
+  gap: 0.5em;
+  padding: 1.5rem 1rem;
 }
 
-footer p {
-  /* Remove default margin for the paragraph */
+.footer-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.footer-icons a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.footer-copyright {
   margin: 0;
-  /* Center the text inside the footer */
   text-align: center;
-  white-space: nowrap;
-  text-decoration: none;
-  image-rendering: optimizeSpeed;
-  display: inline-block;
-}
-
-footer a {
-  /* Make anchors behave like inline elements with block-level properties */
-  display: inline-block;
-  text-decoration: none;
+  font-size: 0.9em;
 }
 
 main :first-child {
