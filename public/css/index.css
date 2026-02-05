@@ -568,6 +568,7 @@ nav {
   border-color: var(--border-accent);
 }
 
+
 .nav-item a:active,
 .nav-item a:visited:active {
   background-color: var(--nav-active-bg);
@@ -575,10 +576,11 @@ nav {
 }
 
 /* Current page button */
-.nav-item a[aria-current="page"] {
-  background-color: var(--nav-active-bg);
-  color: var(--nav-active-text);
-  font-weight: bold;
+.nav-item a[aria-current="page"],
+.nav-item a[aria-current="page"]:visited {
+  background-color: var(--surface-elevated);
+  color: var(--text-primary);
+  border-color: var(--border-accent);
 }
 
 .nav-item a:visited {
