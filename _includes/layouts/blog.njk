@@ -21,6 +21,7 @@ layout: layouts/base.njk
     {%- endfor %}
 </ul>
 {{ content | safe }}
+{% include "mastodon-share.njk" %}
 </div>
 {%- set related = collections.blogPosts | relatedPosts(tags, page.url, 3) %}
 {%- if related.length > 0 %}

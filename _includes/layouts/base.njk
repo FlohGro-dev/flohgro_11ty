@@ -146,6 +146,23 @@
         </div>
       </div>
     </div>
+    <div id="mastodon-share-dialog" class="mastodon-share-dialog" hidden>
+      <div class="mastodon-share-dialog-content">
+        <div class="mastodon-share-dialog-header">
+          <h3>Share on Mastodon</h3>
+          <button class="mastodon-share-dialog-close" aria-label="Close">&times;</button>
+        </div>
+        <div class="mastodon-share-dialog-body">
+          <label for="mastodon-instance">Your Mastodon instance</label>
+          <input type="text" id="mastodon-instance" placeholder="mastodon.social" autocomplete="off" autocapitalize="off" spellcheck="false">
+          <div class="mastodon-share-remember">
+            <input type="checkbox" id="mastodon-remember">
+            <label for="mastodon-remember">Remember my instance</label>
+          </div>
+          <button id="mastodon-share-confirm" class="mastodon-share-confirm">Share</button>
+        </div>
+      </div>
+    </div>
     <script type="module" src="{% getBundleFileUrl "js" %}"></script>
     <script>
       const copyIcon = '<svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
@@ -299,6 +316,70 @@
               setTimeout(function() { items[currentIndex].style.outline = ''; }, 1000);
             }
           }
+        });
+      })();
+
+      // Mastodon share dialog
+      (function() {
+        var dialog = document.getElementById('mastodon-share-dialog');
+        var instanceInput = document.getElementById('mastodon-instance');
+        var rememberCheckbox = document.getElementById('mastodon-remember');
+        var confirmBtn = document.getElementById('mastodon-share-confirm');
+        var closeBtn = dialog ? dialog.querySelector('.mastodon-share-dialog-close') : null;
+        var shareTitle = '';
+        var shareUrl = '';
+
+        function showDialog() {
+          if (!dialog) return;
+          var saved = localStorage.getItem('mastodon-instance');
+          if (saved) {
+            instanceInput.value = saved;
+            rememberCheckbox.checked = true;
+          }
+          dialog.hidden = false;
+          setTimeout(function() { dialog.classList.add('visible'); instanceInput.focus(); }, 10);
+        }
+
+        function hideDialog() {
+          if (!dialog) return;
+          dialog.classList.remove('visible');
+          setTimeout(function() { dialog.hidden = true; }, 200);
+        }
+
+        function doShare() {
+          var instance = instanceInput.value.trim().replace(/^https?:\/\//, '').replace(/\/+$/, '');
+          if (!instance) { instanceInput.focus(); return; }
+          if (rememberCheckbox.checked) {
+            localStorage.setItem('mastodon-instance', instance);
+          } else {
+            localStorage.removeItem('mastodon-instance');
+          }
+          var text = shareTitle ? shareTitle + '\n\n' + shareUrl + '\n\nby @flohgro@social.lol' : shareUrl + '\n\nby @flohgro@social.lol';
+          window.open('https://' + instance + '/share?text=' + encodeURIComponent(text), '_blank');
+          hideDialog();
+        }
+
+        document.querySelectorAll('.mastodon-share-btn').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            shareTitle = btn.getAttribute('data-share-title') || '';
+            shareUrl = btn.getAttribute('data-share-url') || '';
+            showDialog();
+          });
+        });
+
+        if (closeBtn) closeBtn.addEventListener('click', hideDialog);
+        if (confirmBtn) confirmBtn.addEventListener('click', doShare);
+
+        if (dialog) {
+          dialog.addEventListener('click', function(e) {
+            if (e.target === dialog) hideDialog();
+          });
+        }
+
+        document.addEventListener('keydown', function(e) {
+          if (!dialog || dialog.hidden) return;
+          if (e.key === 'Escape') { e.preventDefault(); hideDialog(); }
+          if (e.key === 'Enter' && e.target === instanceInput) { e.preventDefault(); doShare(); }
         });
       })();
     </script>
