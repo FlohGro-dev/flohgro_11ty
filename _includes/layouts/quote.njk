@@ -3,10 +3,10 @@ layout: layouts/base.njk
 ---
 
 <div class="post-card">
-<h1>
+<h3>
     {{ title }}
-</h1>
-<blockquote>{{ content | safe }}</blockquote>
+</h3>
+{{ content | safe }}
 </div>{%- if collections.quotePosts %}
 {%- set previousQuotePost = collections.quotePosts | getPreviousCollectionItem %}
 {%- set nextQuotePost = collections.quotePosts | getNextCollectionItem %}

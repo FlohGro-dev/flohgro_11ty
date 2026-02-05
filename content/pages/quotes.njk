@@ -10,6 +10,7 @@ permalink: /quotes/
         <div class="timeline-item">
             <div class="timeline-date">
                 {{ post.data.date | postDate }}
+                <a href="{{ post.url }}" class="timeline-permalink" title="Permalink">&#x1F517;</a>
             </div>
             <div class="timeline-content">
                 {{ post.templateContent | safe }}
