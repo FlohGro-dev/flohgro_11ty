@@ -3,10 +3,8 @@
   date: 2026-02-11T21:54:34.936+01:00
   tags: ["macOS","ai"]
   permalink: /blog/fixing-fileproviderd-on-macos-tahoe/index.html
- summary: |
- macOS Tahoe & fileproviderd broke all my file operations for more than three months until I finally fixed it
- _social_post: |
- #macOS Tahoe broke all my file operations for more than three monts until I finally fixed it with the help of a post by @klickreflex@freiburg.social and AI supported debugging.
+  summary: "macOS Tahoe & fileproviderd broke all my file operations for more than three months until I finally fixed it"
+  _social_post: "#macOS Tahoe broke all my file operations for more than three monts until I finally fixed it with the help of a post b @klickreflex@freiburg.social and AI supported debugging."
 ---
 
 Since I upgraded to macOS Tahoe back in September, I had huge issues when working with files. It took way longer than you'd expect to open, quick look, rename, delete, create, move,… files.
@@ -42,7 +40,7 @@ I started debugging back and forth with [Claude](https://claude.ai/) to go throu
 But when running brctl status, it showed 574 containers. Almost all of them marked SYNC DISABLED (app not installed). Years of installed and uninstalled apps, all still tracked by `fileproviderd`. Every reconciliation pass had to load and check all 574 of them. The log was full of scheduler not stable: jobs are running` messages, dozens per millisecond, with no productive work being done.
 
 Additionally, I found an orphaned 215MB database in ~/Library/Application Support/FileProvider/ - a UUID-named directory that didn't belong to any active provider. I confirmed this by checking which providers were actually registered:
-    
+
 ```bash
 pluginkit -m -p com.apple.fileprovider-nonui
 ```
@@ -51,7 +49,7 @@ Only iCloud Drive and Photos showed up. Nobody owned that 215MB database. It was
 
 In addition to this, I also found out that you can run a consistency check against the FileProvider database.
 
-```bash     
+```bash
 fileproviderctl check -v
 ```
 
@@ -65,13 +63,13 @@ With this, I got some results that didn't look so good:
 Claude was actually a great help with interpreting the output and digging further into this. I found a lot of empty files lying around in my iCloud Drive, and it seemed like those five items in the ReconciliationTable could be an issue.
 
 I ran the repair command against my iCloud Drive directory, and three of the five broken files were fixed by that.
-    
-```bash    
+
+```bash
 fileproviderctl repair -v -a ~/Library/Mobile\ Documents
 ```
 
 Moving on, I wanted to clean up those empty files and used several commands like this to find different types of empty files from the huge output of the `fileproviderctl check -v` command:
-    
+
 ```bash
 find ~/Documents ~/Library/Mobile\ Documents -name '*.lock' -type f -size 0
 ```
@@ -105,3 +103,4 @@ I shouldn't have had to spend hours debugging this. A macOS upgrade shouldn't br
 What saved me a lot of time was using AI for the research and debugging. I used Perplexity to research the problem and found Daniel's analysis and other reports, and then Claude to work through the terminal debugging, analyzing logs, and quickly getting help to interpret the presented data. This would have taken me a lot longer without the help of LLMs.
 
 If you're dealing with the same `fileproviderd` nightmare, toggle iCloud Drive first, and if it doesn't help, sign out and in again with your Apple account. I hope this saves you some time.
+
