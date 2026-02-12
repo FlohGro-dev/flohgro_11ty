@@ -1450,6 +1450,48 @@ a.contact-card:visited {
   flex-shrink: 0;
 }
 
+/* Email comment button */
+a[href].email-comment-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  margin-top: 1em;
+  margin-left: 0.5em;
+  padding: 0.4em 0.8em;
+  border: 2px solid var(--border-accent);
+  border-radius: 6px;
+  background: var(--surface-elevated);
+  color: var(--text-heading);
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+a[href].email-comment-btn:hover,
+a[href].email-comment-btn:visited:hover {
+  background-color: var(--nav-hover-bg);
+  color: var(--nav-hover-text);
+  border-color: var(--nav-hover-text);
+}
+
+a[href].email-comment-btn:active {
+  background-color: var(--nav-active-bg);
+  color: var(--nav-active-text);
+}
+
+a[href].email-comment-btn:visited {
+  color: var(--text-heading);
+}
+
+.email-comment-btn svg {
+  width: 1.1em;
+  height: 1.1em;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
 /* Mastodon share dialog */
 .mastodon-share-dialog {
   position: fixed;

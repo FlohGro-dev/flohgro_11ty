@@ -102,6 +102,8 @@ export default function (eleventyConfig) {
 		return `${DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(format || "dd LLLL yyyy")}`;
 	});
 
+	eleventyConfig.addFilter("encodeUri", (str) => encodeURIComponent(str || ""));
+
 	eleventyConfig.addFilter("smartIsoDate", (dateObj) => {
 		const relative = relativeLabel(dateObj);
 		if (relative) return `${relative}`;
