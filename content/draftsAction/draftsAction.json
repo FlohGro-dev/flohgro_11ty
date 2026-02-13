@@ -1,5 +1,0 @@
-{
-    "layout": "layouts/blog.njk",
-    "tags": "drafts-action-directory-feed",
-    "permalink": "/draftsAction/{{ page.fileSlug }}/"
-}
