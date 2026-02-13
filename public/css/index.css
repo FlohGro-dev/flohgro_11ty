@@ -16,8 +16,8 @@
   --bg-primary: #111118;
   --text-primary: #D9D9D9;
   --text-heading: #89B4FA;
-  --link-default: #5c9aff;
-  --link-hover: #89B4FA;
+  --link-default: #89B4FA;
+  --link-hover: #b4d0fb;
   --link-visited: #89B4FA;
   --surface-elevated: #1e1e2e;
   --surface-inline: #313244;
@@ -1470,8 +1470,8 @@ a.contact-card:visited {
   opacity: 0;
 }
 
-/* Keyboard shortcuts help popover */
-.keyboard-help {
+/* Shared dialog overlay */
+.dialog-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -1486,19 +1486,19 @@ a.contact-card:visited {
   transition: opacity 0.2s ease;
 }
 
-.keyboard-help[hidden] {
+.dialog-overlay[hidden] {
   display: none !important;
 }
 
-.keyboard-help:not([hidden]) {
+.dialog-overlay:not([hidden]) {
   display: flex;
 }
 
-.keyboard-help.visible {
+.dialog-overlay.visible {
   opacity: 1;
 }
 
-.keyboard-help-content {
+.dialog-box {
   background: var(--surface-elevated);
   border: 1px solid var(--border-accent);
   border-radius: 6px;
@@ -1508,7 +1508,7 @@ a.contact-card:visited {
   overflow-y: auto;
 }
 
-.keyboard-help-header {
+.dialog-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1516,12 +1516,12 @@ a.contact-card:visited {
   border-bottom: 1px solid var(--border-accent);
 }
 
-.keyboard-help-header h3 {
+.dialog-header h3 {
   margin: 0;
   font-size: 1.1rem;
 }
 
-.keyboard-help-close {
+.dialog-close {
   background: none;
   border: none;
   font-size: 1.5rem;
@@ -1531,11 +1531,11 @@ a.contact-card:visited {
   line-height: 1;
 }
 
-.keyboard-help-close:hover {
+.dialog-close:hover {
   color: var(--text-primary);
 }
 
-.keyboard-help-body {
+.dialog-body {
   padding: 1rem;
 }
 
@@ -1686,82 +1686,19 @@ a[href].email-comment-btn:visited {
   flex-shrink: 0;
 }
 
-/* Mastodon share dialog */
-.mastodon-share-dialog {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 10000;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.mastodon-share-dialog[hidden] {
-  display: none !important;
-}
-
-.mastodon-share-dialog:not([hidden]) {
-  display: flex;
-}
-
-.mastodon-share-dialog.visible {
-  opacity: 1;
-}
-
-.mastodon-share-dialog-content {
-  background: var(--surface-elevated);
-  border: 1px solid var(--border-accent);
-  border-radius: 6px;
-  max-width: 400px;
-  width: 90%;
-}
-
-.mastodon-share-dialog-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  border-bottom: 1px solid var(--border-accent);
-}
-
-.mastodon-share-dialog-header h3 {
-  margin: 0;
-  font-size: 1.1rem;
-}
-
-.mastodon-share-dialog-close {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: var(--text-muted);
-  cursor: pointer;
-  padding: 0;
-  line-height: 1;
-}
-
-.mastodon-share-dialog-close:hover {
-  color: var(--text-primary);
-}
-
-.mastodon-share-dialog-body {
-  padding: 1rem;
+/* Mastodon share dialog — unique styles */
+.mastodon-share-dialog .dialog-body {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-.mastodon-share-dialog-body label {
+.mastodon-share-dialog .dialog-body label {
   font-size: 0.9rem;
   color: var(--text-primary);
 }
 
-.mastodon-share-dialog-body input[type="text"] {
+.mastodon-share-dialog .dialog-body input[type="text"] {
   width: 100%;
   box-sizing: border-box;
   padding: 0.75em 1em;
@@ -1775,11 +1712,11 @@ a[href].email-comment-btn:visited {
   transition: border-color 0.2s ease;
 }
 
-.mastodon-share-dialog-body input[type="text"]::placeholder {
+.mastodon-share-dialog .dialog-body input[type="text"]::placeholder {
   color: var(--text-muted);
 }
 
-.mastodon-share-dialog-body input[type="text"]:focus {
+.mastodon-share-dialog .dialog-body input[type="text"]:focus {
   border-color: var(--link-hover);
   outline: 2px solid var(--border-accent);
   outline-offset: 2px;

@@ -121,13 +121,13 @@
       <p class="footer-copyright">&copy; FlohGro {{ page.date | currentYear() }}</p>
       <a href="{{ site.baseUrl }}/legal-notice/" class="footer-legal">Legal Notice & Privacy</a>
     </footer>
-    <div id="keyboard-help" class="keyboard-help" hidden>
-      <div class="keyboard-help-content">
-        <div class="keyboard-help-header">
+    <div id="keyboard-help" class="dialog-overlay keyboard-help" hidden>
+      <div class="dialog-box">
+        <div class="dialog-header">
           <h3>Keyboard Shortcuts</h3>
-          <button class="keyboard-help-close" aria-label="Close">&times;</button>
+          <button class="dialog-close keyboard-help-close" aria-label="Close">&times;</button>
         </div>
-        <div class="keyboard-help-body">
+        <div class="dialog-body">
           <div class="keyboard-help-section">
             <h4>Navigation</h4>
             <dl>
@@ -153,13 +153,13 @@
         </div>
       </div>
     </div>
-    <div id="mastodon-share-dialog" class="mastodon-share-dialog" hidden>
-      <div class="mastodon-share-dialog-content">
-        <div class="mastodon-share-dialog-header">
+    <div id="mastodon-share-dialog" class="dialog-overlay mastodon-share-dialog" hidden>
+      <div class="dialog-box">
+        <div class="dialog-header">
           <h3>Share on Mastodon</h3>
-          <button class="mastodon-share-dialog-close" aria-label="Close">&times;</button>
+          <button class="dialog-close mastodon-share-dialog-close" aria-label="Close">&times;</button>
         </div>
-        <div class="mastodon-share-dialog-body">
+        <div class="dialog-body mastodon-share-dialog-body">
           <label for="mastodon-instance">Your Mastodon instance</label>
           <input type="text" id="mastodon-instance" placeholder="mastodon.social" autocomplete="off" autocapitalize="off" spellcheck="false">
           <div class="mastodon-share-remember">
