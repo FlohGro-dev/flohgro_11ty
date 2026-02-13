@@ -36,7 +36,7 @@
   --copy-btn-hover-stroke: #111118;
   --selection-bg: #89B4FA;
   --selection-text: #111118;
-  --text-muted: #6c7086;
+  --text-muted: #9399b2;
   --color-gray-20: #e0e0e0;
   --color-gray-50: #C0C0C0;
   --color-gray-90: #dad8d8;
@@ -67,7 +67,7 @@
   --copy-btn-hover-stroke: #eff1f5;
   --selection-bg: #1e66f5;
   --selection-text: #eff1f5;
-  --text-muted: #8c8fa1;
+  --text-muted: #6c6f85;
   --color-gray-20: #ccd0da;
   --color-gray-50: #9ca0b0;
   --color-gray-90: #6c6f85;
@@ -373,8 +373,16 @@ pre code {
   stroke-linejoin: round;
 }
 
-pre:hover .copy-btn {
+pre:hover .copy-btn,
+pre:focus-within .copy-btn,
+.copy-btn:focus {
   opacity: 1;
+}
+
+@media (hover: none) {
+  .copy-btn {
+    opacity: 0.6;
+  }
 }
 
 .copy-btn:hover {
@@ -1063,10 +1071,12 @@ nav {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .error-title.glitch,
-  .error-title.glitch::before,
-  .error-title.glitch::after {
-    animation: none;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
