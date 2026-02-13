@@ -61,7 +61,7 @@
         </a>
         <ul class="header-social">
           {%- for link in stdLinks.stdLinks %}
-          <li><a href="{{ link.url }}" target="_blank" title="{{ link.name }}"><img src="{{ site.baseUrl }}{{ link.icon }}" alt="{{ link.name }}"/></a></li>
+          <li><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ link.name }}"><img src="{{ site.baseUrl }}{{ link.icon }}" alt="" role="presentation"/></a></li>
           {%- endfor %}
         </ul>
       </div>
@@ -98,13 +98,13 @@
     </main>
     <footer>
       <div class="footer-icons">
-        <a href="{{ site.baseUrl }}/rss.xml" target="_blank">
+        <a href="{{ site.baseUrl }}/rss.xml" target="_blank" rel="noopener noreferrer">
           <img src="{{ site.baseUrl }}/assets/icons/rssfeed-icon.png" alt="RSS Feed" class="footer-icon"/>
         </a>
-        <a href="{{ site.baseUrl }}/feed.json" target="_blank">
+        <a href="{{ site.baseUrl }}/feed.json" target="_blank" rel="noopener noreferrer">
           <img src="{{ site.baseUrl }}/assets/icons/jsonfeed-icon.png" alt="JSON Feed" class="footer-icon"/>
         </a>
-        <a href="{{ site.baseUrl }}/atom.xml" target="_blank">
+        <a href="{{ site.baseUrl }}/atom.xml" target="_blank" rel="noopener noreferrer">
           <img src="{{ site.baseUrl }}/assets/icons/atomfeed-icon.png" alt="Atom Feed" class="footer-icon"/>
         </a>
         <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">
