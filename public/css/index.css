@@ -1632,7 +1632,7 @@ a.contact-card:visited {
   background-color: var(--nav-hover-bg);
   color: var(--nav-hover-text);
   /* border-color: var(--border-accent); */
-  border-color: var(--nav-hover-text)
+  border-color: var(--nav-hover-text);
 }
 
 .mastodon-share-btn:active {
