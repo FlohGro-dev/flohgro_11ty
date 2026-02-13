@@ -1,0 +1,28 @@
+<aside class="random-quote-widget" hidden>
+  <h3>A Random Quote</h3>
+  <a href="" class="random-quote-card related-post-card">
+    <blockquote>
+      <p class="random-quote-text"></p>
+      <cite class="random-quote-author"></cite>
+    </blockquote>
+  </a>
+</aside>
+<script>
+(function() {
+  var widget = document.querySelector('.random-quote-widget');
+  if (!widget) return;
+  fetch('/quotes-data.json').then(function(r) { return r.json(); }).then(function(raw) {
+    var quotes = raw.map(function(item) {
+      var idx = item.raw.lastIndexOf(' -- ');
+      if (idx === -1) return null;
+      return { text: item.raw.substring(0, idx).trim(), author: item.raw.substring(idx + 4).trim(), url: item.url };
+    }).filter(function(q) { return q && q.text && q.author; });
+    if (quotes.length === 0) return;
+    var q = quotes[Math.floor(Math.random() * quotes.length)];
+    widget.querySelector('.random-quote-text').textContent = q.text;
+    widget.querySelector('.random-quote-author').textContent = q.author;
+    widget.querySelector('.random-quote-card').href = q.url;
+    widget.hidden = false;
+  });
+})();
+</script>

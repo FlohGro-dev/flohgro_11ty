@@ -66,3 +66,5 @@ If you have any requests / ideas / issues / questions or just want to share some
 <span class="contact-handle">@FlohGro-dev</span>
 </a>
 </div>
+
+{% include "random-quote.njk" %}

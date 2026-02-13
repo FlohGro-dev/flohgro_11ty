@@ -1,0 +1,9 @@
+---
+permalink: /quotes-data.json
+eleventyExcludeFromCollections: true
+---
+[
+{%- for quote in collections.quotePosts %}
+  {"raw":{{ quote.content | striptags | trim | jsonify | safe }},"url":"{{ quote.url }}"}{{ "," if not loop.last }}
+{%- endfor %}
+]

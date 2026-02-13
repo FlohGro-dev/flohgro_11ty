@@ -35,3 +35,5 @@ eleventyNavigation:
 {% endfor %}
 </div>
 {% endif %}
+
+{% include "random-quote.njk" %}

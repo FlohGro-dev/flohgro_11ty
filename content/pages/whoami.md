@@ -45,3 +45,5 @@ I am FlohGro – {{ "" | ageFromOct93 }}-year young & from South Germany.
 </div>
 
 ![a picture of me hiking in the mountains]({{ baseUrl }}/assets/me-hiking.jpeg)
+
+{% include "random-quote.njk" %}

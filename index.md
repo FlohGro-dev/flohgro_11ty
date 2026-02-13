@@ -44,3 +44,5 @@ layout: layouts/base
 </div>
 
 #### [All Posts](/blog/)
+
+{% include "random-quote.njk" %}

@@ -18,26 +18,20 @@ permalink: '404.html'
     </div>
 </section>
 
-<script id="quote-data" type="application/json">
-[
-{%- for quote in collections.quotePosts %}
-  {{ quote.content | striptags | trim | jsonify | safe }}{{ "," if not loop.last }}
-{%- endfor %}
-]
-</script>
 <script>
 (function() {
-    var raw = JSON.parse(document.getElementById('quote-data').textContent);
-    var quotes = raw.map(function(s) {
-        var idx = s.lastIndexOf(' -- ');
-        if (idx === -1) return { text: s.trim(), author: '' };
-        return { text: s.substring(0, idx).trim(), author: s.substring(idx + 4).trim() };
-    }).filter(function(q) { return q.text && q.author; });
-    if (quotes.length === 0) return;
-    var q = quotes[Math.floor(Math.random() * quotes.length)];
-    document.getElementById('quote-text').textContent = q.text;
-    document.getElementById('quote-author').textContent = q.author;
-    document.getElementById('quote-intro').hidden = false;
-    document.getElementById('random-quote').hidden = false;
+    fetch('/quotes-data.json').then(function(r) { return r.json(); }).then(function(raw) {
+        var quotes = raw.map(function(item) {
+            var idx = item.raw.lastIndexOf(' -- ');
+            if (idx === -1) return null;
+            return { text: item.raw.substring(0, idx).trim(), author: item.raw.substring(idx + 4).trim() };
+        }).filter(function(q) { return q && q.text && q.author; });
+        if (quotes.length === 0) return;
+        var q = quotes[Math.floor(Math.random() * quotes.length)];
+        document.getElementById('quote-text').textContent = q.text;
+        document.getElementById('quote-author').textContent = q.author;
+        document.getElementById('quote-intro').hidden = false;
+        document.getElementById('random-quote').hidden = false;
+    });
 })();
 </script>

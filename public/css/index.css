@@ -1202,6 +1202,35 @@ nav {
   max-height: 35vh !important;
 }
 
+.random-quote-widget {
+  margin-top: 2rem;
+}
+
+.random-quote-widget h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.random-quote-card blockquote {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.random-quote-card .random-quote-text {
+  margin: 0 0 0.5rem;
+  font-style: italic;
+}
+
+.random-quote-card .random-quote-author {
+  font-size: 0.85em;
+  color: var(--text-muted);
+}
+
+.random-quote-card .random-quote-author::before {
+  content: "\2014\00a0";
+}
+
 footer .footer-legal {
   display: inline;
   font-size: 0.75em;
