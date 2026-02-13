@@ -336,14 +336,14 @@
               e.preventDefault();
               currentIndex = Math.min(currentIndex + 1, items.length - 1);
               items[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
-              items[currentIndex].style.outline = '2px solid var(--border-accent)';
-              setTimeout(function() { items[currentIndex].style.outline = ''; }, 1000);
+              items[currentIndex].classList.add('keyboard-highlight');
+              setTimeout(function() { items[currentIndex].classList.remove('keyboard-highlight'); }, 1000);
             } else if (key === 'arrowup' || key === 'k') {
               e.preventDefault();
               currentIndex = Math.max(currentIndex - 1, 0);
               items[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
-              items[currentIndex].style.outline = '2px solid var(--border-accent)';
-              setTimeout(function() { items[currentIndex].style.outline = ''; }, 1000);
+              items[currentIndex].classList.add('keyboard-highlight');
+              setTimeout(function() { items[currentIndex].classList.remove('keyboard-highlight'); }, 1000);
             }
           }
         });
