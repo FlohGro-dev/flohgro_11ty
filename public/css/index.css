@@ -1158,10 +1158,16 @@ nav {
 }
 
 .timeline-item {
+  position: relative;
   padding: 1rem;
   border: 1px solid var(--border-accent);
   border-radius: 6px;
   background: var(--surface-elevated);
+  transition: border-color 0.2s ease;
+}
+
+.timeline-item:hover {
+  border-color: var(--text-heading);
 }
 
 .timeline-date {
@@ -1172,15 +1178,19 @@ nav {
 }
 
 .timeline-permalink {
-  margin-left: 0.5em;
-  font-size: 0.8em;
-  opacity: 0.4;
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  color: inherit;
 }
 
-.timeline-permalink:hover {
-  opacity: 1;
+.timeline-permalink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.timeline-content a {
+  position: relative;
+  z-index: 1;
 }
 
 .timeline-content {
