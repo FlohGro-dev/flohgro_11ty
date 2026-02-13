@@ -88,6 +88,9 @@
         </ul>
       </nav>
     </header>
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>
+      <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
     <main id="skip">
       <heading-anchors>
         {{ content | safe }}
@@ -202,6 +205,30 @@
             wasComplete = false;
             progressBar.classList.remove('complete');
           }
+        });
+      }
+
+      var backToTop = document.getElementById('back-to-top');
+      if (backToTop) {
+        function positionBackToTop() {
+          var body = document.body;
+          var rect = body.getBoundingClientRect();
+          var rightEdge = rect.right;
+          backToTop.style.left = (rightEdge - 56 - 16) + 'px';
+          backToTop.style.right = 'auto';
+        }
+        positionBackToTop();
+        window.addEventListener('resize', positionBackToTop);
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 400) {
+            backToTop.hidden = false;
+            backToTop.classList.add('visible');
+          } else {
+            backToTop.classList.remove('visible');
+          }
+        });
+        backToTop.addEventListener('click', function() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         });
       }
 
