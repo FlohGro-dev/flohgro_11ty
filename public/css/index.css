@@ -417,7 +417,7 @@ pre:focus-within .copy-btn,
 }
 
 code {
-  word-break: break-all;
+  overflow-wrap: break-word;
   background-color: var(--surface-inline);
   padding: 0.15em 0.3em;
   border-radius: 6px;
