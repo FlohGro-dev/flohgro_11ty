@@ -9,10 +9,9 @@ layout: layouts/base.njk
 {{ content | safe }}
 <div class="share-actions">
 {% include "mastodon-share.njk" %}
-<a class="email-comment-btn" href="mailto:{{ metadata.author.email }}?subject=Post%20{{ date | postDate | encodeUri }}&amp;body=%0A%0ARe%3A%20{{ metadata.url }}{{ page.url | encodeUri }}" aria-label="Comment via E-Mail">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-  Comment via E-Mail
-</a>
+{%- set emailSubject = "Post " + (date | postDate) -%}
+{%- set emailUrl = page.url -%}
+{% include "email-comment.njk" %}
 </div>
 </div>{%- if collections.socialPosts %}
 {%- set previousSocialPost = collections.socialPosts | getPreviousCollectionItem %}
