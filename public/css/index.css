@@ -1254,9 +1254,8 @@ footer img.footer-icon[src$=".svg"] {
   stroke-linejoin: round;
 }
 
-/* Invert white-only icons in light mode (patreon=1st, github=6th) */
-[data-theme="light"] .header-social li:nth-child(1) img,
-[data-theme="light"] .header-social li:nth-child(6) img {
+/* Invert dark icons in light mode */
+[data-theme="light"] .invert-on-light {
   filter: invert(1);
 }
 

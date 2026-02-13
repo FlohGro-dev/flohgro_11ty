@@ -62,7 +62,7 @@
         </a>
         <ul class="header-social">
           {%- for link in stdLinks.stdLinks %}
-          <li><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ link.name }}"><img src="{{ site.baseUrl }}{{ link.icon }}" alt="" role="presentation"/></a></li>
+          <li><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ link.name }}"><img src="{{ site.baseUrl }}{{ link.icon }}" alt="" role="presentation"{% if link.invertOnLight %} class="invert-on-light"{% endif %}/></a></li>
           {%- endfor %}
         </ul>
       </div>
