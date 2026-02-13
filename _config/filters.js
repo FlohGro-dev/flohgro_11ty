@@ -45,7 +45,7 @@ export default function (eleventyConfig) {
 	});
 
 	eleventyConfig.addFilter("filterTagList", function filterTagList(tags) {
-		return (tags || []).filter(tag => ["all", "posts", "post", "blog", "now", "drafts-action-directory-feed"].indexOf(tag) === -1);
+		return (tags || []).filter(tag => ["all", "posts", "post", "blog", "now", "quote", "halide-2025", "drafts-action-directory-feed"].indexOf(tag) === -1);
 	});
 
 	// Helper function for date suffixes
@@ -103,6 +103,25 @@ export default function (eleventyConfig) {
 	});
 
 	eleventyConfig.addFilter("encodeUri", (str) => encodeURIComponent(str || ""));
+
+	eleventyConfig.addFilter("sortedTags", function (tagslist, collections) {
+		const now = Date.now();
+		const halfLife = 180 * 24 * 60 * 60 * 1000; // 180 days in ms
+		const decay = Math.LN2 / halfLife;
+		const ignore = ["all", "posts", "post", "blog", "now", "quote", "halide-2025", "drafts-action-directory-feed"];
+
+		return tagslist
+			.filter(tag => !ignore.includes(tag))
+			.map(tag => {
+				const posts = collections[tag] || [];
+				const score = posts.reduce((sum, post) => {
+					const age = now - post.date.getTime();
+					return sum + Math.exp(-decay * age);
+				}, 0);
+				return { tag, count: posts.length, score };
+			})
+			.sort((a, b) => b.score - a.score);
+	});
 
 	eleventyConfig.addFilter("smartIsoDate", (dateObj) => {
 		const relative = relativeLabel(dateObj);

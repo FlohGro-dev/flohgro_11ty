@@ -4,23 +4,14 @@ title: "All Tags"
 permalink: "/tags/"
 ---
 
-<div style="width: 100%; margin: 0 auto; padding: 1rem; box-sizing: border-box;">
-    <h1>All Tags</h1>
-    <ul>
-        {% if collections.tagslist and collections.tagslist.length > 0 %}
-            {% for tag in collections.tagslist %}
-                {% set postsWithTag = collections[tag] %}
-                <li>
-                    <a href="{{ site.baseUrl }}/tags/{{ tag | slug }}">{{ tag }}</a>
-                    {% if postsWithTag %}
-                        ({{ postsWithTag.length }})
-                    {% else %}
-                        (0)
-                    {% endif %}
-                </li>
-            {% endfor %}
-        {% else %}
-            <li>No tags available.</li>
-        {% endif %}
-    </ul>
+<h1>All Tags</h1>
+
+{% set sorted = collections.tagslist | sortedTags(collections) %}
+<div class="tag-grid">
+{% for item in sorted %}
+<a href="{{ site.baseUrl }}/tags/{{ item.tag | slug }}" class="related-post-card tag-card">
+  <h3>{{ item.tag }}</h3>
+  <span class="tag-count">{{ item.count }} {{ "post" if item.count == 1 else "posts" }}</span>
+</a>
+{% endfor %}
 </div>

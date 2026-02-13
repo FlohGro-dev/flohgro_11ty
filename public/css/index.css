@@ -1207,6 +1207,33 @@ nav {
   color: var(--text-muted);
 }
 
+.tag-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag-card {
+  text-align: center;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+}
+
+.tag-card.related-post-card h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.tag-count {
+  font-size: 0.8em;
+  color: var(--text-muted);
+}
+
 .random-quote-widget {
   margin-top: 2rem;
 }
