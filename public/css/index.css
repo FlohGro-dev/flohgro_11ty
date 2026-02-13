@@ -230,6 +230,11 @@ main {
   min-width: 0;
 }
 
+main > heading-anchors {
+  display: block;
+  width: 100%;
+}
+
 footer {
   display: flex;
   flex-direction: column;
