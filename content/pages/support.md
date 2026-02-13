@@ -7,6 +7,8 @@ eleventyNavigation:
     order: 6
 ---
 
+<div class="post-card">
+
 # saythanks
 
 Everything I build is free to use. If you find my work useful and want to give something back, I'd really appreciate your support -- it keeps me motivated and helps cover expenses.
@@ -29,4 +31,6 @@ In the spirit of [oneamonth.club](https://oneamonth.club), I've set up the possi
 <span class="contact-name">Patreon</span>
 <span class="contact-handle">Monthly from 1$/month</span>
 </a>
+</div>
+
 </div>

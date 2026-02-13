@@ -7,6 +7,8 @@ eleventyNavigation:
     order: 5
 ---
 
+<div class="post-card">
+
 # contactme
 
 I'm active on various platforms and communities / forums.
@@ -65,6 +67,8 @@ If you have any requests / ideas / issues / questions or just want to share some
 <span class="contact-name">GitHub</span>
 <span class="contact-handle">@FlohGro-dev</span>
 </a>
+</div>
+
 </div>
 
 {% include "random-quote.njk" %}

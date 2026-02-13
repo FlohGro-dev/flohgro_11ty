@@ -7,6 +7,8 @@ eleventyNavigation:
     order: 4
 ---
 
+<div class="post-card">
+
 # whoami
 
 I am FlohGro – {{ "" | ageFromOct93 }}-year young & from South Germany.
@@ -45,5 +47,7 @@ I am FlohGro – {{ "" | ageFromOct93 }}-year young & from South Germany.
 </div>
 
 ![a picture of me hiking in the mountains]({{ baseUrl }}/assets/me-hiking.jpeg)
+
+</div>
 
 {% include "random-quote.njk" %}
