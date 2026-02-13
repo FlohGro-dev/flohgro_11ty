@@ -9,20 +9,19 @@ title: "Posts tagged with {{ tag }}"
 ---
 
 <h1>Posts tagged "{{ tag }}"</h1>
-<ul>
-    {% set taglist = collections[ tag ] %}
-    {% for post in taglist | reverse %}
-        <li>
-            <a href="{{ site.baseUrl }}{{ post.url }}">{{ post.data.title }}</a>
-            ({{ post.data.date | smartIsoDate }})
-        </li>
-    {% endfor %}
-</ul>
-<!-- Add subtle footer with link to "All Tags" -->
-<div style="margin-top: 2rem; font-size: 0.9em; color: #666;">
-    <p>
-        Looking for more tags? Visit the
-        <a href="{{ site.baseUrl }}/tags">All Tags</a>
-        page.
-    </p>
+
+<div class="recent-posts-list">
+{% set taglist = collections[ tag ] %}
+{% for post in taglist | reverse %}
+<a href="{{ site.baseUrl }}{{ post.url }}" class="related-post-card">
+<h3>{{ post.data.title }}</h3>
+<time datetime="{{ post.data.date | htmlDateString }}">{{ post.data.date | smartDate }}</time>
+<span class="reading-time">{{ post.templateContent | readingTime }}</span>
+<p>{% if post.data.summary %}{{ post.data.summary }}{% else %}{{ post.templateContent | truncate(150) }}{% endif %}</p>
+</a>
+{% endfor %}
 </div>
+
+<p style="margin-top: 1.5rem; font-size: 0.9em;">
+    Looking for more tags? Visit the <a href="{{ site.baseUrl }}/tags">All Tags</a> page.
+</p>
