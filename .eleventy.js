@@ -37,6 +37,19 @@ fs.mkdirSync('.cache/og-images', { recursive: true });
 export default function (eleventyConfig) {
   eleventyConfig.events.setMaxListeners(0);
 
+  // Copy cached OG images to output after build completes
+  // (passthrough copy runs too early, before the OG image plugin generates images)
+  eleventyConfig.on('eleventy.after', async ({ dir }) => {
+    const cacheDir = '.cache/og-images';
+    const outputDir = path.join(dir.output, 'assets/og-images');
+    if (fs.existsSync(cacheDir)) {
+      fs.mkdirSync(outputDir, { recursive: true });
+      for (const file of fs.readdirSync(cacheDir)) {
+        fs.copyFileSync(path.join(cacheDir, file), path.join(outputDir, file));
+      }
+    }
+  });
+
   // Determine the base URL
   const baseUrl = process.env.ELEVENTY_ENV === "production"
     ? ""
