@@ -933,45 +933,141 @@ nav {
 
 .error-container {
   text-align: center;
-  /* padding: 100px 20px; */
+  padding: 2rem 1rem;
 }
 
 .error-title {
   text-align: center;
-  /* Huge font size */
-  font-size: 10rem;
-  /* Red color for emphasis */
+  font-size: clamp(4rem, 15vw, 10rem);
   color: var(--text-heading);
   font-weight: bold;
-  margin: 40px;
+  margin: 0 0 0.5rem;
+  line-height: 1;
+}
+
+.error-title.glitch {
+  position: relative;
+  animation: glitch-skew 4s infinite linear alternate-reverse;
+}
+
+.error-title.glitch::before,
+.error-title.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.error-title.glitch::before {
+  color: var(--text-heading);
+  animation: glitch-left 3s infinite linear alternate-reverse;
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+  opacity: 0.8;
+}
+
+.error-title.glitch::after {
+  color: var(--border-accent);
+  animation: glitch-right 2s infinite linear alternate-reverse;
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+  opacity: 0.8;
+}
+
+@keyframes glitch-left {
+  0%, 80% { transform: translate(0); }
+  85% { transform: translate(-5px, 2px); }
+  90% { transform: translate(3px, -1px); }
+  95% { transform: translate(-2px, 1px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-right {
+  0%, 75% { transform: translate(0); }
+  80% { transform: translate(4px, -2px); }
+  85% { transform: translate(-3px, 1px); }
+  90% { transform: translate(2px, 2px); }
+  95% { transform: translate(-1px, -1px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-skew {
+  0%, 85% { transform: skew(0deg); }
+  88% { transform: skew(-1deg); }
+  91% { transform: skew(0.5deg); }
+  94% { transform: skew(-0.3deg); }
+  100% { transform: skew(0deg); }
 }
 
 .error-message {
   font-size: 1.5rem;
   color: var(--text-muted);
+  margin: 0.5rem 0;
+}
+
+.error-submessage {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin: 1.5rem 0 0.5rem;
+}
+
+.error-quote {
+  max-width: 600px;
+  margin: 1.5rem auto;
+  padding: 1.5rem;
+  border-left: 3px solid var(--border-accent);
+  text-align: left;
+  background: none;
+}
+
+.error-quote-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin: 0 0 0.75rem;
+  font-style: italic;
+}
+
+.error-quote-author {
+  font-style: normal;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.error-quote-author::before {
+  content: "\2014\00a0";
+}
+
+.error-actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .error-link {
   border: 2px solid var(--nav-border);
-  /* Add rounded corners */
   border-radius: 6px;
-  /* Button background color */
   background-color: var(--bg-primary);
-  /* Remove underline */
   text-decoration: none;
-  /* Center text inside the buttons */
   text-align: center;
-  /* Smooth hover effect */
   transition: background-color 0.3s ease, color 0.3s ease;
-
   display: inline-block;
-  margin: 30px;
   padding: 10px 20px;
   color: var(--nav-text) !important;
 }
 
 .error-link:hover {
   color: var(--nav-hover-text) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .error-title.glitch,
+  .error-title.glitch::before,
+  .error-title.glitch::after {
+    animation: none;
+  }
 }
 
 .timeline {

@@ -5,7 +5,39 @@ permalink: '404.html'
 ---
 
 <section class="error-container">
-    <h1 class="error-title">404</h1>
-    <p class="error-message">Oh no,...! This page wasn't found.</p>
-    <a href="/" class="error-link">back to home</a>
+    <h1 class="error-title glitch" data-text="404">404</h1>
+    <p class="error-message">This page got lost somewhere in the void.</p>
+    <p class="error-submessage" id="quote-intro" hidden>But here's a quote to make the detour worthwhile:</p>
+    <blockquote class="error-quote" id="random-quote" hidden>
+        <p class="error-quote-text" id="quote-text"></p>
+        <cite class="error-quote-author" id="quote-author"></cite>
+    </blockquote>
+    <div class="error-actions">
+        <a href="/search/" class="error-link">search the site</a>
+        <a href="/" class="error-link">back to home</a>
+    </div>
 </section>
+
+<script id="quote-data" type="application/json">
+[
+{%- for quote in collections.quotePosts %}
+  {{ quote.content | striptags | trim | jsonify | safe }}{{ "," if not loop.last }}
+{%- endfor %}
+]
+</script>
+<script>
+(function() {
+    var raw = JSON.parse(document.getElementById('quote-data').textContent);
+    var quotes = raw.map(function(s) {
+        var idx = s.lastIndexOf(' -- ');
+        if (idx === -1) return { text: s.trim(), author: '' };
+        return { text: s.substring(0, idx).trim(), author: s.substring(idx + 4).trim() };
+    }).filter(function(q) { return q.text && q.author; });
+    if (quotes.length === 0) return;
+    var q = quotes[Math.floor(Math.random() * quotes.length)];
+    document.getElementById('quote-text').textContent = q.text;
+    document.getElementById('quote-author').textContent = q.author;
+    document.getElementById('quote-intro').hidden = false;
+    document.getElementById('random-quote').hidden = false;
+})();
+</script>
