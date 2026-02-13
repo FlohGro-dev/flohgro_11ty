@@ -14,7 +14,7 @@ Kleinunternehmer §4 Abs. 3 UStG
 
 ### Kontakt
 
-[hi@flohgro.com](mailto://hi@flohgro.com)
+[hi@flohgro.com](mailto:hi@flohgro.com)
 -> bitte auch für postalische Anfragen per E-Mail kontaktieren.
 
 ### Redaktionell verantwortlich
