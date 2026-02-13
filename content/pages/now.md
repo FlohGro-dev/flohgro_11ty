@@ -8,16 +8,17 @@ eleventyNavigation:
 ---
 
 {% for post in collections.latestNowPost %}
-# [{{ post.data.title }}]({{ site.baseUrl }}{{ post.url }})
+<div class="post-card">
+<h1><a href="{{ site.baseUrl }}{{ post.url }}">{{ post.data.title }}</a></h1>
 <ul class="post-metadata">
 <li><time datetime="{{ post.data.date | htmlDateString }}">{{ post.data.date | smartDate }}</time></li>
 <li class="reading-time">{{ post.templateContent | readingTime }}</li>
 </ul>
 
 {{ post.templateContent }}
-{% endfor %}
 
----
+</div>
+{% endfor %}
 
 <div id="reading-end"></div>
 
