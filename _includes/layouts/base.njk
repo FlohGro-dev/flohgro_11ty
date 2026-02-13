@@ -16,7 +16,7 @@
     rel="icon" type="image/png" sizes="16x16" href="{{ site.baseUrl }}/assets/icon-16.png"> {# <link rel="manifest" href="{{ site.baseUrl }}/assets/icons/site.webmanifest"> #}
     <link rel="mask-icon" href="{{ site.baseUrl }}/assets/icon.svg" color="#111118">
     <meta name="msapplication-TileColor" content="#111118">
-    <meta name="theme-color" content="#111118">
+    <meta name="theme-color" id="meta-theme-color" content="#111118">
     <meta property="og:title" content="{{ title or metadata.title }}"/>
     <meta property="og:description" content="{{ summary or description or metadata.description }}"/>
     <meta property="og:url" content="{{ metadata.url }}{{ page.url }}"/>
@@ -39,6 +39,7 @@
           theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
         }
         document.documentElement.setAttribute('data-theme', theme);
+        document.getElementById('meta-theme-color').content = theme === 'light' ? '#eff1f5' : '#111118';
       })();
     </script>
     {%- css %}
@@ -179,6 +180,7 @@
           var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
           document.documentElement.setAttribute('data-theme', next);
           localStorage.setItem('theme', next);
+          document.getElementById('meta-theme-color').content = next === 'light' ? '#eff1f5' : '#111118';
         });
       }
 
