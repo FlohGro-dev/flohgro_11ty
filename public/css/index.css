@@ -314,6 +314,16 @@ header:after {
   text-align: right;
 }
 
+@media screen and (max-width: 480px) {
+  .links-nextprev {
+    flex-direction: column;
+  }
+
+  .links-nextprev-next {
+    text-align: left;
+  }
+}
+
 table {
   margin: 1em 0;
 }
@@ -1534,12 +1544,27 @@ a.contact-card:visited {
   text-align: center;
 }
 
+.share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin-top: 1em;
+  font-size: clamp(0.75rem, 2.2vw, 0.9rem);
+}
+
+.share-actions .mastodon-share-btn,
+.share-actions .email-comment-btn {
+  flex: 1 1 0;
+  justify-content: center;
+  padding: 0.4em 0.3em;
+}
+
+
 /* Mastodon share button */
 .mastodon-share-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.4em;
-  margin-top: 1em;
   padding: 0.4em 0.8em;
   /* border: 2px solid var(--nav-border); */
   border: 2px solid var(--border-accent);
@@ -1549,7 +1574,7 @@ a.contact-card:visited {
   /* color: var(--nav-text); */
   color: var(--text-heading);
   font-family: var(--font-family);
-  font-size: 0.9rem;
+  font-size: inherit;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
@@ -1578,15 +1603,13 @@ a[href].email-comment-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.4em;
-  margin-top: 1em;
-  margin-left: 0.5em;
   padding: 0.4em 0.8em;
   border: 2px solid var(--border-accent);
   border-radius: 6px;
   background: var(--surface-elevated);
   color: var(--text-heading);
   font-family: var(--font-family);
-  font-size: 0.9rem;
+  font-size: inherit;
   cursor: pointer;
   text-decoration: none;
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
