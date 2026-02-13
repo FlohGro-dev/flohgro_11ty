@@ -427,13 +427,11 @@ code {
 em,
 i {
   font-style: italic;
-  color: var(--text-code);
 }
 
 strong,
 b {
   font-weight: bold;
-  color: var(--text-code);
 }
 
 blockquote {
