@@ -91,7 +91,7 @@
 }
 
 html {
-  font-size: clamp(12px, 2vw, 18px);
+  font-size: clamp(14px, 1.5vw + 8px, 18px);
 }
 
 html,
@@ -607,7 +607,7 @@ nav {
 
 @media screen and (max-width: 1000px) {
   .nav-item a {
-    font-size: clamp(12px, 2vw, 18px);
+    font-size: clamp(14px, 1.5vw + 8px, 18px);
   }
 }
 
