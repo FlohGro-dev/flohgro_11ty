@@ -11,6 +11,11 @@ layout: layouts/base
 <ul class="post-metadata">
 <li><time datetime="{{ post.data.date | htmlDateString }}">{{ post.data.date | smartDate }}</time></li>
 <li class="reading-time">{{ post.templateContent | readingTime }}</li>
+{%- assign featuredTags = post.data.tags | filterTagList %}
+{%- for tag in featuredTags %}
+    {%- assign tagUrl = tag | slugify | prepend: "/tags/" | append: "/" %}
+    <li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>{%- unless forloop.last %}, {% endunless %}</li>
+{%- endfor %}
 </ul>
 
 {{ post.templateContent }}
@@ -38,6 +43,10 @@ layout: layouts/base
 <h3>{{ post.data.title }}</h3>
 <time datetime="{{ post.data.date | htmlDateString }}">{{ post.data.date | smartDate }}</time>
 <span class="reading-time">{{ post.templateContent | readingTime }}</span>
+{%- assign filteredTags = post.data.tags | filterTagList -%}
+{%- if filteredTags.size > 0 -%}
+<span class="card-tags">{%- for tag in filteredTags -%}{%- if forloop.index <= 3 -%}<span>{{ tag }}</span>{%- endif -%}{%- endfor -%}{%- if filteredTags.size > 3 -%}<span class="card-tags-more">+{{ filteredTags.size | minus: 3 }}</span>{%- endif -%}</span>
+{%- endif -%}
 <p>{% if post.data.summary %}{{ post.data.summary }}{% else %}{{ post.templateContent | truncate: 300 }}{% endif %}</p>
 </a>
 {% endfor %}

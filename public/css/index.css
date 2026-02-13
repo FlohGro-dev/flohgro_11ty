@@ -1525,6 +1525,24 @@ a.contact-card:visited {
   line-height: 1.4;
 }
 
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3em 0.6em;
+  margin: 0.3em 0 0;
+  font-size: 0.75em;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.card-tags span::before {
+  content: "#";
+}
+
+.card-tags .card-tags-more::before {
+  content: "";
+}
+
 #reading-progress {
   position: fixed;
   top: 0;

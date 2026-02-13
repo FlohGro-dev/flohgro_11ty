@@ -17,6 +17,10 @@ title: "Posts tagged with {{ tag }}"
 <h3>{{ post.data.title }}</h3>
 <time datetime="{{ post.data.date | htmlDateString }}">{{ post.data.date | smartDate }}</time>
 <span class="reading-time">{{ post.templateContent | readingTime }}</span>
+{%- set postTags = post.data.tags | filterTagList %}
+{%- if postTags.length > 0 %}
+<span class="card-tags">{%- for t in postTags %}{%- if loop.index <= 3 %}<span>{{ t }}</span>{%- endif %}{%- endfor %}{%- if postTags.length > 3 %}<span class="card-tags-more">+{{ postTags.length - 3 }}</span>{%- endif %}</span>
+{%- endif %}
 <p>{% if post.data.summary %}{{ post.data.summary }}{% else %}{{ post.templateContent | truncate(150) }}{% endif %}</p>
 </a>
 {% endfor %}

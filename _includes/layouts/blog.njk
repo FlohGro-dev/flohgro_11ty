@@ -38,6 +38,10 @@ layout: layouts/base.njk
           <h3>{{ rel.data.title }}</h3>
           <time datetime="{{ rel.date | htmlDateString }}">{{ rel.date | smartDate }}</time>
           <span class="reading-time">{{ rel.templateContent | readingTime }}</span>
+          {%- set relTags = rel.data.tags | filterTagList %}
+          {%- if relTags.length > 0 %}
+          <span class="card-tags">{%- for tag in relTags %}{%- if loop.index <= 3 %}<span>{{ tag }}</span>{%- endif %}{%- endfor %}{%- if relTags.length > 3 %}<span class="card-tags-more">+{{ relTags.length - 3 }}</span>{%- endif %}</span>
+          {%- endif %}
           <p>{{ rel.data.summary if rel.data.summary else rel.templateContent | truncate(150) }}</p>
         </a>
       {%- endfor %}
