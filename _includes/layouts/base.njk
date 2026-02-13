@@ -21,13 +21,16 @@
     <meta property="og:description" content="{{ summary or description or metadata.description }}"/>
     <meta property="og:url" content="{{ metadata.url }}{{ page.url }}"/>
     <meta property="og:type" content="{% if tags and 'blog' in tags %}article{% else %}website{% endif %}"/>
+    {% if tags and 'blog' in tags and title %}
+    {% ogImage "./og-image.og.njk", { title: title, summary: summary } %}
+    {% else %}
     <meta property="og:image" content="{{ metadata.url }}/assets/og-icon.png"/>
+    {% endif %}
     <meta property="og:image:width" content="1200"/>
     <meta property="og:image:height" content="630"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="{{ title or metadata.title }}"/>
     <meta name="twitter:description" content="{{ summary or description or metadata.description }}"/>
-    <meta name="twitter:image" content="{{ metadata.url }}/assets/og-icon.png"/>
     <link rel='icon' type='image/x-icon' href='{{ site.baseUrl }}/assets/icon.ico'>
     <script>
       (function() {

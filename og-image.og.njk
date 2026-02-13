@@ -1,0 +1,18 @@
+<div style="display: flex; flex-direction: row; width: 1200px; height: 630px; background-color: #111118;">
+  <div style="display: flex; width: 8px; height: 630px; background-color: #89B4FA;"></div>
+  <div style="display: flex; flex-direction: column; flex-grow: 1; padding: 60px; justify-content: space-between;">
+    <div style="display: flex; flex-direction: row; align-items: center;">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAhGVYSWZNTQAqAAAACAAFARIAAwAAAAEAAQAAARoABQAAAAEAAABKARsABQAAAAEAAABSASgAAwAAAAEAAgAAh2kABAAAAAEAAABaAAAAAAAAAEgAAAABAAAASAAAAAEAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAABfvA/wAAAACXBIWXMAAAsTAAALEwEAmpwYAAADuUlEQVRYCcWXy07bQBSGj504t3IRIZSAVKEilU2hSBWr8hCVWLHphk27YFE23SG1ErtuUFmUrngQJPbQClVC9AUohUKFCJjESXzp/GOOYxvbiUooI8HYcznnOzP/nHGUgYGyQ/dY1Hv0LV2n/QCWZVOz2RBNir+5a8+KMJvJZEjBw3XxAOB8dLRM09PPyLYt7u9irZDj2LS9/ZUuL3UPwgNoNpvC+RStrn6ker3eRceuKURtmibNz7+i8/MKpdOuaw8Aw2zbls7vEsBxgpoPAESFnUqlIpodwpb5S/Q4EuOStzMRAJOPj3+LvWtR4xlCKpUGPf9oOzo6DjlzxDJrNDRU8sZFPcQCICI4X1h4TVdXNVJVV7nQyuTkU1pf/+QJyTAMWlp6RwcHP4lXAvs9MfGENja+ePsNHfhPAIBiAdCJyKrVmgCoBgDgMFxqNXccA1iWKcR2Tvv7PzworKhh1AMQiQBwAmJEzyuAOhxF9DiNDg9/iRV8E2BFUAyJjrYAgdn/8IKT5S9h+LYApmmJ82uRpqXklsAgoggXtLuKh1acyDGYg+j9EIkA6XSKxsYeSR1UKhXKZrPUaDQon89LB2wIQDgVECjacEpUNfqaOTk5FTowPIhYAERTKpWkipGY1tY+y6D7+vrEamgyWnYCgNnZF6LNlH1zcy8FRFauhJx0/U9VU7S4+JZ2dr5JSDTHAqAT0SBqFDitVC6oWCxSoVC4scSI+uLCkO25XE46CG8Vlp+hpVHxLxGAB6HmvfefCO6Ho2w2cwMK/X4I/zPPbQuASXCOqBRFFftsSk3w/sMQojo9/SMFhnEMG+WQHXMdCwCjEMzy8gfS9apIRrrcBl3XaXz8ceAsAwbX7NnZmdyyzc0taX9wsEgrK++pp+eBhGKn/joWAEah+L29fZkJcSLEYogj2RT5fchTMRtD1kMqhtBw70PE5fJIrGOeFwuAAYCA+PDHmRDG/cvPhrBiEJmb5VyxaVqieTk1+rCy1f9Qt0fsEILFyqvDQmw3vWsAyA29vT2eOKEBtDFQHMitARA5khW+JfEN0HLoSEEWCvlEId4aAJHB6fDww8gg3Qsqsks2dgUAlto5ikMIAOAocUrFccpktMh5iJh/YHSS7dhI1F2g8G9DfOWOjAzT1NSk3DM4wWcWbi58D4hXWaDu/v5+mpl5znY7rmFzd/e7zJgIFsUDwAuMNxq40/Hm7i0iDRfbdq5/woV72r+7Sa2Vfm5sQS7nXr9JppAV+ZpOGtdJXwulk9F3MOYvpdGhkBxHl/YAAAAASUVORK5CYII=" style="width: 64px; height: 64px; border-radius: 10px; margin-right: 20px;" />
+      <span style="font-size: 40px; color: #cdd6f4; font-weight: 400; font-family: 'JetBrains Mono';">FlohGro</span>
+    </div>
+    <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; padding-top: 20px; padding-bottom: 20px;">
+      <span style="font-size: 48px; color: #89B4FA; font-weight: 700; line-height: 1.3; font-family: 'JetBrains Mono';">{{ title | safe }}</span>
+      {% if summary %}
+      <span style="font-size: 24px; color: #a6adc8; font-weight: 400; line-height: 1.4; font-family: 'JetBrains Mono'; margin-top: 16px;">{{ summary | safe }}</span>
+      {% endif %}
+    </div>
+    <div style="display: flex;">
+      <span style="font-size: 24px; color: #6c7086; font-weight: 400; font-family: 'JetBrains Mono';">flohgro.com</span>
+    </div>
+  </div>
+</div>

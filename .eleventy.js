@@ -1,4 +1,20 @@
+import fs from "fs";
+import path from "path";
+import crypto from "crypto";
 import eleventyNavigationPlugin from '@11ty/eleventy-navigation';
+import EleventyPluginOgImage from 'eleventy-plugin-og-image';
+import { OgImage } from 'eleventy-plugin-og-image/og-image';
+import { TemplatePath } from '@11ty/eleventy-utils';
+
+// Bump this to force all OG images to regenerate after template changes
+const OG_TEMPLATE_VERSION = '4';
+
+class CachedOgImage extends OgImage {
+  async outputFilePath() {
+    const fileName = await this.outputFileName();
+    return TemplatePath.standardizeFilePath(path.join('.cache/og-images', fileName));
+  }
+}
 
 import pluginFilters from "./_config/filters.js";
 
@@ -16,7 +32,11 @@ const sortByDateAsc = (a, b) => {
   return new Date(a.data.date) - new Date(b.data.date);
 };
 
+fs.mkdirSync('.cache/og-images', { recursive: true });
+
 export default function (eleventyConfig) {
+  eleventyConfig.events.setMaxListeners(0);
+
   // Determine the base URL
   const baseUrl = process.env.ELEVENTY_ENV === "production"
     ? ""
@@ -52,6 +72,7 @@ export default function (eleventyConfig) {
   });
 
   eleventyConfig.addPassthroughCopy("assets")
+    .addPassthroughCopy({ ".cache/og-images": "assets/og-images" })
     .addPassthroughCopy({
       "./public/": "/"
     })
@@ -123,6 +144,36 @@ export default function (eleventyConfig) {
   });
 
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
+
+  eleventyConfig.addPlugin(EleventyPluginOgImage, {
+    outputDir: 'assets/og-images',
+    urlPath: '/assets/og-images',
+    OgImage: CachedOgImage,
+    outputFileSlug: (ogImage) => {
+      const hash = crypto.createHash('sha256');
+      hash.update(OG_TEMPLATE_VERSION);
+      hash.update(JSON.stringify(ogImage.data || {}));
+      return hash.digest('hex').substring(0, 8);
+    },
+    shortcodeOutput: async (ogImage) => `<meta property="og:image" content="https://flohgro.com${await ogImage.outputUrl()}" />`,
+    satoriOptions: {
+      fonts: [
+        {
+          name: 'JetBrains Mono',
+          data: fs.readFileSync('public/fonts/JetBrainsMono-Regular.ttf'),
+          weight: 400,
+          style: 'normal',
+        },
+        {
+          name: 'JetBrains Mono',
+          data: fs.readFileSync('public/fonts/JetBrainsMono-Bold.ttf'),
+          weight: 700,
+          style: 'normal',
+        },
+      ],
+    },
+  });
+
   // Filters
   eleventyConfig.addPlugin(pluginFilters);
 
