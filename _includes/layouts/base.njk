@@ -137,11 +137,36 @@
               <dd>Next post (on post pages)</dd>
               <dt><kbd>h</kbd> / <kbd>←</kbd></dt>
               <dd>Previous post (on post pages)</dd>
+              <dt><kbd>Enter</kbd></dt>
+              <dd>Open selected post</dd>
+            </dl>
+          </div>
+          <div class="keyboard-help-section">
+            <h4>Go to</h4>
+            <dl>
+              <dt><kbd>g</kbd> <kbd>h</kbd></dt>
+              <dd>Home</dd>
+              <dt><kbd>g</kbd> <kbd>b</kbd></dt>
+              <dd>Blog</dd>
+              <dt><kbd>g</kbd> <kbd>n</kbd></dt>
+              <dd>/now</dd>
+              <dt><kbd>g</kbd> <kbd>p</kbd></dt>
+              <dd>Posts</dd>
+              <dt><kbd>g</kbd> <kbd>w</kbd></dt>
+              <dd>whoami</dd>
+              <dt><kbd>g</kbd> <kbd>c</kbd></dt>
+              <dd>contactme</dd>
+              <dt><kbd>g</kbd> <kbd>t</kbd></dt>
+              <dd>saythanks</dd>
+              <dt><kbd>g</kbd> <kbd>s</kbd></dt>
+              <dd>Search</dd>
             </dl>
           </div>
           <div class="keyboard-help-section">
             <h4>General</h4>
             <dl>
+              <dt><kbd>t</kbd></dt>
+              <dd>Toggle light/dark theme</dd>
               <dt><kbd>?</kbd></dt>
               <dd>Show this help</dd>
               <dt><kbd>Esc</kbd></dt>
@@ -251,8 +276,22 @@
         var timelineItems = document.querySelectorAll('.timeline-item');
         var postlistItems = document.querySelectorAll('.postlist-item');
         var blogCards = document.querySelectorAll('.recent-posts-list .related-post-card');
-        var items = timelineItems.length ? timelineItems : (blogCards.length ? blogCards : postlistItems);
+        var isHomepage = !!document.querySelector('.featured-post');
+
+        // Build items list: on homepage, only the recent cards (featured post uses incremental scroll)
+        var items;
+        if (isHomepage && blogCards.length) {
+          items = Array.prototype.slice.call(blogCards);
+        } else if (timelineItems.length) {
+          items = Array.prototype.slice.call(timelineItems);
+        } else if (blogCards.length) {
+          items = Array.prototype.slice.call(blogCards);
+        } else {
+          items = Array.prototype.slice.call(postlistItems);
+        }
         var currentIndex = -1;
+        var gPending = false;
+        var gTimeout;
 
         // Find prev/next links for single post pages
         var prevLink = document.querySelector('.links-nextprev-prev a');
@@ -317,6 +356,41 @@
 
           key = key.toLowerCase();
 
+          // "g then letter" navigation to pages
+          if (gPending) {
+            gPending = false;
+            clearTimeout(gTimeout);
+            var gRoutes = {
+              'h': '/',
+              'b': '/blog/',
+              'n': '/now/',
+              'p': '/posts/',
+              'w': '/whoami/',
+              'c': '/contactme/',
+              't': '/saythanks/',
+              's': '/search/'
+            };
+            if (gRoutes[key]) {
+              e.preventDefault();
+              window.location.href = gRoutes[key];
+              return;
+            }
+          }
+
+          if (key === 'g') {
+            gPending = true;
+            gTimeout = setTimeout(function() { gPending = false; }, 1000);
+            return;
+          }
+
+          // Toggle theme with t
+          if (key === 't') {
+            e.preventDefault();
+            var toggleBtn = document.getElementById('theme-toggle');
+            if (toggleBtn) toggleBtn.click();
+            return;
+          }
+
           // Left/Right or h/l for prev/next post navigation
           if (key === 'arrowleft' || key === 'h') {
             if (prevLink) {
@@ -334,16 +408,44 @@
           if (items.length > 0) {
             if (key === 'arrowdown' || key === 'j') {
               e.preventDefault();
-              currentIndex = Math.min(currentIndex + 1, items.length - 1);
-              items[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
-              items[currentIndex].classList.add('keyboard-highlight');
-              setTimeout(function() { items[currentIndex].classList.remove('keyboard-highlight'); }, 1000);
+              // On homepage before selecting a card: scroll incrementally
+              if (isHomepage && currentIndex < 0) {
+                var firstCard = items[0];
+                var cardRect = firstCard.getBoundingClientRect();
+                // If first card is in the lower two-thirds of viewport, snap to it
+                if (cardRect.top < window.innerHeight * 0.66) {
+                  currentIndex = 0;
+                  firstCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  firstCard.classList.add('keyboard-highlight');
+                } else {
+                  // Scroll down by half a viewport
+                  window.scrollBy({ top: window.innerHeight * 0.5, behavior: 'smooth' });
+                }
+              } else {
+                if (currentIndex >= 0) items[currentIndex].classList.remove('keyboard-highlight');
+                currentIndex = Math.min(currentIndex + 1, items.length - 1);
+                items[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                items[currentIndex].classList.add('keyboard-highlight');
+              }
             } else if (key === 'arrowup' || key === 'k') {
               e.preventDefault();
-              currentIndex = Math.max(currentIndex - 1, 0);
-              items[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
-              items[currentIndex].classList.add('keyboard-highlight');
-              setTimeout(function() { items[currentIndex].classList.remove('keyboard-highlight'); }, 1000);
+              if (isHomepage && currentIndex === 0) {
+                // Go back to incremental scrolling mode
+                items[currentIndex].classList.remove('keyboard-highlight');
+                currentIndex = -1;
+                window.scrollBy({ top: -window.innerHeight * 0.5, behavior: 'smooth' });
+              } else if (isHomepage && currentIndex < 0) {
+                window.scrollBy({ top: -window.innerHeight * 0.5, behavior: 'smooth' });
+              } else {
+                if (currentIndex >= 0) items[currentIndex].classList.remove('keyboard-highlight');
+                currentIndex = Math.max(currentIndex - 1, 0);
+                items[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                items[currentIndex].classList.add('keyboard-highlight');
+              }
+            } else if (key === 'enter' && currentIndex >= 0) {
+              e.preventDefault();
+              var link = items[currentIndex].tagName === 'A' ? items[currentIndex] : items[currentIndex].querySelector('a');
+              if (link) link.click();
             }
           }
         });
