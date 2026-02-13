@@ -242,5 +242,19 @@ eines Mitgliedstaats verarbeitet werden.
 Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten lokal gehostete Schriftarten (Self-Hosting).
 Die Schriftarten werden direkt von diesem Webserver geladen. Eine Verbindung zu externen Servern (z. B. Google) wird hierfür nicht hergestellt. Es werden keine Daten an Dritte übermittelt.
 
+#### Seitenstatistiken (NeatStats)
+
+Diese Website verwendet [NeatStats](https://neatstats.net) zur Erfassung anonymer Seitenaufrufstatistiken. NeatStats ist ein datenschutzfreundlicher Analysedienst, der Seitenaufrufe zählt, ohne einzelne Besucher zu verfolgen. Es werden keine Cookies, kein Browser-Local-Storage, kein Fingerprinting und keine Form der persönlichen Identifikation verwendet.
+
+Folgende Daten werden pro Seitenaufruf erfasst:
+
+- URL der aufgerufenen Seite
+- Referrer (sofern vom Browser übermittelt)
+- User-Agent (Browser-/Geräteinformationen)
+- Ungefährer Standort (grobe Stadtebene, keine genauen Koordinaten)
+- Zeitstempel
+
+IP-Adressen werden nicht gespeichert. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Analyse der Websitenutzung). Weitere Informationen finden Sie in der [NeatStats-Dokumentation](https://neatstats.net/docs).
+
 Quelle:
 <https://www.e-recht24.de>
