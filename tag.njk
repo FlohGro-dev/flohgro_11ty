@@ -8,7 +8,7 @@ layout: layouts/base
 title: "Posts tagged with {{ tag }}"
 ---
 
-<h1>Posts tagged "{{ tag }}"</h1>
+<h1 class="breadcrumb-heading"><a href="{{ site.baseUrl }}/tags">All Tags</a> <span>&gt;</span> {{ tag }}</h1>
 
 <div class="recent-posts-list">
 {% set taglist = collections[ tag ] %}
@@ -22,6 +22,3 @@ title: "Posts tagged with {{ tag }}"
 {% endfor %}
 </div>
 
-<p style="margin-top: 1.5rem; font-size: 0.9em;">
-    Looking for more tags? Visit the <a href="{{ site.baseUrl }}/tags">All Tags</a> page.
-</p>
