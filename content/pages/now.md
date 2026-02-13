@@ -8,7 +8,7 @@ eleventyNavigation:
 ---
 
 {% for post in collections.latestNowPost %}
-## [{{ post.data.title }}]({{ site.baseUrl }}{{ post.url }})
+# [{{ post.data.title }}]({{ site.baseUrl }}{{ post.url }})
 <ul class="post-metadata">
 <li><time datetime="{{ post.data.date | htmlDateString }}">{{ post.data.date | smartDate }}</time></li>
 <li class="reading-time">{{ post.templateContent | readingTime }}</li>
@@ -22,7 +22,7 @@ eleventyNavigation:
 <div id="reading-end"></div>
 
 {% if collections.olderNowPosts.length > 0 %}
-# Older Updates
+## Older Updates
 
 <div class="recent-posts-list">
 {% for post in collections.olderNowPosts %}

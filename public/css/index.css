@@ -260,6 +260,11 @@ main :first-child {
   margin-top: 0;
 }
 
+/* Content page h1s: sized like h2 to preserve visual appearance */
+main > heading-anchors > h1 {
+  font-size: 1.5em;
+}
+
 header:after {
   content: "";
   display: table;
@@ -1221,8 +1226,13 @@ footer img.footer-icon[src$=".svg"] {
   margin-bottom: 1.5em;
 }
 
-.featured-post h1,
-.post-card h1 {
+.featured-post h2 {
+  margin-top: 0;
+}
+
+/* Post card titles: use h1 for semantics but size them down */
+.post-card .post-card-title {
+  font-size: 1.17em;
   margin-top: 0;
 }
 

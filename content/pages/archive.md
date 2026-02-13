@@ -7,7 +7,7 @@ eleventyNavigation:
     order: 1
 ---
 
-## All Posts
+# All Posts
 
 <div class="recent-posts-list">
 {% for blogPost in collections.blogPosts %}

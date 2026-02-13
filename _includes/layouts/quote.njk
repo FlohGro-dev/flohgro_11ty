@@ -3,9 +3,9 @@ layout: layouts/base.njk
 ---
 
 <div class="post-card">
-<h3>
+<h1 class="post-card-title">
     {{ title }}
-</h3>
+</h1>
 {{ content | safe }}
 {% include "mastodon-share.njk" %}
 </div>{%- if collections.quotePosts %}

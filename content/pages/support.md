@@ -7,7 +7,7 @@ eleventyNavigation:
     order: 6
 ---
 
-## saythanks
+# saythanks
 
 Everything I build is free to use. If you find my work useful and want to give something back, I'd really appreciate your support -- it keeps me motivated and helps cover expenses.
 

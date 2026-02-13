@@ -7,7 +7,7 @@ eleventyNavigation:
     order: 7
 ---
 
-## search
+# search
 
 Looking for something specific? Try the search here - if you can't find what you're looking for don't hesitate to [contact me](/contactme)
 

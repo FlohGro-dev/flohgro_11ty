@@ -7,7 +7,7 @@ eleventyNavigation:
     order: 5
 ---
 
-## contactme
+# contactme
 
 I'm active on various platforms and communities / forums.
 If you have any requests / ideas / issues / questions or just want to share some thoughts or that you like what I'm doing – just reach out to me on those platforms:
