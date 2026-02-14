@@ -25,7 +25,7 @@ Of course, this was not intended for a mid-/long-term use, but here we are - I u
 
 > First of all, I want to emphasize that I am by no means an expert on this topic. I carefully read the outputs of Perplexity and Claude and verified a few commands with standard web searches. Be careful when trying this stuff, and maybe the end of the post (my "real fix") will help you more than this trip down the rabbit hole.
 
-I used Perplexity to research the problem and found a bunch of forum posts, Apple Community threads, and one really thorough write-up by [Daniel Wentsch](https://freiburg.social/@klickreflex): [The Week I Spent Fixing My MacBook's Post-Tahoe Performance Issues](https://medium.zettel.org/the-week-i-spent-fixing-my-macbooks-post-tahoe-performance-issues-daccb150dbf8). His analysis identifies three main problems after the Tahoe upgrade:
+I used Perplexity to research the problem and found a bunch of forum posts, Apple Community threads, and one really thorough write-up by [Daniel Wentsch](https://freiburg.social/@klickreflex): [The Week I Spent Fixing My MacBook's Post-Tahoe Performance Issues](https://zettel.org/the-week-i-spent-fixing-my-macbooks-post-tahoe-performance-issues/). His analysis identifies three main problems after the Tahoe upgrade:
 
 1. Ghost FileProvider extensions from apps you uninstalled ages ago - this affects all macOS versions, but the Tahoe upgrade triggers it.
 2. A WindowServer bug with Electron apps like VS Code, Slack, Discord (Tahoe-specific)
