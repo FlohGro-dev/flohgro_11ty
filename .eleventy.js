@@ -222,8 +222,7 @@ export default function (eleventyConfig) {
         try {
           const fileContent = fs.readFileSync(post.inputPath, 'utf-8');
           const bodyMatch = fileContent.match(/^---[\s\S]*?---\s*([\s\S]*)$/);
-          const raw = (bodyMatch ? bodyMatch[1] : fileContent).replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/[#*_`>]/g, '').replace(/\n/g, ' ').trim();
-          label = raw.length > 80 ? raw.substring(0, 80) + '...' : raw;
+          label = (bodyMatch ? bodyMatch[1] : fileContent).replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/[#*_`>]/g, '').replace(/\n/g, ' ').trim();
         } catch {
           label = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
         }
