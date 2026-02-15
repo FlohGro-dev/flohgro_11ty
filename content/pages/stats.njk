@@ -6,11 +6,6 @@ permalink: /stats/
 
 <h1>Stats</h1>
 
-<div class="post-card">
-<h2>Post Activity</h2>
-{% postGraphLinked collections.blogPosts %}
-</div>
-
 <div class="post-card stats-summary">
 <h2>Overview</h2>
 <div class="stats-grid">
@@ -31,6 +26,11 @@ permalink: /stats/
     <span class="stat-label">Tags</span>
   </a>
 </div>
+</div>
+
+<div class="post-card">
+<h2>Post Activity</h2>
+{% postGraphLinked collections.blogPosts %}
 </div>
 
 <div class="post-card">
