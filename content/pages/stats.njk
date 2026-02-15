@@ -29,6 +29,11 @@ permalink: /stats/
 </div>
 
 <div class="post-card">
+<h2>Blog Insights</h2>
+{% blogStats collections.blogPosts %}
+</div>
+
+<div class="post-card">
 <h2>Post Activity</h2>
 {% postGraphLinked collections.blogPosts %}
 </div>

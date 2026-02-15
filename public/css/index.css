@@ -1949,3 +1949,85 @@ a.stat-item:active {
   font-size: 0.8em;
   color: var(--text-muted);
 }
+
+/* Blog insights */
+.stats-metrics-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.stat-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  flex: 1 1 auto;
+  min-width: 100px;
+  text-align: center;
+  background: var(--surface-elevated);
+  border: 2px solid var(--border-accent);
+  border-radius: 0.5rem;
+}
+
+.stat-metric .stat-number {
+  font-size: 1.6rem;
+}
+
+.stat-metric .stat-label {
+  font-size: 0.75em;
+  color: var(--text-muted);
+}
+
+.stat-detail {
+  font-size: 0.7em;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.stat-day-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 100%;
+}
+
+.stat-day-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stat-day-name {
+  width: 2.5em;
+  font-size: 0.8em;
+  color: var(--text-muted);
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.stat-day-bar-bg {
+  flex: 1;
+  height: 1rem;
+  background: var(--surface-inline);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.stat-day-bar {
+  display: block;
+  height: 100%;
+  background: var(--text-heading);
+  border-radius: 3px;
+  min-width: 2px;
+}
+
+.stat-day-count {
+  width: 2em;
+  font-size: 0.8em;
+  color: var(--text-muted);
+  text-align: right;
+  flex-shrink: 0;
+}

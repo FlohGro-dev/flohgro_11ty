@@ -174,6 +174,170 @@ export default function (eleventyConfig) {
     textColorDark: '#D9D9D9',
   });
 
+  // Blog stats shortcode — computes content metrics and posting patterns
+  eleventyConfig.addShortcode('blogStats', (postsCollection) => {
+    const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    let totalWords = 0;
+    const dayCounts = [0, 0, 0, 0, 0, 0, 0];
+    const monthMap = {};
+    const weekSet = new Set();
+
+    for (const post of postsCollection) {
+      // Word count from raw file
+      if (post.inputPath) {
+        try {
+          const fileContent = fs.readFileSync(post.inputPath, 'utf-8');
+          const bodyMatch = fileContent.match(/^---[\s\S]*?---\s*([\s\S]*)$/);
+          const body = (bodyMatch ? bodyMatch[1] : fileContent).replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/[#*_`>]/g, '');
+          const words = body.trim().split(/\s+/).filter(w => w.length > 0).length;
+          totalWords += words;
+        } catch {}
+      }
+
+      // Day of week
+      const d = new Date(post.date || post.data.date);
+      dayCounts[d.getDay()]++;
+
+      // Month tracking
+      const monthKey = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+      if (!monthMap[monthKey]) monthMap[monthKey] = 0;
+      monthMap[monthKey]++;
+
+      // Week tracking for streaks (ISO week: Mon-Sun)
+      const jan1 = new Date(d.getFullYear(), 0, 1);
+      const dayOfYear = Math.floor((d - jan1) / 86400000) + 1;
+      const weekNum = Math.ceil((dayOfYear + jan1.getDay()) / 7);
+      weekSet.add(`${d.getFullYear()}-W${String(weekNum).padStart(2, '0')}`);
+    }
+
+    const postCount = postsCollection.length;
+    const avgWords = postCount > 0 ? Math.round(totalWords / postCount) : 0;
+    const totalReadingMin = Math.round(totalWords / 200);
+    const totalReadingHrs = Math.floor(totalReadingMin / 60);
+    const totalReadingRemMin = totalReadingMin % 60;
+    const readingTimeStr = totalReadingHrs > 0
+      ? `${totalReadingHrs}h ${totalReadingRemMin}min`
+      : `${totalReadingMin}min`;
+
+    // Most productive month
+    let bestMonth = '';
+    let bestMonthCount = 0;
+    for (const [key, count] of Object.entries(monthMap)) {
+      if (count > bestMonthCount) {
+        bestMonthCount = count;
+        bestMonth = key;
+      }
+    }
+    let bestMonthLabel = '';
+    if (bestMonth) {
+      const [y, m] = bestMonth.split('-');
+      bestMonthLabel = `${monthNames[parseInt(m) - 1]} ${y}`;
+    }
+
+    // Day of week stats
+    const maxDayCount = Math.max(...dayCounts);
+    const dayBars = dayCounts.map((count, i) => {
+      const pct = maxDayCount > 0 ? Math.round((count / maxDayCount) * 100) : 0;
+      return `<div class="stat-day-row">
+        <span class="stat-day-name">${dayNames[i].substring(0, 3)}</span>
+        <span class="stat-day-bar-bg"><span class="stat-day-bar" style="width:${pct}%"></span></span>
+        <span class="stat-day-count">${count}</span>
+      </div>`;
+    }).join('');
+
+    // Posting streaks (consecutive weeks)
+    const sortedWeeks = Array.from(weekSet).sort();
+    let currentStreak = 0;
+    let longestStreak = 0;
+    let prevWeek = null;
+
+    for (const weekStr of sortedWeeks) {
+      const [yearStr, wStr] = weekStr.split('-W');
+      const year = parseInt(yearStr);
+      const week = parseInt(wStr);
+
+      if (prevWeek) {
+        const [prevYear, prevW] = prevWeek;
+        const isConsecutive = (year === prevYear && week === prevW + 1) ||
+          (year === prevYear + 1 && prevW >= 52 && week === 1);
+        if (isConsecutive) {
+          currentStreak++;
+        } else {
+          currentStreak = 1;
+        }
+      } else {
+        currentStreak = 1;
+      }
+
+      if (currentStreak > longestStreak) longestStreak = currentStreak;
+      prevWeek = [year, week];
+    }
+
+    // Check if current streak is still active (last week in set is this week or last week)
+    const now = new Date();
+    const nowJan1 = new Date(now.getFullYear(), 0, 1);
+    const nowDayOfYear = Math.floor((now - nowJan1) / 86400000) + 1;
+    const nowWeek = Math.ceil((nowDayOfYear + nowJan1.getDay()) / 7);
+    const nowWeekStr = `${now.getFullYear()}-W${String(nowWeek).padStart(2, '0')}`;
+    const lastWeekStr = `${now.getFullYear()}-W${String(nowWeek - 1).padStart(2, '0')}`;
+    const isStreakActive = weekSet.has(nowWeekStr) || weekSet.has(lastWeekStr);
+
+    // Walk backwards from the end to find the current active streak length
+    let activeStreak = 0;
+    if (isStreakActive) {
+      activeStreak = 1;
+      for (let i = sortedWeeks.length - 2; i >= 0; i--) {
+        const [yA, wA] = sortedWeeks[i + 1].split('-W').map(Number);
+        const [yB, wB] = sortedWeeks[i].split('-W').map(Number);
+        const isConsec = (yA === yB && wA === wB + 1) ||
+          (yA === yB + 1 && wB >= 52 && wA === 1);
+        if (isConsec) {
+          activeStreak++;
+        } else {
+          break;
+        }
+      }
+    }
+
+    return `<div class="stats-metrics">
+      <div class="stats-metrics-row">
+        <div class="stat-metric">
+          <span class="stat-number">${totalWords.toLocaleString()}</span>
+          <span class="stat-label">Total Words</span>
+        </div>
+        <div class="stat-metric">
+          <span class="stat-number">${avgWords.toLocaleString()}</span>
+          <span class="stat-label">Avg Words / Post</span>
+        </div>
+        <div class="stat-metric">
+          <span class="stat-number">${readingTimeStr}</span>
+          <span class="stat-label">Total Reading Time</span>
+        </div>
+      </div>
+      <div class="stats-metrics-row">
+        <div class="stat-metric">
+          <span class="stat-number">${bestMonthCount}</span>
+          <span class="stat-label">Most Productive Month</span>
+          <span class="stat-detail">${bestMonthLabel}</span>
+        </div>
+        <div class="stat-metric">
+          <span class="stat-number">${longestStreak}</span>
+          <span class="stat-label">Longest Streak</span>
+          <span class="stat-detail">consecutive weeks</span>
+        </div>
+        <div class="stat-metric">
+          <span class="stat-number">${activeStreak > 0 ? activeStreak : '—'}</span>
+          <span class="stat-label">Current Streak</span>
+          <span class="stat-detail">${activeStreak > 0 ? 'weeks' : 'no active streak'}</span>
+        </div>
+      </div>
+    </div>
+    <h3>Posts by Day of Week</h3>
+    <div class="stat-day-chart">${dayBars}</div>`;
+  });
+
   // Custom linked post graph shortcode — same visual as postGraph but with
   // clickable boxes that show post titles on hover
   eleventyConfig.addShortcode('postGraphLinked', (postsCollection, options) => {
