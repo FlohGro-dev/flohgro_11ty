@@ -1,6 +1,9 @@
 import fs from "fs";
 import path from "path";
 import crypto from "crypto";
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const postGraph = require('@rknightuk/eleventy-plugin-post-graph');
 import eleventyNavigationPlugin from '@11ty/eleventy-navigation';
 import EleventyPluginOgImage from 'eleventy-plugin-og-image';
 import { OgImage } from 'eleventy-plugin-og-image/og-image';
@@ -157,6 +160,19 @@ export default function (eleventyConfig) {
   });
 
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
+
+  eleventyConfig.addPlugin(postGraph, {
+    sort: 'desc',
+    dayBoxTitle: true,
+    selectorLight: ':root',
+    selectorDark: '[data-theme="dark"]',
+    boxColorLight: '#ccd0da',
+    highlightColorLight: '#1e66f5',
+    textColorLight: '#4c4f69',
+    boxColorDark: '#313244',
+    highlightColorDark: '#89B4FA',
+    textColorDark: '#D9D9D9',
+  });
 
   eleventyConfig.addPlugin(EleventyPluginOgImage, {
     outputDir: 'assets/og-images',

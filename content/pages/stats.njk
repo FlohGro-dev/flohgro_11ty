@@ -1,0 +1,46 @@
+---
+layout: layouts/base
+title: Stats
+permalink: /stats/
+---
+
+<h1>Stats</h1>
+
+<div class="post-card">
+<h2>Post Activity</h2>
+{% postGraph collections.blogPosts %}
+</div>
+
+<div class="post-card stats-summary">
+<h2>Overview</h2>
+<div class="stats-grid">
+  <div class="stat-item">
+    <span class="stat-number">{{ collections.blogPosts | length }}</span>
+    <span class="stat-label">Blog Posts</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">{{ collections.socialPosts | length }}</span>
+    <span class="stat-label">Social Posts</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">{{ collections.quotePosts | length }}</span>
+    <span class="stat-label">Quotes</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">{{ collections.tagslist | length }}</span>
+    <span class="stat-label">Tags</span>
+  </div>
+</div>
+</div>
+
+<div class="post-card">
+<h2>Social Post Activity</h2>
+{% postGraph collections.socialPosts %}
+</div>
+
+<div class="post-card">
+<h2>Quote Activity</h2>
+{% postGraph collections.quotePosts %}
+</div>
+
+{% include "random-quote.njk" %}

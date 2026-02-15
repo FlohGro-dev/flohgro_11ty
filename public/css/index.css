@@ -1852,3 +1852,34 @@ a[href].email-comment-btn:visited {
   background-color: var(--nav-active-bg);
   color: var(--nav-active-text);
 }
+
+/* Stats page */
+.stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: var(--surface-inline);
+  border-radius: 0.5rem;
+  flex: 1 1 auto;
+  min-width: 100px;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 0.8em;
+  color: var(--text-muted);
+}
