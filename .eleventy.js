@@ -233,9 +233,11 @@ export default function (eleventyConfig) {
         const key = `${year}-${i + 1}`;
         const dayPosts = posts[key];
         if (dayPosts && dayPosts.length > 0) {
+          const d = new Date(year, 0, i + 1);
+          const dateStr = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
           const titles = dayPosts.map(p => p.title).join(' | ');
           const href = dayPosts[0].url;
-          return `<a class="${prefix}__box ${prefix}__hasPost" href="${href}" title="${titles.replace(/"/g, '&quot;')}"></a>`;
+          return `<a class="${prefix}__box ${prefix}__hasPost" href="${href}"><span class="${prefix}__tooltip"><span class="${prefix}__tooltip-title">${titles.replace(/</g, '&lt;')}</span><span class="${prefix}__tooltip-date">${dateStr}</span></span></a>`;
         }
         return `<div class="${prefix}__box"></div>`;
       }).join('');

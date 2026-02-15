@@ -1879,27 +1879,36 @@ a.epg__box:hover {
   z-index: 11;
 }
 
-a.epg__box::before {
-  content: attr(title);
+a.epg__box .epg__tooltip {
+  display: none;
+  flex-direction: column;
   position: absolute;
   bottom: calc(100% + 6px);
   left: 50%;
   transform: translateX(-50%);
-  background: var(--surface-elevated);
-  color: var(--text-primary);
+  background: var(--bg-primary);
   border: 1px solid var(--border-accent);
   border-radius: 4px;
-  padding: 0.3em 0.6em;
-  font-size: 0.85rem;
+  padding: 0.4em 0.6em;
   white-space: nowrap;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.15s;
   z-index: 10;
+  text-align: center;
 }
 
-a.epg__box:hover::before {
-  opacity: 1;
+a.epg__box .epg__tooltip-title {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+a.epg__box .epg__tooltip-date {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 0.15em;
+}
+
+a.epg__box:hover .epg__tooltip {
+  display: flex;
 }
 .stats-grid {
   display: flex;
