@@ -8,7 +8,7 @@ permalink: /stats/
 
 <div class="post-card">
 <h2>Post Activity</h2>
-{% postGraph collections.blogPosts %}
+{% postGraphLinked collections.blogPosts %}
 </div>
 
 <div class="post-card stats-summary">
@@ -35,12 +35,12 @@ permalink: /stats/
 
 <div class="post-card">
 <h2>Social Post Activity</h2>
-{% postGraph collections.socialPosts %}
+{% postGraphLinked collections.socialPosts %}
 </div>
 
 <div class="post-card">
 <h2>Quote Activity</h2>
-{% postGraph collections.quotePosts %}
+{% postGraphLinked collections.quotePosts %}
 </div>
 
 {% include "random-quote.njk" %}

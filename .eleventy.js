@@ -174,6 +174,79 @@ export default function (eleventyConfig) {
     textColorDark: '#D9D9D9',
   });
 
+  // Custom linked post graph shortcode — same visual as postGraph but with
+  // clickable boxes that show post titles on hover
+  eleventyConfig.addShortcode('postGraphLinked', (postsCollection) => {
+    const prefix = 'epg';
+
+    const styleSheet = `<style>
+    :root {
+      --${prefix}-box: #ccd0da;
+      --${prefix}-box-highlight: #1e66f5;
+      --${prefix}-text: #4c4f69;
+    }
+    [data-theme="dark"] {
+      --${prefix}-box: #313244;
+      --${prefix}-box-highlight: #89B4FA;
+      --${prefix}-text: #D9D9D9;
+    }
+    .${prefix} { color: var(--${prefix}-text); margin: 20px 0; font-size: 0.8em; }
+    .${prefix}__year { text-align: center; font-weight: bold; margin-bottom: 10px; }
+    .${prefix}__months { display: flex; justify-content: space-between; margin-bottom: 10px; }
+    @media (max-width: 410px) { .${prefix}__months { display: none; } }
+    .${prefix}__squares { display: grid; grid-template-rows: repeat(7, 1fr); grid-auto-flow: column; margin-bottom: 10px; grid-gap: 2px; }
+    .${prefix}__box { aspect-ratio: 1 / 1; background: var(--${prefix}-box); }
+    .${prefix}__box--empty { background: none; }
+    .${prefix}__hasPost { background: var(--${prefix}-box-highlight); }
+    </style>`;
+
+    // Build map: year -> { offset, days }, dateKey -> [{ title, url }]
+    const years = {};
+    const posts = {};
+    for (const post of postsCollection) {
+      const d = new Date(post.date || post.data.date);
+      const year = d.getFullYear();
+      const start = new Date(year, 0, 1);
+      const dayOfYear = Math.floor((d - start) / 86400000) + 1;
+      const key = `${year}-${dayOfYear}`;
+      if (!years[year]) {
+        const jan1 = new Date(year, 0, 1);
+        const isoDay = jan1.getDay() === 0 ? 7 : jan1.getDay();
+        const isLeap = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+        years[year] = { offset: isoDay - 1, days: isLeap ? 366 : 365 };
+      }
+      if (!posts[key]) posts[key] = [];
+      posts[key].push({
+        title: post.data.title || d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+        url: post.url,
+      });
+    }
+
+    const sortedYears = Object.keys(years).sort().reverse();
+
+    return styleSheet + sortedYears.map((year) => {
+      const offset = Array.from({ length: years[year].offset })
+        .map(() => `<div class="${prefix}__box ${prefix}__box--empty"></div>`)
+        .join('');
+
+      const days = Array.from({ length: years[year].days }).map((_, i) => {
+        const key = `${year}-${i + 1}`;
+        const dayPosts = posts[key];
+        if (dayPosts && dayPosts.length > 0) {
+          const titles = dayPosts.map(p => p.title).join(' | ');
+          const href = dayPosts[0].url;
+          return `<a class="${prefix}__box ${prefix}__hasPost" href="${href}" title="${titles.replace(/"/g, '&quot;')}"></a>`;
+        }
+        return `<div class="${prefix}__box"></div>`;
+      }).join('');
+
+      return `<div class="${prefix}"><div class="${prefix}__year">${year}</div><div class="${prefix}__months">
+        <div>Jan</div><div>Feb</div><div>Mar</div><div>Apr</div><div>May</div><div>Jun</div>
+        <div>Jul</div><div>Aug</div><div>Sep</div><div>Oct</div><div>Nov</div><div>Dec</div>
+      </div><div class="${prefix}__squares">${offset}${days}</div></div>`;
+    }).join('');
+  });
+
   eleventyConfig.addPlugin(EleventyPluginOgImage, {
     outputDir: 'assets/og-images',
     urlPath: '/assets/og-images',

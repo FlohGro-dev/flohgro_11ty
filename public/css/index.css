@@ -1263,6 +1263,18 @@ nav {
   content: "\2014\00a0";
 }
 
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.footer-separator {
+  font-size: 0.75em;
+  opacity: 0.4;
+}
+
 footer .footer-legal {
   display: inline;
   font-size: 0.75em;
@@ -1854,6 +1866,41 @@ a[href].email-comment-btn:visited {
 }
 
 /* Stats page */
+a.epg__box {
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  position: relative;
+}
+
+a.epg__box:hover {
+  opacity: 0.8;
+  outline: 1px solid var(--text-heading);
+  z-index: 11;
+}
+
+a.epg__box::before {
+  content: attr(title);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border-accent);
+  border-radius: 4px;
+  padding: 0.3em 0.6em;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  z-index: 10;
+}
+
+a.epg__box:hover::before {
+  opacity: 1;
+}
 .stats-grid {
   display: flex;
   flex-wrap: wrap;
