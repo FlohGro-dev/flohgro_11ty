@@ -176,7 +176,8 @@ export default function (eleventyConfig) {
 
   // Custom linked post graph shortcode — same visual as postGraph but with
   // clickable boxes that show post titles on hover
-  eleventyConfig.addShortcode('postGraphLinked', (postsCollection) => {
+  eleventyConfig.addShortcode('postGraphLinked', (postsCollection, options) => {
+    const showContent = options && options.showContent;
     const prefix = 'epg';
 
     const styleSheet = `<style>
@@ -216,8 +217,21 @@ export default function (eleventyConfig) {
         years[year] = { offset: isoDay - 1, days: isLeap ? 366 : 365 };
       }
       if (!posts[key]) posts[key] = [];
+      let label;
+      if (showContent && post.inputPath) {
+        try {
+          const fileContent = fs.readFileSync(post.inputPath, 'utf-8');
+          const bodyMatch = fileContent.match(/^---[\s\S]*?---\s*([\s\S]*)$/);
+          const raw = (bodyMatch ? bodyMatch[1] : fileContent).replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/[#*_`>]/g, '').replace(/\n/g, ' ').trim();
+          label = raw.length > 80 ? raw.substring(0, 80) + '...' : raw;
+        } catch {
+          label = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        }
+      } else {
+        label = post.data.title || d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      }
       posts[key].push({
-        title: post.data.title || d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+        label,
         url: post.url,
       });
     }
@@ -235,9 +249,9 @@ export default function (eleventyConfig) {
         if (dayPosts && dayPosts.length > 0) {
           const d = new Date(year, 0, i + 1);
           const dateStr = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-          const titles = dayPosts.map(p => p.title).join(' | ');
+          const labelHtml = dayPosts.map(p => `<span class="${prefix}__tooltip-title">${p.label.replace(/</g, '&lt;')}</span>`).join('');
           const href = dayPosts[0].url;
-          return `<a class="${prefix}__box ${prefix}__hasPost" href="${href}"><span class="${prefix}__tooltip"><span class="${prefix}__tooltip-title">${titles.replace(/</g, '&lt;')}</span><span class="${prefix}__tooltip-date">${dateStr}</span></span></a>`;
+          return `<a class="${prefix}__box ${prefix}__hasPost" href="${href}"><span class="${prefix}__tooltip">${labelHtml}<span class="${prefix}__tooltip-date">${dateStr}</span></span></a>`;
         }
         return `<div class="${prefix}__box"></div>`;
       }).join('');

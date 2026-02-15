@@ -14,33 +14,54 @@ permalink: /stats/
 <div class="post-card stats-summary">
 <h2>Overview</h2>
 <div class="stats-grid">
-  <div class="stat-item">
+  <a href="/blog/" class="stat-item">
     <span class="stat-number">{{ collections.blogPosts | length }}</span>
     <span class="stat-label">Blog Posts</span>
-  </div>
-  <div class="stat-item">
+  </a>
+  <a href="/posts/" class="stat-item">
     <span class="stat-number">{{ collections.socialPosts | length }}</span>
     <span class="stat-label">Social Posts</span>
-  </div>
-  <div class="stat-item">
+  </a>
+  <a href="/quotes/" class="stat-item">
     <span class="stat-number">{{ collections.quotePosts | length }}</span>
     <span class="stat-label">Quotes</span>
-  </div>
-  <div class="stat-item">
+  </a>
+  <a href="/tags/" class="stat-item">
     <span class="stat-number">{{ collections.tagslist | length }}</span>
     <span class="stat-label">Tags</span>
-  </div>
+  </a>
 </div>
 </div>
 
 <div class="post-card">
 <h2>Social Post Activity</h2>
-{% postGraphLinked collections.socialPosts %}
+{% postGraphLinked collections.socialPosts, { showContent: true } %}
 </div>
 
 <div class="post-card">
 <h2>Quote Activity</h2>
-{% postGraphLinked collections.quotePosts %}
+{% postGraphLinked collections.quotePosts, { showContent: true } %}
 </div>
 
 {% include "random-quote.njk" %}
+
+<script>
+document.querySelectorAll('a.epg__box').forEach(function(box) {
+  box.addEventListener('mouseenter', function() {
+    var tip = box.querySelector('.epg__tooltip');
+    if (!tip) return;
+    tip.style.display = 'flex';
+    var rect = box.getBoundingClientRect();
+    var tipRect = tip.getBoundingClientRect();
+    var left = rect.left + rect.width / 2 - tipRect.width / 2;
+    if (left < 4) left = 4;
+    if (left + tipRect.width > window.innerWidth - 4) left = window.innerWidth - 4 - tipRect.width;
+    tip.style.left = left + 'px';
+    tip.style.top = (rect.top - tipRect.height - 6) + 'px';
+  });
+  box.addEventListener('mouseleave', function() {
+    var tip = box.querySelector('.epg__tooltip');
+    if (tip) tip.style.display = 'none';
+  });
+});
+</script>

@@ -1882,18 +1882,16 @@ a.epg__box:hover {
 a.epg__box .epg__tooltip {
   display: none;
   flex-direction: column;
-  position: absolute;
-  bottom: calc(100% + 6px);
-  left: 50%;
-  transform: translateX(-50%);
+  position: fixed;
   background: var(--bg-primary);
   border: 1px solid var(--border-accent);
   border-radius: 4px;
   padding: 0.4em 0.6em;
-  white-space: nowrap;
   pointer-events: none;
-  z-index: 10;
+  z-index: 100;
   text-align: center;
+  max-width: min(400px, 90vw);
+  width: max-content;
 }
 
 a.epg__box .epg__tooltip-title {
@@ -1907,9 +1905,6 @@ a.epg__box .epg__tooltip-date {
   margin-top: 0.15em;
 }
 
-a.epg__box:hover .epg__tooltip {
-  display: flex;
-}
 .stats-grid {
   display: flex;
   flex-wrap: wrap;
@@ -1922,10 +1917,25 @@ a.epg__box:hover .epg__tooltip {
   flex-direction: column;
   align-items: center;
   padding: 0.75rem 1.5rem;
-  background: var(--surface-inline);
+  background: var(--surface-elevated);
+  border: 2px solid var(--border-accent);
   border-radius: 0.5rem;
   flex: 1 1 auto;
   min-width: 100px;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+a.stat-item:hover {
+  background-color: var(--nav-hover-bg);
+  color: var(--nav-hover-text);
+  border-color: var(--nav-hover-text);
+}
+
+a.stat-item:active {
+  background-color: var(--nav-active-bg);
+  color: var(--nav-active-text);
 }
 
 .stat-number {
