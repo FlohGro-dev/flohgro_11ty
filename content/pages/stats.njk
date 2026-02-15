@@ -51,28 +51,30 @@ permalink: /stats/
 {% include "random-quote.njk" %}
 
 <script>
-document.querySelectorAll('a.epg__box').forEach(function(box) {
-  box.addEventListener('mouseenter', function() {
-    var tip = box.querySelector('.epg__tooltip');
-    if (!tip) return;
-    tip.style.display = 'flex';
-    tip.style.maxHeight = (window.innerHeight - 8) + 'px';
-    tip.style.overflowY = 'auto';
-    var rect = box.getBoundingClientRect();
-    var tipRect = tip.getBoundingClientRect();
-    var left = rect.left + rect.width / 2 - tipRect.width / 2;
-    if (left < 4) left = 4;
-    if (left + tipRect.width > window.innerWidth - 4) left = window.innerWidth - 4 - tipRect.width;
-    var top = rect.top - tipRect.height - 6;
-    if (top < 4) top = rect.bottom + 6;
-    if (top + tipRect.height > window.innerHeight - 4) top = window.innerHeight - 4 - tipRect.height;
-    if (top < 4) top = 4;
-    tip.style.left = left + 'px';
-    tip.style.top = top + 'px';
+if (!('ontouchstart' in window)) {
+  document.querySelectorAll('a.epg__box').forEach(function(box) {
+    box.addEventListener('mouseenter', function() {
+      var tip = box.querySelector('.epg__tooltip');
+      if (!tip) return;
+      tip.style.display = 'flex';
+      tip.style.maxHeight = (window.innerHeight - 8) + 'px';
+      tip.style.overflowY = 'auto';
+      var rect = box.getBoundingClientRect();
+      var tipRect = tip.getBoundingClientRect();
+      var left = rect.left + rect.width / 2 - tipRect.width / 2;
+      if (left < 4) left = 4;
+      if (left + tipRect.width > window.innerWidth - 4) left = window.innerWidth - 4 - tipRect.width;
+      var top = rect.top - tipRect.height - 6;
+      if (top < 4) top = rect.bottom + 6;
+      if (top + tipRect.height > window.innerHeight - 4) top = window.innerHeight - 4 - tipRect.height;
+      if (top < 4) top = 4;
+      tip.style.left = left + 'px';
+      tip.style.top = top + 'px';
+    });
+    box.addEventListener('mouseleave', function() {
+      var tip = box.querySelector('.epg__tooltip');
+      if (tip) tip.style.display = 'none';
+    });
   });
-  box.addEventListener('mouseleave', function() {
-    var tip = box.querySelector('.epg__tooltip');
-    if (tip) tip.style.display = 'none';
-  });
-});
+}
 </script>

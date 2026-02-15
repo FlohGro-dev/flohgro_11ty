@@ -21,7 +21,6 @@
     "striptags": "^3.2.0"
   },
   "devDependencies": {
-    "@rknightuk/eleventy-plugin-post-graph": "^1.0.8",
     "eleventy-plugin-og-image": "^4.2.1",
     "gh-pages": "^6.2.0"
   }

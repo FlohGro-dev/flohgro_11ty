@@ -1,9 +1,6 @@
 import fs from "fs";
 import path from "path";
 import crypto from "crypto";
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
-const postGraph = require('@rknightuk/eleventy-plugin-post-graph');
 import eleventyNavigationPlugin from '@11ty/eleventy-navigation';
 import EleventyPluginOgImage from 'eleventy-plugin-og-image';
 import { OgImage } from 'eleventy-plugin-og-image/og-image';
@@ -160,19 +157,6 @@ export default function (eleventyConfig) {
   });
 
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
-
-  eleventyConfig.addPlugin(postGraph, {
-    sort: 'desc',
-    dayBoxTitle: true,
-    selectorLight: ':root',
-    selectorDark: '[data-theme="dark"]',
-    boxColorLight: '#ccd0da',
-    highlightColorLight: '#1e66f5',
-    textColorLight: '#4c4f69',
-    boxColorDark: '#313244',
-    highlightColorDark: '#89B4FA',
-    textColorDark: '#D9D9D9',
-  });
 
   // Blog stats shortcode — computes content metrics and posting patterns
   eleventyConfig.addShortcode('blogStats', (postsCollection) => {
@@ -360,7 +344,7 @@ export default function (eleventyConfig) {
     .${prefix}__months { display: flex; justify-content: space-between; margin-bottom: 10px; }
     @media (max-width: 410px) { .${prefix}__months { display: none; } }
     .${prefix}__squares { display: grid; grid-template-rows: repeat(7, 1fr); grid-auto-flow: column; margin-bottom: 10px; grid-gap: 2px; }
-    .${prefix}__box { aspect-ratio: 1 / 1; background: var(--${prefix}-box); }
+    .${prefix}__box { aspect-ratio: 1 / 1; background: var(--${prefix}-box); max-width: 16px; max-height: 16px; touch-action: manipulation; }
     .${prefix}__box--empty { background: none; }
     .${prefix}__hasPost { background: var(--${prefix}-box-highlight); }
     </style>`;
