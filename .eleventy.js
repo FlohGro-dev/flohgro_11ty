@@ -222,7 +222,7 @@ export default function (eleventyConfig) {
         try {
           const fileContent = fs.readFileSync(post.inputPath, 'utf-8');
           const bodyMatch = fileContent.match(/^---[\s\S]*?---\s*([\s\S]*)$/);
-          label = (bodyMatch ? bodyMatch[1] : fileContent).replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/[#*_`>]/g, '').replace(/\n/g, ' ').trim();
+          label = (bodyMatch ? bodyMatch[1] : fileContent).replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/[#*_`>]/g, '').trim();
         } catch {
           label = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
         }
@@ -248,7 +248,7 @@ export default function (eleventyConfig) {
         if (dayPosts && dayPosts.length > 0) {
           const d = new Date(year, 0, i + 1);
           const dateStr = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-          const labelHtml = dayPosts.map(p => `<span class="${prefix}__tooltip-title">${p.label.replace(/</g, '&lt;')}</span>`).join('');
+          const labelHtml = dayPosts.map(p => `<span class="${prefix}__tooltip-title">${p.label.replace(/</g, '&lt;').replace(/\n{2,}/g, '\n').replace(/\n/g, '<br>')}</span>`).join('');
           const href = dayPosts[0].url;
           return `<a class="${prefix}__box ${prefix}__hasPost" href="${href}"><span class="${prefix}__tooltip">${labelHtml}<span class="${prefix}__tooltip-date">${dateStr}</span></span></a>`;
         }
