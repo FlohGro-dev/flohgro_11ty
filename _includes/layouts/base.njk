@@ -519,6 +519,6 @@
         });
       })();
     </script>
-    <script src="https://neatstats.net/view.js"></script>
+    {% if isProduction %}<script src="https://neatstats.net/view.js"></script>{% endif %}
   </body>
 </html>

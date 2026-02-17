@@ -55,8 +55,9 @@ export default function (eleventyConfig) {
     ? ""
     : "";
 
-  // Add baseUrl as global data
+  // Add baseUrl and environment as global data
   eleventyConfig.addGlobalData("baseUrl", baseUrl);
+  eleventyConfig.addGlobalData("isProduction", process.env.ELEVENTY_ENV === "production");
 
   eleventyConfig.addCollection("blogPosts", (collectionApi) => {
     return collectionApi.getFilteredByTag("blog").sort((a, b) => {
