@@ -3,7 +3,7 @@ layout: layouts/base
 title: Now
 permalink: /now/
 eleventyNavigation:
-    key: /now
+    key: now
     order: 2
 ---
 

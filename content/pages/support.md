@@ -1,15 +1,15 @@
 ---
 layout: layouts/base
-title: saythanks
-permalink: /saythanks/
-eleventyNavigation: 
-    key: saythanks
+title: Support
+permalink: /support/
+eleventyNavigation:
+    key: support
     order: 6
 ---
 
 <div class="post-card">
 
-# saythanks
+# support
 
 Everything I build is free to use. If you find my work useful and want to give something back, I'd really appreciate your support -- it keeps me motivated and helps cover expenses.
 

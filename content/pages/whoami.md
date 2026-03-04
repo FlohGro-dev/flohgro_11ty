@@ -1,9 +1,9 @@
 ---
 layout: layouts/base
-title: whoami
-permalink: /whoami/
-eleventyNavigation: 
-    key: whoami
+title: About
+permalink: /about/
+eleventyNavigation:
+    key: about
     order: 4
 ---
 

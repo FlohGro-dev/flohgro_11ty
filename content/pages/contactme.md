@@ -1,15 +1,15 @@
 ---
 layout: layouts/base
-title: contactme
-permalink: /contactme/
-eleventyNavigation: 
-    key: contactme
+title: Contact
+permalink: /contact/
+eleventyNavigation:
+    key: contact
     order: 5
 ---
 
 <div class="post-card">
 
-# contactme
+# contact
 
 I'm active on various platforms and communities / forums.
 If you have any requests / ideas / issues / questions or just want to share some thoughts or that you like what I'm doing – just reach out to me on those platforms:
