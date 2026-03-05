@@ -100,7 +100,7 @@ body {
   margin: 0 auto;
   font-family: var(--font-family);
   color: var(--text-primary);
-  background-color: var(--bg-primary);
+  background-color: var(--surface-elevated);
   text-align: left;
   max-width: 50em;
   line-height: 1.6;
@@ -1954,3 +1954,4 @@ a.stat-item:active {
   text-align: right;
   flex-shrink: 0;
 }
+
