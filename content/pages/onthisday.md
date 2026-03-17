@@ -1,16 +1,18 @@
 ---
 layout: layouts/base
-title: OnThisDay Support
+title: On This Day Support
 permalink: /onthisday/
 ---
 
 <div class="post-card">
 
-# OnThisDay
+# On This Day
 
-Your photo library is full of memories you've already forgotten. **OnThisDay** resurfaces them — every day it shows you photos taken on the same date in past years, so the moments you lived don't stay buried.
+Your photo library is full of memories you've already forgotten. **On This Day** resurfaces them — every day it shows you photos taken on the same date in past years, so the moments you lived don't stay buried.
 
 No algorithm, no social feed, no noise. Just your memories, right on time.
+
+(The button below will not work until On This Day is publicly released on the App Store)
 
 <div style="text-align: center">
 <a href="#" aria-label="Download on the App Store">
@@ -20,7 +22,7 @@ No algorithm, no social feed, no noise. Just your memories, right on time.
 
 ---
 
-Thank you for using OnThisDay — it means a lot. I built this app for myself first, and every person who makes it part of their daily routine makes it even more worthwhile to keep improving it.
+Thank you for using On This Day — it means a lot. I built this app for myself first, and every person who makes it part of their daily routine makes it even more worthwhile to keep improving it.
 
 If something isn't working or you have a question, reach out — I read every message.
 

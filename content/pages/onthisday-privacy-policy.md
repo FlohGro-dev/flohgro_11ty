@@ -1,18 +1,18 @@
 ---
 layout: layouts/base
-title: OnThisDay Privacy & Terms
+title: On This Day Privacy & Terms
 permalink: /onthisday-privacy-policy/
 ---
 
 <div class="post-card">
 
-# OnThisDay Privacy & Terms
+# On This Day Privacy & Terms
 
-[Back to OnThisDay](/onthisday/)
+[Back to On This Day](/onthisday/)
 
 ## Privacy Policy
 
-This privacy policy applies to the OnThisDay app (hereby referred to as "Application") for iOS devices, created by Florian Großmann (hereby referred to as "Service Provider"). This service is intended for use "AS IS".
+This privacy policy applies to the On This Day app (hereby referred to as "Application") for iOS devices, created by Florian Großmann (hereby referred to as "Service Provider"). This service is intended for use "AS IS".
 
 ### What information does the Application obtain and how is it used?
 
@@ -52,7 +52,7 @@ If you have any questions regarding privacy while using the Application, please 
 
 ## Terms & Conditions
 
-These terms and conditions apply to the OnThisDay app (hereby referred to as "Application") for iOS devices, created by Florian Großmann (hereby referred to as "Service Provider").
+These terms and conditions apply to the On This Day app (hereby referred to as "Application") for iOS devices, created by Florian Großmann (hereby referred to as "Service Provider").
 
 By downloading or using the Application, you automatically agree to the following terms. It is strongly advised that you read and understand these terms before using the Application.
 
