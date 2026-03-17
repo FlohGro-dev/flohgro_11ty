@@ -39,4 +39,8 @@ If something isn't working or you have a question, reach out — I read every me
 
 </div>
 
+[Privacy Policy & Terms](/onthisday-privacy-policy/)
+
+</div>
+
 {% include "random-quote.njk" %}
