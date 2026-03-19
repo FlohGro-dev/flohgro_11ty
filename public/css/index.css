@@ -1,3 +1,20 @@
+/* Self-hosted Sometype Mono */
+@font-face {
+  font-family: 'Sometype Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/SometypeMono-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Sometype Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/SometypeMono-Bold.woff2') format('woff2');
+}
+
 /* Self-hosted JetBrains Mono */
 @font-face {
   font-family: 'JetBrains Mono';
@@ -9,7 +26,7 @@
 
 /* Defaults */
 :root {
-  --font-family: 'JetBrains Mono', 'Roboto', -apple-system, system-ui, sans-serif;
+  --font-family: 'Sometype Mono', 'JetBrains Mono', 'Roboto', -apple-system, system-ui, sans-serif;
   --font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
 
   /* Color variables — dark theme (default) */
@@ -91,7 +108,7 @@
 }
 
 html {
-  font-size: clamp(14px, 1.5vw + 8px, 18px);
+  font-size: clamp(15px, 1.5vw + 9px, 19px);
 }
 
 html,
