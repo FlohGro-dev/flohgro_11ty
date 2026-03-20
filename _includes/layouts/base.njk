@@ -21,7 +21,9 @@
     <meta property="og:description" content="{{ summary or description or metadata.description }}"/>
     <meta property="og:url" content="{{ metadata.url }}{{ page.url }}"/>
     <meta property="og:type" content="{% if tags and 'blog' in tags %}article{% else %}website{% endif %}"/>
-    {% if tags and 'blog' in tags and title %}
+    {% if ogImage %}
+    <meta property="og:image" content="{{ metadata.url }}{{ ogImage }}"/>
+    {% elif tags and 'blog' in tags and title %}
     {% ogImage "./og-image.og.njk", { title: title, summary: summary } %}
     {% else %}
     <meta property="og:image" content="{{ metadata.url }}/assets/og-icon.png"/>

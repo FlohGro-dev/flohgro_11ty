@@ -109,6 +109,7 @@
 
 html {
   font-size: clamp(15px, 1.5vw + 9px, 19px);
+  scroll-behavior: smooth;
 }
 
 html,
@@ -1970,5 +1971,108 @@ a.stat-item:active {
   color: var(--text-muted);
   text-align: right;
   flex-shrink: 0;
+}
+
+/* On This Day page */
+.otd-hero {
+  text-align: center;
+  position: relative;
+}
+
+.otd-hero h1 {
+  font-size: 2em;
+  margin-bottom: 0.25em;
+}
+
+.otd-hero p {
+  max-width: 36em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.otd-screenshot {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 1.5em auto 0;
+  display: block;
+}
+
+.otd-features {
+  text-align: left;
+  max-width: 30em;
+  margin: 1.5em auto 0;
+}
+
+.otd-features ul {
+  padding-left: 1.2em;
+}
+
+.otd-features li {
+  margin-bottom: 0.6em;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.otd-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  margin: 1.5em 0 0.5em;
+}
+
+img.otd-badge,
+img.otd-badge[src$=".svg"] {
+  height: 44px;
+  width: auto;
+  max-width: 200px;
+}
+
+.otd-cta-note {
+  font-size: 0.8em;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.otd-scroll-hint {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  padding: 0.5em 0.7em;
+  border-radius: 6px;
+  font-size: 0.8em;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.otd-scroll-hint:hover {
+  color: var(--text-primary);
+  background-color: var(--surface-base);
+}
+
+.otd-scroll-hint svg {
+  width: 1em;
+  height: 1em;
+}
+
+.otd-support {
+  text-align: left;
+  scroll-margin-top: 1em;
+}
+
+.otd-support h2 {
+  margin-top: 0;
+}
+
+.otd-privacy-link {
+  display: block;
+  margin-top: 1em;
+  font-size: 0.85em;
+  color: var(--text-muted);
 }
 
