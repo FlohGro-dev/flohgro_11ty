@@ -17,6 +17,7 @@ class CachedOgImage extends OgImage {
 }
 
 import pluginFilters from "./_config/filters.js";
+import { isImageUrl, fetchOgData, renderPreviewCard } from './_config/linkPreview.js';
 
 import { DateTime } from "luxon";
 
@@ -158,6 +159,60 @@ export default function (eleventyConfig) {
   });
 
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
+
+  // Make bare URLs clickable in markdown
+  eleventyConfig.amendLibrary("md", mdLib => {
+    mdLib.set({ linkify: true });
+  });
+
+  // Build-time link preview transform
+  eleventyConfig.addTransform("linkPreview", async function(content) {
+    if (!this.page.outputPath?.endsWith(".html")) return content;
+
+    const urls = new Set();
+
+    // Pattern 1: ![](non-image-url) rendered as <p><img src="URL" ...></p>
+    const imgRegex = /<p>\s*<img src="(https?:\/\/[^"]+)"[^>]*>\s*<\/p>/g;
+    for (const m of content.matchAll(imgRegex)) {
+      if (!isImageUrl(m[1])) urls.add(m[1]);
+    }
+
+    // Pattern 2: bare linkified URL at end of a <p> (standalone or trailing)
+    // Uses tempered greedy token to stay within a single <p> element
+    const bareLinkRegex = /<p>((?:[^<]|<(?!\/p>))*?)\s*<a href="(https?:\/\/[^"]+)">(https?:\/\/[^<]+)<\/a>\s*<\/p>/g;
+    for (const m of content.matchAll(bareLinkRegex)) {
+      urls.add(m[2]);
+    }
+
+    if (urls.size === 0) return content;
+
+    // Fetch OG data for all URLs in parallel
+    const ogData = {};
+    await Promise.all([...urls].map(async url => {
+      ogData[url] = await fetchOgData(url);
+    }));
+
+    // Replace <img> embeds with preview cards
+    content = content.replace(imgRegex, (match, src) => {
+      if (!isImageUrl(src) && ogData[src]) {
+        return renderPreviewCard(src, ogData[src]);
+      }
+      return match;
+    });
+
+    // Replace bare links with preview cards
+    content = content.replace(bareLinkRegex, (match, preceding, href, linkText) => {
+      if (!ogData[href]) return match;
+      const card = renderPreviewCard(href, ogData[href]);
+      const trimmed = preceding.trim().replace(/<br\s*\/?>$/i, '').trim();
+      if (trimmed) {
+        return `<p>${trimmed}</p>\n${card}`;
+      }
+      return card;
+    });
+
+    return content;
+  });
 
   // Blog stats shortcode — computes content metrics and posting patterns
   eleventyConfig.addShortcode('blogStats', (postsCollection) => {
