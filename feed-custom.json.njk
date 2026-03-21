@@ -30,6 +30,9 @@ eleventyExcludeFromCollections: true
       {%- if post.data._social_post %},
       "_social_post": {{ post.data._social_post | dump | safe }}
       {%- endif %}
+      {%- if post.data.linkedUrl %},
+      "external_url": "{{ post.data.linkedUrl }}"
+      {%- endif %}
     }{% if not loop.last %},{% endif %}
     {%- endfor %}
   ]

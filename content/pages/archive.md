@@ -12,7 +12,7 @@ eleventyNavigation:
 <div class="recent-posts-list">
 {% for blogPost in collections.blogPosts %}
 <a href="{{ site.baseUrl }}{{ blogPost.url }}" class="related-post-card">
-<h3>{{ blogPost.data.title }}</h3>
+<h3>{{ blogPost.data.title }}{% if blogPost.data.linkedUrl %} <svg class="linked-post-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>{% endif %}</h3>
 <time datetime="{{ blogPost.data.date | htmlDateString }}">{{ blogPost.data.date | smartDate }}</time>
 <span class="reading-time">{{ blogPost.templateContent | readingTime }}</span>
 {%- assign filteredTags = blogPost.data.tags | filterTagList -%}

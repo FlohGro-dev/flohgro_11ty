@@ -7,7 +7,7 @@ layout: layouts/base
 {% for post in collections.latestBlogPost %}
 <div class="featured-post">
 
-## [{{ post.data.title }}]({{ site.baseUrl }}{{ post.url }})
+## [{{ post.data.title }}]({{ site.baseUrl }}{{ post.url }}){% if post.data.linkedUrl %} <a href="{{ post.data.linkedUrl }}" class="linked-post-external" target="_blank" rel="noopener noreferrer" aria-label="Visit linked article"><svg class="linked-post-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>{% endif %}
 <ul class="post-metadata">
 <li><time datetime="{{ post.data.date | htmlDateString }}">{{ post.data.date | smartDate }}</time></li>
 <li class="reading-time">{{ post.templateContent | readingTime }}</li>
@@ -40,7 +40,7 @@ layout: layouts/base
 <div class="recent-posts-list">
 {% for post in collections.recentBlogPostsWithoutLatest %}
 <a href="{{ site.baseUrl }}{{ post.url }}" class="related-post-card">
-<h3>{{ post.data.title }}</h3>
+<h3>{{ post.data.title }}{% if post.data.linkedUrl %} <svg class="linked-post-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>{% endif %}</h3>
 <time datetime="{{ post.data.date | htmlDateString }}">{{ post.data.date | smartDate }}</time>
 <span class="reading-time">{{ post.templateContent | readingTime }}</span>
 {%- assign filteredTags = post.data.tags | filterTagList -%}

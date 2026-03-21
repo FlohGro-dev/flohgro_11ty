@@ -2076,6 +2076,53 @@ img.otd-badge[src$=".svg"] {
   color: var(--text-muted);
 }
 
+/* Linked posts */
+.linked-post-title {
+  text-decoration: none;
+  color: inherit;
+}
+
+.linked-post-title:hover {
+  color: var(--text-link);
+}
+
+.linked-post-arrow {
+  width: 0.6em;
+  height: 0.6em;
+  vertical-align: super;
+  opacity: 0.6;
+}
+
+.linked-post-title:hover .linked-post-arrow {
+  opacity: 1;
+}
+
+.linked-post-external {
+  text-decoration: none;
+  color: inherit;
+}
+
+.linked-post-external:hover .linked-post-arrow {
+  opacity: 1;
+  color: var(--text-link);
+}
+
+.linked-post blockquote {
+  position: relative;
+  padding-left: 1.4em;
+}
+
+.linked-post blockquote::before {
+  content: '\201C';
+  font-size: 2em;
+  position: absolute;
+  top: -0.2em;
+  left: 0.3em;
+  opacity: 0.3;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
 /* Link preview cards */
 .link-preview-card {
   display: flex;

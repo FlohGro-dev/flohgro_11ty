@@ -2,9 +2,13 @@
 layout: layouts/base.njk
 ---
 
-<div class="post-card">
+<div class="post-card{% if linkedUrl %} linked-post{% endif %}">
 <h1>
+    {%- if linkedUrl %}
+    <a href="{{ linkedUrl }}" class="linked-post-title u-bookmark-of" target="_blank" rel="noopener noreferrer">{{ title }} <svg class="linked-post-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
+    {%- else %}
     {{ title }}
+    {%- endif %}
 </h1>
 <ul class="post-metadata">
     <li>
@@ -35,7 +39,7 @@ layout: layouts/base.njk
     <div class="related-posts-grid">
       {%- for rel in related %}
         <a href="{{ site.baseUrl }}{{ rel.url }}" class="related-post-card">
-          <h3>{{ rel.data.title }}</h3>
+          <h3>{{ rel.data.title }}{% if rel.data.linkedUrl %} <svg class="linked-post-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>{% endif %}</h3>
           <time datetime="{{ rel.date | htmlDateString }}">{{ rel.date | smartDate }}</time>
           <span class="reading-time">{{ rel.templateContent | readingTime }}</span>
           {%- set relTags = rel.data.tags | filterTagList %}
