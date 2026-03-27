@@ -3,8 +3,8 @@ title: Draft Version Diff Action
 date: 2026-03-27T20:42:14.128+01:00
 tags: ["drafts","drafts-action"]
 permalink: /blog/draft-version-diff-action/index.html
-  summary: "Introducing a new Drafts action for comparing draft versions with git-style diffs and keep / revert for every chunk."
-  _social_post: "Published a new @Drafts action for git-style diffs between draft versions. You can keep/revert changes for each chunk that changed.  https://directory.getdrafts.com/a/24u)."
+summary: "Introducing a new Drafts action for comparing draft versions with git-style diffs and keep / revert for every chunk."
+_social_post: "Published a new @Drafts action for git-style diffs between draft versions. You can keep/revert changes for each chunk that changed.  https://directory.getdrafts.com/a/24u)."
 ---
 
 I just published a new Drafts action to compare different versions of the same draft using a git-style diff.
