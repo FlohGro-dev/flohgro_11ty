@@ -29,6 +29,6 @@ I hope that Draftist can help to speed up workflows and remove the friction from
 If you have any problem, find issues or have further requests – I would be happy when you share them with me!
 
 If you find this Action Group useful then share it with others who also may profit from it.  
-It is entirely free to use but if you want to say thanks by [you can do so](https://flohgro.com/donate/)
+It is entirely free to use but if you want to say thanks by [you can do so](https://flohgro.com/support/)
 
 Many thanks in advance 😊 appreciate your support 🙌

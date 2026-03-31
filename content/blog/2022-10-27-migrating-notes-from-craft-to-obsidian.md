@@ -76,6 +76,6 @@ Use it of course at your own risk and the shortcut took more than 3h to complete
 
 I hope this post helps you if you want to move from Craft to Obsidian – if you have questions or ideas to improve the process just let me know 🙌
 
-If this post helped you to migrate from Craft to Obsidian you can support my work with a few coffees ☕️: [FlohGro Donate](https://flohgro.com/donate/). Appreciate the support!
+If this post helped you to migrate from Craft to Obsidian you can support my work with a few coffees ☕️: [FlohGro Donate](https://flohgro.com/support/). Appreciate the support!
 
 In the next posts I‘ll share some automations that eases adding content to Obsidian from Drafts. You can also follow me on [Twitter](https://twitter.com/FlohGro) where I share these Actions earlier.

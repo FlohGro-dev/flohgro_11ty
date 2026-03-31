@@ -56,6 +56,6 @@ These two actions will now activate the editor after the insertion point to stop
 
 ## 📣 Spread the Word and Share Your Feedback
 
-Hopefully you’ll like this update. I would appreciate if you share it with others (🚀 the [post on mastodon](https://social.lol/@flohgro/111148282350171676)) and since I develop these things in my free time: consider to [support my work](https://flohgro.com/donate)
+Hopefully you’ll like this update. I would appreciate if you share it with others (🚀 the [post on mastodon](https://social.lol/@flohgro/111148282350171676)) and since I develop these things in my free time: consider to [support my work](https://flohgro.com/support)
 
 If you have any feedback or further suggestions please let me know 🗣️ You can open an issue on GitHub or just reach out to me in the [Drafts forum](https://forums.getdrafts.com/t/draftodon-a-drafts-action-group-for-mastodon/13962) or on [Mastodon](https://social.lol/@flohgro/110389379799734809)

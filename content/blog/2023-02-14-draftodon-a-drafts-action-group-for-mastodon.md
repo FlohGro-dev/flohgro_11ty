@@ -38,4 +38,4 @@ Whats next? I have a few requests that I’ll be working on:
 - improve parts of the documentation (more prominently mention that the template tag names must not be changed)
 - find an easy solution to use Draftodon with mulitple accounts
 
-If you like the Action Group I would appreciate if you share that you’re using it on Mastodon, boost my posts about it (e.g. launch of [Draftodon 1.1](https://social.lol/@flohgro/109857674459597077)) and consider to support my work by [donating](https://flohgro.com/donate)
+If you like the Action Group I would appreciate if you share that you’re using it on Mastodon, boost my posts about it (e.g. launch of [Draftodon 1.1](https://social.lol/@flohgro/109857674459597077)) and consider to support my work by [donating](https://flohgro.com/support)

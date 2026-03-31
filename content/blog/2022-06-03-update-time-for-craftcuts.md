@@ -37,6 +37,6 @@ I hope you like these _quality of life_ imrpovements 😊
 
 Let me know if you have additional usecases, compatible Shortcuts you’d like to share or issues with Craftcuts
 
-If you want to support my work on Craftist or other projects checkout [https://flohgro.com/donate](https://flohgro.com/donate)
+If you want to support my work on Craftist or other projects checkout [https://flohgro.com/support](https://flohgro.com/support)
 
 Have a great day 😉

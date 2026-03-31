@@ -24,4 +24,4 @@ Download them here:
 
 This was just an experiment and its not too easy to retrieve a authentication token but it works – if you’re interested I can document this a bit to make it easier to create your own token for your raindrop account
 
-If this is useful for you and you want to support my work check out [https://flohgro.com/donate/](https://flohgro.com/donate/)
+If this is useful for you and you want to support my work check out [https://flohgro.com/support/](https://flohgro.com/support/)

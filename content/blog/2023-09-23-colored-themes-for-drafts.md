@@ -29,4 +29,4 @@ To assign a them to a workspace edit the workspace, scroll down and pick the the
 
 If you have any suggestions to improve the themes, or requests for new colors don’t hesitate to contact me either on [Mastodon](https://social.lol/@flohgro/111047399310538089) or in the [Drafts forum](https://forums.getdrafts.com/t/c-olor-ed-themes/14513?u=flohgro).
 
-If you enjoy using them I would appreciate your [support](https://flohgro.com/donate/).
+If you enjoy using them I would appreciate your [support](https://flohgro.com/support/).

@@ -10,7 +10,7 @@ After trying [Readwise Reader](https://read.readwise.io) and experimenting a bit
 
 Now I tried to create a few Shortcuts to retrieve Highlights from Readwise and share them to other apps. I personally use [Obsidian](https://obsidian.md) and Readwise has a great official plugin to import the highlights but I couldn’t resist to built the Shortcuts anyways.
 
-Below are the Shortcuts I created. If you have feedback, further requests, or trouble just reach out on [Mastodon](https://mastodon.social/@flohgro). If you like the Shortcuts I would appreciate if you share this post and consider to [support my work](https://flohgro.com/donate/)
+Below are the Shortcuts I created. If you have feedback, further requests, or trouble just reach out on [Mastodon](https://mastodon.social/@flohgro). If you like the Shortcuts I would appreciate if you share this post and consider to [support my work](https://flohgro.com/support/)
 
 ## Get Latest Readwise Highlights
 

@@ -33,7 +33,7 @@ Just copy the url of a post, paste it into the first line of a new draft and add
 
 ## 📣 Spread the Word and Share Your Feedback
 
-Hopefully you’ll like this update. I would appreciate if you share it with your network 🚀 and if you consider to [support my work](https://flohgro.com/donate)
+Hopefully you’ll like this update. I would appreciate if you share it with your network 🚀 and if you consider to [support my work](https://flohgro.com/support)
 
 If you have any feedback or further suggestions please let me know 🗣️ You can open an issue on GitHub or just reach out to me in the [Drafts forum](https://forums.getdrafts.com/t/draftodon-a-drafts-action-group-for-mastodon/13962) or on [Mastodon](https://social.lol/@flohgro/110389379799734809)
 

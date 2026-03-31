@@ -58,6 +58,6 @@ I hope you like this new update 😎
 
 Again if you have any questions ❓️issues 🪲 or have other feature requests 🧑‍💻 please let me know 🗣️
 
-If you want to support my work on Craftist or other projects checkout [https://flohgro.com/donate](https://flohgro.com/donate)
+If you want to support my work on Craftist or other projects checkout [https://flohgro.com/support](https://flohgro.com/support)
 
 Have a great day ✌🏼
