@@ -1807,6 +1807,10 @@ a[href].email-comment-btn:visited {
 
 
 /* Stats page */
+.epg {
+  overflow-x: auto;
+}
+
 a.epg__box {
   text-decoration: none;
   display: block;
