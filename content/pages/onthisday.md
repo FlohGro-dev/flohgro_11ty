@@ -27,9 +27,11 @@ No algorithm, no feed, no social anything. Just your photos, once a day.
 
 <div class="otd-cta">
 <span class="otd-badge-wrapper" aria-hidden="true">
+      <a href="https://apps.apple.com/us/app/on-this-day-rewind/id6754617354" >
   <img src="{{ baseUrl }}/assets/icons/app-store-badge.svg" alt="" class="otd-badge" width="120" height="40">
+
+</a>
 </span>
-<span class="otd-cta-note">Coming soon to the App Store</span>
 </div>
 
 </div>
