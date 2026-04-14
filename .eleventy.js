@@ -168,6 +168,7 @@ export default function (eleventyConfig) {
   // Build-time link preview transform
   eleventyConfig.addTransform("linkPreview", async function(content) {
     if (!this.page.outputPath?.endsWith(".html")) return content;
+    if (this.page.inputPath?.includes("/content/post/")) return content;
 
     const urls = new Set();
 
