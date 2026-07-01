@@ -33,6 +33,11 @@
       "invertOnLight": true
     },
     {
+      "name": "On This Day",
+      "url": "/onthisday",
+      "icon": "/assets/icons/otd-icon.png"
+    },
+    {
       "name": "e-mail",
       "url": "mailto:hi@flohgro.com",
       "icon": "/assets/icons/mail-icon.png"
