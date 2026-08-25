@@ -5,7 +5,8 @@ pagination:
   alias: tag
 permalink: /tags/{{ tag }}/
 layout: layouts/base
-title: "Posts tagged with {{ tag }}"
+eleventyComputed:
+  title: "Posts tagged with {{ tag }}"
 ---
 
 <h1 class="breadcrumb-heading"><a href="{{ site.baseUrl }}/tags">All Tags</a> <span>&gt;</span> {{ tag }}</h1>

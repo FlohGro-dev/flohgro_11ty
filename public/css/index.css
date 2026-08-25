@@ -124,6 +124,18 @@ body {
   line-height: 1.6;
 }
 
+/* Keep the footer at the bottom on short pages (search, contact, ...) */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+body > main {
+  flex: 1 0 auto;
+}
+
 /* Exclude justify for all headings */
 h1,
 h2,
@@ -447,6 +459,33 @@ code {
   font-size: 0.9em;
 }
 
+/* Long unbroken strings (bare URLs in social posts, etc.) must wrap instead of
+   widening the page. `anywhere` on prose links also lets them shrink below
+   min-content, so a flex/grid parent can't be blown out either. */
+p,
+li,
+dd,
+dt,
+td,
+th,
+figcaption,
+blockquote,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p a,
+li a,
+td a,
+blockquote a {
+  overflow-wrap: anywhere;
+}
+
 em,
 i {
   font-style: italic;
@@ -480,6 +519,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.5rem;
   width: 100%;
 }
 
@@ -487,10 +527,14 @@ header {
   display: flex;
   align-items: center;
   gap: 0.5em;
+  /* Allow the branding to shrink so the title truncates instead of painting
+     over the social icons if a breakpoint is ever slightly off. */
+  min-width: 0;
   text-decoration: none;
 }
 
 .site-branding img {
+  flex: 0 0 auto;
   width: auto;
   height: 40px;
   object-fit: contain;
@@ -501,23 +545,10 @@ header {
   font-size: 1.75rem;
   font-weight: 700;
   color: var(--text-heading);
-}
-
-.site-title::after {
-  content: "_";
-  animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .site-branding:hover .site-title {
@@ -530,6 +561,8 @@ header {
   margin: 0;
   padding: 0;
   gap: 0;
+  /* Never shrink: icons keep their touch targets and the title gives way. */
+  flex: 0 0 auto;
   flex-wrap: nowrap;
   justify-content: flex-end;
 }
@@ -543,17 +576,18 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* 44px touch target for accessibility */
-  min-width: 44px;
+  /* 36px horizontal pitch so a 5th icon fits on a 390px phone. Height stays at
+     44px — vertical size costs no horizontal room, so the touch area is 36x44. */
+  min-width: 36px;
   min-height: 44px;
-  padding: 8px;
+  padding: 7px;
 }
 
 .header-social img,
 .header-social img[src$=".svg"] {
-  width: 24px;
-  height: 24px;
-  max-width: 24px;
+  width: 22px;
+  height: 22px;
+  max-width: 22px;
   object-fit: contain;
   transition: transform 0.2s ease;
 }
@@ -690,86 +724,96 @@ nav {
   }
 }
 
-/* Progressive icon hiding based on screen width */
-/* Order in HTML: patreon, omg.lol, bmac, kofi, drafts, mail, github, bluesky, mastodon, rss */
-/* Priority (keep): rss(10), mastodon(9), bluesky(8), github(7), mail(6), drafts(5), kofi(4), bmac(3), omg.lol(2), patreon(1) */
+/* Progressive icon hiding based on screen width.
+   DOM order in the header is also the hide order — the first item drops first,
+   so the list runs lowest priority -> highest priority:
+     1 patreon, 2 omg.lol, 3 bmac, 4 kofi, 5 drafts, 6 github,
+     7 onthisday, 8 mail, 9 bluesky, 10 mastodon, 11 rss
+   Adding or reordering an icon means renumbering the rules below.
+
+   Breakpoints are derived from the real header budget, not guessed:
+     needed(n) = 30px padding + branding + 8px gap + 10px safety + n * icon
+     branding  = 40px avatar + 0.5rem gap + title ("FlohGro", 7 chars @ 0.586em)
+     icon      = 36px, uniform (no size regimes, so the fit is monotonic)
+   The title scales with the fluid root size, clamp(15px, 1.5vw + 9px, 19px), so
+   the budget grows with the viewport. Each rule hides item k at the width where
+   12-k icons stop fitting. */
 
 /* Hide patreon (1st) */
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 625px) {
   .header-social li:nth-child(1) {
     display: none;
   }
 }
 
 /* Hide omg.lol (2nd) */
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 584px) {
   .header-social li:nth-child(2) {
     display: none;
   }
 }
 
 /* Hide bmac (3rd) */
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 543px) {
   .header-social li:nth-child(3) {
     display: none;
   }
 }
 
 /* Hide kofi (4th) */
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 503px) {
   .header-social li:nth-child(4) {
     display: none;
   }
 }
 
 /* Hide drafts (5th) */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 462px) {
   .header-social li:nth-child(5) {
     display: none;
   }
 }
 
-/* Hide mail (6th) - also reduce touch targets */
-@media screen and (max-width: 420px) {
+/* Hide github (6th) */
+@media screen and (max-width: 421px) {
   .header-social li:nth-child(6) {
     display: none;
   }
-
-  .header-social a {
-    min-width: 40px;
-    min-height: 40px;
-  }
-
-  .header-social img,
-  .header-social img[src$=".svg"] {
-    width: 20px;
-    height: 20px;
-    max-width: 20px;
-  }
 }
 
-/* Hide github (7th) */
-@media screen and (max-width: 360px) {
+/* Hide onthisday (7th) */
+@media screen and (max-width: 383px) {
   .header-social li:nth-child(7) {
     display: none;
   }
-
-  .site-title {
-    font-size: 1.2rem;
-  }
 }
 
-/* Very narrow: hide bluesky (8th), keep mastodon + rss */
-@media screen and (max-width: 300px) {
+/* Hide mail (8th) */
+@media screen and (max-width: 313px) {
   .header-social li:nth-child(8) {
     display: none;
   }
 }
 
-/* Extreme: hide mastodon (9th), keep only rss */
-@media screen and (max-width: 250px) {
+/* Hide bluesky (9th) */
+@media screen and (max-width: 277px) {
   .header-social li:nth-child(9) {
     display: none;
+  }
+}
+
+/* Hide mastodon (10th) */
+@media screen and (max-width: 241px) {
+  .header-social li:nth-child(10) {
+    display: none;
+  }
+}
+
+/* Very narrow: shrink the title, which frees ~30px of branding width and is
+   why 3 icons still fit down to 278px. */
+@media screen and (max-width: 360px) {
+  .site-title {
+    font-size: 1.2rem;
   }
 }
 
