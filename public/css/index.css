@@ -63,31 +63,31 @@
 [data-theme="light"] {
   --bg-primary: #eff1f5;
   --text-primary: #4c4f69;
-  --text-heading: #1e66f5;
-  --link-default: #1e66f5;
-  --link-hover: #04a5e5;
-  --link-visited: #1e66f5;
+  --text-heading: #1856d6;
+  --link-default: #1856d6;
+  --link-hover: #0f4bb3;
+  --link-visited: #1856d6;
   --surface-elevated: #e6e9ef;
   --surface-inline: #ccd0da;
   --text-code: #4c4f69;
-  --border-accent: #1e66f5;
-  --nav-border: #7287fd;
-  --nav-text: #7287fd;
+  --border-accent: #1856d6;
+  --nav-border: #4558bd;
+  --nav-text: #4558bd;
   --nav-hover-bg: #e6e9ef;
   --nav-hover-text: #4c4f69;
-  --nav-active-bg: #1e66f5;
+  --nav-active-bg: #1856d6;
   --nav-active-text: #eff1f5;
   --copy-btn-bg: #ccd0da;
   --copy-btn-border: #bcc0cc;
-  --copy-btn-hover-bg: #1e66f5;
+  --copy-btn-hover-bg: #1856d6;
   --copy-btn-stroke: #4c4f69;
   --copy-btn-hover-stroke: #eff1f5;
-  --selection-bg: #1e66f5;
+  --selection-bg: #1856d6;
   --selection-text: #eff1f5;
-  --text-muted: #6c6f85;
+  --text-muted: #5c5f77;
   --color-gray-20: #ccd0da;
   --color-gray-50: #9ca0b0;
-  --color-gray-90: #6c6f85;
+  --color-gray-90: #5c5f77;
 }
 
 
@@ -1354,7 +1354,9 @@ nav {
 footer .footer-legal {
   display: inline;
   font-size: 0.75em;
-  opacity: 0.6;
+  /* No opacity here: at 0.6 the effective contrast fell to 2.27 in light and
+     3.70 in dark. The muted token keeps it de-emphasised and still readable. */
+  color: var(--text-muted);
   text-decoration: none;
 }
 
