@@ -5,6 +5,7 @@ import eleventyNavigationPlugin from '@11ty/eleventy-navigation';
 import EleventyPluginOgImage from 'eleventy-plugin-og-image';
 import { OgImage } from 'eleventy-plugin-og-image/og-image';
 import { TemplatePath } from '@11ty/eleventy-utils';
+import { eleventyImageTransformPlugin } from '@11ty/eleventy-img';
 
 // Bump this to force all OG images to regenerate after template changes
 const OG_TEMPLATE_VERSION = '4';
@@ -482,17 +483,50 @@ export default function (eleventyConfig) {
       fonts: [
         {
           name: 'JetBrains Mono',
-          data: fs.readFileSync('public/fonts/JetBrainsMono-Regular.ttf'),
+          data: fs.readFileSync('build-assets/fonts/JetBrainsMono-Regular.ttf'),
           weight: 400,
           style: 'normal',
         },
         {
           name: 'JetBrains Mono',
-          data: fs.readFileSync('public/fonts/JetBrainsMono-Bold.ttf'),
+          data: fs.readFileSync('build-assets/fonts/JetBrainsMono-Bold.ttf'),
           weight: 700,
           style: 'normal',
         },
       ],
+    },
+  });
+
+  // Responsive images.
+  // Post-processes every local <img> in the built HTML: generates AVIF/WebP at
+  // several widths and adds width/height so images no longer reflow the page as
+  // they load. Sources stay untouched in assets/ and remain linkable at full size.
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    extensions: "html",
+    // AVIF first, WebP as the fallback. Deliberately no PNG/JPEG tier: "auto"
+    // would keep photos in their source format, and a 2400px lossless PNG is
+    // just as unservable as the original. Both formats keep transparency, and
+    // WebP covers every browser this site realistically sees.
+    // "svg" must be listed for svgShortCircuit to have anything to short-circuit
+    // to: without it, SVG sources get rasterised to webp/avif, which both wrecks
+    // icon quality and kills every img[src$=".svg"] rule in the stylesheet.
+    formats: ["svg", "avif", "webp"],
+    // Widest a photo is ever displayed is 874 CSS px (body 50em - padding), so
+    // 1760 covers 2x retina. Full-resolution originals stay in /assets/ for
+    // anyone who wants to zoom.
+    widths: [440, 880, 1760],
+    urlPath: "/img/",
+    outputDir: "./_site/img/",
+    // Leave SVGs as SVGs: several CSS rules select on img[src$=".svg"], and
+    // rasterising them would break the header and footer icons.
+    svgShortCircuit: true,
+    sharpOptions: { animated: true },
+    // A single unreadable file should not fail the whole build.
+    failOnError: false,
+    defaultAttributes: {
+      loading: "lazy",
+      decoding: "async",
+      sizes: "(max-width: 912px) 100vw, 874px",
     },
   });
 

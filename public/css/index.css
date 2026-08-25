@@ -173,6 +173,15 @@ html {
   width: 1px;
 }
 
+/* eleventy-img wraps every optimized image in <picture>. Without this rule the
+   <picture> becomes the flex/grid item and every `.parent img` sizing rule in
+   this file stops controlling layout — the header avatar and the image gallery
+   both blow up. display:contents removes the wrapper's box so the <img> is the
+   layout box again, exactly as those rules assume. */
+picture {
+  display: contents;
+}
+
 /* Fluid images via https://www.zachleat.com/web/fluid-images/ */
 img {
   max-height: 70vh;
@@ -181,7 +190,12 @@ img {
   margin: 0 auto;
 }
 
-img[width][height] {
+/* Fluid-image helper: keeps aspect ratio when width/height attributes are
+   present. Wrapped in :where() so it has zero specificity — eleventy-img adds
+   width/height to EVERY image, and at its natural specificity (0,2,1) this rule
+   outranks every component rule below that sets an explicit height, which blows
+   up the header avatar and the icon rows. */
+:where(img[width][height]) {
   height: auto;
 }
 

@@ -97,7 +97,7 @@ export function renderPreviewCard(url, og) {
   const desc = og.description
     ? `<span class="link-preview-desc">${esc(og.description)}</span>` : '';
   const img = og.image
-    ? `<img src="${esc(og.image)}" alt="" class="link-preview-img" loading="lazy">` : '';
+    ? `<img eleventy:ignore src="${esc(og.image)}" alt="" class="link-preview-img" loading="lazy">` : '';
   const domain = og.domain || '';
 
   return `<a href="${esc(url)}" class="link-preview-card" target="_blank" rel="noopener noreferrer">
