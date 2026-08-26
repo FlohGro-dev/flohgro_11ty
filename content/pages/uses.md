@@ -23,7 +23,7 @@ The apps, gear, and services I use day to day. Part of the [uses.tech](https://u
 
 ## Development
 
-- 💻 **Terminal**: [Ghostty](https://ghostty.org/)
+- 💻 **Terminal**: [Ghostty](https://ghostty.org/) / [Superset](https://superset.sh)
 - 📝 **Editor**: nvim
 - 🔀 **Version Control**: Git
 
@@ -43,8 +43,8 @@ The apps, gear, and services I use day to day. Part of the [uses.tech](https://u
 - ⌨️ **Launcher**: [Raycast](https://www.raycast.com/hey/081e003e)
 - 📁 **File Management**: [DEVONthink](https://www.devontechnologies.com/apps/devonthink) + Finder
 - 🔖 **Bookmarks**: [DEVONthink](https://www.devontechnologies.com/apps/devonthink)
-- 👓 **Read It Later**: [Readwise Reader](https://readwise.io/i/floh)
-- 📰 **RSS**: [Readwise Reader](https://readwise.io/i/floh)
+- 👓 **Read It Later**: now [Quick Reads](https://quickreads.app) coming from [Readwise Reader](https://readwise.io/i/floh)
+- 📰 **RSS**: now [Quick Reads](https://quickreads.app) coming from [Readwise Reader](https://readwise.io/i/floh)
 - 🛝 **Presentations**: [Deckset](https://www.deckset.com)
 
 ## Communication
@@ -73,7 +73,7 @@ The apps, gear, and services I use day to day. Part of the [uses.tech](https://u
 ## Home & Finance
 
 - 💰 **Budgeting**: [MoneyMoney](https://moneymoney-app.com)
-- 🛒 **Shopping Lists**: [Cookidoo](https://cookidoo.thermomix.com/foundation/en-US)
+- 🛒 **Shopping Lists**: Shared list in Apple Reminders
 - 🧑‍🍳 **Meal Planning**: [Cookidoo](https://cookidoo.thermomix.com/foundation/en-US)
 
 </div>
