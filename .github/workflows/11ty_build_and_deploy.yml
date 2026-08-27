@@ -29,11 +29,26 @@ jobs:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
 
-      - name: 💾 Persist Eleventy .cache
-        uses: actions/cache@v3
+      # Covers both halves of the image pipeline: .cache holds eleventy-fetch
+      # responses and the generated OG images, _site/img holds the AVIF/WebP
+      # variants. eleventy-img skips any variant whose output file already
+      # exists, and filenames are content-addressed, so a changed source is a
+      # changed filename and can never collide with a stale entry.
+      #
+      # The key must change every run. actions/cache only writes on a miss, so
+      # the previous static key ("<os>-eleventy-fetch-cache") hit forever after
+      # the first run and never saved again - newly generated OG images were
+      # silently discarded and re-encoded from scratch on the next build.
+      # restore-keys still gives us the most recent cache to start from.
+      - name: 💾 Persist Eleventy image + fetch cache
+        uses: actions/cache@v4
         with:
-          path: ./.cache
-          key: ${{ runner.os }}-eleventy-fetch-cache
+          path: |
+            ./.cache
+            ./_site/img
+          key: ${{ runner.os }}-eleventy-media-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-eleventy-media-
 
       - run: npm install
 
