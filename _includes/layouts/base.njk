@@ -57,12 +57,12 @@
     <header>
       <div class="header-top">
         <a href="{{ site.baseUrl }}/" class="site-branding">
-          <img src="{{ site.baseUrl }}/assets/icons/home-icon.png" alt="{{ metadata.title }}"/ loading="eager" fetchpriority="high">
+          <img src="{{ site.baseUrl }}/assets/icons/home-icon.png" alt="{{ metadata.title }}" sizes="40px" eleventy:widths="40,80,120" loading="eager" fetchpriority="high">
           <span class="site-title">FlohGro</span>
         </a>
         <ul class="header-social">
           {%- for link in stdLinks.stdLinks %}
-          <li><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ link.name }}"><img src="{{ site.baseUrl }}{{ link.icon }}" alt="" role="presentation"{% if link.invertOnLight %} class="invert-on-light"{% endif %}/></a></li>
+          <li><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ link.name }}"><img src="{{ site.baseUrl }}{{ link.icon }}" alt="" role="presentation" sizes="22px" eleventy:widths="22,44,66"{% if link.invertOnLight %} class="invert-on-light"{% endif %}/></a></li>
           {%- endfor %}
         </ul>
       </div>
@@ -100,22 +100,22 @@
     <footer>
       <div class="footer-icons">
         <a href="{{ site.baseUrl }}/rss.xml" target="_blank" rel="noopener noreferrer">
-          <img src="{{ site.baseUrl }}/assets/icons/rssfeed-icon.png" alt="RSS Feed" class="footer-icon"/>
+          <img src="{{ site.baseUrl }}/assets/icons/rssfeed-icon.png" alt="RSS Feed" sizes="90px" eleventy:widths="90,180,270" class="footer-icon"/>
         </a>
         <a href="{{ site.baseUrl }}/feed.json" target="_blank" rel="noopener noreferrer">
-          <img src="{{ site.baseUrl }}/assets/icons/jsonfeed-icon.png" alt="JSON Feed" class="footer-icon"/>
+          <img src="{{ site.baseUrl }}/assets/icons/jsonfeed-icon.png" alt="JSON Feed" sizes="90px" eleventy:widths="90,180,270" class="footer-icon"/>
         </a>
         <a href="{{ site.baseUrl }}/atom.xml" target="_blank" rel="noopener noreferrer">
-          <img src="{{ site.baseUrl }}/assets/icons/atomfeed-icon.png" alt="Atom Feed" class="footer-icon"/>
+          <img src="{{ site.baseUrl }}/assets/icons/atomfeed-icon.png" alt="Atom Feed" sizes="90px" eleventy:widths="90,180,270" class="footer-icon"/>
         </a>
         <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">
-          <img src="{{ site.baseUrl }}/assets/icons/11ty-icon.svg" alt="11ty" class="footer-icon"/>
+          <img src="{{ site.baseUrl }}/assets/icons/11ty-icon.svg" alt="11ty" sizes="90px" eleventy:widths="90,180,270" class="footer-icon"/>
         </a>
         <a href="https://people.pledge.party" target="_blank" rel="noopener noreferrer">
-          <img src="{{ site.baseUrl }}/assets/icons/people_pledge_badge_stacked_black_white_125x75.png" alt="People Pledge" class="footer-icon"/>
+          <img src="{{ site.baseUrl }}/assets/icons/people_pledge_badge_stacked_black_white_125x75.png" alt="People Pledge" sizes="90px" eleventy:widths="90,180,270" class="footer-icon"/>
         </a>
         <a href="https://echofeed.app" target="_blank" rel="noopener noreferrer">
-          <img src="{{ site.baseUrl }}/assets/icons/powered-by-echofeed-white-alt.gif" alt="EchoFeed" class="footer-icon"/>
+          <img src="{{ site.baseUrl }}/assets/icons/powered-by-echofeed-white-alt.gif" alt="EchoFeed" sizes="90px" eleventy:widths="90,180,270" class="footer-icon"/>
         </a>
       </div>
       <p class="footer-copyright">&copy; FlohGro {{ page.date | currentYear() }}</p>
