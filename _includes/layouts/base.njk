@@ -10,6 +10,22 @@
     <link rel="alternate" type="application/rss+xml" title="{{ metadata.title }} RSS Feed" href="{{ metadata.url }}/rss.xml">
     <link rel="alternate" type="application/json" title="{{ metadata.title }} JSON Feed" href="{{ metadata.url }}/feed.json">
     <meta name="generator" content="{{ eleventy.generator }}">
+    {# The stylesheet is inlined further down, so the browser cannot discover
+       these until it has parsed that whole block. Preloading starts them at
+       once. crossorigin is required even same-origin: fonts are fetched in
+       CORS mode, and without it the preload is discarded and fetched twice.
+       Only the two Sometype faces are preloaded. jetbrains-mono sits second in
+       the --font-family stack as a fallback, so it is fetched but almost never
+       painted; preloading it would promote 30 KB of glyph coverage nobody
+       waits on. (Dropping it from that stack entirely is the better fix, but
+       that is a typography decision, not a preload one.) #}
+    <link rel="preload" href="{{ site.baseUrl }}/fonts/SometypeMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ site.baseUrl }}/fonts/SometypeMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    {# Analytics script took 855ms on a cold connection; this gets the TLS
+       handshake underway before the parser reaches the tag itself. No
+       crossorigin here, unlike the fonts above: a plain script src is fetched
+       in no-CORS mode and would not reuse a CORS-mode connection. #}
+    <link rel="preconnect" href="https://neatstats.net">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseUrl }}/assets/icon-180.png">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseUrl }}/assets/icon-32.png">
     <link
