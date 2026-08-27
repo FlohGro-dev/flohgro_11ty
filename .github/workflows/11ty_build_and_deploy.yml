@@ -16,15 +16,15 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
 
       - name: 🛠️ Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v7
         with:
           node-version: "18"
 
       - name: 🗄️ Cache npm Dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
@@ -41,7 +41,7 @@ jobs:
       # silently discarded and re-encoded from scratch on the next build.
       # restore-keys still gives us the most recent cache to start from.
       - name: 💾 Persist Eleventy image + fetch cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: |
             ./.cache
@@ -61,7 +61,7 @@ jobs:
         run: ls -R .  # Debugging: List the contents of the _site directory
     
       - name: 🗃️ Upload _site directory as artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: _site
           path: ./_site
@@ -70,13 +70,13 @@ jobs:
     runs-on: ubuntu-22.04
     needs: build
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
 
       - name: 📝 List ALL directory contents before download
         run: ls -R .  # Debugging: List the contents of the _site directory
 
       - name: 🗃️ Download _site directory artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: _site
           path: ./_site
@@ -85,14 +85,14 @@ jobs:
         run: ls -R .  # Debugging: List the contents of the _site directory    
 
       - name: 🌐 Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         if: false && github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
       
       - name: 📡 Deploy to FTP Server
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
