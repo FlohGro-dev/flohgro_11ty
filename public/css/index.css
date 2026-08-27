@@ -199,6 +199,19 @@ img {
   height: auto;
 }
 
+/* max-height above only preserves the aspect ratio when the browser is free to
+   shrink the width alongside it. eleventy-img writes a width attribute on every
+   image, which makes width a *specified* value, so clamping the height squashes
+   a tall image instead of scaling it: a 880x1795 screenshot rendered 863x465.
+   Restoring width:auto lets both axes scale together, and the srcset sizes
+   value still supplies the layout width. Scoped to content images so the
+   header, footer and icon rows keep their explicit pixel sizing. */
+.post-card img,
+.timeline-content img {
+  width: auto;
+  height: auto;
+}
+
 img[src$=".svg"] {
   width: 100%;
   height: auto;
