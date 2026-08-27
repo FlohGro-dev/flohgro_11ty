@@ -1,0 +1,87 @@
+# Deployed to the site root as /.htaccess (see .eleventy.js passthrough copy).
+# Edit this file, not the copy on the server — the deploy overwrites it.
+
+# ---------------------------------------------------------------------------
+# Legacy WordPress front-controller rules.
+#
+# Kept verbatim from the pre-Eleventy site. Both RewriteCond lines mean these
+# only fire when the request maps to no real file or directory, so every static
+# page and asset is served untouched. /index.php no longer exists, so a miss
+# falls through to the ErrorDocument below.
+# ---------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+ErrorDocument 404 /404.html
+
+# ---------------------------------------------------------------------------
+# Compression
+#
+# The stylesheet is inlined into every page, so HTML size directly gates first
+# paint — there is no separate stylesheet that could stream in parallel. Gzip
+# takes the homepage from 78 KB to 19 KB, which is the difference between ~5
+# and ~2 round trips out of TCP slow start.
+#
+# Fonts and AVIF/WebP are already compressed; running deflate over them costs
+# CPU and gains nothing, so they are deliberately absent from this list.
+# ---------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/atom+xml
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# Brotli beats gzip by a further ~15% on text. Only some hosts build it in,
+# hence the IfModule guard — Apache falls back to deflate above when absent.
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html
+  AddOutputFilterByType BROTLI_COMPRESS text/css
+  AddOutputFilterByType BROTLI_COMPRESS text/plain
+  AddOutputFilterByType BROTLI_COMPRESS text/xml
+  AddOutputFilterByType BROTLI_COMPRESS application/javascript
+  AddOutputFilterByType BROTLI_COMPRESS application/json
+  AddOutputFilterByType BROTLI_COMPRESS application/rss+xml
+  AddOutputFilterByType BROTLI_COMPRESS application/atom+xml
+  AddOutputFilterByType BROTLI_COMPRESS application/xml
+  AddOutputFilterByType BROTLI_COMPRESS image/svg+xml
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# Caching
+#
+# Filenames under /img/ and /fonts/ are content-addressed by eleventy-img, so a
+# changed image is a changed URL and can be pinned for a year. HTML must stay
+# revalidated or a published post would not reach anyone who has visited before.
+# ---------------------------------------------------------------------------
+<IfModule mod_headers.c>
+  <FilesMatch "\.(avif|webp|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  <FilesMatch "\.(png|jpe?g|gif|svg|ico)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+
+  # Feeds and the search index change whenever a post is published.
+  <FilesMatch "\.(xml|json)$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+</IfModule>
