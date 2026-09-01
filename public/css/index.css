@@ -2075,6 +2075,17 @@ a.stat-item:active {
   display: block;
 }
 
+/* The app icon is a fixed-size mark, not a fluid content image: `.post-card
+   img { width: auto }` above would otherwise render it at the intrinsic width
+   of whichever srcset candidate the browser picked. */
+.post-card img.otd-icon {
+  width: 120px;
+  height: 120px;
+  max-width: 120px;
+  margin: 1.5em auto 0;
+  display: block;
+}
+
 .otd-features {
   text-align: left;
   max-width: 30em;

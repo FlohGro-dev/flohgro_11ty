@@ -25,7 +25,7 @@ No algorithm, no feed, no social anything. Just your photos, once a day.
 
 </div>
 
-<img src="{{ baseUrl }}/assets/icons/otd-icon.png" alt="On This Day app icon" class="otd-screenshot" width="120" height="120" loading="lazy">
+<img src="{{ baseUrl }}/assets/icons/otd-icon.png" alt="On This Day app icon" class="otd-icon" sizes="120px" eleventy:widths="120,240,360" loading="lazy">
 
 <div class="otd-cta">
 <span class="otd-badge-wrapper" aria-hidden="true">
