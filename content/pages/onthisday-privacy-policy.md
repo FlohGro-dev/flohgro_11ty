@@ -16,15 +16,38 @@ This privacy policy applies to the On This Day app (hereby referred to as "Appli
 
 ### What information does the Application obtain and how is it used?
 
-The Application does not obtain any personal information when you download and use it. The only data collected is high-level App Store metrics, such as number of installs and daily active users. None of this is personally identifiable.
+The Application does not obtain any personal information when you download and use it. The only data collected by the Service Provider is high-level App Store metrics, such as number of installs and daily active users. None of this is personally identifiable.
+
+The Application shows a single app recommendation from Kickstart Exchange, a cross-promotion network for independent developers. Displaying it requires a request to Kickstart Exchange's servers. See "Does the Application show adverts?" below for exactly what that request contains.
 
 ### Do third parties see and/or have access to information obtained by the Application?
 
-No. The Service Provider is committed to high levels of privacy. No data is collected or shared with third parties.
+Your photos, their metadata, and your settings are never shared with anyone. They do not leave your device.
+
+The one exception is the app recommendation described below, which is served by Kickstart Exchange. The request that fetches it contains no information about you and nothing about your photo library — only information about the app itself. It is detailed in full in the next section.
 
 ### Does the Application access my photos?
 
 The Application accesses your photo library solely to display photos taken on the current date in past years. All processing happens locally on your device. No photos or photo metadata leave your device at any point.
+
+### Does the Application show adverts?
+
+The Application shows one app recommendation supplied by [Kickstart Exchange](https://exchange.kickstart.tools), a free advert exchange for independent developers. There is no money involved: showing another developer's app earns credit for On This Day to be shown in theirs.
+
+**Kickstart Exchange does not track you and does not build a profile of you.** No App Tracking Transparency prompt appears because no tracking takes place. To fetch a recommendation, the Application sends Kickstart Exchange only:
+
+- the app's own identifier, version and build number, and the version of their SDK
+- the platform the app is running on (for example iPhone, iPad or Mac)
+- your App Store country, so a recommended app is one you can actually install
+- an Apple-signed confirmation that this copy of the app is genuine, which contains no information about you
+- a one-time token recording that a recommendation was displayed or tapped
+- if you choose to report a recommendation using the "About this ad" button, the reason you select
+
+No device identifier, no advertising identifier, no location, no account, no name or email address, and nothing whatsoever about your photos is sent or used. Recommendations are never chosen based on your photo library, because no part of it ever leaves your device.
+
+Kickstart Exchange's own privacy policy is available at [https://exchange.kickstart.tools/privacy](https://exchange.kickstart.tools/privacy).
+
+Recommendations are part of the free version of the Application. If you purchase On This Day Pro they are switched off, and you may turn them back on from Settings if you would like to keep supporting other independent developers.
 
 ### What data is stored on my device?
 
@@ -32,13 +55,13 @@ All app data, including your settings and preferences, is stored locally on your
 
 ### Security
 
-The Service Provider is concerned about safeguarding the confidentiality of your information. However, since the Application does not collect any information, there is no risk of your data being accessed by unauthorised individuals.
+The Service Provider is concerned about safeguarding the confidentiality of your information. The Application does not collect personal information, and your photos and settings never leave your device, so there is no risk of them being accessed by unauthorised individuals. The advert request described above carries no personal information and is sent over an encrypted connection.
 
 ### Changes
 
 This Privacy Policy may be updated from time to time for any reason. The Service Provider will notify you of any changes to their Privacy Policy by updating this page with the new Privacy Policy. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes.
 
-This privacy policy is effective as of March 17th, 2026.
+This privacy policy is effective as of September 3rd, 2026.
 
 ### Your Consent
 
