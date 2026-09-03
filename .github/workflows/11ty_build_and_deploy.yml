@@ -65,6 +65,9 @@ jobs:
         with:
           name: _site
           path: ./_site
+          # Off by default since upload-artifact v4.4, which silently drops
+          # every dotfile the build emits: /.htaccess and /.well-known/.
+          include-hidden-files: true
 
   deploy:
     runs-on: ubuntu-22.04

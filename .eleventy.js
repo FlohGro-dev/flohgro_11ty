@@ -97,7 +97,10 @@ export default function (eleventyConfig) {
     // Apache config for the site root. Kept undotted in server/ because the
     // directory passthrough above skips dotfiles (public/.DS_Store never makes
     // it into _site), so a public/.htaccess would silently never deploy.
-    .addPassthroughCopy({ "server/htaccess": ".htaccess" });
+    .addPassthroughCopy({ "server/htaccess": ".htaccess" })
+    // Same reasoning as htaccess above: kept undotted in server/ so the
+    // directory passthrough never has to reach into a dotted source path.
+    .addPassthroughCopy({ "server/well-known": ".well-known" });
 
   eleventyConfig.addCollection("limitedBlogPosts", function (collectionApi) {
 
