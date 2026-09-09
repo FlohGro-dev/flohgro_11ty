@@ -1,0 +1,93 @@
+{
+  "_note": "Config for the EchoFeed replacement. See docs/echofeed-migration.md. The blog template has a SIGNIFICANT TRAILING SPACE after {{ title }} - it is in the EchoFeed original, so it stays here. Do not 'tidy' it away.",
+  "site": "https://flohgro.com",
+  "queue": "_site/social-queue.json",
+  "state": "social/state.json",
+  "types": {
+    "blog": {
+      "template": "#️⃣ {{ title }} \n\n{{ text }}\n\n🔗 {{ url }}",
+      "images": true
+    },
+    "post": {
+      "template": "{{ text }}",
+      "images": true
+    },
+    "quote": {
+      "template": "{{ text }}\n\n#RandomQuote",
+      "images": false
+    }
+  },
+  "targets": {
+    "mastodon": {
+      "module": "./targets/mastodon.mjs",
+      "instance": "https://social.lol",
+      "tokenEnv": "MASTODON_TOKEN",
+      "visibility": "public",
+      "language": "en",
+      "maxImages": 4
+    }
+  },
+  "replacementsCaseInsensitive": true,
+  "replacements": [
+    {
+      "find": "@Drafts",
+      "replace": {
+        "mastodon": "@drafts@indieapps.space"
+      }
+    },
+    {
+      "find": "@Craft",
+      "replace": {
+        "mastodon": "#Craft"
+      }
+    },
+    {
+      "find": "@Viticci",
+      "replace": {
+        "mastodon": "@viticci@macstories.net"
+      }
+    },
+    {
+      "find": "@JohnVoorhees",
+      "replace": {
+        "mastodon": "@johnvoorhees@macstories.net"
+      }
+    },
+    {
+      "find": "@GregPierce",
+      "replace": {
+        "mastodon": "@agiletortoise@mastodon.social"
+      }
+    },
+    {
+      "find": "@AnthonyBaker",
+      "replace": {
+        "mastodon": "@AnthonyBaker@mastodon.social"
+      }
+    },
+    {
+      "find": "@RobbKnight",
+      "replace": {
+        "mastodon": "@robb@social.lol"
+      }
+    },
+    {
+      "find": "@11ty",
+      "replace": {
+        "mastodon": "@11ty@neighborhood.11ty.dev"
+      }
+    },
+    {
+      "find": "@MacStories",
+      "replace": {
+        "mastodon": "@macstories@macstories.net"
+      }
+    },
+    {
+      "find": "@ChrisLawley",
+      "replace": {
+        "mastodon": "@ChrisLawley@mastodon.social"
+      }
+    }
+  ]
+}

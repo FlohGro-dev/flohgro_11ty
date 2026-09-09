@@ -104,4 +104,79 @@ jobs:
           server-dir: ./
           protocol: ftps
           port: 21
+          # Setting `exclude` replaces the action's defaults, so the .git and
+          # node_modules patterns have to be repeated here.
+          # social-queue.json is build input for the syndicate job below, not
+          # something the site needs to serve.
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/social-queue.json
+
+  # ---------------------------------------------------------------------------
+  # Cross-post new content to Mastodon. Replaces EchoFeed.
+  # See docs/echofeed-migration.md.
+  #
+  # Runs after deploy so a link is only posted once it actually resolves.
+  # ---------------------------------------------------------------------------
+  syndicate:
+    runs-on: ubuntu-22.04
+    needs: deploy
+    if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: write
+    # Its own group, separate from the build. The nightly cron can overlap a
+    # push run, and two syndicate jobs at once would race on state.json.
+    # Never cancel a run in progress: it may have already posted.
+    concurrency:
+      group: syndicate-${{ github.ref }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - name: 🛠️ Setup Node
+        uses: actions/setup-node@v7
+        with:
+          # 20, not 18: syndicate.mjs uses the global fetch/FormData/Blob, which
+          # are experimental on 18. The build job stays on 18.
+          node-version: "20"
+
+      - name: 🗃️ Download _site directory artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: _site
+          path: ./_site
+
+      - name: 🦣 Syndicate to Mastodon
+        env:
+          MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
+          # Deliberately low while the replacement is being trusted. Raise it
+          # once a week of clean runs has been observed.
+          MAX_POSTS_PER_RUN: 1
+        run: |
+          if [ -z "$MASTODON_TOKEN" ]; then
+            echo "MASTODON_TOKEN is not set - skipping syndication."
+            echo "Set the secret once social/state.json is on main."
+            exit 0
+          fi
+          node social/syndicate.mjs --live
+
+      - name: 📝 Commit the syndication state
+        run: |
+          if git diff --quiet -- social/state.json; then
+            echo "state.json unchanged, nothing to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add social/state.json
+          # [skip ci] keeps this commit from starting another build. Pushes made
+          # with the default GITHUB_TOKEN do not trigger workflows anyway, so
+          # this is a second line of defence, not the only one.
+          git commit -m "chore: record syndicated posts [skip ci]"
+          git pull --rebase origin main
+          git push origin HEAD:main
       

@@ -733,6 +733,93 @@ export default function (eleventyConfig) {
     }
   });
 
+  // ---------------------------------------------------------------------------
+  // Syndication support (EchoFeed replacement). See docs/echofeed-migration.md
+  // ---------------------------------------------------------------------------
+
+  // The plugin's own dateToRfc822 formats in the *system* timezone but always
+  // labels the result "GMT" - its split regex eats the "+02:00" offset. It also
+  // inherits the platform's h24 clock, so local midnight can render as hour 24.
+  // CI runs in UTC so the deployed feed was correct, but local builds were not.
+  // Registered after the feed plugins so this definition wins.
+  eleventyConfig.addFilter("dateToRfc822", (value) => {
+    return DateTime.fromJSDate(new Date(value), { zone: "utc" })
+      .toFormat("EEE, dd LLL yyyy HH:mm:ss 'GMT'");
+  });
+
+  // Machine-readable queue for the syndication step. Deliberately NOT derived
+  // from the rendered HTML feeds: image sources come from the markdown source,
+  // so we get the full-resolution original in /assets plus its real alt text
+  // instead of a 440px transform URL scraped out of a <picture> element.
+  eleventyConfig.addCollection("socialQueue", (collectionApi) => {
+    const SITE = "https://flohgro.com";
+    const MAX_IMAGES = 4;
+
+    const rawOf = (item) => {
+      try { return fs.readFileSync(item.inputPath, "utf8"); }
+      catch { return ""; }
+    };
+    const bodyOf = (raw) => raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/, "");
+    const imagesOf = (raw) => {
+      const re = /!\[([^\]]*)\]\(\s*(?:\{\{\s*baseUrl\s*\}\})?\s*([^)\s]+)/g;
+      const out = [];
+      let m;
+      while ((m = re.exec(raw)) !== null && out.length < MAX_IMAGES) {
+        out.push({ alt: m[1] || "", src: m[2].replace(/^\//, "") });
+      }
+      return out;
+    };
+    // Percent-encode the way htmlBaseUrl (and therefore feed.json) does, so the
+    // ids and the "\u{1F517} link" line match what EchoFeed posted byte-for-byte.
+    // One permalink carries a raw em dash and another a literal "%"; URL()
+    // encodes the first and leaves the second alone, which is what the feed has.
+    const absolute = (url) => new URL(url, SITE + "/").href;
+
+    const entries = [];
+
+    for (const item of collectionApi.getFilteredByTag("post")) {
+      const raw = bodyOf(rawOf(item));
+      entries.push({
+        id: absolute(item.url),
+        type: "post",
+        url: absolute(item.url),
+        title: null,
+        text: raw.replace(/!\[[^\]]*\]\([^)]*\)/g, "").trim(),
+        images: imagesOf(raw),
+        date: item.date.toISOString(),
+      });
+    }
+
+    for (const item of collectionApi.getFilteredByTag("quote")) {
+      const raw = bodyOf(rawOf(item));
+      entries.push({
+        id: absolute(item.url),
+        type: "quote",
+        url: absolute(item.url),
+        title: null,
+        text: raw.replace(/!\[[^\]]*\]\([^)]*\)/g, "").trim(),
+        images: [],
+        date: item.date.toISOString(),
+      });
+    }
+
+    for (const item of collectionApi.getFilteredByTag("blog")) {
+      if (!item.data._social_post) continue;
+      entries.push({
+        id: absolute(item.url),
+        type: "blog",
+        url: absolute(item.url),
+        title: item.data.title || null,
+        text: item.data._social_post,
+        images: imagesOf(bodyOf(rawOf(item))),
+        date: item.date.toISOString(),
+      });
+    }
+
+    entries.sort((a, b) => new Date(a.date) - new Date(b.date));
+    return entries;
+  });
+
   // Collect tags from all blogPosts
   eleventyConfig.addCollection("tags", function (collectionApi) {
     let tags = {};

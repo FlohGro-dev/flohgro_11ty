@@ -19,9 +19,9 @@ eleventyExcludeFromCollections: true
     {%- for post in collections.limitedBlogPosts | reverse %}
     {%- set absolutePostUrl = post.url | htmlBaseUrl("https://flohgro.com/") %}
     {
-      "id": "{{ absolutePostUrl }}",
-      "url": "{{ absolutePostUrl }}",
-      "title": "{{ post.data.title }}",
+      "id": {{ absolutePostUrl | dump | safe }},
+      "url": {{ absolutePostUrl | dump | safe }},
+      "title": {{ post.data.title | dump | safe }},
       "content_html": {{ post.content | dump | safe }},
       "date_published": "{{ post.date | dateToRfc3339 }}"
       {%- if post.data.summary %},
@@ -31,7 +31,7 @@ eleventyExcludeFromCollections: true
       "_social_post": {{ post.data._social_post | dump | safe }}
       {%- endif %}
       {%- if post.data.linkedUrl %},
-      "external_url": "{{ post.data.linkedUrl }}"
+      "external_url": {{ post.data.linkedUrl | dump | safe }}
       {%- endif %}
     }{% if not loop.last %},{% endif %}
     {%- endfor %}
