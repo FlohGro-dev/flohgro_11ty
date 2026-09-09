@@ -209,3 +209,30 @@ test("an oversized image is rejected before upload", async () => {
     /over the instance limit of 2/,
   );
 });
+
+test("uploading an image does not create a status", async () => {
+  const dir = tmpImage();
+  const f = fakeFetch({ "POST /api/v2/media": json({ id: "m1" }, 200) });
+  const m = createMastodon(cfg, { env, fetch: f });
+  assert.equal(await m.uploadImage({ src: "a.png", alt: "x" }, { rootDir: dir }), "m1");
+  assert.ok(!f.calls.some((c) => String(c.url).includes("/statuses")), "must not post a status");
+});
+
+test("the derivative is uploaded, not the original", async () => {
+  const dir = tmpImage("small.webp");
+  writeFileSync(path.join(dir, "huge.png"), Buffer.alloc(1000));
+  const f = fakeFetch({ "POST /api/v2/media": json({ id: "m1" }, 200) });
+  const m = createMastodon(cfg, { env, fetch: f });
+  await m.uploadImage({ src: "huge.png", upload: "small.webp", alt: "x" }, { rootDir: dir });
+  const sent = f.calls[0].body.get("file");
+  assert.equal(sent.name, "small.webp", "must upload the derivative");
+  assert.equal(sent.type, "image/webp");
+});
+
+test("falls back to the original when no derivative exists", async () => {
+  const dir = tmpImage("only.png");
+  const f = fakeFetch({ "POST /api/v2/media": json({ id: "m1" }, 200) });
+  const m = createMastodon(cfg, { env, fetch: f });
+  await m.uploadImage({ src: "only.png", upload: null, alt: "x" }, { rootDir: dir });
+  assert.equal(f.calls[0].body.get("file").name, "only.png");
+});

@@ -183,7 +183,7 @@ test("template: missing title or url render as empty, not 'undefined'", () => {
 });
 
 test("social/ imports nothing outside node: builtins", async () => {
-  const { readFileSync, readdirSync } = await import("node:fs");
+  const { readFileSync } = await import("node:fs");
   const files = ["render.mjs", "syndicate.mjs", "targets/mastodon.mjs"];
   for (const f of files) {
     const src = readFileSync(new URL(f, import.meta.url), "utf8");

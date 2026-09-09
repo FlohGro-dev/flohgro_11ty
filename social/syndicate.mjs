@@ -18,6 +18,10 @@ import path from "node:path";
 
 import { renderItem } from "./render.mjs";
 
+// A run gives up after this many failures, so a systematic problem does not
+// hammer the API once per item.
+const MAX_FAILURES_PER_RUN = 5;
+
 const HELP = `
 Usage: node social/syndicate.mjs [options]
 
@@ -28,6 +32,7 @@ Usage: node social/syndicate.mjs [options]
   --seed            Mark every queue item as already syndicated, post nothing.
   --filter <text>   Only items whose id contains this text. Useful for trying
                     template variants against a few test entries.
+  --ignore-state    Preview items already recorded in state.json. Dry run only.
   --report <path>   Write a readable Markdown report of the run.
   --quiet           Only print the summary.
   --help
@@ -75,6 +80,7 @@ export function parseArgs(argv, env = {}) {
     config: "social/config.json",
     report: null,
     filter: null,
+    ignoreState: false,
   };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
@@ -87,9 +93,15 @@ export function parseArgs(argv, env = {}) {
     else if (a === "--config") args.config = argv[++i];
     else if (a === "--report") args.report = argv[++i];
     else if (a === "--filter") args.filter = argv[++i];
+    else if (a === "--ignore-state") args.ignoreState = true;
     else throw new Error(`Unknown argument: ${a}`);
   }
   if (Number.isNaN(args.max) || args.max < 0) throw new Error("--max must be a non-negative number");
+  // Guard rail: --ignore-state exists to re-render past items for inspection.
+  // Combined with --live it would repost the entire back catalogue.
+  if (args.ignoreState && args.live) {
+    throw new Error("--ignore-state cannot be combined with --live");
+  }
   return args;
 }
 
@@ -161,9 +173,15 @@ export async function run(argv = [], { env = process.env, log = console.log } = 
       }
     }
 
-    const pending = pendingFor(queue, state, name, args.filter);
-    const batch = pending.slice(0, args.max === Infinity ? undefined : args.max);
-    results.skipped += pending.length - batch.length;
+    const pending = pendingFor(queue, args.ignoreState ? {} : state, name, args.filter);
+    // In a live run, --max counts SUCCESSES, not attempts. A permanently
+    // failing item (an oversized image, say) would otherwise be picked first on
+    // every run and block everything behind it forever.
+    const batch = args.live ? pending : pending.slice(0, args.max === Infinity ? undefined : args.max);
+    // Counted per target, not per run, so --max means "n per target" once a
+    // second target exists.
+    let sent = 0;
+    let failed = 0;
 
     if (!args.quiet) {
       log(`\n${name}: ${pending.length} pending, ${batch.length} in this run` +
@@ -193,6 +211,12 @@ export async function run(argv = [], { env = process.env, log = console.log } = 
         continue;
       }
 
+      if (sent >= args.max) break;
+      if (failed >= MAX_FAILURES_PER_RUN) {
+        log(`  stopping after ${failed} failures for ${name}`);
+        break;
+      }
+
       try {
         const res = await target.post({ text, images, item, rootDir });
         state[item.id] ??= {};
@@ -201,13 +225,17 @@ export async function run(argv = [], { env = process.env, log = console.log } = 
         // lose the record of what already went out, or the next run duplicates.
         await writeFile(statePath, JSON.stringify(state, null, 2) + "\n");
         results.posted++;
+        sent++;
         results.items.push({ id: item.id, target: name, url: res.url });
         if (!args.quiet) log(`  posted ${item.id} -> ${res.url}`);
       } catch (err) {
         results.failed++;
+        failed++;
         log(`  FAILED ${item.id}: ${err.message}`);
       }
     }
+
+    results.skipped += pending.length - (args.live ? sent + failed : batch.length);
   }
 
   if (args.report) {

@@ -5,7 +5,7 @@ import eleventyNavigationPlugin from '@11ty/eleventy-navigation';
 import EleventyPluginOgImage from 'eleventy-plugin-og-image';
 import { OgImage } from 'eleventy-plugin-og-image/og-image';
 import { TemplatePath } from '@11ty/eleventy-utils';
-import { eleventyImageTransformPlugin } from '@11ty/eleventy-img';
+import Image, { eleventyImageTransformPlugin } from '@11ty/eleventy-img';
 
 // Bump this to force all OG images to regenerate after template changes
 const OG_TEMPLATE_VERSION = '4';
@@ -749,9 +749,11 @@ export default function (eleventyConfig) {
 
   // Machine-readable queue for the syndication step. Deliberately NOT derived
   // from the rendered HTML feeds: image sources come from the markdown source,
-  // so we get the full-resolution original in /assets plus its real alt text
-  // instead of a 440px transform URL scraped out of a <picture> element.
-  eleventyConfig.addCollection("socialQueue", (collectionApi) => {
+  // so each entry carries the real alt text and a known path rather than
+  // whatever width happens to be first in a rendered <picture> element.
+  // Each image records both the original in /assets and the 1760px webp that
+  // gets uploaded - see uploadPathFor below.
+  eleventyConfig.addCollection("socialQueue", async (collectionApi) => {
     const SITE = "https://flohgro.com";
     const MAX_IMAGES = 4;
 
@@ -760,12 +762,39 @@ export default function (eleventyConfig) {
       catch { return ""; }
     };
     const bodyOf = (raw) => raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/, "");
-    const imagesOf = (raw) => {
+    // The same options the transform plugin uses for its widest tier, so
+    // eleventy-img computes the same hash and serves these from cache instead of
+    // re-encoding. Nothing new is generated.
+    const SOCIAL_IMAGE = {
+      formats: ["webp"],
+      widths: [1760],
+      urlPath: "/img/",
+      outputDir: "./_site/img/",
+      sharpOptions: { animated: true },
+    };
+
+    // Mastodon is handed the 1760px webp, not the original in assets/. The
+    // originals run to 21 MB and social.lol caps uploads at 16.8 MB, so the
+    // originals cannot be posted at all; the derivative is ~0.5 MB and is the
+    // same file the site serves at full width.
+    const uploadPathFor = async (src) => {
+      if (/\.svg$/i.test(src)) return null; // never rasterise an SVG
+      try {
+        const stats = await Image(src, SOCIAL_IMAGE);
+        const out = stats.webp?.at(-1);
+        return out ? out.outputPath.replace(/^\.\//, "") : null;
+      } catch {
+        return null; // fall back to the original; the uploader reports the size
+      }
+    };
+
+    const imagesOf = async (raw) => {
       const re = /!\[([^\]]*)\]\(\s*(?:\{\{\s*baseUrl\s*\}\})?\s*([^)\s]+)/g;
       const out = [];
       let m;
       while ((m = re.exec(raw)) !== null && out.length < MAX_IMAGES) {
-        out.push({ alt: m[1] || "", src: m[2].replace(/^\//, "") });
+        const src = m[2].replace(/^\//, "");
+        out.push({ alt: m[1] || "", src, upload: await uploadPathFor(src) });
       }
       return out;
     };
@@ -785,7 +814,7 @@ export default function (eleventyConfig) {
         url: absolute(item.url),
         title: null,
         text: raw.replace(/!\[[^\]]*\]\([^)]*\)/g, "").trim(),
-        images: imagesOf(raw),
+        images: await imagesOf(raw),
         date: item.date.toISOString(),
       });
     }
@@ -811,7 +840,7 @@ export default function (eleventyConfig) {
         url: absolute(item.url),
         title: item.data.title || null,
         text: item.data._social_post,
-        images: imagesOf(bodyOf(rawOf(item))),
+        images: await imagesOf(bodyOf(rawOf(item))),
         date: item.date.toISOString(),
       });
     }

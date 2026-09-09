@@ -201,3 +201,45 @@ test("the report marks a missing alt text clearly", async () => {
   );
   assert.match(md, /MISSING — will post with no description/);
 });
+
+test("--ignore-state re-renders items already recorded, for inspection", async () => {
+  const f = fixture({ queue: [item("a"), item("b")], state: { a: { mastodon: "s1" }, b: { mastodon: "s2" } } });
+  const plain = await run(["--config", f.config], { env: {}, log: silent });
+  assert.equal(plain.items.length, 0, "normally nothing is pending");
+  const r = await run(["--config", f.config, "--ignore-state"], { env: {}, log: silent });
+  assert.equal(r.items.length, 2);
+  assert.deepEqual(f.sent(), [], "still a dry run");
+});
+
+test("--ignore-state refuses to combine with --live", () => {
+  assert.throws(() => parseArgs(["--ignore-state", "--live"]), /cannot be combined with --live/);
+});
+
+test("a failing item does not block the ones behind it", async () => {
+  // "a" always fails. With --max 1 and oldest-first, the old behaviour picked
+  // "a" every run and nothing else ever posted.
+  const f = fixture({ queue: [item("a", "BOOM"), item("b"), item("c")] });
+  const r = await run(["--config", f.config, "--live", "--max", "1"], { env: {}, log: silent });
+  assert.equal(r.posted, 1);
+  assert.equal(r.failed, 1);
+  assert.deepEqual(f.sent().map((s) => s.id), ["b"], "b posts despite a failing");
+  // Next run gets c, still not stuck on a.
+  await run(["--config", f.config, "--live", "--max", "1"], { env: {}, log: silent });
+  assert.deepEqual(f.sent().map((s) => s.id), ["b", "c"]);
+});
+
+test("--max still counts successes, not attempts", async () => {
+  const f = fixture({ queue: [item("a"), item("b"), item("c")] });
+  const r = await run(["--config", f.config, "--live", "--max", "2"], { env: {}, log: silent });
+  assert.equal(r.posted, 2);
+  assert.deepEqual(f.sent().map((s) => s.id), ["a", "b"]);
+  assert.equal(r.skipped, 1);
+});
+
+test("a run gives up after repeated failures instead of hammering the API", async () => {
+  const queue = Array.from({ length: 20 }, (_, i) => item("i" + i, "BOOM"));
+  const f = fixture({ queue });
+  const r = await run(["--config", f.config, "--live", "--max", "1"], { env: {}, log: silent });
+  assert.equal(r.posted, 0);
+  assert.ok(r.failed <= 5, `gave up after ${r.failed} failures`);
+});

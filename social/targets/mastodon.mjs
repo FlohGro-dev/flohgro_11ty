@@ -85,12 +85,16 @@ export default function createMastodon(cfg, { env = process.env, fetch: f = glob
    * processing, that endpoint answers 206.
    */
   async function uploadImage(image, { rootDir = process.cwd() } = {}) {
-    const file = path.resolve(rootDir, image.src);
+    // `upload` is the 1760px webp derivative that eleventy-img already built;
+    // `src` is the original in assets/, which can be 21 MB and exceed the
+    // instance limit. Fall back to the original only if no derivative exists.
+    const file = path.resolve(rootDir, image.upload ?? image.src);
     const bytes = await readFile(file);
 
     if (limits.maxImageBytes && bytes.byteLength > limits.maxImageBytes) {
       throw new Error(
-        `${image.src} is ${bytes.byteLength} bytes, over the instance limit of ${limits.maxImageBytes}`,
+        `${image.upload ?? image.src} is ${bytes.byteLength} bytes, ` +
+          `over the instance limit of ${limits.maxImageBytes}`,
       );
     }
 
@@ -118,6 +122,10 @@ export default function createMastodon(cfg, { env = process.env, fetch: f = glob
     get limits() {
       return limits;
     },
+
+    // Exposed so the upload path can be tested directly, without a test having
+    // to go through post() and stub a status call as well.
+    uploadImage,
 
     /** Read the instance's real limits. Safe to call before any posting. */
     async init() {
