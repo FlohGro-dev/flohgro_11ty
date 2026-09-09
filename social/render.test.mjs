@@ -165,3 +165,34 @@ test("renderItem: blog replacements apply to _social_post (EchoFeed only did @Dr
 test("renderItem: unknown type is an error, not a silent skip", () => {
   assert.throws(() => renderItem({ id: "x", type: "nope", text: "" }, config, "mastodon"), /nope/);
 });
+
+test("template: a literal $ in the text is not treated as a replacement pattern", () => {
+  assert.equal(renderTemplate("{{ text }}", { text: "costs $5 and $& too" }), "costs $5 and $& too");
+});
+
+test("template: an unknown variable is an error, not silent emptiness", () => {
+  assert.throws(() => renderTemplate("{{ nope }}", { text: "x" }), /Unknown template variable/);
+});
+
+test("template: a Nunjucks tag is rejected rather than emitted raw", () => {
+  assert.throws(() => renderTemplate("{% if x %}a{% endif %}", {}), /not supported/);
+});
+
+test("template: missing title or url render as empty, not 'undefined'", () => {
+  assert.equal(renderTemplate("[{{ title }}][{{ url }}]", { text: "x" }), "[][]");
+});
+
+test("social/ imports nothing outside node: builtins", async () => {
+  const { readFileSync, readdirSync } = await import("node:fs");
+  const files = ["render.mjs", "syndicate.mjs", "targets/mastodon.mjs"];
+  for (const f of files) {
+    const src = readFileSync(new URL(f, import.meta.url), "utf8");
+    for (const m of src.matchAll(/^import\s+(?:.+?\s+from\s+)?["']([^"']+)["']/gm)) {
+      const spec = m[1];
+      assert.ok(
+        spec.startsWith("node:") || spec.startsWith("./") || spec.startsWith("../"),
+        `${f} imports "${spec}" - social/ must stay dependency-free, CI has no npm install`,
+      );
+    }
+  }
+});

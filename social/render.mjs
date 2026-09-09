@@ -3,17 +3,11 @@
 // Three stages, in this order:
 //   1. markdownToPlain - the queue carries raw markdown source; EchoFeed posted
 //      the plaintext rendering of content_html, so we approximate that.
-//   2. renderTemplate  - the per-type Nunjucks template from social/config.json.
+//   2. renderTemplate  - the per-type template from social/config.json.
 //   3. applyReplacements - the central @handle table, on the finished string so
 //      the title is covered too.
 //
 // See docs/echofeed-migration.md.
-
-import nunjucks from "nunjucks";
-
-// autoescape off: this is plain text destined for an API, not HTML. With it on,
-// every apostrophe in the corpus would come out as &#39;.
-const env = new nunjucks.Environment(null, { autoescape: false });
 
 // Matches a whole http(s) URL. Used to carve the text into replaceable and
 // untouchable segments - a handle must never be rewritten inside a link, and
@@ -110,9 +104,35 @@ export function applyReplacements(text, rows, target, { caseInsensitive = true }
   return parts.map((part, i) => (i % 2 === 0 ? swap(part) : part)).join("");
 }
 
-/** Render one type's template. Variables map to social-queue.json fields. */
-export function renderTemplate(template, { title, text, url }) {
-  return env.renderString(template, { title: title ?? "", text: text ?? "", url: url ?? "" });
+/**
+ * Render one type's template. Variables map to social-queue.json fields.
+ *
+ * Deliberately NOT Nunjucks. The three templates do nothing but substitute
+ * `{{ title }}`, `{{ text }}` and `{{ url }}`, and pulling in nunjucks meant
+ * social/ needed `npm install` in CI - which it does not otherwise have. This
+ * keeps the CLI dependency-free.
+ *
+ * Strict on purpose: an unknown variable or any Nunjucks tag is an error rather
+ * than silently empty output, so a template that outgrows this fails loudly
+ * instead of posting a half-rendered status.
+ *
+ * No HTML escaping: this is plain text for an API. Escaping would turn every
+ * apostrophe in the corpus into `&#39;`.
+ */
+export function renderTemplate(template, vars) {
+  if (/\{%|\{#/.test(template)) {
+    throw new Error(
+      "Template tags ({% %} / {# #}) are not supported by the built-in renderer. " +
+        "Keep templates to simple {{ variable }} substitution.",
+    );
+  }
+  const values = { ...vars, title: vars.title ?? "", text: vars.text ?? "", url: vars.url ?? "" };
+  // A replacer function is used so the substituted text is inserted literally -
+  // a "$" or "$&" in a post must not be interpreted as a replacement pattern.
+  return template.replace(/\{\{\s*([\w.]+)\s*\}\}/g, (match, name) => {
+    if (!(name in values)) throw new Error(`Unknown template variable "{{ ${name} }}"`);
+    return String(values[name] ?? "");
+  });
 }
 
 /**
