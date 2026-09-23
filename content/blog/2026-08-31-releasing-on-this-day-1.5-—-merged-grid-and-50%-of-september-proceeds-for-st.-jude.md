@@ -2,7 +2,7 @@
   title: Releasing On This Day 1.5 — Merged Grid and 50% of September Proceeds for St. Jude
   date: 2026-08-31T22:38:25.164+02:00
   tags: ["onthisday","development","app-development"]
-  permalink: /blog/releasing-on-this-day-1.5-—-merged-grid-and-50%-of-september-proceeds-for-st.-jude/index.html
+  permalink: /blog/releasing-on-this-day-1.5-—-merged-grid-and-50%25-of-september-proceeds-for-st.-jude/index.html
   summary: "On This Day 1.5 is out. A new Merged Grid option removes the separation between years and shows all your photos in one continuous grid, you can now define the date format in your shared text yourself, and the widgets got some deserved love. The release also lands just in time for Relay's St. Jude fundraiser, so I'm giving 50% of the app's September proceeds to it."
   _social_post: "On This Day 1.5 is out 🎉 A new Merged Grid shows all your years in one continuous grid, you can define the date format in your shared text yourself, and many more smaller updates. It's also just in time for @relay@relayfm.social's St. Jude fundraiser, so I'm giving 50% of the app's September proceeds to it. If you'd rather donate directly: https://relay.fm/stjude https://apps.apple.com/us/app/on-this-day-rewind/id6754617354 #OnThisDay #IndieDev #Photography"
 ---
