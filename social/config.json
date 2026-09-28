@@ -88,6 +88,12 @@
       "replace": {
         "mastodon": "@ChrisLawley@mastodon.social"
       }
+    },
+    {
+      "find": "@halide",
+      "replace": {
+        "mastodon": "@halide@mastodon.social"
+      }
     }
   ]
 }
