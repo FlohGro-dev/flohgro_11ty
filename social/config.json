@@ -94,6 +94,12 @@
       "replace": {
         "mastodon": "@halide@mastodon.social"
       }
+    },
+    {
+      "find": "@mattbirchler",
+      "replace": {
+        "mastodon": "@matt_birchler@mastodon.social"
+      }
     }
   ]
 }
