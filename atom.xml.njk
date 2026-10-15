@@ -1,0 +1,48 @@
+---
+# Blog Atom feed. Replaces the feedPlugin call for /atom.xml so linked posts
+# (linkedUrl in front matter) can carry their source. Feed readers never see the
+# blog layout, so without this the linked article is missing from the entry.
+# Everything else is the plugin's own atom template, byte-for-byte - existing
+# entries must not change, or readers re-show them as new/updated.
+permalink: /atom.xml
+eleventyExcludeFromCollections: true
+eleventyImport:
+  collections: ["limitedBlogPosts"]
+feed:
+  language: en
+  title: FlohGro
+  subtitle: I code more than I write.
+  base: https://flohgro.com/
+  author:
+    name: FlohGro
+    email: hi@flohgro.com
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ feed.language }}">
+  <title>{{ feed.title }}</title>
+  <subtitle>{{ feed.subtitle }}</subtitle>
+  <link href="{{ permalink | htmlBaseUrl(feed.base) }}" rel="self" />
+  <link href="{{ feed.base | addPathPrefixToFullUrl }}" />
+  <updated>{{ collections['limitedBlogPosts'] | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <id>{{ feed.base | addPathPrefixToFullUrl }}</id>
+  <author>
+    <name>{{ feed.author.name }}</name>
+    {%- if feed.author.email %}
+    <email>{{ feed.author.email }}</email>
+    {%- endif %}
+  </author>
+  {%- for post in collections['limitedBlogPosts'] | reverse | eleventyFeedHead(0) %}
+  {%- set absolutePostUrl %}{{ post.url | htmlBaseUrl(feed.base) }}{% endset %}
+  {%- set linkedSource %}{% if post.data.linkedUrl %}{% include "feed-linked-source.njk" %}{% endif %}{% endset %}
+  <entry>
+    <title>{{ post.data.title }}</title>
+    <link href="{{ absolutePostUrl }}" />
+    {%- if post.data.linkedUrl %}
+    <link rel="related" href="{{ post.data.linkedUrl }}" />
+    {%- endif %}
+    <updated>{{ post.date | dateToRfc3339 }}</updated>
+    <id>{{ absolutePostUrl }}</id>
+    <content type="html">{{ post.content | renderTransforms(post.data.page, feed.base) }}{{ linkedSource | forceescape }}</content>
+  </entry>
+  {%- endfor %}
+</feed>

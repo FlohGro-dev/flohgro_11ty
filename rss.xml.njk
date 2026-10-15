@@ -1,0 +1,39 @@
+---
+# Blog RSS feed. Replaces the feedPlugin call for /rss.xml so linked posts
+# (linkedUrl in front matter) can carry their source - see atom.xml.njk.
+# Otherwise the plugin's own rss template, byte-for-byte.
+permalink: /rss.xml
+eleventyExcludeFromCollections: true
+eleventyImport:
+  collections: ["limitedBlogPosts"]
+feed:
+  language: en
+  title: FlohGro
+  subtitle: I code more than I write.
+  base: https://flohgro.com/
+  author:
+    name: FlohGro
+    email: hi@flohgro.com
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="{{ feed.base | addPathPrefixToFullUrl }}" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ feed.title }}</title>
+    <link>{{ feed.base | addPathPrefixToFullUrl }}</link>
+    <atom:link href="{{ permalink | htmlBaseUrl(feed.base) }}" rel="self" type="application/rss+xml" />
+    <description>{{ feed.subtitle }}</description>
+    <language>{{ feed.language }}</language>
+    {%- for post in collections.limitedBlogPosts | reverse | eleventyFeedHead(0) %}
+    {%- set absolutePostUrl = post.url | htmlBaseUrl(feed.base) %}
+    {%- set linkedSource %}{% if post.data.linkedUrl %}{% include "feed-linked-source.njk" %}{% endif %}{% endset %}
+    <item>
+      <title>{{ post.data.title }}</title>
+      <link>{{ absolutePostUrl }}</link>
+      <description>{{ post.content | renderTransforms(post.data.page, feed.base) }}{{ linkedSource | forceescape }}</description>
+      <pubDate>{{ post.date | dateToRfc822 }}</pubDate>
+      <dc:creator>{{ feed.author.name }}</dc:creator>
+      <guid>{{ absolutePostUrl }}</guid>
+    </item>
+    {%- endfor %}
+  </channel>
+</rss>

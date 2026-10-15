@@ -577,43 +577,9 @@ export default function (eleventyConfig) {
     return JSON.stringify(value);
   });
 
-  eleventyConfig.addPlugin(feedPlugin, {
-    type: "atom", // or "rss", "json"
-    outputPath: "/atom.xml",
-    collection: {
-      name: "limitedBlogPosts",
-      limit: 0,
-    },
-    metadata: {
-      language: "en",
-      title: "FlohGro",
-      subtitle: "I code more than I write.",
-      base: "https://flohgro.com/",
-      author: {
-        name: "FlohGro",
-        email: "hi@flohgro.com",
-      }
-    }
-  });
-
-  eleventyConfig.addPlugin(feedPlugin, {
-    type: "rss", // or "rss", "json"
-    outputPath: "/rss.xml",
-    collection: {
-      name: "limitedBlogPosts",
-      limit: 0,
-    },
-    metadata: {
-      language: "en",
-      title: "FlohGro",
-      subtitle: "I code more than I write.",
-      base: "https://flohgro.com/",
-      author: {
-        name: "FlohGro",
-        email: "hi@flohgro.com",
-      }
-    }
-  });
+  // The blog's /atom.xml and /rss.xml are atom.xml.njk and rss.xml.njk, not
+  // feedPlugin calls, so linked posts can carry their linkedUrl. The plugin's
+  // filters they use are still registered by the feedPlugin calls below.
 
   // Custom JSON feed with excerpt/socialPost support is in feed-custom.json.njk
 

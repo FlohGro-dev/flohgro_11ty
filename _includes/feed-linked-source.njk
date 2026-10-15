@@ -1,0 +1,4 @@
+{#- Source line appended to a linked post's entry in atom.xml / rss.xml.
+    Only rendered when post.data.linkedUrl is set; non-linked entries are
+    untouched. Plain HTML here - the feed templates escape it once. -#}
+<p>↗ Linked: <a href="{{ post.data.linkedUrl }}">{{ post.data.linkedUrl.split("/")[2] | replace("www.", "") }}</a></p>
