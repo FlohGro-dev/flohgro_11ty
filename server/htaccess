@@ -2,6 +2,22 @@
 # Edit this file, not the copy on the server — the deploy overwrites it.
 
 # ---------------------------------------------------------------------------
+# Renamed permalinks.
+#
+# The On This Day 1.5 post first had a literal "%" in its URL ("50%-of"), which
+# Apache rejects with 400 as a bad escape. Writing it as "%25" in the permalink
+# made eleventy create a folder literally named "50%25", so every link to it
+# 404'd. It now lives at "50-percent"; the Mastodon post and feeds still carry
+# the "%25" form, which arrives here decoded as "50%" (and "%2525" as "50%25").
+# The raw em dash in the target is escaped by mod_rewrite (no NE flag).
+# Must stay above the WordPress block, whose catch-all would rewrite first.
+# ---------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^blog/releasing-on-this-day-1\.5-[^/]*-merged-grid-and-50%(25)?-of-september-proceeds-for-st\.-jude/?$ /blog/releasing-on-this-day-1.5-—-merged-grid-and-50-percent-of-september-proceeds-for-st.-jude/ [R=301,L]
+</IfModule>
+
+# ---------------------------------------------------------------------------
 # Legacy WordPress front-controller rules.
 #
 # Kept verbatim from the pre-Eleventy site. Both RewriteCond lines mean these

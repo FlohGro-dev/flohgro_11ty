@@ -335,6 +335,9 @@
           // Ignore if user is typing in an input
           if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) return;
 
+          // Leave browser/OS shortcuts (Cmd+L, Ctrl+L, Cmd+Arrow, ...) alone
+          if (e.metaKey || e.ctrlKey || e.altKey) return;
+
           var key = e.key;
 
           // Show help with ?
@@ -347,6 +350,9 @@
             }
             return;
           }
+
+          // Shift+Arrow extends text selections; Shift+letter has no binding
+          if (e.shiftKey) return;
 
           // Close help with Escape
           if (key === 'Escape') {
