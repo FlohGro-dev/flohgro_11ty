@@ -153,6 +153,8 @@ jobs:
       - name: 🦣 Syndicate to Mastodon
         env:
           MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
+          # Read by targets/bluesky.mjs once a "bluesky" target is in config.json.
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
           # Deliberately low while the replacement is being trusted. Raise it
           # once a week of clean runs has been observed.
           MAX_POSTS_PER_RUN: 1
@@ -165,6 +167,10 @@ jobs:
           node social/syndicate.mjs --live
 
       - name: 📝 Commit the syndication state
+        # Also after a failed syndicate step. A run where one post fails can
+        # still have sent others, and those must be recorded or the next run
+        # posts them again. state.json is written after every single success.
+        if: ${{ !cancelled() }}
         run: |
           if git diff --quiet -- social/state.json; then
             echo "state.json unchanged, nothing to commit"
