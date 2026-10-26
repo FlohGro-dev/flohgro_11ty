@@ -59,12 +59,15 @@ export function preview(queue, config, { filter = null, last = null, shortened =
 
   const out = items.map((item) => {
     const { text: rendered, images } = renderItem(item, config, TARGET);
-    // Decision B3: a post carries images or a link card, never both.
-    const base = { id: item.id, type: item.type, images, embed: images.length ? "images" : "link card" };
+    const base = { id: item.id, type: item.type, images };
     try {
-      return { ...base, rendered, ...blueskyPost(rendered, item) };
+      const post = blueskyPost(rendered, item);
+      // Same rule as targets/bluesky.mjs (decision B3): images, else a link card
+      // only if the post links to its own page on flohgro.com, else nothing.
+      const embed = images.length ? "images" : post.text.includes(item.url) ? "link card" : "none";
+      return { ...base, embed, rendered, ...post };
     } catch (err) {
-      return { ...base, rendered, shortened: true, error: err.message };
+      return { ...base, embed: "-", rendered, shortened: true, error: err.message };
     }
   });
   return shortened ? out.filter((i) => i.shortened) : out;

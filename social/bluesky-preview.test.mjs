@@ -28,7 +28,15 @@ test("preview: applies the bluesky replacements, not the mastodon ones", () => {
 test("preview: images win, link card only without images (B3)", () => {
   const [a, b] = preview(queue, config, {});
   assert.equal(a.embed, "images");
+  // b is shortened, so it links to its own page.
   assert.equal(b.embed, "link card");
+});
+
+test("preview: a short post that does not link to its own page gets no card", () => {
+  // Same rule as targets/bluesky.mjs. The first live post (2026-10-26) showed
+  // "link card" in the preview but correctly had none on Bluesky.
+  const short = [{ id: "d", type: "post", url: "https://flohgro.com/post/d/", text: "just text", images: [] }];
+  assert.equal(preview(short, config, {})[0].embed, "none");
 });
 
 test("preview: a failing item is reported, the rest still render", () => {
