@@ -32,73 +32,201 @@
     {
       "find": "@Drafts",
       "replace": {
-        "mastodon": "@drafts@indieapps.space"
+        "mastodon": "@drafts@indieapps.space",
+        "bluesky": "@draftsapp.bsky.social"
       }
     },
     {
       "find": "@Craft",
       "replace": {
-        "mastodon": "#Craft"
+        "mastodon": "#Craft",
+        "bluesky": "@craft.do"
       }
     },
     {
       "find": "@Viticci",
       "replace": {
-        "mastodon": "@viticci@macstories.net"
+        "mastodon": "@viticci@macstories.net",
+        "bluesky": "@viticci.macstories.net"
       }
     },
     {
       "find": "@JohnVoorhees",
       "replace": {
-        "mastodon": "@johnvoorhees@macstories.net"
+        "mastodon": "@johnvoorhees@macstories.net",
+        "bluesky": "@johnvoorhees.macstories.net"
       }
     },
     {
       "find": "@GregPierce",
       "replace": {
-        "mastodon": "@agiletortoise@mastodon.social"
+        "mastodon": "@agiletortoise@mastodon.social",
+        "bluesky": "@agiletortoise.bsky.social"
       }
     },
     {
       "find": "@AnthonyBaker",
       "replace": {
-        "mastodon": "@AnthonyBaker@mastodon.social"
+        "mastodon": "@AnthonyBaker@mastodon.social",
+        "bluesky": "@anthonybaker.bsky.social"
       }
     },
     {
       "find": "@RobbKnight",
       "replace": {
-        "mastodon": "@robb@social.lol"
+        "mastodon": "@robb@social.lol",
+        "bluesky": "@rknight.me"
       }
     },
     {
       "find": "@11ty",
       "replace": {
-        "mastodon": "@11ty@neighborhood.11ty.dev"
+        "mastodon": "@11ty@neighborhood.11ty.dev",
+        "bluesky": "@11ty.dev"
       }
     },
     {
       "find": "@MacStories",
       "replace": {
-        "mastodon": "@macstories@macstories.net"
+        "mastodon": "@macstories@macstories.net",
+        "bluesky": "@macstories.net"
       }
     },
     {
       "find": "@ChrisLawley",
       "replace": {
-        "mastodon": "@ChrisLawley@mastodon.social"
+        "mastodon": "@ChrisLawley@mastodon.social",
+        "bluesky": "@chrislawley.me"
       }
     },
     {
       "find": "@halide",
       "replace": {
-        "mastodon": "@halide@mastodon.social"
+        "mastodon": "@halide@mastodon.social",
+        "bluesky": "@halide"
       }
     },
     {
       "find": "@mattbirchler",
       "replace": {
-        "mastodon": "@matt_birchler@mastodon.social"
+        "mastodon": "@matt_birchler@mastodon.social",
+        "bluesky": "@birchtree.me"
+      }
+    },
+    {
+      "find": "@drafts@indieapps.space",
+      "replace": {
+        "bluesky": "@draftsapp.bsky.social"
+      }
+    },
+    {
+      "find": "@ChrisLawley@mastodon.social",
+      "replace": {
+        "bluesky": "@chrislawley.me"
+      }
+    },
+    {
+      "find": "@matt_birchler@mastodon.social",
+      "replace": {
+        "bluesky": "@birchtree.me"
+      }
+    },
+    {
+      "find": "@eleventy@fosstodon.org",
+      "replace": {
+        "bluesky": "@11ty.dev"
+      }
+    },
+    {
+      "find": "@Raycast",
+      "replace": {
+        "mastodon": "@raycast@mastodon.social",
+        "bluesky": "@raycast.com"
+      }
+    },
+    {
+      "find": "@raycast@mastodon.social",
+      "replace": {
+        "bluesky": "@raycast.com"
+      }
+    },
+    {
+      "find": "@CraftDocs",
+      "replace": {
+        "bluesky": "@craft.do"
+      }
+    },
+    {
+      "find": "@relay@relayfm.social",
+      "replace": {
+        "bluesky": "@relay.fm"
+      }
+    },
+    {
+      "find": "@twostraws@mastodon.social",
+      "replace": {
+        "bluesky": "@twostraws.bsky.social"
+      }
+    },
+    {
+      "find": "@echofeed@hub.7622.me",
+      "replace": {
+        "bluesky": "@echofeed.app"
+      }
+    },
+    {
+      "find": "@hryggrbyr@fedia.social",
+      "replace": {
+        "bluesky": "@thomasrigby.com"
+      }
+    },
+    {
+      "find": "@mako@mastodon.makoism.com",
+      "replace": {
+        "bluesky": "@makoism.com"
+      }
+    },
+    {
+      "find": "@flexibits@mastodon.social",
+      "replace": {
+        "bluesky": "@flexibits.com"
+      }
+    },
+    {
+      "find": "@ben@mastodon.bentasker.co.uk",
+      "replace": {
+        "bluesky": "@bentasker.co.uk"
+      }
+    },
+    {
+      "find": "@klickreflex@freiburg.social",
+      "replace": {
+        "bluesky": "@klickreflex.bsky.social"
+      }
+    },
+    {
+      "find": "@mho@social.heise.de",
+      "replace": {
+        "bluesky": "@fingolas.bsky.social"
+      }
+    },
+    {
+      "find": "@kepano@mastodon.social",
+      "replace": {
+        "bluesky": "@stephango.com"
+      }
+    },
+    {
+      "find": "@Ivory",
+      "replace": {
+        "mastodon": "@ivory@tapbots.social",
+        "bluesky": "@Ivory"
+      }
+    },
+    {
+      "find": "@ivory@tapbots.social",
+      "replace": {
+        "bluesky": "@Ivory"
       }
     }
   ]
