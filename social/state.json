@@ -1432,5 +1432,9 @@
   "https://flohgro.com/post/2026-10-26-00-03-26/": {
     "mastodon": "117504059974389590",
     "bluesky": "seeded"
+  },
+  "https://flohgro.com/post/2026-10-26-21-15-28/": {
+    "mastodon": "117509068127220956",
+    "bluesky": "at://did:plc:txnv4g6dzifihqhd5gi7etvv/app.bsky.feed.post/3myskdio64d2c"
   }
 }
