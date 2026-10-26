@@ -25,6 +25,14 @@
       "visibility": "public",
       "language": "en",
       "maxImages": 4
+    },
+    "bluesky": {
+      "module": "./targets/bluesky.mjs",
+      "service": "https://bsky.social",
+      "identifier": "flohgro.bsky.social",
+      "tokenEnv": "BLUESKY_APP_PASSWORD",
+      "language": "en",
+      "maxImages": 4
     }
   },
   "replacementsCaseInsensitive": true,
