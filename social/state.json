@@ -1436,5 +1436,9 @@
   "https://flohgro.com/post/2026-10-26-21-15-28/": {
     "mastodon": "117509068127220956",
     "bluesky": "at://did:plc:txnv4g6dzifihqhd5gi7etvv/app.bsky.feed.post/3myskdio64d2c"
+  },
+  "https://flohgro.com/blog/now---june-to-october-2026/": {
+    "mastodon": "117514915035544829",
+    "bluesky": "at://did:plc:txnv4g6dzifihqhd5gi7etvv/app.bsky.feed.post/3myv5ge3iv32l"
   }
 }
