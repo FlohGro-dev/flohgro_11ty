@@ -10,11 +10,11 @@ ogImage: /assets/on_this_day_screenshot.webp
 
 # On This Day
 
+<img src="{{ baseUrl }}/assets/on-this-day-1-7-header.png" alt="On This Day: What were you up to On This Day? Your photos from this day, years ago. iPhones show photos grouped by year, a single photo view, and the settings screen." class="otd-screenshot" width="1760" height="754" loading="eager">
+
 You've got thousands of photos you never look at. **On This Day** pulls up the ones taken on today's date in past years, so they don't just sit there.
 
 No algorithm, no feed, no social anything. Just your photos, once a day.
-
-<img src="{{ baseUrl }}/assets/on_this_day_screenshot.webp" alt="On This Day app showing photos grouped by year, a photo detail view with map, and settings" class="otd-screenshot" width="1500" height="994" loading="lazy">
 
 <div class="otd-features">
 
