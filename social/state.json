@@ -1472,5 +1472,9 @@
   "https://flohgro.com/post/2026-11-13-10-56-29/": {
     "mastodon": "117608551324546543",
     "bluesky": "at://did:plc:txnv4g6dzifihqhd5gi7etvv/app.bsky.feed.post/3n26q37twg22z"
+  },
+  "https://flohgro.com/blog/releasing-on-this-day-1.7-%E2%80%94-filters,-captions-and-posting-to-mastodon/": {
+    "mastodon": "117611595511563723",
+    "bluesky": "at://did:plc:txnv4g6dzifihqhd5gi7etvv/app.bsky.feed.post/3n2a3dl33lv2d"
   }
 }
