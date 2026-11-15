@@ -25,6 +25,10 @@ layout: layouts/base.njk
     {%- endfor %}
 </ul>
 {{ content | safe }}
+{#- updoots.njk is also included from Liquid (index.md): keep it free of Nunjucks-only syntax. Absolute data-page shares counts with the homepage and makes them clickable from localhost. #}
+{%- set updootEmojis = ["🫶", "💜", "🔥"] %}
+{%- set updootPage = page.url %}
+{% include "updoots.njk" %}
 <div class="share-actions">
 {% include "mastodon-share.njk" %}
 {%- set emailSubject = title -%}

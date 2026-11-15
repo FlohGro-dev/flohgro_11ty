@@ -256,5 +256,9 @@ Folgende Daten werden pro Seitenaufruf erfasst:
 
 IP-Adressen werden nicht gespeichert. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Analyse der Websitenutzung). Weitere Informationen finden Sie in der [NeatStats-Dokumentation](https://neatstats.net/docs).
 
+#### Reaktionen (NeatStats Updoots)
+
+Unter Beiträgen können Sie per Emoji-Button anonym reagieren („Updoots“). Dafür wird das Skript `updoot.js` von NeatStats geladen, das beim Seitenaufruf die aktuellen Zählerstände abruft. Bei einem Klick werden nur die Seiten-URL, das Emoji und die Anzahl übermittelt. Zum Schutz vor Missbrauch (Flood-Limit) speichert NeatStats einen gekürzten, mit einem täglich wechselnden Geheimschlüssel gebildeten Hash (HMAC-SHA-256) der IP-Adresse; die IP-Adresse selbst wird nicht gespeichert, die Hashes werden nach einer Woche gelöscht. Es werden keine Cookies verwendet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an anonymem Leser-Feedback).
+
 Quelle:
 <https://www.e-recht24.de>

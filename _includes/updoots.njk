@@ -1,0 +1,7 @@
+<div class="updoots">
+<span class="updoots-label">Enjoyed this? Leave a reaction</span>
+{%- for emoji in updootEmojis %}
+<span class="updoot" data-emoji="{{ emoji }}" data-page="{{ metadata.url }}{{ updootPage }}" title="Click to react, hold to send more"></span>
+{%- endfor %}
+</div>
+<script src="https://neatstats.net/updoot.js" defer></script>

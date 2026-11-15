@@ -1792,6 +1792,42 @@ a.contact-card:visited {
   font-size: clamp(0.75rem, 2.2vw, 0.9rem);
 }
 
+/* NeatStats updoots; updoot.js injects its own base styles, these only theme them */
+.updoots {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6em;
+  margin-top: 1.5em;
+}
+
+.updoots-label {
+  color: var(--text-muted);
+  font-size: 0.9em;
+  margin-right: 0.25em;
+}
+
+
+/* span.updoot outranks the .updoot--compact/--empty padding updoot.js injects at runtime */
+.updoots span.updoot {
+  height: 2.4em;
+  padding: 0 0.8em;
+  margin: 0;
+  border-radius: 6px;
+  font-size: 1.05em;
+}
+
+.updoots .updoot:not(.updoot--disabled) {
+  background: var(--surface-elevated);
+  box-shadow: inset 0 0 0 2px var(--border-accent);
+  color: var(--text-heading);
+  font-family: var(--font-family);
+}
+
+.updoots .updoot:not(.updoot--disabled):hover {
+  box-shadow: inset 0 0 0 2px var(--nav-hover-text);
+}
+
 .share-actions .mastodon-share-btn,
 .share-actions .email-comment-btn {
   flex: 1 1 0;

@@ -161,5 +161,9 @@ If the processing of your personal data was/is unlawful, you can request the res
 
 <p>IP addresses are not stored. The processing is based on Art. 6 para. 1 lit. f GDPR (legitimate interest in understanding website usage). For more information, see the <a href="https://neatstats.net/docs">NeatStats documentation</a>.</p>
 
+<h4>Reactions (NeatStats Updoots)</h4>
+
+<p>Below posts you can react anonymously with emoji buttons ("updoots"). For this, NeatStats' <code>updoot.js</code> script is loaded, which fetches the current counts when the page loads. A click sends only the page URL, the emoji and the count. To prevent abuse (flood limit), NeatStats stores a truncated hash (HMAC-SHA-256, keyed with a secret that changes daily) of the IP address; the IP address itself is not stored, and the hashes are deleted after one week. No cookies are used. The processing is based on Art. 6 para. 1 lit. f GDPR (legitimate interest in anonymous reader feedback).</p>
+
 <p>Source:
 <a href="https://www.e-recht24.de">https://www.e-recht24.de</a></p>

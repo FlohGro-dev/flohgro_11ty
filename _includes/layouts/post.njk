@@ -7,6 +7,9 @@ layout: layouts/base.njk
     {{ date | postDate }} at {{ date | postTime }}
 </h1>
 {{ content | safe }}
+{%- set updootEmojis = ["❤️"] %}
+{%- set updootPage = page.url %}
+{% include "updoots.njk" %}
 <div class="share-actions">
 {% include "mastodon-share.njk" %}
 {%- set emailSubject = "Post " + (date | postDate) -%}
