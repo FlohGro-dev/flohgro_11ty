@@ -18,6 +18,7 @@ class CachedOgImage extends OgImage {
 }
 
 import pluginFilters from "./_config/filters.js";
+import metadata from "./_data/metadata.js";
 import { isImageUrl, fetchOgData, renderPreviewCard } from './_config/linkPreview.js';
 
 import { DateTime } from "luxon";
@@ -164,6 +165,13 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addShortcode("currentBuildDate", () => {
     return (new Date()).toISOString();
+  });
+
+  // {% updoot "🚀" %} inside a post: a NeatStats reaction button counted against this post's URL.
+  // The emoji inside the span is the fallback for feeds/no-JS; updoot.js replaces it.
+  // Absolute data-page so the homepage copy of the latest post shares the same count.
+  eleventyConfig.addShortcode("updoot", function (emoji) {
+    return `<span class="updoot updoot-inline" data-emoji="${emoji}" data-page="${metadata.url}${this.page.url}" title="Click to react, hold to send more">${emoji}</span>`;
   });
 
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
