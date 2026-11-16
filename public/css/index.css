@@ -1798,24 +1798,25 @@ a.contact-card:visited {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.6em;
-  margin-top: 1.5em;
+  gap: 0.5em;
+  margin-top: 1.5rem;
+  /* same scale as .share-actions so both rows of buttons match */
+  font-size: clamp(0.75rem, 2.2vw, 0.9rem);
 }
 
 .updoots-label {
   color: var(--text-muted);
-  font-size: 0.9em;
   margin-right: 0.25em;
 }
 
-
 /* span.updoot outranks the .updoot--compact/--empty padding updoot.js injects at runtime */
 .updoots span.updoot {
-  height: 2.4em;
+  /* matches .mastodon-share-btn: ~2.4em content + 2px border each side */
+  height: calc(2.4em + 4px);
   padding: 0 0.8em;
   margin: 0;
   border-radius: 6px;
-  font-size: 1.05em;
+  font-size: 1em;
 }
 
 .updoots .updoot:not(.updoot--disabled) {

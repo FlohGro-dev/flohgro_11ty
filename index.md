@@ -20,7 +20,7 @@ layout: layouts/base
 
 {{ post.templateContent }}
 
-{% assign updootEmojis = "🫶 💜 🔥" | split: " " %}{% assign updootPage = post.url %}
+{% assign updootEmojis = "⭐ 💜 🔥" | split: " " %}{% assign updootPage = post.url %}
 {% include "updoots.njk" %}
 
 <div class="share-actions">
