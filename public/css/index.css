@@ -2352,3 +2352,45 @@ img.otd-badge[src$=".svg"] {
   }
 }
  
+
+.footer-counter {
+  margin: 0;
+  text-align: center;
+  font-size: 0.75em;
+  color: var(--text-muted);
+}
+
+.stats-views-card {
+  margin-top: 1rem;
+  border: 2px solid var(--border-accent);
+  border-radius: 0.5rem;
+  background: var(--surface-elevated);
+  overflow: hidden;
+}
+
+.stats-views-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Two card variants because an <img> SVG can't read the page's theme tokens. */
+.stats-views-card .only-light,
+[data-theme="light"] .stats-views-card .only-dark {
+  display: none;
+}
+
+[data-theme="light"] .stats-views-card .only-light {
+  display: block;
+}
+
+.stats-views-card picture {
+  display: block;
+}
+
+.stats-views-note {
+  margin: 0.75rem 0 0;
+  text-align: center;
+  font-size: 0.8em;
+  color: var(--text-muted);
+}

@@ -28,6 +28,31 @@ permalink: /stats/
 </div>
 </div>
 
+<div class="post-card stats-views">
+<h2>Views</h2>
+<div class="stats-grid">
+  <div class="stat-item">
+    {#- counter.js (loaded in base.njk, production only) replaces the dash with the live count. #}
+    <span class="stat-number neatstats-counter" data-scope="site" data-animate="count">&ndash;</span>
+    <span class="stat-label">All-Time Views</span>
+  </div>
+</div>
+{#- eleventy:ignore keeps the card live; the image transform would freeze a copy at build time.
+    border = bg so the card's own outline disappears; .stats-views-card draws the tile border instead. #}
+<div class="stats-views-card">
+  {#- Narrow screens get the "card" layout: the wide one shrinks to unreadable text. #}
+  <picture class="only-dark">
+    <source media="(max-width: 600px)" srcset="https://neatstats.net/cards/flohgro.com.svg?layout=card&theme=dark&font=mono&show=total,trend,spark,top_page,updoots&bg=1e1e2e&fg=cdd6f4&muted=a6adc8&accent=cba6f7&border=1e1e2e">
+    <img eleventy:ignore src="https://neatstats.net/cards/flohgro.com.svg?layout=wide&theme=dark&font=mono&show=total,trend,spark,top_page,updoots&bg=1e1e2e&fg=cdd6f4&muted=a6adc8&accent=cba6f7&border=1e1e2e" alt="Page views of flohgro.com over the last 30 days from NeatStats: total, trend with a sparkline, top pages and updoots">
+  </picture>
+  <picture class="only-light">
+    <source media="(max-width: 600px)" srcset="https://neatstats.net/cards/flohgro.com.svg?layout=card&theme=light&font=mono&show=total,trend,spark,top_page,updoots&bg=e6e9ef&fg=4c4f69&muted=5c5f77&accent=8839ef&border=e6e9ef">
+    <img eleventy:ignore src="https://neatstats.net/cards/flohgro.com.svg?layout=wide&theme=light&font=mono&show=total,trend,spark,top_page,updoots&bg=e6e9ef&fg=4c4f69&muted=5c5f77&accent=8839ef&border=e6e9ef" alt="">
+  </picture>
+</div>
+<p class="stats-views-note">Counted by <a href="https://neatstats.net">NeatStats</a>: no cookies, no tracking. <a href="/blog/neatstats/">Why I use it</a>.</p>
+</div>
+
 <div class="post-card">
 <h2>Blog Insights</h2>
 {% blogStats collections.blogPosts %}
