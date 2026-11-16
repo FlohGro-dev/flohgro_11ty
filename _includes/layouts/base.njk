@@ -135,6 +135,7 @@
         </a>
       </div>
       <p class="footer-copyright">&copy; FlohGro {{ page.date | currentYear() }}</p>
+      {% if isProduction %}<p class="footer-counter"><span class="neatstats-counter" data-scope="site" data-label-after=" views"></span></p>{% endif %}
       <div class="footer-links">
         <a href="{{ site.baseUrl }}/stats/" class="footer-legal">Stats</a>
         <span class="footer-separator">&middot;</span>
@@ -473,6 +474,7 @@
         });
       });
     </script>
-    {% if isProduction %}<script src="https://neatstats.net/view.js"></script>{% endif %}
+    {% if isProduction %}<script src="https://neatstats.net/view.js"></script>
+    <script src="https://neatstats.net/counter.js" defer></script>{% endif %}
   </body>
 </html>
