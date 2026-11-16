@@ -1480,5 +1480,9 @@
   "https://flohgro.com/blog/knowember-2026/": {
     "mastodon": "117622433939273264",
     "bluesky": "at://did:plc:txnv4g6dzifihqhd5gi7etvv/app.bsky.feed.post/3n2evecsx622g"
+  },
+  "https://flohgro.com/blog/neatstats/": {
+    "mastodon": "117628547403395205",
+    "bluesky": "at://did:plc:txnv4g6dzifihqhd5gi7etvv/app.bsky.feed.post/3n2hmaeqsk22g"
   }
 }
