@@ -2099,6 +2099,29 @@ a.stat-item:active {
   margin-bottom: 0.25em;
 }
 
+/* heading + star reaction side by side; the "Enjoyed this?" label is for posts, not the app page */
+.otd-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.otd-title .updoots {
+  margin-top: 0;
+}
+
+/* on phones the absolute "need help?" hint would sit on top of the title row */
+@media (max-width: 600px) {
+  .otd-title {
+    padding-top: 2rem;
+  }
+}
+
+.otd-title .updoots-label {
+  display: none;
+}
+
 .otd-hero p {
   max-width: 36em;
   margin-left: auto;

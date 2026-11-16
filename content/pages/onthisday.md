@@ -8,7 +8,14 @@ ogImage: /assets/on_this_day_screenshot.webp
 
 <div class="post-card otd-hero">
 
+<div class="otd-title">
+
 # On This Day
+
+{% assign updootEmojis = "⭐" | split: " " %}{% assign updootPage = page.url %}
+{% include "updoots.njk" %}
+
+</div>
 
 <img src="{{ baseUrl }}/assets/on-this-day-1-7-header.png" alt="On This Day: What were you up to On This Day? Your photos from this day, years ago. iPhones show photos grouped by year, a single photo view, and the settings screen." class="otd-screenshot" width="1760" height="754" loading="eager">
 
